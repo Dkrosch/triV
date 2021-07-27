@@ -1,0 +1,573 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		611D92946047CC1CC6F6C168 /* Pods_GConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9425B70F64E9871706E5B07 /* Pods_GConnect.framework */; };
+		E04E0FE126B0058200A81F92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04E0FE026B0058200A81F92 /* AppDelegate.swift */; };
+		E04E0FE326B0058200A81F92 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04E0FE226B0058200A81F92 /* SceneDelegate.swift */; };
+		E04E0FEA26B0058500A81F92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E04E0FE926B0058500A81F92 /* Assets.xcassets */; };
+		E04E0FED26B0058500A81F92 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E04E0FEB26B0058500A81F92 /* LaunchScreen.storyboard */; };
+		E04E100C26B00A1D00A81F92 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04E100A26B00A1D00A81F92 /* LoginViewController.swift */; };
+		E04E101126B019D900A81F92 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E04E101026B019D900A81F92 /* Login.storyboard */; };
+		E04E101326B01D1200A81F92 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E04E101226B01D1200A81F92 /* GoogleService-Info.plist */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		64CD961C1288F8B7BC7C940A /* Pods-GConnect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GConnect.debug.xcconfig"; path = "Target Support Files/Pods-GConnect/Pods-GConnect.debug.xcconfig"; sourceTree = "<group>"; };
+		85B0446085D3146B31E566FE /* Pods-GConnect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GConnect.release.xcconfig"; path = "Target Support Files/Pods-GConnect/Pods-GConnect.release.xcconfig"; sourceTree = "<group>"; };
+		D9425B70F64E9871706E5B07 /* Pods_GConnect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GConnect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E04E0FDD26B0058200A81F92 /* GConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E04E0FE026B0058200A81F92 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E04E0FE226B0058200A81F92 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		E04E0FE926B0058500A81F92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E04E0FEC26B0058500A81F92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E04E0FEE26B0058500A81F92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E04E100A26B00A1D00A81F92 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		E04E101026B019D900A81F92 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		E04E101226B01D1200A81F92 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E04E0FDA26B0058200A81F92 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				611D92946047CC1CC6F6C168 /* Pods_GConnect.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		79298248453A0E74CA71D6B3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D9425B70F64E9871706E5B07 /* Pods_GConnect.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E04E0FD426B0058200A81F92 = {
+			isa = PBXGroup;
+			children = (
+				E04E0FDF26B0058200A81F92 /* GConnect */,
+				E04E0FDE26B0058200A81F92 /* Products */,
+				E5781C8DB87779570753F36A /* Pods */,
+				79298248453A0E74CA71D6B3 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E04E0FDE26B0058200A81F92 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E04E0FDD26B0058200A81F92 /* GConnect.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E04E0FDF26B0058200A81F92 /* GConnect */ = {
+			isa = PBXGroup;
+			children = (
+				E04E100526B0085400A81F92 /* Helper */,
+				E04E0FF426B0059800A81F92 /* Features */,
+				E04E0FE026B0058200A81F92 /* AppDelegate.swift */,
+				E04E0FE226B0058200A81F92 /* SceneDelegate.swift */,
+				E04E0FE926B0058500A81F92 /* Assets.xcassets */,
+				E04E0FEB26B0058500A81F92 /* LaunchScreen.storyboard */,
+				E04E101226B01D1200A81F92 /* GoogleService-Info.plist */,
+				E04E0FEE26B0058500A81F92 /* Info.plist */,
+			);
+			path = GConnect;
+			sourceTree = "<group>";
+		};
+		E04E0FF426B0059800A81F92 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				E04E100126B0082700A81F92 /* Create Lounge */,
+				E04E0FFD26B0062B00A81F92 /* Explore Lounge */,
+				E04E0FF926B005E700A81F92 /* SignUp */,
+				E04E0FF526B005AC00A81F92 /* Login */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		E04E0FF526B005AC00A81F92 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E04E0FF826B005D900A81F92 /* ViewModel */,
+				E04E0FF726B005D200A81F92 /* View */,
+				E04E0FF626B005B400A81F92 /* Model */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		E04E0FF626B005B400A81F92 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E04E0FF726B005D200A81F92 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E04E100A26B00A1D00A81F92 /* LoginViewController.swift */,
+				E04E101026B019D900A81F92 /* Login.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E04E0FF826B005D900A81F92 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E04E0FF926B005E700A81F92 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				E04E0FFC26B0062300A81F92 /* ViewModel */,
+				E04E0FFB26B0061B00A81F92 /* View */,
+				E04E0FFA26B0061200A81F92 /* Model */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		E04E0FFA26B0061200A81F92 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E04E0FFB26B0061B00A81F92 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E04E0FFC26B0062300A81F92 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E04E0FFD26B0062B00A81F92 /* Explore Lounge */ = {
+			isa = PBXGroup;
+			children = (
+				E04E100026B0081800A81F92 /* ViewModel */,
+				E04E0FFF26B0081200A81F92 /* View */,
+				E04E0FFE26B0080700A81F92 /* Model */,
+			);
+			path = "Explore Lounge";
+			sourceTree = "<group>";
+		};
+		E04E0FFE26B0080700A81F92 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E04E0FFF26B0081200A81F92 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E04E100026B0081800A81F92 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E04E100126B0082700A81F92 /* Create Lounge */ = {
+			isa = PBXGroup;
+			children = (
+				E04E100426B0084500A81F92 /* View Model */,
+				E04E100326B0084000A81F92 /* View */,
+				E04E100226B0083B00A81F92 /* Model */,
+			);
+			path = "Create Lounge";
+			sourceTree = "<group>";
+		};
+		E04E100226B0083B00A81F92 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E04E100326B0084000A81F92 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E04E100426B0084500A81F92 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		E04E100526B0085400A81F92 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				E04E100726B0099D00A81F92 /* Utilities */,
+				E04E100626B0086700A81F92 /* Network */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		E04E100626B0086700A81F92 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		E04E100726B0099D00A81F92 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		E5781C8DB87779570753F36A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				64CD961C1288F8B7BC7C940A /* Pods-GConnect.debug.xcconfig */,
+				85B0446085D3146B31E566FE /* Pods-GConnect.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E04E0FDC26B0058200A81F92 /* GConnect */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E04E0FF126B0058500A81F92 /* Build configuration list for PBXNativeTarget "GConnect" */;
+			buildPhases = (
+				4D7E0D0ABBE414FB06EC73A7 /* [CP] Check Pods Manifest.lock */,
+				E04E0FD926B0058200A81F92 /* Sources */,
+				E04E0FDA26B0058200A81F92 /* Frameworks */,
+				E04E0FDB26B0058200A81F92 /* Resources */,
+				D1FAE1AAD759A07662FE987F /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GConnect;
+			productName = GConnect;
+			productReference = E04E0FDD26B0058200A81F92 /* GConnect.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E04E0FD526B0058200A81F92 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					E04E0FDC26B0058200A81F92 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+				};
+			};
+			buildConfigurationList = E04E0FD826B0058200A81F92 /* Build configuration list for PBXProject "GConnect" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E04E0FD426B0058200A81F92;
+			productRefGroup = E04E0FDE26B0058200A81F92 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E04E0FDC26B0058200A81F92 /* GConnect */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E04E0FDB26B0058200A81F92 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E04E0FED26B0058500A81F92 /* LaunchScreen.storyboard in Resources */,
+				E04E101326B01D1200A81F92 /* GoogleService-Info.plist in Resources */,
+				E04E0FEA26B0058500A81F92 /* Assets.xcassets in Resources */,
+				E04E101126B019D900A81F92 /* Login.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4D7E0D0ABBE414FB06EC73A7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GConnect-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D1FAE1AAD759A07662FE987F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GConnect/Pods-GConnect-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GConnect/Pods-GConnect-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GConnect/Pods-GConnect-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E04E0FD926B0058200A81F92 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E04E100C26B00A1D00A81F92 /* LoginViewController.swift in Sources */,
+				E04E0FE126B0058200A81F92 /* AppDelegate.swift in Sources */,
+				E04E0FE326B0058200A81F92 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E04E0FEB26B0058500A81F92 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E04E0FEC26B0058500A81F92 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E04E0FEF26B0058500A81F92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E04E0FF026B0058500A81F92 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E04E0FF226B0058500A81F92 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64CD961C1288F8B7BC7C940A /* Pods-GConnect.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WVFW5SK35J;
+				INFOPLIST_FILE = GConnect/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = michael.GConnect;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E04E0FF326B0058500A81F92 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 85B0446085D3146B31E566FE /* Pods-GConnect.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WVFW5SK35J;
+				INFOPLIST_FILE = GConnect/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = michael.GConnect;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E04E0FD826B0058200A81F92 /* Build configuration list for PBXProject "GConnect" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E04E0FEF26B0058500A81F92 /* Debug */,
+				E04E0FF026B0058500A81F92 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E04E0FF126B0058500A81F92 /* Build configuration list for PBXNativeTarget "GConnect" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E04E0FF226B0058500A81F92 /* Debug */,
+				E04E0FF326B0058500A81F92 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E04E0FD526B0058200A81F92 /* Project object */;
+}

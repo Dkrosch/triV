@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Valorant-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="ViewControllerChooseGameDetail" customModule="GConnect" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is your current rank?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B7a-vw-ERq">
+                                <rect key="frame" x="29" y="353" width="247" height="26"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
+                                <color key="textColor" name="White Smoke"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Valorant Landscape" translatesAutoresizingMaskIntoConstraints="NO" id="mdC-YX-5n0">
+                                <rect key="frame" x="29" y="88" width="332" height="155"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="155" id="0XY-fO-lHI"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is your role?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPX-7u-Ue4">
+                                <rect key="frame" x="29" y="263" width="168" height="26"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
+                                <color key="textColor" name="White Smoke"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Choose your role" borderStyle="roundedRect" textAlignment="justified" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UYz-wW-CfZ">
+                                <rect key="frame" x="29" y="299" width="332" height="34"/>
+                                <color key="backgroundColor" name="White Smoke"/>
+                                <color key="tintColor" name="Dark Blue"/>
+                                <color key="textColor" name="Dark Blue"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Choose your rank" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b0o-ga-WpZ">
+                                <rect key="frame" x="29" y="389" width="332" height="34"/>
+                                <color key="backgroundColor" name="White Smoke"/>
+                                <color key="tintColor" name="Dark Blue"/>
+                                <color key="textColor" name="Dark Blue"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2my-G5-yjj">
+                                <rect key="frame" x="27" y="760" width="336" height="50"/>
+                                <color key="backgroundColor" name="Vivid Tangerine"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="xhN-FD-h9S"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <color key="tintColor" name="Dark Blue"/>
+                                <state key="normal" title="Continue">
+                                    <color key="titleColor" name="Dark Blue"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="BNY-us-HcE" kind="show" id="qmA-Jh-4YZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" name="Dark Blue"/>
+                        <constraints>
+                            <constraint firstItem="2my-G5-yjj" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="27" id="1tq-vi-2rl"/>
+                            <constraint firstItem="b0o-ga-WpZ" firstAttribute="top" secondItem="B7a-vw-ERq" secondAttribute="bottom" constant="10" id="6AQ-9o-Ms1"/>
+                            <constraint firstItem="mdC-YX-5n0" firstAttribute="leading" secondItem="UYz-wW-CfZ" secondAttribute="leading" id="AeL-Le-cnf"/>
+                            <constraint firstItem="mdC-YX-5n0" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="29" id="E6c-rQ-hEy"/>
+                            <constraint firstItem="mdC-YX-5n0" firstAttribute="trailing" secondItem="UYz-wW-CfZ" secondAttribute="trailing" id="Emb-KR-SJv"/>
+                            <constraint firstItem="mdC-YX-5n0" firstAttribute="leading" secondItem="bPX-7u-Ue4" secondAttribute="leading" id="IPc-fR-y9F"/>
+                            <constraint firstItem="mdC-YX-5n0" firstAttribute="trailing" secondItem="b0o-ga-WpZ" secondAttribute="trailing" id="K3U-Fz-fRu"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="mdC-YX-5n0" secondAttribute="trailing" constant="29" id="Qcu-4P-A0P"/>
+                            <constraint firstItem="B7a-vw-ERq" firstAttribute="top" secondItem="UYz-wW-CfZ" secondAttribute="bottom" constant="20" id="Z3C-BR-Jri"/>
+                            <constraint firstItem="UYz-wW-CfZ" firstAttribute="top" secondItem="bPX-7u-Ue4" secondAttribute="bottom" constant="10" id="ZOI-5y-VQe"/>
+                            <constraint firstItem="mdC-YX-5n0" firstAttribute="leading" secondItem="B7a-vw-ERq" secondAttribute="leading" id="eYC-4Y-39q"/>
+                            <constraint firstItem="2my-G5-yjj" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="fDe-aD-lV2"/>
+                            <constraint firstItem="mdC-YX-5n0" firstAttribute="leading" secondItem="b0o-ga-WpZ" secondAttribute="leading" id="n6D-Im-vV3"/>
+                            <constraint firstItem="mdC-YX-5n0" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="tyL-ZD-e7i"/>
+                            <constraint firstItem="mdC-YX-5n0" firstAttribute="centerX" secondItem="2my-G5-yjj" secondAttribute="centerX" id="xEA-qy-zGS"/>
+                            <constraint firstItem="bPX-7u-Ue4" firstAttribute="top" secondItem="mdC-YX-5n0" secondAttribute="bottom" constant="20" id="ymA-px-sWf"/>
+                            <constraint firstItem="mdC-YX-5n0" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="29" id="yww-5b-EH8"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Valorant" id="72X-Bw-Jgr">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="EB1-XX-0eT"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="continueButton" destination="2my-G5-yjj" id="WgK-N9-ZJb"/>
+                        <outlet property="rankLabel" destination="B7a-vw-ERq" id="5Iw-RP-gCm"/>
+                        <outlet property="rankTextFiled" destination="b0o-ga-WpZ" id="Rea-kx-hoV"/>
+                        <outlet property="roleLabel" destination="bPX-7u-Ue4" id="giB-ru-kGb"/>
+                        <outlet property="roleTextField" destination="UYz-wW-CfZ" id="gis-rt-cFi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="27.69230769230769" y="88.151658767772503"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="tJa-BG-XRH">
+            <objects>
+                <viewController id="BNY-us-HcE" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="K2g-56-SFN">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="G5s-En-ScY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Uhn-Tr-zQg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jkc-cf-mqY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="862" y="88"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Valorant Landscape" width="1920" height="1080"/>
+        <namedColor name="Dark Blue">
+            <color red="0.10999999940395355" green="0.17299999296665192" blue="0.32899999618530273" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Vivid Tangerine">
+            <color red="0.99599999189376831" green="0.58799999952316284" blue="0.46700000762939453" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="White Smoke">
+            <color red="0.9570000171661377" green="0.9570000171661377" blue="0.9570000171661377" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

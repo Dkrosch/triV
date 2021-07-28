@@ -7,12 +7,55 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
-
+class LoginViewController: UIViewController, UITextFieldDelegate {
+    
+    
+    @IBOutlet weak var logoImage: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var usernameField: UITextField!
+    @IBOutlet weak var passwordLabel: UILabel!
+    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var loginBtn: UIButton!
+    @IBOutlet weak var signupLabel: UILabel!
+    @IBOutlet weak var signupBtn: UIButton!
+    @IBOutlet weak var signupView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        usernameField.delegate = self
+        passwordField.delegate = self
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        
-        
+        if usernameField.isEditing == true{
+            let currectText = textField.text ?? ""
+            guard let stringRange = Range(range, in: currectText) else {
+                return false
+            }
+            
+            let updateText = currectText.replacingCharacters(in: stringRange, with: string)
+            
+            return updateText.count < 21
+        } else {
+            let currectText = textField.text ?? ""
+            guard let stringRange = Range(range, in: currectText) else {
+                return false
+            }
+            
+            let updateText = currectText.replacingCharacters(in: stringRange, with: string)
+            
+            return updateText.count < 17
+        }
+    }
+    
+    
+    @IBAction func btnTapped(_ sender: Any) {
+        if (usernameField.text == "" || passwordField.text == ""){
+            print("Kosong Cuk")
+        } else {
+            AuthLogin.SignIn(email: usernameField.text!, password: passwordField.text!)
+        }
     }
 }

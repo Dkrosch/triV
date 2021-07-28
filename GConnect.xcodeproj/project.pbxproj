@@ -3,11 +3,20 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		611D92946047CC1CC6F6C168 /* Pods_GConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9425B70F64E9871706E5B07 /* Pods_GConnect.framework */; };
+		8405A5F226B1546A009D1375 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8405A5F026B15466009D1375 /* SignUpViewController.swift */; };
+		8405A5F326B1546A009D1375 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8405A5F126B1546A009D1375 /* SignUp.storyboard */; };
+		8405A5F526B15493009D1375 /* StoreDataAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8405A5F426B15493009D1375 /* StoreDataAuth.swift */; };
+		8405A5FC26B155D8009D1375 /* PaddingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8405A5F926B155D5009D1375 /* PaddingTextField.swift */; };
+		8405A5FD26B155D8009D1375 /* HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8405A5FA26B155D7009D1375 /* HideKeyboard.swift */; };
+		8405A5FE26B155D8009D1375 /* BottomLineTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8405A5FB26B155D8009D1375 /* BottomLineTextField.swift */; };
+		8405A60026B155E4009D1375 /* CheckEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8405A5FF26B155E4009D1375 /* CheckEmail.swift */; };
+		8405A60226B155FD009D1375 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8405A60126B155FD009D1375 /* PageControl.swift */; };
+		84BB975926B12D730024A98B /* AuthLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BB975826B12D730024A98B /* AuthLogin.swift */; };
 		E04E0FE126B0058200A81F92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04E0FE026B0058200A81F92 /* AppDelegate.swift */; };
 		E04E0FE326B0058200A81F92 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04E0FE226B0058200A81F92 /* SceneDelegate.swift */; };
 		E04E0FEA26B0058500A81F92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E04E0FE926B0058500A81F92 /* Assets.xcassets */; };
@@ -19,6 +28,15 @@
 
 /* Begin PBXFileReference section */
 		64CD961C1288F8B7BC7C940A /* Pods-GConnect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GConnect.debug.xcconfig"; path = "Target Support Files/Pods-GConnect/Pods-GConnect.debug.xcconfig"; sourceTree = "<group>"; };
+		8405A5F026B15466009D1375 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		8405A5F126B1546A009D1375 /* SignUp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
+		8405A5F426B15493009D1375 /* StoreDataAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDataAuth.swift; sourceTree = "<group>"; };
+		8405A5F926B155D5009D1375 /* PaddingTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddingTextField.swift; sourceTree = "<group>"; };
+		8405A5FA26B155D7009D1375 /* HideKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HideKeyboard.swift; sourceTree = "<group>"; };
+		8405A5FB26B155D8009D1375 /* BottomLineTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomLineTextField.swift; sourceTree = "<group>"; };
+		8405A5FF26B155E4009D1375 /* CheckEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckEmail.swift; sourceTree = "<group>"; };
+		8405A60126B155FD009D1375 /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
+		84BB975826B12D730024A98B /* AuthLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthLogin.swift; sourceTree = "<group>"; };
 		85B0446085D3146B31E566FE /* Pods-GConnect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GConnect.release.xcconfig"; path = "Target Support Files/Pods-GConnect/Pods-GConnect.release.xcconfig"; sourceTree = "<group>"; };
 		D9425B70F64E9871706E5B07 /* Pods_GConnect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GConnect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E04E0FDD26B0058200A81F92 /* GConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,6 +68,75 @@
 				D9425B70F64E9871706E5B07 /* Pods_GConnect.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8405A5EC26B15427009D1375 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				8405A5EF26B1543D009D1375 /* Model */,
+				8405A5EE26B15435009D1375 /* ViewModel */,
+				8405A5ED26B1542F009D1375 /* View */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		8405A5ED26B1542F009D1375 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8405A5F126B1546A009D1375 /* SignUp.storyboard */,
+				8405A5F026B15466009D1375 /* SignUpViewController.swift */,
+			);
+			name = View;
+			path = "../New Group/View";
+			sourceTree = "<group>";
+		};
+		8405A5EE26B15435009D1375 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		8405A5EF26B1543D009D1375 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8405A5F426B15493009D1375 /* StoreDataAuth.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8405A5F626B15599009D1375 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				8405A5FB26B155D8009D1375 /* BottomLineTextField.swift */,
+				8405A5FA26B155D7009D1375 /* HideKeyboard.swift */,
+				8405A5F926B155D5009D1375 /* PaddingTextField.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		8405A5F726B155AF009D1375 /* PageControl */ = {
+			isa = PBXGroup;
+			children = (
+				8405A60126B155FD009D1375 /* PageControl.swift */,
+			);
+			path = PageControl;
+			sourceTree = "<group>";
+		};
+		8405A5F826B155C2009D1375 /* Validation */ = {
+			isa = PBXGroup;
+			children = (
+				8405A5FF26B155E4009D1375 /* CheckEmail.swift */,
+			);
+			path = Validation;
+			sourceTree = "<group>";
+		};
+		84BB975726B12D610024A98B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				84BB975826B12D730024A98B /* AuthLogin.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		E04E0FD426B0058200A81F92 = {
@@ -88,9 +175,9 @@
 		E04E0FF426B0059800A81F92 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				8405A5EC26B15427009D1375 /* SignUp */,
 				E04E100126B0082700A81F92 /* Create Lounge */,
 				E04E0FFD26B0062B00A81F92 /* Explore Lounge */,
-				E04E0FF926B005E700A81F92 /* SignUp */,
 				E04E0FF526B005AC00A81F92 /* Login */,
 			);
 			path = Features;
@@ -99,18 +186,11 @@
 		E04E0FF526B005AC00A81F92 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				84BB975726B12D610024A98B /* Model */,
 				E04E0FF826B005D900A81F92 /* ViewModel */,
 				E04E0FF726B005D200A81F92 /* View */,
-				E04E0FF626B005B400A81F92 /* Model */,
 			);
 			path = Login;
-			sourceTree = "<group>";
-		};
-		E04E0FF626B005B400A81F92 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		E04E0FF726B005D200A81F92 /* View */ = {
@@ -123,37 +203,6 @@
 			sourceTree = "<group>";
 		};
 		E04E0FF826B005D900A81F92 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		E04E0FF926B005E700A81F92 /* SignUp */ = {
-			isa = PBXGroup;
-			children = (
-				E04E0FFC26B0062300A81F92 /* ViewModel */,
-				E04E0FFB26B0061B00A81F92 /* View */,
-				E04E0FFA26B0061200A81F92 /* Model */,
-			);
-			path = SignUp;
-			sourceTree = "<group>";
-		};
-		E04E0FFA26B0061200A81F92 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		E04E0FFB26B0061B00A81F92 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		E04E0FFC26B0062300A81F92 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -225,7 +274,9 @@
 		E04E100526B0085400A81F92 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				E04E100726B0099D00A81F92 /* Utilities */,
+				8405A5F826B155C2009D1375 /* Validation */,
+				8405A5F726B155AF009D1375 /* PageControl */,
+				8405A5F626B15599009D1375 /* Utilities */,
 				E04E100626B0086700A81F92 /* Network */,
 			);
 			path = Helper;
@@ -238,20 +289,12 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		E04E100726B0099D00A81F92 /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Utilities;
-			sourceTree = "<group>";
-		};
 		E5781C8DB87779570753F36A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				64CD961C1288F8B7BC7C940A /* Pods-GConnect.debug.xcconfig */,
 				85B0446085D3146B31E566FE /* Pods-GConnect.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -318,6 +361,7 @@
 				E04E101326B01D1200A81F92 /* GoogleService-Info.plist in Resources */,
 				E04E0FEA26B0058500A81F92 /* Assets.xcassets in Resources */,
 				E04E101126B019D900A81F92 /* Login.storyboard in Resources */,
+				8405A5F326B1546A009D1375 /* SignUp.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -370,9 +414,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8405A5FD26B155D8009D1375 /* HideKeyboard.swift in Sources */,
+				8405A60026B155E4009D1375 /* CheckEmail.swift in Sources */,
 				E04E100C26B00A1D00A81F92 /* LoginViewController.swift in Sources */,
+				8405A5F526B15493009D1375 /* StoreDataAuth.swift in Sources */,
+				8405A5FC26B155D8009D1375 /* PaddingTextField.swift in Sources */,
+				84BB975926B12D730024A98B /* AuthLogin.swift in Sources */,
 				E04E0FE126B0058200A81F92 /* AppDelegate.swift in Sources */,
 				E04E0FE326B0058200A81F92 /* SceneDelegate.swift in Sources */,
+				8405A60226B155FD009D1375 /* PageControl.swift in Sources */,
+				8405A5F226B1546A009D1375 /* SignUpViewController.swift in Sources */,
+				8405A5FE26B155D8009D1375 /* BottomLineTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

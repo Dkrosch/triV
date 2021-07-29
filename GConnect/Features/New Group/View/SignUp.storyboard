@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -119,7 +120,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SPs-ma-G1x">
-                                <rect key="frame" x="20" y="711.66666666666663" width="350" height="50"/>
+                                <rect key="frame" x="20" y="740" width="350" height="50"/>
                                 <color key="backgroundColor" red="0.93949836490000005" green="0.60938578840000002" blue="0.49017250540000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="wXU-Qe-8hr"/>
@@ -137,6 +138,12 @@
                                     <action selector="btnSignUpTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="0jW-Mq-HH1"/>
                                 </connections>
                             </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a3Q-UE-QyG">
+                                <rect key="frame" x="20" y="676.66666666666663" width="350" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" red="0.1234773025" green="0.1697947383" blue="0.3176649809" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -144,6 +151,7 @@
                             <constraint firstItem="5eJ-A5-yp3" firstAttribute="top" secondItem="9Ui-Br-i1j" secondAttribute="bottom" constant="10" id="0gq-oh-UHc"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="rlm-mz-v3L" secondAttribute="trailing" constant="20" id="0hX-dp-mih"/>
                             <constraint firstItem="jWJ-eg-otB" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="1Y0-5W-CVQ"/>
+                            <constraint firstItem="a3Q-UE-QyG" firstAttribute="top" secondItem="iX3-nt-qI1" secondAttribute="bottom" constant="25" id="2fr-Q1-rsL"/>
                             <constraint firstItem="9Ui-Br-i1j" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="33W-Xu-iQd"/>
                             <constraint firstItem="rlm-mz-v3L" firstAttribute="top" secondItem="VB8-1V-1Zz" secondAttribute="bottom" constant="35" id="33j-c3-8E2"/>
                             <constraint firstItem="ol4-MV-mgW" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="4Qs-Zt-lbo"/>
@@ -157,12 +165,12 @@
                             <constraint firstItem="9Ui-Br-i1j" firstAttribute="top" secondItem="gmi-f6-TMy" secondAttribute="bottom" constant="35" id="96Q-Le-eyk"/>
                             <constraint firstItem="ol4-MV-mgW" firstAttribute="top" secondItem="auI-a7-YbM" secondAttribute="bottom" constant="35" id="9Vd-k1-hxh"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="gmi-f6-TMy" secondAttribute="trailing" constant="20" id="E5g-Wl-16Q"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="a3Q-UE-QyG" secondAttribute="trailing" constant="20" id="FMK-Xg-VSi"/>
                             <constraint firstItem="gmi-f6-TMy" firstAttribute="top" secondItem="jWJ-eg-otB" secondAttribute="bottom" constant="10" id="Gfo-0H-lfW"/>
                             <constraint firstItem="VB8-1V-1Zz" firstAttribute="top" secondItem="mBf-af-LSt" secondAttribute="bottom" constant="10" id="Gq8-jo-NZb"/>
                             <constraint firstItem="5eJ-A5-yp3" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="HZc-B8-HUF"/>
                             <constraint firstItem="mBf-af-LSt" firstAttribute="top" secondItem="5eJ-A5-yp3" secondAttribute="bottom" constant="35" id="HdN-oD-gEB"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="iX3-nt-qI1" secondAttribute="trailing" constant="20" id="MDv-ph-IVt"/>
-                            <constraint firstItem="SPs-ma-G1x" firstAttribute="top" secondItem="iX3-nt-qI1" secondAttribute="bottom" constant="60" id="Mjp-Q6-W3m"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="87o-xF-xwy" secondAttribute="trailing" constant="20" id="QTv-XL-aL5"/>
                             <constraint firstItem="9Ui-Br-i1j" firstAttribute="width" secondItem="9Ui-Br-i1j" secondAttribute="height" multiplier="50:3" id="Sdh-QO-Ou3"/>
                             <constraint firstItem="VB8-1V-1Zz" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="Ueb-zU-YvR"/>
@@ -179,7 +187,9 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="LbY-ii-m3d" secondAttribute="trailing" constant="20" id="iRa-RP-MAy"/>
                             <constraint firstItem="rlm-mz-v3L" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="iv4-4N-vJP"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="SPs-ma-G1x" secondAttribute="trailing" constant="20" id="jT0-bw-t6X"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="SPs-ma-G1x" secondAttribute="bottom" constant="20" id="jZ1-T4-4mv"/>
                             <constraint firstItem="mBf-af-LSt" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="kbM-96-RjK"/>
+                            <constraint firstItem="a3Q-UE-QyG" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="kbt-0m-Vlo"/>
                             <constraint firstItem="SPs-ma-G1x" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="u6x-cX-urC"/>
                             <constraint firstItem="jWJ-eg-otB" firstAttribute="width" secondItem="jWJ-eg-otB" secondAttribute="height" multiplier="50:3" id="zBz-GR-7Zf"/>
                         </constraints>
@@ -187,6 +197,7 @@
                     <navigationItem key="navigationItem" title="Sign Up" id="BLv-8H-5XB"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="txtErrorMessage" destination="a3Q-UE-QyG" id="i5f-my-1lW"/>
                         <outlet property="txtFieldBirthday" destination="gmi-f6-TMy" id="654-qS-5ae"/>
                         <outlet property="txtFieldConPassword" destination="VB8-1V-1Zz" id="IE4-up-qDy"/>
                         <outlet property="txtFieldEmail" destination="87o-xF-xwy" id="FN4-N9-AWr"/>
@@ -211,4 +222,9 @@
             <point key="canvasLocation" x="879" y="112"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>

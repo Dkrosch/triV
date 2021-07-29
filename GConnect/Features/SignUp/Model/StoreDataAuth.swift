@@ -23,6 +23,12 @@ class StoreDataAuth {
         FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { result, error in
             
             guard error == nil else{
+                var signUpViewController = SignUpViewController()
+
+                //ini panggil untuk balikin ke halaman yang manggil fungsi CreateData
+                succcesCompletionHandler(false)
+                print("Email sudah kepake")
+                
                 return
             }
             
@@ -31,12 +37,8 @@ class StoreDataAuth {
             let username = username
             let usrID = result!.user.uid
             
-            self.saveUserDetail(userID: usrID, dob: DoB, gender: gender, username: username) { status in
+            self.saveUserDetail(userID: usrID, dob: DoB, gender: gender, username: username)
                 
-                //ini panggil untuk balikin ke halaman yang manggil fungsi CreateData
-                succcesCompletionHandler(status)
-            }
-            
             print("Sukses register")
         })
     }
@@ -44,18 +46,15 @@ class StoreDataAuth {
     static func saveUserDetail(userID: String,
                                dob: String,
                                gender: String,
-                               username: String,
-                               successCompletion: @escaping (Bool) -> Void){
+                               username: String){
         let db = Firestore.firestore()
         
-        db.collection("users").document(userID).setData(["gender": gender, "birthday": dob, "username": username, "HariIbu": "Besok"]) {(error) in
+        db.collection("users").document(userID).setData(["gender": gender, "birthday": dob, "username": username]) {(error) in
             if error != nil{
-                successCompletion(false)
+                print("Gagal")
             } else {
-                successCompletion(true)
                 print("Sukses")
             }
         }
     }
-    
 }

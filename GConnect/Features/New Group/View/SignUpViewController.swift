@@ -15,6 +15,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var txtFieldPassword: UITextField!
     @IBOutlet weak var txtFieldConPassword: UITextField!
     @IBOutlet weak var txtFieldGender: UITextField!
+    @IBOutlet weak var txtErrorMessage: UILabel!
     
     let gender = ["Male", "Female"]
     var pickerView = UIPickerView()
@@ -60,12 +61,33 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func btnSignUpTapped(_ sender: Any) {
-        StoreDataAuth.CreateData(username: txtFieldUsername.text!, email: txtFieldEmail.text!, DoB: txtFieldBirthday.text!, password: txtFieldPassword.text!, gender: txtFieldGender.text!) { status in
-            if status {
-                self.performSegue(withIdentifier: "CreateProfile", sender: self)
+        if (txtFieldUsername.text == ""  || txtFieldGender.text == "" || txtFieldUsername.text == "" || txtFieldBirthday.text == "" || txtFieldPassword.text == "" || txtFieldConPassword.text == ""){
+            showErrorMessage(message: "Fill All Data")
+        }else if (txtFieldEmail.text?.isValidEmail == false) {
+            showErrorMessage(message: "Wrong Email Format")
+        }else if (txtFieldPassword.text != txtFieldConPassword.text){
+            showErrorMessage(message: "Password is not same")
+        }else if txtFieldPassword.text!.count < 6{
+            showErrorMessage(message: "Password must be 6 characters or more")
+        }else{
+            StoreDataAuth.CreateData(username: txtFieldUsername.text!, email: txtFieldEmail.text!, DoB: txtFieldBirthday.text!, password: txtFieldPassword.text!, gender: txtFieldGender.text!) { status in
+                if status {
+                    self.performSegue(withIdentifier: "CreateProfile", sender: self)
+                }else if status == false{
+                    self.showErrorMessage(message: "Email has been registered")
+                }
             }
         }
-        
+    }
+    
+    func showErrorMessage(message: String){
+        txtErrorMessage.isHidden = false
+        txtErrorMessage.text = message
+        Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector (self.hideWrongLabel), userInfo: nil, repeats: false)
+    }
+    
+    @objc func hideWrongLabel(){
+        self.txtErrorMessage.isHidden = true
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

@@ -37,6 +37,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         wrongLabel.isHidden = true
         
+        loginBtn.layer.cornerRadius = 10
+        
         usernameField.delegate = self
         passwordField.delegate = self
         

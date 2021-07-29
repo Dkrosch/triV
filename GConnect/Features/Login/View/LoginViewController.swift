@@ -20,9 +20,23 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var signupLabel: UILabel!
     @IBOutlet weak var signupBtn: UIButton!
     @IBOutlet weak var signupView: UIView!
+    @IBOutlet weak var wrongLabel: UILabel!
+    
+    var bottomLine = CALayer()
+    var status = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.usernameField.addBottomBorder()
+        self.passwordField.addBottomBorder()
+        
+        usernameField.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        
+        passwordField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        
+        wrongLabel.isHidden = true
+        
         usernameField.delegate = self
         passwordField.delegate = self
     }
@@ -53,9 +67,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func btnTapped(_ sender: Any) {
         if (usernameField.text == "" || passwordField.text == ""){
-            print("Kosong Cuk")
+            wrongLabel.isHidden = true
         } else {
-            AuthLogin.SignIn(email: usernameField.text!, password: passwordField.text!)
+            AuthLogin.SignIn(email: usernameField.text!, password: passwordField.text!, status: status)
+            
+            if status == true{
+                wrongLabel.isHidden = false
+            }else{
+                wrongLabel.isHidden = true
+            }
         }
     }
 }

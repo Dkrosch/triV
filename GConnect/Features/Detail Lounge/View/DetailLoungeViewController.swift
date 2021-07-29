@@ -7,15 +7,17 @@
 
 import UIKit
 
-class DetailLoungeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class DetailLoungeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         Rank.layer.cornerRadius = 8
-        Rank.layer.borderColor = viking
+        Rank.layer.borderWidth = 1
+        Rank.layer.borderColor = #colorLiteral(red: 0.9921568627, green: 0.5882352941, blue: 0.4666666667, alpha: 1)
         Game.layer.cornerRadius = 8
-        Game.layer.borderColor = viking
+        Game.layer.borderWidth = 1
+        Game.layer.borderColor = #colorLiteral(red: 0.9921568627, green: 0.5882352941, blue: 0.4666666667, alpha: 1)
         DescriptionTextbox.layer.cornerRadius = 8
         JoinLoungeButton.layer.cornerRadius = 8
         

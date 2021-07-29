@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="feZ-XR-tbx">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -60,7 +60,7 @@
                                 <color key="tintColor" red="0.17176622150000001" green="0.21776545050000001" blue="0.34116771820000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <textField contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Iron" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="F6I-12-GBw">
-                                <rect key="frame" x="22" y="289" width="96" height="34"/>
+                                <rect key="frame" x="22" y="289" width="53" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -75,20 +75,16 @@
                                 <rect key="frame" x="14" y="114" width="370" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="F1Y-r4-hZw">
-                                    <size key="itemSize" width="128" height="128"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
+                                <collectionViewLayout key="collectionViewLayout" id="T7e-eX-7Dk"/>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="XT9-JW-d7v">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="XT9-JW-d7v" customClass="LoungeCollectionViewCell" customModule="GConnect" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="75" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="zCD-Me-bjZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="75" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
+                                        <size key="customSize" width="75" height="50"/>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -107,7 +103,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jee-5C-RNu">
-                                <rect key="frame" x="22" y="506" width="353" height="128"/>
+                                <rect key="frame" x="22" y="506" width="352" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -126,7 +122,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="fou-JZ-ZUi">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="fou-JZ-ZUi" customClass="RoleCollectionViewCell" customModule="GConnect" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="3cd-ZT-Mrk">
@@ -136,12 +132,9 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FBf-fu-soA">
-                                <rect key="frame" x="49" y="819" width="336" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FBf-fu-soA">
+                                <rect key="frame" x="40" y="782" width="334" height="55"/>
                                 <color key="backgroundColor" name="Vivid Tangerine"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="1bZ-09-kvT"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <color key="tintColor" name="Dark Blue"/>
                                 <state key="normal" title="Join Lounge">
@@ -156,6 +149,13 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HTr-ot-qKn"/>
                         <color key="backgroundColor" red="0.1117137149" green="0.17449998859999999" blue="0.32824075219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="HTr-ot-qKn" firstAttribute="trailing" secondItem="FBf-fu-soA" secondAttribute="trailing" constant="40" id="Ymt-vK-yw0"/>
+                            <constraint firstItem="FBf-fu-soA" firstAttribute="leading" secondItem="HTr-ot-qKn" secondAttribute="leading" constant="40" id="Zdi-ns-gEt"/>
+                            <constraint firstItem="FBf-fu-soA" firstAttribute="centerX" secondItem="0Sw-tS-ddN" secondAttribute="centerX" id="jSz-ux-XBv"/>
+                            <constraint firstItem="HTr-ot-qKn" firstAttribute="bottom" secondItem="FBf-fu-soA" secondAttribute="bottom" constant="25" id="ksy-dY-3Jy"/>
+                            <constraint firstItem="FBf-fu-soA" firstAttribute="centerY" secondItem="0Sw-tS-ddN" secondAttribute="centerY" constant="361.5" id="sUS-1u-4a5"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="CollectionView" destination="uAe-CN-ofd" id="QWd-BC-oF7"/>

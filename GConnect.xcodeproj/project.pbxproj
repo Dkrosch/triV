@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		611D92946047CC1CC6F6C168 /* Pods_GConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9425B70F64E9871706E5B07 /* Pods_GConnect.framework */; };
+		7C75DFCA26B30727002400CA /* LoungeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C75DFC826B30727002400CA /* LoungeCollectionViewCell.swift */; };
+		7C75DFCB26B30727002400CA /* LoungeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C75DFC926B30727002400CA /* LoungeCollectionViewCell.xib */; };
+		7C75DFCE26B30BAA002400CA /* RoleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C75DFCC26B30BAA002400CA /* RoleCollectionViewCell.swift */; };
+		7C75DFCF26B30BAA002400CA /* RoleCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C75DFCD26B30BAA002400CA /* RoleCollectionViewCell.xib */; };
 		7CB3A24C26B29EDD00259119 /* DetailLounge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CB3A24B26B29EDD00259119 /* DetailLounge.storyboard */; };
 		7CB3A25426B2ABDF00259119 /* DetailLoungeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB3A25326B2ABDF00259119 /* DetailLoungeViewController.swift */; };
 		8405A5F226B1546A009D1375 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8405A5F026B15466009D1375 /* SignUpViewController.swift */; };
@@ -45,6 +49,10 @@
 
 /* Begin PBXFileReference section */
 		64CD961C1288F8B7BC7C940A /* Pods-GConnect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GConnect.debug.xcconfig"; path = "Target Support Files/Pods-GConnect/Pods-GConnect.debug.xcconfig"; sourceTree = "<group>"; };
+		7C75DFC826B30727002400CA /* LoungeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoungeCollectionViewCell.swift; sourceTree = "<group>"; };
+		7C75DFC926B30727002400CA /* LoungeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoungeCollectionViewCell.xib; sourceTree = "<group>"; };
+		7C75DFCC26B30BAA002400CA /* RoleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleCollectionViewCell.swift; sourceTree = "<group>"; };
+		7C75DFCD26B30BAA002400CA /* RoleCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoleCollectionViewCell.xib; sourceTree = "<group>"; };
 		7CB3A24B26B29EDD00259119 /* DetailLounge.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailLounge.storyboard; sourceTree = "<group>"; };
 		7CB3A25326B2ABDF00259119 /* DetailLoungeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLoungeViewController.swift; sourceTree = "<group>"; };
 		8405A5F026B15466009D1375 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +125,10 @@
 		7CB3A24826B29DF000259119 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7C75DFC826B30727002400CA /* LoungeCollectionViewCell.swift */,
+				7C75DFC926B30727002400CA /* LoungeCollectionViewCell.xib */,
+				7C75DFCC26B30BAA002400CA /* RoleCollectionViewCell.swift */,
+				7C75DFCD26B30BAA002400CA /* RoleCollectionViewCell.xib */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -506,8 +518,10 @@
 			files = (
 				84D9367D26B283E300E29F12 /* ExploreLounge.storyboard in Resources */,
 				84D9367426B2839A00E29F12 /* RequirementExploreLoungeCollectionViewCell.xib in Resources */,
+				7C75DFCB26B30727002400CA /* LoungeCollectionViewCell.xib in Resources */,
 				E04E0FED26B0058500A81F92 /* LaunchScreen.storyboard in Resources */,
 				E04E101326B01D1200A81F92 /* GoogleService-Info.plist in Resources */,
+				7C75DFCF26B30BAA002400CA /* RoleCollectionViewCell.xib in Resources */,
 				84D9367726B2839A00E29F12 /* ExploreLoungeCell.xib in Resources */,
 				E04E0FEA26B0058500A81F92 /* Assets.xcassets in Resources */,
 				E04E101126B019D900A81F92 /* Login.storyboard in Resources */,
@@ -575,6 +589,7 @@
 				84D9367626B2839A00E29F12 /* ExploreLoungeCell.swift in Sources */,
 				8405A5F526B15493009D1375 /* StoreDataAuth.swift in Sources */,
 				84D9368F26B289F500E29F12 /* ChooseGameViewController.swift in Sources */,
+				7C75DFCE26B30BAA002400CA /* RoleCollectionViewCell.swift in Sources */,
 				84D9369026B289F500E29F12 /* GameCollectionViewCell.swift in Sources */,
 				8405A5FC26B155D8009D1375 /* PaddingTextField.swift in Sources */,
 				84D9367526B2839A00E29F12 /* RequirementExploreLoungeCollectionViewCell.swift in Sources */,
@@ -584,6 +599,7 @@
 				8405A60226B155FD009D1375 /* PageControl.swift in Sources */,
 				8405A5F226B1546A009D1375 /* SignUpViewController.swift in Sources */,
 				84D9368426B285A500E29F12 /* Struct.swift in Sources */,
+				7C75DFCA26B30727002400CA /* LoungeCollectionViewCell.swift in Sources */,
 				84D9368C26B289E500E29F12 /* Game.swift in Sources */,
 				E02FC20926B2B07400963710 /* CreateGameDetailViewController.swift in Sources */,
 				8405A5FE26B155D8009D1375 /* BottomLineTextField.swift in Sources */,
@@ -729,13 +745,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WVFW5SK35J;
+				DEVELOPMENT_TEAM = XWQ8XX5C45;
 				INFOPLIST_FILE = GConnect/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = michael.GConnect;
+				PRODUCT_BUNDLE_IDENTIFIER = "vincent-meidianto";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -749,13 +765,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WVFW5SK35J;
+				DEVELOPMENT_TEAM = XWQ8XX5C45;
 				INFOPLIST_FILE = GConnect/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = michael.GConnect;
+				PRODUCT_BUNDLE_IDENTIFIER = "vincent-meidianto";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

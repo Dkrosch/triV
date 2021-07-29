@@ -9,7 +9,7 @@ import Foundation
 
 class Struct{
     
-    struct detailLounge{
+    class detailLounge{
         var title: String
         var desc: String
         var idMemberLounge: [String] // isi member
@@ -23,7 +23,7 @@ class Struct{
         }
     }
     
-    struct user{
+    class user{
         var username: String
         var birthday: String
         var desc: String

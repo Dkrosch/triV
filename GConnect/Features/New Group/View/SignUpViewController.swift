@@ -21,7 +21,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     var pickerView = UIPickerView()
     var bottomLine = CALayer()
     public var username:String?
-    let datePicker = UIDatePicker()
+    var datePicker = DatePicker()
+    var imageView = UIImageView()
+    var image = UIImage(named: "Upload_icon.svg")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,23 +40,27 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         
         txtFieldEmail.keyboardType = .emailAddress
         
+        imageView.image = image
+        txtFieldGender.leftView = imageView
+        txtFieldGender.leftViewMode = .always
+        
         txtFieldUsername.delegate = self
         
-        createDatepicker()
+        datePicker.createDatepicker(textField: txtFieldBirthday)
         
         txtFieldGender.inputView = pickerView
         txtFieldGender.text = "Male"
         txtFieldGender.setLeftPaddingPoints(10)
         
-        //signUpModelView.cobaTarikData()
+        self.navigationController?.isNavigationBarHidden = false
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     @IBAction func btnSignUpTapped(_ sender: Any) {
-//        signUpModelView.btnSignUpTapped(username: txtFieldUsername.text!, email: txtFieldEmail.text!, birthday: txtFieldBirthday.text!, gender: txtFieldGender.text! ,password: txtFieldPassword.text!, conPassword: txtFieldConPassword.text!)
-        
         StoreDataAuth.CreatData(username: txtFieldUsername.text!, email: txtFieldEmail.text!, DoB: txtFieldBirthday.text!, password: txtFieldPassword.text!, gender: txtFieldGender.text!)
-        
-        showloginPage()
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -63,33 +69,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         let newString: NSString =
             currentString.replacingCharacters(in: range, with: string) as NSString
         return newString.length <= maxLength
-    }
-    
-    func createDatepicker() {
-        datePicker.preferredDatePickerStyle = .wheels
-        datePicker.datePickerMode = .date
-        txtFieldBirthday.inputView = datePicker
-        txtFieldBirthday.inputAccessoryView = createToolbar()
-    }
-    
-    func createToolbar() -> UIToolbar{
-        let toolbar = UIToolbar()
-        toolbar.sizeToFit()
-        
-        let doneBtn = UIBarButtonItem (barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
-        toolbar.setItems([doneBtn], animated: true)
-        
-        return toolbar
-    }
-    
-    @objc func donePressed(){
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .none
-        
-        self.txtFieldBirthday.text = dateFormatter.string(from: datePicker.date)
-        self.view.endEditing(true)
-        txtFieldBirthday.text = dateFormatter.string(from: datePicker.date)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle{
@@ -116,11 +95,4 @@ extension SignUpViewController: UIPickerViewDelegate, UIPickerViewDataSource{
         txtFieldGender.text = gender[row]
         txtFieldGender.resignFirstResponder()
     }
-    
-    func showloginPage(){
-        let loginStoryboard = UIStoryboard(name: "Login", bundle: nil)
-        let vc = loginStoryboard.instantiateViewController(identifier: "login") as! LoginViewController
-        self.present(vc, animated: true)
-    }
-
 }

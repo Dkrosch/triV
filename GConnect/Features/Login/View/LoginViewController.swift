@@ -39,6 +39,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         usernameField.delegate = self
         passwordField.delegate = self
+        
+        self.hideKeyboardWhenTappedAround()
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -77,5 +80,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 wrongLabel.isHidden = true
             }
         }
+    }
+    
+    @IBAction func btnSignUpTapped(_ sender: Any) {
+        performSegue(withIdentifier: "SignUp", sender: self)
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        .lightContent
     }
 }

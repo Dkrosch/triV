@@ -16,7 +16,7 @@ class StoreDataAuth{
         FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { result, error in
             
             guard error == nil else{
-                print("Fails")
+                
                 return
             }
             
@@ -41,7 +41,7 @@ class StoreDataAuth{
     static func saveUserDetail(userID: String, dob: String, gender: String, username: String){
         let db = Firestore.firestore()
         
-        db.collection("users").document(userID).setData(["gender": gender, "birthday": dob, "username": username]) {(error) in
+        db.collection("users").document(userID).setData(["gender": gender, "birthday": dob, "username": username, "HariIbu": "Besok"]) {(error) in
             if error != nil{
                 print("Fail")
             } else {

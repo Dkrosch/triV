@@ -1,12 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0Bg-IY-dB8">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="lz8-MR-V4F">
+            <objects>
+                <navigationController id="0Bg-IY-dB8" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nTb-pe-tMh">
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.93167811629999997" green="0.60542231800000001" blue="0.49017339939999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="barTintColor" name="Dark Blue"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Y6W-OH-hqX" kind="relationship" relationship="rootViewController" id="VdX-Xj-mQK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OSS-71-d3I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-917" y="112"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
@@ -81,6 +103,9 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Sign Up Now"/>
+                                        <connections>
+                                            <action selector="btnSignUpTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="RfB-wk-0aX"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.1237189397" green="0.16931533809999999" blue="0.31766206029999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -96,6 +121,7 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" red="0.1237189397" green="0.16931533809999999" blue="0.31766206029999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
+                    <navigationItem key="navigationItem" id="EJD-sX-EgU"/>
                     <connections>
                         <outlet property="loginBtn" destination="zUJ-30-QKz" id="Ulp-7A-aFa"/>
                         <outlet property="logoImage" destination="1D3-hb-QMK" id="rL9-9C-l2G"/>
@@ -107,12 +133,28 @@
                         <outlet property="titleLabel" destination="u2t-nE-Mpm" id="seQ-Bi-vb7"/>
                         <outlet property="usernameField" destination="cGS-1t-d21" id="hqT-Ib-ibx"/>
                         <outlet property="usernameLabel" destination="oTV-jT-jnq" id="0VZ-RK-r7X"/>
-                        <outlet property="wrongLabel" destination="kFA-Lp-Eno" id="Ztz-hl-5oe"/>
+                        <outlet property="wrongLabel" destination="kFA-Lp-Eno" id="5tw-t7-bJC"/>
+                        <segue destination="L1L-8Z-cgR" kind="show" identifier="SignUp" id="tKo-lA-XfY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="18.46153846153846" y="112.32227488151658"/>
         </scene>
+        <!--SignUp-->
+        <scene sceneID="W7d-6f-499">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SignUp" id="L1L-8Z-cgR" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="lCe-xc-Kl1"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sbM-z4-Ip5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="827" y="112"/>
+        </scene>
     </scenes>
+    <resources>
+        <namedColor name="Dark Blue">
+            <color red="0.10999999940395355" green="0.17299999296665192" blue="0.32899999618530273" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

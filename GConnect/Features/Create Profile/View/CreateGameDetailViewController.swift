@@ -1,14 +1,14 @@
 //
-//  ViewControllerChooseGameDetail.swift
+//  CreateGameDetailViewController.swift
 //  GConnect
 //
-//  Created by Olga Husada on 28/07/21.
+//  Created by Michael Tanakoman on 29/07/21.
 //
 
 import UIKit
 
-class ViewControllerChooseGameDetail: UIViewController{
-    
+class CreateGameDetailViewController: UIViewController {
+
     @IBOutlet weak var roleTextField: UITextField!
     @IBOutlet weak var rankTextFiled: UITextField!
     @IBOutlet weak var roleLabel: UILabel!
@@ -36,10 +36,19 @@ class ViewControllerChooseGameDetail: UIViewController{
         roleTextField.inputView = pickerView1
         rankTextFiled.inputView = pickerView2
     }
+    
+    @IBAction func btnContinueTapped(_ sender: Any) {
+        performSegue(withIdentifier: "ExploreLounge", sender: self)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
+        self.navigationItem.title = "Create Profile"
+    }
 
 }
 
-extension ViewControllerChooseGameDetail: UIPickerViewDelegate, UIPickerViewDataSource {
+extension CreateGameDetailViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

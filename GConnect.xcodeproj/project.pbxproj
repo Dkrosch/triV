@@ -28,10 +28,10 @@
 		84D9368C26B289E500E29F12 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9368B26B289E500E29F12 /* Game.swift */; };
 		84D9368F26B289F500E29F12 /* ChooseGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9368D26B289F500E29F12 /* ChooseGameViewController.swift */; };
 		84D9369026B289F500E29F12 /* GameCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9368E26B289F500E29F12 /* GameCollectionViewCell.swift */; };
-		84D9369226B289FC00E29F12 /* ViewControllerChooseGameDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9369126B289FC00E29F12 /* ViewControllerChooseGameDetail.swift */; };
 		84D9369826B2908F00E29F12 /* CreateLoungeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9369726B2908F00E29F12 /* CreateLoungeVC.swift */; };
 		84D9369A26B2909400E29F12 /* CreateLounge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84D9369926B2909400E29F12 /* CreateLounge.storyboard */; };
 		E02FC20726B174FE00963710 /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02FC20626B174FE00963710 /* DatePicker.swift */; };
+		E02FC20926B2B07400963710 /* CreateGameDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02FC20826B2B07400963710 /* CreateGameDetailViewController.swift */; };
 		E04E0FE126B0058200A81F92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04E0FE026B0058200A81F92 /* AppDelegate.swift */; };
 		E04E0FE326B0058200A81F92 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04E0FE226B0058200A81F92 /* SceneDelegate.swift */; };
 		E04E0FEA26B0058500A81F92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E04E0FE926B0058500A81F92 /* Assets.xcassets */; };
@@ -63,12 +63,12 @@
 		84D9368B26B289E500E29F12 /* Game.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		84D9368D26B289F500E29F12 /* ChooseGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseGameViewController.swift; sourceTree = "<group>"; };
 		84D9368E26B289F500E29F12 /* GameCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameCollectionViewCell.swift; sourceTree = "<group>"; };
-		84D9369126B289FC00E29F12 /* ViewControllerChooseGameDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerChooseGameDetail.swift; sourceTree = "<group>"; };
 		84D9369726B2908F00E29F12 /* CreateLoungeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateLoungeVC.swift; sourceTree = "<group>"; };
 		84D9369926B2909400E29F12 /* CreateLounge.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateLounge.storyboard; sourceTree = "<group>"; };
 		85B0446085D3146B31E566FE /* Pods-GConnect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GConnect.release.xcconfig"; path = "Target Support Files/Pods-GConnect/Pods-GConnect.release.xcconfig"; sourceTree = "<group>"; };
 		D9425B70F64E9871706E5B07 /* Pods_GConnect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GConnect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E02FC20626B174FE00963710 /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
+		E02FC20826B2B07400963710 /* CreateGameDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGameDetailViewController.swift; sourceTree = "<group>"; };
 		E04E0FDD26B0058200A81F92 /* GConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E04E0FE026B0058200A81F92 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E04E0FE226B0058200A81F92 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -211,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				84D9367C26B283E300E29F12 /* ExploreLounge.storyboard */,
+				84D9367E26B283EA00E29F12 /* ExploreLoungeViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -225,7 +226,6 @@
 		84D9367B26B283D100E29F12 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
-				84D9367E26B283EA00E29F12 /* ExploreLoungeViewController.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -238,14 +238,14 @@
 			path = Struct;
 			sourceTree = "<group>";
 		};
-		84D9368526B289B000E29F12 /* Creat Profile */ = {
+		84D9368526B289B000E29F12 /* Create Profile */ = {
 			isa = PBXGroup;
 			children = (
 				84D9368826B289C400E29F12 /* View Model */,
 				84D9368726B289BE00E29F12 /* View */,
 				84D9368626B289B900E29F12 /* Model */,
 			);
-			path = "Creat Profile";
+			path = "Create Profile";
 			sourceTree = "<group>";
 		};
 		84D9368626B289B900E29F12 /* Model */ = {
@@ -259,6 +259,8 @@
 		84D9368726B289BE00E29F12 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				84D9368D26B289F500E29F12 /* ChooseGameViewController.swift */,
+				E02FC20826B2B07400963710 /* CreateGameDetailViewController.swift */,
 				84D9368926B289D100E29F12 /* Choose game detail.storyboard */,
 			);
 			path = View;
@@ -267,8 +269,6 @@
 		84D9368826B289C400E29F12 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
-				84D9369126B289FC00E29F12 /* ViewControllerChooseGameDetail.swift */,
-				84D9368D26B289F500E29F12 /* ChooseGameViewController.swift */,
 				84D9368E26B289F500E29F12 /* GameCollectionViewCell.swift */,
 			);
 			path = "View Model";
@@ -345,7 +345,7 @@
 			isa = PBXGroup;
 			children = (
 				84D9369326B2904D00E29F12 /* Create Lounge */,
-				84D9368526B289B000E29F12 /* Creat Profile */,
+				84D9368526B289B000E29F12 /* Create Profile */,
 				84D9367826B283BD00E29F12 /* Explore Lounge */,
 				8405A5EC26B15427009D1375 /* SignUp */,
 				E04E0FF526B005AC00A81F92 /* Login */,
@@ -545,7 +545,7 @@
 				8405A5F226B1546A009D1375 /* SignUpViewController.swift in Sources */,
 				84D9368426B285A500E29F12 /* Struct.swift in Sources */,
 				84D9368C26B289E500E29F12 /* Game.swift in Sources */,
-				84D9369226B289FC00E29F12 /* ViewControllerChooseGameDetail.swift in Sources */,
+				E02FC20926B2B07400963710 /* CreateGameDetailViewController.swift in Sources */,
 				8405A5FE26B155D8009D1375 /* BottomLineTextField.swift in Sources */,
 				E02FC20726B174FE00963710 /* DatePicker.swift in Sources */,
 				84D9367F26B283EA00E29F12 /* ExploreLoungeViewController.swift in Sources */,

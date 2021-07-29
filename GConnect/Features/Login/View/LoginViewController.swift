@@ -62,7 +62,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             }
             
             let updateText = currectText.replacingCharacters(in: stringRange, with: string)
-            
             return updateText.count < 17
         }
     }
@@ -72,14 +71,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if (usernameField.text == "" || passwordField.text == ""){
             wrongLabel.isHidden = true
         } else {
-            AuthLogin.SignIn(email: usernameField.text!, password: passwordField.text!, status: status)
-            
-            if status == true{
-                wrongLabel.isHidden = false
-            }else{
-                wrongLabel.isHidden = true
+            AuthLogin.SignIn(email: usernameField.text!, password: passwordField.text!){ status in
+                if status{
+                    self.performSegue(withIdentifier: "LoginToExploreLounge", sender: self)
+                    self.wrongLabel.isHidden = true
+                }else{
+                    self.wrongLabel.isHidden = false
+                    Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector (self.hideWrongLabel), userInfo: nil, repeats: false)
+                }
             }
         }
+    }
+    
+    @objc func hideWrongLabel(){
+        self.wrongLabel.isHidden = true
     }
     
     @IBAction func btnSignUpTapped(_ sender: Any) {

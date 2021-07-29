@@ -19,6 +19,10 @@ class ChooseGameViewController: UIViewController {
         collectionView.delegate = self
         collectionView.collectionViewLayout = UICollectionViewFlowLayout()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
+    }
 
 }
 
@@ -43,7 +47,7 @@ extension ChooseGameViewController: UICollectionViewDelegateFlowLayout{
 extension ChooseGameViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(games[indexPath.row].title)
-        let vc = storyboard?.instantiateViewController(identifier: "DetailViewController") as? ViewControllerChooseGameDetail
+        let vc = storyboard?.instantiateViewController(identifier: "DetailViewController") as? CreateGameDetailViewController
         self.navigationController?.pushViewController(vc!, animated: true)
     }
 }

@@ -193,11 +193,22 @@
                         <outlet property="txtFieldGender" destination="iX3-nt-qI1" id="sq7-0r-sfo"/>
                         <outlet property="txtFieldPassword" destination="5eJ-A5-yp3" id="v8E-nj-6v0"/>
                         <outlet property="txtFieldUsername" destination="auI-a7-YbM" id="4wy-ku-P29"/>
+                        <segue destination="7HV-Yu-X49" kind="show" identifier="CreateProfile" id="pZW-ik-gZV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="138.46153846153845" y="111.61137440758293"/>
+        </scene>
+        <!--Choose game detail-->
+        <scene sceneID="0e8-8f-E25">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Choose game detail" id="7HV-Yu-X49" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="2Qi-2g-px5"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E2r-qT-NN3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="879" y="112"/>
         </scene>
     </scenes>
 </document>

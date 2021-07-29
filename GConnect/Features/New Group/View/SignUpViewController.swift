@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 class SignUpViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var txtFieldUsername: UITextField!
@@ -24,6 +23,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     var datePicker = DatePicker()
     var imageView = UIImageView()
     var image = UIImage(named: "Upload_icon.svg")
+    var signUpSuccess: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +60,12 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func btnSignUpTapped(_ sender: Any) {
-        StoreDataAuth.CreatData(username: txtFieldUsername.text!, email: txtFieldEmail.text!, DoB: txtFieldBirthday.text!, password: txtFieldPassword.text!, gender: txtFieldGender.text!)
+        StoreDataAuth.CreateData(username: txtFieldUsername.text!, email: txtFieldEmail.text!, DoB: txtFieldBirthday.text!, password: txtFieldPassword.text!, gender: txtFieldGender.text!) { status in
+            if status {
+                self.performSegue(withIdentifier: "CreateProfile", sender: self)
+            }
+        }
+        
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

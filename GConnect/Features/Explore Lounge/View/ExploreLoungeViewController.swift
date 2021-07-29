@@ -23,22 +23,15 @@ class ExploreLoungeViewController: UIViewController {
         
         let nib = UINib(nibName: "\(ExploreLoungeCell.self)", bundle: nil)
         loungeCollectionView.register(nib, forCellWithReuseIdentifier: "loungeCollectionViewCell" )
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     @IBAction func createLoungeAction(_ sender: UIButton) {
+        
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension ExploreLoungeViewController: UICollectionViewDelegate{

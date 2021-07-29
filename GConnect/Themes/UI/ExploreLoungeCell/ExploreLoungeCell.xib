@@ -78,7 +78,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="van-MG-Jiz" userLabel="requirementExploreLoungeCollectionView">
                                 <rect key="frame" x="8" y="133" width="358" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.1764705882" green="0.22352941179999999" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.1854924262" green="0.2216372788" blue="0.3372708559" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="N9C-A5-XXd">
                                     <size key="itemSize" width="80" height="32"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -87,7 +87,7 @@
                                 </collectionViewFlowLayout>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" red="0.1764705882" green="0.22352941179999999" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.1854924262" green="0.2216372788" blue="0.3372708559" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                 <integer key="value" value="8"/>

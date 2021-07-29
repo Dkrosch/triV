@@ -49,16 +49,16 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTV-jT-jnq">
-                                <rect key="frame" x="16" y="320" width="79" height="21"/>
+                                <rect key="frame" x="16" y="320" width="97" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
                                 <color key="textColor" red="0.95686918499999996" green="0.95685130360000004" blue="0.95686334370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OOH-GU-1Dj">
-                                <rect key="frame" x="16" y="403" width="74" height="21"/>
+                                <rect key="frame" x="16" y="403" width="92" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
                                 <color key="textColor" red="0.95686918499999996" green="0.95685130360000004" blue="0.95686334370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -135,11 +135,22 @@
                         <outlet property="usernameLabel" destination="oTV-jT-jnq" id="0VZ-RK-r7X"/>
                         <outlet property="wrongLabel" destination="kFA-Lp-Eno" id="5tw-t7-bJC"/>
                         <segue destination="L1L-8Z-cgR" kind="show" identifier="SignUp" id="tKo-lA-XfY"/>
+                        <segue destination="Xmm-DN-ERH" kind="show" identifier="LoginToExploreLounge" id="XJa-Yz-IYe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="18.46153846153846" y="112.32227488151658"/>
+        </scene>
+        <!--ExploreLounge-->
+        <scene sceneID="0xz-AS-Guk">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ExploreLounge" id="Xmm-DN-ERH" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="o6R-0W-EXd"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HrX-Xh-hCj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="833" y="-92"/>
         </scene>
         <!--SignUp-->
         <scene sceneID="W7d-6f-499">

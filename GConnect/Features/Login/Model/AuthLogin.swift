@@ -10,18 +10,17 @@ import FirebaseAuth
 
 class AuthLogin{
     
-    static func SignIn(email: String, password: String, status: Bool){
+    static func SignIn(email: String, password: String, successCompletionHandler: @escaping (Bool) -> Void){
         
         FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password, completion: { result, error in
-            var Status = status
             
             guard error == nil else{
+                successCompletionHandler(false)
                 print("Salah")
-                Status = false
                 return
             }
-            
-            Status = false
+        
+            successCompletionHandler(true)
             print("SignIn")
         })
     }

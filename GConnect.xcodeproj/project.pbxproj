@@ -31,6 +31,7 @@
 		84D9369226B289FC00E29F12 /* ViewControllerChooseGameDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9369126B289FC00E29F12 /* ViewControllerChooseGameDetail.swift */; };
 		84D9369826B2908F00E29F12 /* CreateLoungeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9369726B2908F00E29F12 /* CreateLoungeVC.swift */; };
 		84D9369A26B2909400E29F12 /* CreateLounge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84D9369926B2909400E29F12 /* CreateLounge.storyboard */; };
+		84D9369E26B2B22D00E29F12 /* DataLounge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9369D26B2B22D00E29F12 /* DataLounge.swift */; };
 		E02FC20726B174FE00963710 /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02FC20626B174FE00963710 /* DatePicker.swift */; };
 		E04E0FE126B0058200A81F92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04E0FE026B0058200A81F92 /* AppDelegate.swift */; };
 		E04E0FE326B0058200A81F92 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04E0FE226B0058200A81F92 /* SceneDelegate.swift */; };
@@ -66,6 +67,7 @@
 		84D9369126B289FC00E29F12 /* ViewControllerChooseGameDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerChooseGameDetail.swift; sourceTree = "<group>"; };
 		84D9369726B2908F00E29F12 /* CreateLoungeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateLoungeVC.swift; sourceTree = "<group>"; };
 		84D9369926B2909400E29F12 /* CreateLounge.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateLounge.storyboard; sourceTree = "<group>"; };
+		84D9369D26B2B22D00E29F12 /* DataLounge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLounge.swift; sourceTree = "<group>"; };
 		85B0446085D3146B31E566FE /* Pods-GConnect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GConnect.release.xcconfig"; path = "Target Support Files/Pods-GConnect/Pods-GConnect.release.xcconfig"; sourceTree = "<group>"; };
 		D9425B70F64E9871706E5B07 /* Pods_GConnect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GConnect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E02FC20626B174FE00963710 /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
@@ -103,8 +105,8 @@
 		8405A5EC26B15427009D1375 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				8405A5EF26B1543D009D1375 /* Model */,
 				8405A5EE26B15435009D1375 /* ViewModel */,
+				8405A5EF26B1543D009D1375 /* Model */,
 				8405A5ED26B1542F009D1375 /* View */,
 			);
 			path = SignUp;
@@ -218,6 +220,7 @@
 		84D9367A26B283CC00E29F12 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				84D9369D26B2B22D00E29F12 /* DataLounge.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -529,6 +532,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8405A5FD26B155D8009D1375 /* HideKeyboard.swift in Sources */,
+				84D9369E26B2B22D00E29F12 /* DataLounge.swift in Sources */,
 				8405A60026B155E4009D1375 /* CheckEmail.swift in Sources */,
 				E04E100C26B00A1D00A81F92 /* LoginViewController.swift in Sources */,
 				84D9369826B2908F00E29F12 /* CreateLoungeVC.swift in Sources */,

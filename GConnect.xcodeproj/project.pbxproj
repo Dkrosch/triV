@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		611D92946047CC1CC6F6C168 /* Pods_GConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9425B70F64E9871706E5B07 /* Pods_GConnect.framework */; };
+		7CB3A24C26B29EDD00259119 /* DetailLounge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CB3A24B26B29EDD00259119 /* DetailLounge.storyboard */; };
+		7CB3A25426B2ABDF00259119 /* DetailLoungeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB3A25326B2ABDF00259119 /* DetailLoungeViewController.swift */; };
 		8405A5F226B1546A009D1375 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8405A5F026B15466009D1375 /* SignUpViewController.swift */; };
 		8405A5F326B1546A009D1375 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8405A5F126B1546A009D1375 /* SignUp.storyboard */; };
 		8405A5F526B15493009D1375 /* StoreDataAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8405A5F426B15493009D1375 /* StoreDataAuth.swift */; };
@@ -43,6 +45,8 @@
 
 /* Begin PBXFileReference section */
 		64CD961C1288F8B7BC7C940A /* Pods-GConnect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GConnect.debug.xcconfig"; path = "Target Support Files/Pods-GConnect/Pods-GConnect.debug.xcconfig"; sourceTree = "<group>"; };
+		7CB3A24B26B29EDD00259119 /* DetailLounge.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailLounge.storyboard; sourceTree = "<group>"; };
+		7CB3A25326B2ABDF00259119 /* DetailLoungeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLoungeViewController.swift; sourceTree = "<group>"; };
 		8405A5F026B15466009D1375 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		8405A5F126B1546A009D1375 /* SignUp.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		8405A5F426B15493009D1375 /* StoreDataAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDataAuth.swift; sourceTree = "<group>"; };
@@ -98,6 +102,39 @@
 				D9425B70F64E9871706E5B07 /* Pods_GConnect.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7CB3A24726B29DE300259119 /* Detail Lounge */ = {
+			isa = PBXGroup;
+			children = (
+				7CB3A24826B29DF000259119 /* Model */,
+				7CB3A24926B29DF600259119 /* View Model */,
+				7CB3A24A26B29DFF00259119 /* View */,
+			);
+			path = "Detail Lounge";
+			sourceTree = "<group>";
+		};
+		7CB3A24826B29DF000259119 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7CB3A24926B29DF600259119 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		7CB3A24A26B29DFF00259119 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7CB3A24B26B29EDD00259119 /* DetailLounge.storyboard */,
+				7CB3A25326B2ABDF00259119 /* DetailLoungeViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		8405A5EC26B15427009D1375 /* SignUp */ = {
@@ -344,6 +381,7 @@
 		E04E0FF426B0059800A81F92 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				7CB3A24726B29DE300259119 /* Detail Lounge */,
 				84D9369326B2904D00E29F12 /* Create Lounge */,
 				84D9368526B289B000E29F12 /* Creat Profile */,
 				84D9367826B283BD00E29F12 /* Explore Lounge */,
@@ -474,6 +512,7 @@
 				E04E0FEA26B0058500A81F92 /* Assets.xcassets in Resources */,
 				E04E101126B019D900A81F92 /* Login.storyboard in Resources */,
 				8405A5F326B1546A009D1375 /* SignUp.storyboard in Resources */,
+				7CB3A24C26B29EDD00259119 /* DetailLounge.storyboard in Resources */,
 				84D9369A26B2909400E29F12 /* CreateLounge.storyboard in Resources */,
 				84D9368A26B289D100E29F12 /* Choose game detail.storyboard in Resources */,
 			);
@@ -532,6 +571,7 @@
 				8405A60026B155E4009D1375 /* CheckEmail.swift in Sources */,
 				E04E100C26B00A1D00A81F92 /* LoginViewController.swift in Sources */,
 				84D9369826B2908F00E29F12 /* CreateLoungeVC.swift in Sources */,
+				7CB3A25426B2ABDF00259119 /* DetailLoungeViewController.swift in Sources */,
 				84D9367626B2839A00E29F12 /* ExploreLoungeCell.swift in Sources */,
 				8405A5F526B15493009D1375 /* StoreDataAuth.swift in Sources */,
 				84D9368F26B289F500E29F12 /* ChooseGameViewController.swift in Sources */,

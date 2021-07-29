@@ -25,6 +25,8 @@ class CreateLoungeVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         picker.backgroundColor = rhino
         CreateButton.layer.cornerRadius = 8
         CreateButton.backgroundColor = viking
+        self.RankTriangle.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+        self.GenderTriangle.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
     }
 
     let arrayDataRank = ["Iron", "Bronze", "Silver", "Gold", "Platinum", "Diamond", "Immortal", "Radiant"]
@@ -41,7 +43,7 @@ class CreateLoungeVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     let viking = UIColor(red: 1.00, green: 0.59, blue: 0.47, alpha: 1.00)
     
-    let greenborder = UIColor ()
+    let hijauOlga = UIColor(red: 0.29, green: 0.76, blue: 0.71, alpha: 1.00)
     
     //@IBOutlet weak var picker: UIPickerView!
     @IBOutlet weak var ChooseRoleLabel: UILabel!
@@ -61,6 +63,8 @@ class CreateLoungeVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet weak var RankedTextfieldPicker: UITextField!
     @IBOutlet weak var GenderTextfieldPicker: UITextField!
     @IBOutlet weak var CreateButton: UIButton!
+    @IBOutlet weak var RankTriangle: UIImageView!
+    @IBOutlet weak var GenderTriangle: UIImageView!
     
     var arrayrow = [""]
     var arraycount = 0
@@ -111,7 +115,7 @@ class CreateLoungeVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         if (pickerLabel == nil)
         {
             pickerLabel = UILabel()
-            pickerLabel?.font = UIFont(name: "SF Pro Display", size: 12)
+            pickerLabel?.font = UIFont(name: "SF Pro Display", size: 17)
             pickerLabel?.textAlignment = NSTextAlignment.center
         }
         if RankedTextfieldPicker.isEditing{ pickerLabel?.text = arrayDataRank[row]
@@ -125,12 +129,37 @@ class CreateLoungeVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         return pickerLabel!;
     }
     
+    //*** Segitiga muter buat Picker ***
+    @IBAction func TxtfieldRankBeginEditing(_ sender: UITextField) {
+        self.RankTriangle.transform = CGAffineTransform(rotationAngle: 0)
+    }
+    
+    @IBAction func TxtfieldRankEndEditing(_ sender: UITextField) {
+        self.RankTriangle.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+    }
+    
+    @IBAction func TxtfieldGenderBeginEditing(_ sender: UITextField) {
+        self.GenderTriangle.transform = CGAffineTransform(rotationAngle: 0)
+    }
+    
+    @IBAction func TxtfieldGenderEndEditing(_ sender: UITextField) {
+        self.GenderTriangle.transform = CGAffineTransform(rotationAngle: CGFloat.pi)
+    }
+    
+    
+    
+    
+    
+    
+    
+    //*** TOGGLE CHECKBOX ***
+    
     @IBAction func SentinelToggle(_ sender: Any) {
         CheckermarkSentinel.isHidden.toggle()
         
         if CheckermarkSentinel.isHidden == false {
             SentinelButton.layer.borderWidth = 2
-            SentinelButton.layer.borderColor = viking.cgColor
+            SentinelButton.layer.borderColor = hijauOlga.cgColor
         }else {
             SentinelButton.layer.borderWidth = 0
         }
@@ -143,7 +172,7 @@ class CreateLoungeVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         if CheckmarkController.isHidden == false {
             ControllerButton.layer.borderWidth = 2
-            ControllerButton.layer.borderColor = viking.cgColor
+            ControllerButton.layer.borderColor = hijauOlga.cgColor
         }else {
             ControllerButton.layer.borderWidth = 0
         }
@@ -154,7 +183,7 @@ class CreateLoungeVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         if CheckmarkInitiator.isHidden == false {
             InitiatorButton.layer.borderWidth = 2
-            InitiatorButton.layer.borderColor = viking.cgColor
+            InitiatorButton.layer.borderColor = hijauOlga.cgColor
         }else {
             InitiatorButton.layer.borderWidth = 0
         }
@@ -166,7 +195,7 @@ class CreateLoungeVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         
         if CheckmarkDuellist.isHidden == false {
             DuellistButton.layer.borderWidth = 2
-            DuellistButton.layer.borderColor = viking.cgColor
+            DuellistButton.layer.borderColor = hijauOlga.cgColor
         }else {
             DuellistButton.layer.borderWidth = 0
         }

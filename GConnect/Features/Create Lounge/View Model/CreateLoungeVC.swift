@@ -41,6 +41,8 @@ class CreateLoungeVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     let viking = UIColor(red: 1.00, green: 0.59, blue: 0.47, alpha: 1.00)
     
+    let greenborder = UIColor ()
+    
     //@IBOutlet weak var picker: UIPickerView!
     @IBOutlet weak var ChooseRoleLabel: UILabel!
     
@@ -125,23 +127,57 @@ class CreateLoungeVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     @IBAction func SentinelToggle(_ sender: Any) {
         CheckermarkSentinel.isHidden.toggle()
+        
+        if CheckermarkSentinel.isHidden == false {
+            SentinelButton.layer.borderWidth = 2
+            SentinelButton.layer.borderColor = viking.cgColor
+        }else {
+            SentinelButton.layer.borderWidth = 0
+        }
+        
+        
     }
     
     @IBAction func ControllerButtonToggle(_ sender: UIButton) {
         CheckmarkController.isHidden.toggle()
+        
+        if CheckmarkController.isHidden == false {
+            ControllerButton.layer.borderWidth = 2
+            ControllerButton.layer.borderColor = viking.cgColor
+        }else {
+            ControllerButton.layer.borderWidth = 0
+        }
     }
     
     @IBAction func CheckmarkInitiatorToggle(_ sender: UIButton) {
         CheckmarkInitiator.isHidden.toggle()
+        
+        if CheckmarkInitiator.isHidden == false {
+            InitiatorButton.layer.borderWidth = 2
+            InitiatorButton.layer.borderColor = viking.cgColor
+        }else {
+            InitiatorButton.layer.borderWidth = 0
+        }
+        
     }
     
     @IBAction func CheckmarkDuellistToggle(_ sender: UIButton) {
         CheckmarkDuellist.isHidden.toggle()
+        
+        if CheckmarkDuellist.isHidden == false {
+            DuellistButton.layer.borderWidth = 2
+            DuellistButton.layer.borderColor = viking.cgColor
+        }else {
+            DuellistButton.layer.borderWidth = 0
+        }
+        
     }
     
     @IBAction func CreateButtonifTapped(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "ChatRoom", sender: self)
         
     }
+    
     
     
     

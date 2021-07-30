@@ -15,11 +15,17 @@ class LoungeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var nama: UILabel!
     @IBOutlet weak var role: UILabel!
     
+    static let identifier = "loungeMemberDetail"
+    
+    static func nib() -> UINib{
+        return UINib(nibName: "LoungeCollectionViewCell", bundle: nil)
+    }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        background.layer.borderWidth = 2
-        background.layer.borderColor = #colorLiteral(red: 1, green: 0.5644452572, blue: 0.4353580177, alpha: 1)
+//        background.layer.borderWidth = 2
+//        background.layer.borderColor = #colorLiteral(red: 1, green: 0.5644452572, blue: 0.4353580177, alpha: 1)
        
     }
 

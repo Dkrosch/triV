@@ -21,6 +21,13 @@ class DetailLoungeViewController: UIViewController {
         DescriptionTextbox.layer.cornerRadius = 8
         JoinLoungeButton.layer.cornerRadius = 8
         
+//        let nib = UINib(nibName: "\(LoungeCollectionViewCell.self)", bundle: nil)
+//        CollectionView.register(nib, forCellWithReuseIdentifier: "detailLoungeMember")
+        
+        CollectionView.register(LoungeCollectionViewCell.nib(), forCellWithReuseIdentifier: LoungeCollectionViewCell.identifier)
+        
+        CollectionView.delegate = self
+        CollectionView.dataSource = self
     }
 
 
@@ -43,3 +50,31 @@ class DetailLoungeViewController: UIViewController {
     
     
     }
+
+
+extension DetailLoungeViewController: UICollectionViewDataSource, UICollectionViewDelegate{
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 4
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LoungeCollectionViewCell.identifier, for: indexPath) as! LoungeCollectionViewCell
+        
+        cell.layer.borderColor = #colorLiteral(red: 0.9960784314, green: 0.5882352941, blue: 0.4666666667, alpha: 1)
+        cell.layer.borderWidth = 1
+        
+        return cell
+    }
+    
+    
+}
+
+extension DetailLoungeViewController: UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 96, height: 109)
+    }
+}

@@ -37,6 +37,10 @@
 		84D9369826B2908F00E29F12 /* CreateLoungeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9369726B2908F00E29F12 /* CreateLoungeVC.swift */; };
 		84D9369A26B2909400E29F12 /* CreateLounge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84D9369926B2909400E29F12 /* CreateLounge.storyboard */; };
 		84D9369E26B2B22D00E29F12 /* DataLounge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9369D26B2B22D00E29F12 /* DataLounge.swift */; };
+		BF72D14426B401AC00F8DA6D /* AchievementProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF72D14226B401AC00F8DA6D /* AchievementProfileCollectionViewCell.swift */; };
+		BF72D14526B401AC00F8DA6D /* AchievementProfileCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF72D14326B401AC00F8DA6D /* AchievementProfileCollectionViewCell.xib */; };
+		BFCE10CF26B2B4BD00C206B5 /* ProfileUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCE10CE26B2B4BD00C206B5 /* ProfileUserViewController.swift */; };
+		BFCE10D126B2B4EF00C206B5 /* ProfileUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFCE10D026B2B4EF00C206B5 /* ProfileUser.storyboard */; };
 		E02FC20726B174FE00963710 /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02FC20626B174FE00963710 /* DatePicker.swift */; };
 		E02FC20926B2B07400963710 /* CreateGameDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02FC20826B2B07400963710 /* CreateGameDetailViewController.swift */; };
 		E04E0FE126B0058200A81F92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04E0FE026B0058200A81F92 /* AppDelegate.swift */; };
@@ -80,6 +84,10 @@
 		84D9369926B2909400E29F12 /* CreateLounge.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateLounge.storyboard; sourceTree = "<group>"; };
 		84D9369D26B2B22D00E29F12 /* DataLounge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLounge.swift; sourceTree = "<group>"; };
 		85B0446085D3146B31E566FE /* Pods-GConnect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GConnect.release.xcconfig"; path = "Target Support Files/Pods-GConnect/Pods-GConnect.release.xcconfig"; sourceTree = "<group>"; };
+		BF72D14226B401AC00F8DA6D /* AchievementProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementProfileCollectionViewCell.swift; sourceTree = "<group>"; };
+		BF72D14326B401AC00F8DA6D /* AchievementProfileCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AchievementProfileCollectionViewCell.xib; sourceTree = "<group>"; };
+		BFCE10CE26B2B4BD00C206B5 /* ProfileUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileUserViewController.swift; path = "GConnect/Features/Profile User/View Model/ProfileUserViewController.swift"; sourceTree = SOURCE_ROOT; };
+		BFCE10D026B2B4EF00C206B5 /* ProfileUser.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileUser.storyboard; sourceTree = "<group>"; };
 		D9425B70F64E9871706E5B07 /* Pods_GConnect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GConnect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E02FC20626B174FE00963710 /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
 		E02FC20826B2B07400963710 /* CreateGameDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGameDetailViewController.swift; sourceTree = "<group>"; };
@@ -218,6 +226,7 @@
 		84D9366E26B2837700E29F12 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				BF72D14126B4016900F8DA6D /* AchievementProfileCell */,
 				84D9366F26B2838200E29F12 /* ExploreLoungeCell */,
 			);
 			path = UI;
@@ -345,6 +354,48 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		BF72D14126B4016900F8DA6D /* AchievementProfileCell */ = {
+			isa = PBXGroup;
+			children = (
+				BF72D14226B401AC00F8DA6D /* AchievementProfileCollectionViewCell.swift */,
+				BF72D14326B401AC00F8DA6D /* AchievementProfileCollectionViewCell.xib */,
+			);
+			path = AchievementProfileCell;
+			sourceTree = "<group>";
+		};
+		BFCE10CA26B2B46B00C206B5 /* Profile User */ = {
+			isa = PBXGroup;
+			children = (
+				BFCE10CD26B2B49000C206B5 /* View Model */,
+				BFCE10CC26B2B48B00C206B5 /* View */,
+				BFCE10CB26B2B48300C206B5 /* Model */,
+			);
+			path = "Profile User";
+			sourceTree = "<group>";
+		};
+		BFCE10CB26B2B48300C206B5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BFCE10CC26B2B48B00C206B5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BFCE10D026B2B4EF00C206B5 /* ProfileUser.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BFCE10CD26B2B49000C206B5 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				BFCE10CE26B2B4BD00C206B5 /* ProfileUserViewController.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
 		E04E0FD426B0058200A81F92 = {
 			isa = PBXGroup;
 			children = (
@@ -388,6 +439,7 @@
 				84D9367826B283BD00E29F12 /* Explore Lounge */,
 				8405A5EC26B15427009D1375 /* SignUp */,
 				E04E0FF526B005AC00A81F92 /* Login */,
+				BFCE10CA26B2B46B00C206B5 /* Profile User */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -512,9 +564,11 @@
 				84D9367726B2839A00E29F12 /* ExploreLoungeCell.xib in Resources */,
 				E04E0FEA26B0058500A81F92 /* Assets.xcassets in Resources */,
 				E04E101126B019D900A81F92 /* Login.storyboard in Resources */,
+				BFCE10D126B2B4EF00C206B5 /* ProfileUser.storyboard in Resources */,
 				8405A5F326B1546A009D1375 /* SignUp.storyboard in Resources */,
 				7CB3A24C26B29EDD00259119 /* DetailLounge.storyboard in Resources */,
 				84D9369A26B2909400E29F12 /* CreateLounge.storyboard in Resources */,
+				BF72D14526B401AC00F8DA6D /* AchievementProfileCollectionViewCell.xib in Resources */,
 				84D9368A26B289D100E29F12 /* Choose game detail.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -581,11 +635,13 @@
 				84D9369026B289F500E29F12 /* GameCollectionViewCell.swift in Sources */,
 				8405A5FC26B155D8009D1375 /* PaddingTextField.swift in Sources */,
 				84D9367526B2839A00E29F12 /* RequirementExploreLoungeCollectionViewCell.swift in Sources */,
+				BF72D14426B401AC00F8DA6D /* AchievementProfileCollectionViewCell.swift in Sources */,
 				84BB975926B12D730024A98B /* AuthLogin.swift in Sources */,
 				E04E0FE126B0058200A81F92 /* AppDelegate.swift in Sources */,
 				E04E0FE326B0058200A81F92 /* SceneDelegate.swift in Sources */,
 				8405A60226B155FD009D1375 /* PageControl.swift in Sources */,
 				8405A5F226B1546A009D1375 /* SignUpViewController.swift in Sources */,
+				BFCE10CF26B2B4BD00C206B5 /* ProfileUserViewController.swift in Sources */,
 				84D9368426B285A500E29F12 /* Struct.swift in Sources */,
 				7C75DFCA26B30727002400CA /* LoungeCollectionViewCell.swift in Sources */,
 				84D9368C26B289E500E29F12 /* Game.swift in Sources */,

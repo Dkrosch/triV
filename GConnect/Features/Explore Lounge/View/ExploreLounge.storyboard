@@ -3,11 +3,22 @@
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--ProfileUser-->
+        <scene sceneID="EhH-aq-P9w">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="ProfileUser" storyboardName="ProfileUser" id="sjp-gr-lRT" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Ynn-xq-gex"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NxK-n2-Osk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-469" y="-430"/>
+        </scene>
         <!--Lounge-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
@@ -106,10 +117,13 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kam-bP-jnl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.10980392160000001" green="0.17254901959999999" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.1764705882" green="0.22352941179999999" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.1764705882" green="0.22352941179999999" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="selectedImageTintColor" name="Vivid Tangerine"/>
                     </tabBar>
                     <connections>
                         <segue destination="Y6W-OH-hqX" kind="relationship" relationship="viewControllers" id="3mf-a1-uUF"/>
+                        <segue destination="sjp-gr-lRT" kind="relationship" relationship="viewControllers" id="yJB-Qe-Qx7"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5i5-8q-ash" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -121,5 +135,8 @@
         <image name="bell.circle.fill" catalog="system" width="128" height="121"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="slider.horizontal.3" catalog="system" width="128" height="100"/>
+        <namedColor name="Vivid Tangerine">
+            <color red="0.99599999189376831" green="0.58799999952316284" blue="0.46700000762939453" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

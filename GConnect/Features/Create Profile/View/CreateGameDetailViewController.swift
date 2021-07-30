@@ -38,6 +38,8 @@ class CreateGameDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.hideKeyboardWhenTappedAround()
+        
         pickerView1.delegate = self
         pickerView1.dataSource = self
         pickerView1.tag = 1
@@ -80,7 +82,7 @@ class CreateGameDetailViewController: UIViewController {
                     print("Sukses")
                 }
             }
-            //performSegue(withIdentifier: "ExploreLounge", sender: self)
+            performSegue(withIdentifier: "ExploreLounge", sender: self)
         }
     }
     

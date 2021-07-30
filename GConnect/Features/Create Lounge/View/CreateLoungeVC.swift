@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class CreateLoungeVC: UIViewController {
 
@@ -18,8 +20,10 @@ class CreateLoungeVC: UIViewController {
     
     @IBOutlet weak var DescriptionTextbox: UITextView!
     
-    @IBOutlet weak var RankedTextfieldPicker: UITextField!
-    @IBOutlet weak var GenderTextfieldPicker: UITextField!
+    @IBOutlet weak var txtFieldRanked: UITextField!
+    @IBOutlet weak var txtFieldGender: UITextField!
+    @IBOutlet weak var txtLoungeTitle: UITextField!
+    
     @IBOutlet weak var CreateButton: UIButton!
     
     let arrayDataRank = ["Iron", "Bronze", "Silver", "Gold", "Platinum", "Diamond", "Immortal", "Radiant"]
@@ -28,11 +32,13 @@ class CreateLoungeVC: UIViewController {
     let pickerView1 = UIPickerView()
     let pickerView2 = UIPickerView()
     
-    var SelectedRole = [""]
+    var selectedRole: [Bool] = [false, false, false, false]
     var statusSentinel = false
     var statusInitiator = false
     var statusController = false
     var statusDuelist = false
+    
+    var createLoungeVM = CreateLoungeViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,11 +61,11 @@ class CreateLoungeVC: UIViewController {
         DescriptionTextbox.layer.cornerRadius = 8
         CreateButton.layer.cornerRadius = 8
         
-        RankedTextfieldPicker.inputView = pickerView1
-        RankedTextfieldPicker.setLeftPaddingPoints(10)
+        txtFieldRanked.inputView = pickerView1
+        txtFieldRanked.setLeftPaddingPoints(10)
         
-        GenderTextfieldPicker.inputView = pickerView2
-        GenderTextfieldPicker.setLeftPaddingPoints(10)
+        txtFieldGender.inputView = pickerView2
+        txtFieldGender.setLeftPaddingPoints(10)
         
         CreateButton.backgroundColor = UIColor(named: "Vivid Tangerine")
     }
@@ -67,24 +73,28 @@ class CreateLoungeVC: UIViewController {
     @IBAction func btnSentinelTapped(_ sender: Any) {
         changeStatusRole(status: statusSentinel, sender: sender as! UIButton){ status in
             self.statusSentinel = status
+            self.selectedRole[0] = status
         }
     }
     
     @IBAction func btnInitiatorTapped(_ sender: Any) {
         changeStatusRole(status: statusInitiator, sender: sender as! UIButton){ status in
             self.statusInitiator = status
+            self.selectedRole[1] = status
         }
     }
     
     @IBAction func btnControllerTapped(_ sender: Any) {
         changeStatusRole(status: statusController, sender: sender as! UIButton){ status in
             self.statusController = status
+            self.selectedRole[2] = status
         }
     }
     
     @IBAction func btnDuelistTapped(_ sender: Any) {
         changeStatusRole(status: statusDuelist, sender: sender as! UIButton){ status in
             self.statusDuelist = status
+            self.selectedRole[3] = status
         }
     }
     
@@ -97,6 +107,12 @@ class CreateLoungeVC: UIViewController {
             sender.setImage(nil, for: .normal)
             passStatus(false)
         }
+    }
+    
+    @IBAction func btnCreateLoungeTapped(_ sender: Any) {
+        guard let userID = Auth.auth().currentUser?.uid else { return }
+        print(selectedRole)
+        createLoungeVM.createLoungeData(title: txtLoungeTitle.text!, role: selectedRole, rank: txtFieldRanked.text!, gender: txtFieldGender.text!, desc: DescriptionTextbox.text, uid: userID)
     }
 }
 
@@ -131,11 +147,11 @@ extension CreateLoungeVC: UIPickerViewDelegate, UIPickerViewDataSource{
     func pickerView( _ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch pickerView.tag {
         case 1:
-            RankedTextfieldPicker.text = self.arrayDataRank[row]
-            RankedTextfieldPicker.resignFirstResponder()
+            txtFieldRanked.text = self.arrayDataRank[row]
+            txtFieldRanked.resignFirstResponder()
         case 2:
-            GenderTextfieldPicker.text = self.arrayGender[row]
-            GenderTextfieldPicker.resignFirstResponder()
+            txtFieldGender.text = self.arrayGender[row]
+            txtFieldGender.resignFirstResponder()
         default:
             return
         }

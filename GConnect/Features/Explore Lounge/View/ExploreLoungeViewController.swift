@@ -23,8 +23,7 @@ class ExploreLoungeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
         loungeCollectionView.delegate = self
         loungeCollectionView.dataSource = self
         
@@ -32,11 +31,13 @@ class ExploreLoungeViewController: UIViewController {
         loungeCollectionView.register(nib, forCellWithReuseIdentifier: "loungeCollectionViewCell" )
         
         collectionRef = Firestore.firestore().collection("LoungeDetail")
-        
-        //print(datas[0].idMemberLounge[0])
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
+        
+        datas = []
+        
         collectionRef.getDocuments { snapshot, error in
             if let err = error{
                 print("error")
@@ -58,17 +59,15 @@ class ExploreLoungeViewController: UIViewController {
                     let member9 = idMemberLounge!["Member9"] as? String
                     let member10 = idMemberLounge!["Member10"] as? String
                     let idRequirementsLounge = data["idRequirementsLounge"] as? [String: Any]
-                    let gender = idRequirementsLounge!["Gender"] as? String
-                    let rank = idRequirementsLounge!["Rank"] as? String
-                    let role1 = idRequirementsLounge!["Role1"] as? String
-                    let role2 = idRequirementsLounge!["Role2"] as? String
-                    let role3 = idRequirementsLounge!["Role3"] as? String
-                    let role4 = idRequirementsLounge!["Role4"] as? String
+                    let role1 = idRequirementsLounge!["Sentinel"] as? Bool
+                    let role2 = idRequirementsLounge!["Initiator"] as? Bool
+                    let role3 = idRequirementsLounge!["Controller"] as? Bool
+                    let role4 = idRequirementsLounge!["Duelist"] as? Bool
+                    let gender = data["Gender"] as? String ?? ""
+                    let rank = data["Rank"] as? String ?? ""
                     let documentId = document.documentID
 
-                    let newData = Struct(title: judul, desc: desc, idMemberLounge: [member1!, member2!, member3!, member4!, member5!, member6!, member7!, member8!, member9!, member10!], idRequirementsLounge: [gender!, rank!, role1!, role2!, role3!, role4!], documentId: documentId, creatAt: creatAt)
-                    
-                //    let newData = Struct(title: judul, desc: desc, idMemberLounge: [member1!, member2!, member3!, member4!, member5!, member6!, member7!, member8!, member9!, member10!], idRequirementsLounge: [gender!, rank!, role1!, role2!, role3!, role4!], documentId: documentId, creatAt: creatAt)
+                    let newData = Struct(title: judul, desc: desc, idMemberLounge: [member1!, member2!, member3!, member4!, member5!, member6!, member7!, member8!, member9!, member10!], idRequirementsLounge: [role1!, role2!, role3!, role4!], documentId: documentId, creatAt: creatAt, gender: gender, rank: rank)
 
                     self.datas.append(newData)
                 }
@@ -77,7 +76,8 @@ class ExploreLoungeViewController: UIViewController {
         }
     }
     
-    @IBAction func createLoungeAction(_ sender: UIButton) {
+    @IBAction func createLoungeAction(_ sender: UIButton){
+        performSegue(withIdentifier: "CreateLounge", sender: self)
     }
 
 }

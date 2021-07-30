@@ -58,6 +58,7 @@
 		E04E100C26B00A1D00A81F92 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04E100A26B00A1D00A81F92 /* LoginViewController.swift */; };
 		E04E101126B019D900A81F92 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E04E101026B019D900A81F92 /* Login.storyboard */; };
 		E04E101326B01D1200A81F92 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E04E101226B01D1200A81F92 /* GoogleService-Info.plist */; };
+		E06ED46626B410E600EC18B0 /* CreateLoungeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06ED46526B410E600EC18B0 /* CreateLoungeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -116,6 +117,7 @@
 		E04E100A26B00A1D00A81F92 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		E04E101026B019D900A81F92 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		E04E101226B01D1200A81F92 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E06ED46526B410E600EC18B0 /* CreateLoungeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLoungeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -350,7 +352,7 @@
 		84D9369326B2904D00E29F12 /* Create Lounge */ = {
 			isa = PBXGroup;
 			children = (
-				84D9369626B2908500E29F12 /* Model */,
+				E06ED46226B40A3200EC18B0 /* Model */,
 				84D9369526B2907D00E29F12 /* View Model */,
 				84D9369426B2907700E29F12 /* View */,
 			);
@@ -369,6 +371,7 @@
 		84D9369526B2907D00E29F12 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
+				E06ED46526B410E600EC18B0 /* CreateLoungeViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -517,6 +520,13 @@
 			children = (
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		E06ED46226B40A3200EC18B0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		E5781C8DB87779570753F36A /* Pods */ = {
@@ -668,6 +678,7 @@
 				A80E61E626B421DF005FF4B6 /* AddAchievementViewController.swift in Sources */,
 				84D9367626B2839A00E29F12 /* ExploreLoungeCell.swift in Sources */,
 				8405A5F526B15493009D1375 /* StoreDataAuth.swift in Sources */,
+				E06ED46626B410E600EC18B0 /* CreateLoungeViewModel.swift in Sources */,
 				84D9368F26B289F500E29F12 /* ChooseGameViewController.swift in Sources */,
 				7C75DFCE26B30BAA002400CA /* RoleCollectionViewCell.swift in Sources */,
 				84D9369026B289F500E29F12 /* GameCollectionViewCell.swift in Sources */,

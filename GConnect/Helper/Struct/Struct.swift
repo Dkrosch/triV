@@ -7,14 +7,12 @@
 
 import Foundation
 import UIKit
-import FirebaseFirestoreSwift
 
-class Struct{
-//       @DocumentID var id: String? = UUID().uuidString
+class DetailLounge{
     var title: String
     var desc: String
-    var idMemberLounge: [String] // isi member
-    var idRequirementsLounge: [String]// isi requirement
+    var idMemberLounge: [String]
+    var idRequirementsLounge: [String]
     var documentId: String
     var creatAt: String
     

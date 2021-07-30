@@ -16,10 +16,14 @@ class ProfileUserViewController: UIViewController {
     @IBOutlet weak var aboutMeDescriptionLabel: UILabel!
     @IBOutlet weak var genderLabel: UILabel!
     
+    @IBOutlet weak var viewContent: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var achievementCollectionView: UICollectionView!
     @IBOutlet weak var buttonLogoutProfileUser: UIButton!
+    @IBOutlet weak var viewContentHeightConstraint: NSLayoutConstraint!
     
 //    var jumlahCell = 0
+    @IBOutlet weak var achievementCollectionViewConstraintHeight: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,20 +31,23 @@ class ProfileUserViewController: UIViewController {
         // Do any additional setup after loading the view.
         aboutMeViewProfileUser.layer.borderColor = #colorLiteral(red: 1, green: 0.6593824029, blue: 0.5392141342, alpha: 1)
         aboutMeViewProfileUser.layer.borderWidth = 1
-//        aboutMeViewProfileUser.frame.size = CGSize(width: 350, height: 1000)
-//
-//        achievementCollectionView.frame = CGRect(x: 20, y: 548, width: 350, height: 500)
-//        achievementCollectionView.frame.size = CGSize(width: 350, height: 1000)
+
         let nib = UINib(nibName: "\(AchievementProfileCollectionViewCell.self)", bundle: nil)
         achievementCollectionView.register(nib, forCellWithReuseIdentifier: "achievementCell" )
         
         achievementCollectionView.delegate = self
         achievementCollectionView.dataSource = self
-        
-        achievementCollectionView.frame.size = CGSize(width: 350, height: 148*3)
+
         achievementCollectionView.isScrollEnabled = false
         
+        achievementCollectionView.layer.borderWidth = 1
+        achievementCollectionView.layer.borderColor = #colorLiteral(red: 1, green: 0.6593824029, blue: 0.5392141342, alpha: 1)
         
+        viewContentHeightConstraint.constant = 696 + (achievementCollectionView.frame.size.height*10)
+        
+        achievementCollectionViewConstraintHeight.constant = achievementCollectionView.frame.size.height*10
+        
+        print(achievementCollectionView.frame.size.height)
         view.layoutIfNeeded()
     }
     
@@ -63,7 +70,7 @@ extension ProfileUserViewController: UICollectionViewDelegate{
 
 extension ProfileUserViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -79,4 +86,3 @@ extension ProfileUserViewController: UICollectionViewDelegateFlowLayout{
         return CGSize(width: 350, height: 148)
     }
 }
-

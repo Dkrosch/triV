@@ -15,6 +15,15 @@ class CreateGameDetailViewController: UIViewController {
     @IBOutlet weak var rankLabel: UILabel!
     @IBOutlet weak var continueButton: UIButton!
     
+    //statistics
+    @IBOutlet weak var statsTitleLabel: UILabel!
+    @IBOutlet weak var statsSubtitleLabel: UILabel!
+    @IBOutlet weak var statsView: UIView!
+    @IBOutlet weak var statsHeaderView: UIView!
+    @IBOutlet weak var gameIconImage: UIImageView!
+    @IBOutlet weak var gameTitleLabel: UILabel!
+    @IBOutlet weak var linkToGameAccBtn: UIButton!
+        
     var pickerView1 = UIPickerView()
     var pickerView2 = UIPickerView()
     var name = ""
@@ -35,6 +44,16 @@ class CreateGameDetailViewController: UIViewController {
         
         roleTextField.inputView = pickerView1
         rankTextFiled.inputView = pickerView2
+        
+        linkToGameAccBtn.layer.cornerRadius = 10.0
+        linkToGameAccBtn.layer.masksToBounds = true
+        continueButton.layer.cornerRadius = 10.0
+        continueButton.layer.masksToBounds = true
+        
+        statsView.layer.borderWidth = 1
+        statsView.layer.borderColor = UIColor(named: "Vivid Tangerine")?.cgColor
+        statsView.layer.cornerRadius = 10.0
+        statsView.layer.masksToBounds = true
     }
     
     @IBAction func btnContinueTapped(_ sender: Any) {

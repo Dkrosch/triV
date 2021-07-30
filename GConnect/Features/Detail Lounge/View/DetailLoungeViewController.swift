@@ -7,23 +7,17 @@
 
 import UIKit
 
-class DetailLoungeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        1
-    }
-    
+class DetailLoungeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         Rank.layer.cornerRadius = 8
-        Rank.layer.borderColor = #colorLiteral(red: 0.9950601459, green: 0.5900325775, blue: 0.4639726281, alpha: 1)
+        Rank.layer.borderWidth = 2
+        Rank.layer.borderColor = #colorLiteral(red: 0.9921568627, green: 0.5882352941, blue: 0.4666666667, alpha: 1)
         Game.layer.cornerRadius = 8
-        Game.layer.borderColor = #colorLiteral(red: 0.9950601459, green: 0.5900325775, blue: 0.4639726281, alpha: 1)
+        Game.layer.borderWidth = 2
+        Game.layer.borderColor = #colorLiteral(red: 0.9921568627, green: 0.5882352941, blue: 0.4666666667, alpha: 1)
         DescriptionTextbox.layer.cornerRadius = 8
         JoinLoungeButton.layer.cornerRadius = 8
         

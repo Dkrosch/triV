@@ -37,6 +37,8 @@
 		84D9369826B2908F00E29F12 /* CreateLoungeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9369726B2908F00E29F12 /* CreateLoungeVC.swift */; };
 		84D9369A26B2909400E29F12 /* CreateLounge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84D9369926B2909400E29F12 /* CreateLounge.storyboard */; };
 		84D9369E26B2B22D00E29F12 /* DataLounge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9369D26B2B22D00E29F12 /* DataLounge.swift */; };
+		A80E61DE26B3DD01005FF4B6 /* ProfileVisitor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A80E61DD26B3DD01005FF4B6 /* ProfileVisitor.storyboard */; };
+		A80E61E026B3ED40005FF4B6 /* ProfileVisitorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80E61DF26B3ED40005FF4B6 /* ProfileVisitorViewController.swift */; };
 		E02FC20726B174FE00963710 /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02FC20626B174FE00963710 /* DatePicker.swift */; };
 		E02FC20926B2B07400963710 /* CreateGameDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02FC20826B2B07400963710 /* CreateGameDetailViewController.swift */; };
 		E04E0FE126B0058200A81F92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04E0FE026B0058200A81F92 /* AppDelegate.swift */; };
@@ -80,6 +82,8 @@
 		84D9369926B2909400E29F12 /* CreateLounge.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateLounge.storyboard; sourceTree = "<group>"; };
 		84D9369D26B2B22D00E29F12 /* DataLounge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLounge.swift; sourceTree = "<group>"; };
 		85B0446085D3146B31E566FE /* Pods-GConnect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GConnect.release.xcconfig"; path = "Target Support Files/Pods-GConnect/Pods-GConnect.release.xcconfig"; sourceTree = "<group>"; };
+		A80E61DD26B3DD01005FF4B6 /* ProfileVisitor.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileVisitor.storyboard; sourceTree = "<group>"; };
+		A80E61DF26B3ED40005FF4B6 /* ProfileVisitorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVisitorViewController.swift; sourceTree = "<group>"; };
 		D9425B70F64E9871706E5B07 /* Pods_GConnect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GConnect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E02FC20626B174FE00963710 /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
 		E02FC20826B2B07400963710 /* CreateGameDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGameDetailViewController.swift; sourceTree = "<group>"; };
@@ -375,6 +379,8 @@
 				E04E0FEB26B0058500A81F92 /* LaunchScreen.storyboard */,
 				E04E101226B01D1200A81F92 /* GoogleService-Info.plist */,
 				E04E0FEE26B0058500A81F92 /* Info.plist */,
+				A80E61DD26B3DD01005FF4B6 /* ProfileVisitor.storyboard */,
+				A80E61DF26B3ED40005FF4B6 /* ProfileVisitorViewController.swift */,
 			);
 			path = GConnect;
 			sourceTree = "<group>";
@@ -510,6 +516,7 @@
 				E04E101326B01D1200A81F92 /* GoogleService-Info.plist in Resources */,
 				7C75DFCF26B30BAA002400CA /* RoleCollectionViewCell.xib in Resources */,
 				84D9367726B2839A00E29F12 /* ExploreLoungeCell.xib in Resources */,
+				A80E61DE26B3DD01005FF4B6 /* ProfileVisitor.storyboard in Resources */,
 				E04E0FEA26B0058500A81F92 /* Assets.xcassets in Resources */,
 				E04E101126B019D900A81F92 /* Login.storyboard in Resources */,
 				8405A5F326B1546A009D1375 /* SignUp.storyboard in Resources */,
@@ -581,6 +588,7 @@
 				84D9369026B289F500E29F12 /* GameCollectionViewCell.swift in Sources */,
 				8405A5FC26B155D8009D1375 /* PaddingTextField.swift in Sources */,
 				84D9367526B2839A00E29F12 /* RequirementExploreLoungeCollectionViewCell.swift in Sources */,
+				A80E61E026B3ED40005FF4B6 /* ProfileVisitorViewController.swift in Sources */,
 				84BB975926B12D730024A98B /* AuthLogin.swift in Sources */,
 				E04E0FE126B0058200A81F92 /* AppDelegate.swift in Sources */,
 				E04E0FE326B0058200A81F92 /* SceneDelegate.swift in Sources */,

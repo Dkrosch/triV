@@ -13,7 +13,7 @@ struct Game{
 }
 
 let games: [Game] = [
-    Game(title: "Valorant", image: #imageLiteral(resourceName: "Valorant")),
+    Game(title: "Valorant", image: #imageLiteral(resourceName: "Valo")),
     Game(title: "PUBG-M", image: #imageLiteral(resourceName: "PUBG-M")),
     Game(title: "Dota 2", image: #imageLiteral(resourceName: "DOTA 2")),
     Game(title: "CS:GO", image: #imageLiteral(resourceName: "CS:GO")),

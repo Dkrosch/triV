@@ -17,3 +17,10 @@ class GameCollectionViewCell: UICollectionViewCell {
         titleLabel.text = game.title
     }
 }
+
+extension UIImageView{
+    func roundedImage(){
+        self.layer.cornerRadius = 10.0
+        self.layer.masksToBounds = true
+    }
+}

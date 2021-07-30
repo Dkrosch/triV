@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class CreateGameDetailViewController: UIViewController {
 
@@ -14,6 +16,8 @@ class CreateGameDetailViewController: UIViewController {
     @IBOutlet weak var roleLabel: UILabel!
     @IBOutlet weak var rankLabel: UILabel!
     @IBOutlet weak var continueButton: UIButton!
+    @IBOutlet weak var gameCoverImage: UIImageView!
+    
     
     //statistics
     @IBOutlet weak var statsTitleLabel: UILabel!
@@ -45,11 +49,13 @@ class CreateGameDetailViewController: UIViewController {
         roleTextField.inputView = pickerView1
         rankTextFiled.inputView = pickerView2
         
+        //rounded button
         linkToGameAccBtn.layer.cornerRadius = 10.0
         linkToGameAccBtn.layer.masksToBounds = true
         continueButton.layer.cornerRadius = 10.0
         continueButton.layer.masksToBounds = true
         
+        //statsview
         statsView.layer.borderWidth = 1
         statsView.layer.borderColor = UIColor(named: "Vivid Tangerine")?.cgColor
         statsView.layer.cornerRadius = 10.0
@@ -57,7 +63,25 @@ class CreateGameDetailViewController: UIViewController {
     }
     
     @IBAction func btnContinueTapped(_ sender: Any) {
-        performSegue(withIdentifier: "ExploreLounge", sender: self)
+        guard let userID = Auth.auth().currentUser?.uid else { return }
+        
+        let db = Firestore.firestore()
+        let role = roleTextField.text
+        let rank = rankTextFiled.text
+        let game = "valorant"
+
+        if roleTextField.text == "Choose your role" && rankTextFiled.text == "Choose your rank"{
+            print("ga bisa bang")
+        }else{
+            db.collection("users").document(userID).updateData(["game": game, "role" : role, "rank" : rank]) {(error) in
+                if error != nil{
+                    print("Gagal")
+                } else {
+                    print("Sukses")
+                }
+            }
+            //performSegue(withIdentifier: "ExploreLounge", sender: self)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

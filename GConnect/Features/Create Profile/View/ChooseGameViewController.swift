@@ -12,12 +12,16 @@ class ChooseGameViewController: UIViewController {
    
     @IBOutlet weak var collectionView: UICollectionView!
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.collectionViewLayout = UICollectionViewFlowLayout()
+        
+      
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

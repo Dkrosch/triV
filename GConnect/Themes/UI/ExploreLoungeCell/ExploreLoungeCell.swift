@@ -31,6 +31,23 @@ class ExploreLoungeCell: UICollectionViewCell, UICollectionViewDelegate, UIColle
         requirementExploreLoungeCollectionVIew.register(nib, forCellWithReuseIdentifier: "cellContoh")
     }
     
+    func configureCell(detailLounge: DetailLounge){
+        var num = 10
+        
+        for member in detailLounge.idMemberLounge{
+            if member == ""{
+                num -= 1
+            }
+        }
+        
+        loungeNameLabel.text = detailLounge.title
+        descriptionLoungeLabel.text = detailLounge.desc
+        totalMemberLabel.text = "\(num)"
+        
+        exploreLoungeCellView.layer.borderWidth = 1
+        exploreLoungeCellView.layer.borderColor = #colorLiteral(red: 1, green: 0.6593824029, blue: 0.5392141342, alpha: 1)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 5
     }

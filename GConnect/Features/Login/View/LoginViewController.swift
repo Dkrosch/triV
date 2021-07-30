@@ -31,10 +31,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.usernameField.addBottomBorder()
         self.passwordField.addBottomBorder()
         
-        usernameField.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
-        
-        passwordField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
-        
         wrongLabel.isHidden = true
         
         loginBtn.layer.cornerRadius = 10

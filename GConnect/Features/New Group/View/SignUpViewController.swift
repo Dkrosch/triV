@@ -61,7 +61,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func btnSignUpTapped(_ sender: Any) {
-        if (txtFieldUsername.text == ""  || txtFieldGender.text == "" || txtFieldUsername.text == "" || txtFieldBirthday.text == "" || txtFieldPassword.text == "" || txtFieldConPassword.text == ""){
+        if (txtFieldUsername.text == ""  || txtFieldGender.text == "" || txtFieldEmail.text == "" || txtFieldBirthday.text == "" || txtFieldPassword.text == "" || txtFieldConPassword.text == ""){
             showErrorMessage(message: "Fill All Data")
         }else if (txtFieldEmail.text?.isValidEmail == false) {
             showErrorMessage(message: "Wrong Email Format")
@@ -72,6 +72,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         }else{
             StoreDataAuth.CreateData(username: txtFieldUsername.text!, email: txtFieldEmail.text!, DoB: txtFieldBirthday.text!, password: txtFieldPassword.text!, gender: txtFieldGender.text!) { status in
                 if status {
+                    print("hello")
                     self.performSegue(withIdentifier: "CreateProfile", sender: self)
                 }else if status == false{
                     self.showErrorMessage(message: "Email has been registered")

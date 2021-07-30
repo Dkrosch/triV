@@ -75,7 +75,6 @@ extension CreateGameDetailViewController: UIPickerViewDelegate, UIPickerViewData
         default:
             return nil
         }
-        
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {

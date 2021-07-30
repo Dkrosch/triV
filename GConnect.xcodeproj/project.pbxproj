@@ -175,28 +175,14 @@
 		8405A5F626B15599009D1375 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				8405A5FF26B155E4009D1375 /* CheckEmail.swift */,
+				8405A60126B155FD009D1375 /* PageControl.swift */,
 				8405A5FB26B155D8009D1375 /* BottomLineTextField.swift */,
 				8405A5FA26B155D7009D1375 /* HideKeyboard.swift */,
 				8405A5F926B155D5009D1375 /* PaddingTextField.swift */,
 				E02FC20626B174FE00963710 /* DatePicker.swift */,
 			);
 			path = Utilities;
-			sourceTree = "<group>";
-		};
-		8405A5F726B155AF009D1375 /* PageControl */ = {
-			isa = PBXGroup;
-			children = (
-				8405A60126B155FD009D1375 /* PageControl.swift */,
-			);
-			path = PageControl;
-			sourceTree = "<group>";
-		};
-		8405A5F826B155C2009D1375 /* Validation */ = {
-			isa = PBXGroup;
-			children = (
-				8405A5FF26B155E4009D1375 /* CheckEmail.swift */,
-			);
-			path = Validation;
 			sourceTree = "<group>";
 		};
 		84BB975726B12D610024A98B /* Model */ = {
@@ -324,6 +310,7 @@
 		84D9369426B2907700E29F12 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				84D9369726B2908F00E29F12 /* CreateLoungeVC.swift */,
 				84D9369926B2909400E29F12 /* CreateLounge.storyboard */,
 			);
 			path = View;
@@ -332,7 +319,6 @@
 		84D9369526B2907D00E29F12 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
-				84D9369726B2908F00E29F12 /* CreateLoungeVC.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -421,8 +407,6 @@
 			isa = PBXGroup;
 			children = (
 				84D9368026B2858500E29F12 /* Struct */,
-				8405A5F826B155C2009D1375 /* Validation */,
-				8405A5F726B155AF009D1375 /* PageControl */,
 				8405A5F626B15599009D1375 /* Utilities */,
 				E04E100626B0086700A81F92 /* Network */,
 			);

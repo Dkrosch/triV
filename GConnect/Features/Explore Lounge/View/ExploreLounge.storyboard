@@ -93,11 +93,22 @@
                         <outlet property="filterLoungeButton" destination="7IF-sd-cea" id="2SL-Xd-er9"/>
                         <outlet property="loungeCollectionView" destination="RBf-eN-DbS" id="YoF-1i-0Bf"/>
                         <outlet property="notificationButton" destination="AOG-sG-Mnq" id="E1Q-pb-oOP"/>
+                        <segue destination="a16-ZC-USx" kind="show" identifier="CreateLounge" id="Ydv-D2-a8s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-6.1538461538461533" y="107.34597156398104"/>
+        </scene>
+        <!--CreateLounge-->
+        <scene sceneID="AHg-8K-kA2">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CreateLounge" id="a16-ZC-USx" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="3MC-e8-xAO"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H3x-0u-xj7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="872" y="-56"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="p58-Z1-YoA">

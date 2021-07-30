@@ -31,6 +31,7 @@ class StoreDataAuth {
                 
                 return
             }
+            succcesCompletionHandler(true)
             
             let Dob = DoB
             let gender = gender

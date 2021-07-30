@@ -29,8 +29,8 @@ class ExploreLoungeViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
     }
     
-    @IBAction func createLoungeAction(_ sender: UIButton) {
-        
+    @IBAction func createLoungeAction(_ sender: UIButton){
+        performSegue(withIdentifier: "CreateLounge", sender: self)
     }
 }
 

@@ -9,6 +9,8 @@ import UIKit
 
 class ProfileVisitorViewController: UIViewController {
     
+    @IBOutlet weak var heightAchievCollView: NSLayoutConstraint!
+    @IBOutlet weak var heightProfileView: NSLayoutConstraint!
     @IBOutlet weak var profileScrollView: UIScrollView!
     @IBOutlet weak var profileView: UIView!
     
@@ -20,6 +22,7 @@ class ProfileVisitorViewController: UIViewController {
     
     @IBOutlet weak var aboutmeLabel: UILabel!
     @IBOutlet weak var aboutmeView: UIView!
+    
     @IBOutlet weak var despLabel: UILabel!
     @IBOutlet weak var genderLabel: UILabel!
     
@@ -32,6 +35,26 @@ class ProfileVisitorViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        aboutmeView.layer.borderColor = #colorLiteral(red: 1, green: 0.6593824029, blue: 0.5392141342, alpha: 1)
+        aboutmeView.layer.borderWidth = 1
+
+        let nib = UINib(nibName: "\(AchievementProfileCollectionViewCell.self)", bundle: nil)
+        achievCollView.register(nib, forCellWithReuseIdentifier: "achievementCell" )
+        
+        achievCollView.delegate = self
+        achievCollView.dataSource = self
+
+        achievCollView.isScrollEnabled = false
+        
+        achievCollView.layer.borderWidth = 1
+        achievCollView.layer.borderColor = #colorLiteral(red: 1, green: 0.6593824029, blue: 0.5392141342, alpha: 1)
+        
+        heightProfileView.constant = 696 + (achievCollView.frame.size.height*10)
+        
+        heightAchievCollView.constant = achievCollView.frame.size.height*10
+        
+        print(achievCollView.frame.size.height)
+        view.layoutIfNeeded()
         
         // Do any additional setup after loading the view.
     }
@@ -48,3 +71,27 @@ class ProfileVisitorViewController: UIViewController {
     */
 
 }
+
+extension ProfileVisitorViewController: UICollectionViewDelegate{
+    
+}
+
+extension ProfileVisitorViewController: UICollectionViewDataSource{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "achievementCell", for: indexPath) as! AchievementProfileCollectionViewCell
+        return cell
+    }
+    
+    
+}
+
+extension ProfileVisitorViewController: UICollectionViewDelegateFlowLayout{
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 350, height: 148)
+    }
+}
+

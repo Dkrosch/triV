@@ -19,154 +19,199 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hp1-iN-Sqq">
-                                <rect key="frame" x="0.0" y="44" width="390" height="766"/>
-                                <color key="backgroundColor" name="Dark Blue"/>
-                            </scrollView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Ma-bc-Azb">
-                                <rect key="frame" x="0.0" y="44" width="390" height="1000"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Astra_icon" translatesAutoresizingMaskIntoConstraints="NO" id="9v0-Nw-DES">
-                                        <rect key="frame" x="128" y="21" width="135" height="135"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" name="Black"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="68"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a35-m6-lbg">
-                                        <rect key="frame" x="154" y="164" width="82" height="39"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
-                                        <color key="textColor" name="White Smoke"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qFO-Q4-5hI">
-                                        <rect key="frame" x="25" y="224" width="155" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" name="Vivid Tangerine"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                        <state key="normal" title="Chat">
-                                            <color key="titleColor" name="White Smoke"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="8"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZx-Tt-YEL">
-                                        <rect key="frame" x="210" y="223" width="155" height="33"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" name="Vivid Tangerine"/>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                        <state key="normal" title="Invite to Lounge">
-                                            <color key="titleColor" name="White Smoke"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="8"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="About Me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rnc-df-hoS">
-                                        <rect key="frame" x="25" y="268" width="92" height="26"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
-                                        <color key="textColor" name="White Smoke"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Statistics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yb3-Zd-LWg">
-                                        <rect key="frame" x="25" y="424" width="88" height="26"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
-                                        <color key="textColor" name="White Smoke"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fME-rk-PZ4">
-                                        <rect key="frame" x="25" y="294" width="340" height="110"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ma-bc-Azb">
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="1000"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yp1-63-hZb">
-                                                <rect key="frame" x="8" y="8" width="324" height="66"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                <nil key="textColor"/>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Astra_icon" translatesAutoresizingMaskIntoConstraints="NO" id="9v0-Nw-DES">
+                                                <rect key="frame" x="127" y="20" width="135" height="135"/>
+                                                <color key="backgroundColor" name="Black"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="9v0-Nw-DES" secondAttribute="height" multiplier="1:1" id="Il8-lo-A2A"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="68"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a35-m6-lbg">
+                                                <rect key="frame" x="20" y="163" width="350" height="38.333333333333343"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
+                                                <color key="textColor" name="White Smoke"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4iJ-X6-CHE">
-                                                <rect key="frame" x="8" y="82" width="41" height="20"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
-                                                <nil key="textColor"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="mvs-pI-FND">
+                                                <rect key="frame" x="20" y="221.33333333333334" width="350" height="33"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qFO-Q4-5hI">
+                                                        <rect key="frame" x="0.0" y="0.0" width="160" height="33"/>
+                                                        <color key="backgroundColor" name="Vivid Tangerine"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                        <state key="normal" title="Chat">
+                                                            <color key="titleColor" name="White Smoke"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="8"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZx-Tt-YEL">
+                                                        <rect key="frame" x="190" y="0.0" width="160" height="33"/>
+                                                        <color key="backgroundColor" name="Vivid Tangerine"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                        <state key="normal" title="Invite to Lounge">
+                                                            <color key="titleColor" name="White Smoke"/>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                <integer key="value" value="8"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rnc-df-hoS">
+                                                <rect key="frame" x="20" y="269.33333333333331" width="350" height="25.333333333333314"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
+                                                <color key="textColor" name="White Smoke"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Statistics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yb3-Zd-LWg">
+                                                <rect key="frame" x="20" y="394.33333333333331" width="350" height="25.333333333333314"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
+                                                <color key="textColor" name="White Smoke"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fME-rk-PZ4">
+                                                <rect key="frame" x="20" y="269.33333333333331" width="350" height="110"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yp1-63-hZb">
+                                                        <rect key="frame" x="8" y="8" width="324" height="66"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                        <color key="textColor" name="White Smoke"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="♂️Male" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4iJ-X6-CHE">
+                                                        <rect key="frame" x="8" y="82" width="59" height="20"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                        <color key="textColor" name="White Smoke"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" name="Rhino"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="110" id="DTB-BH-rzb"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5aB-n9-Fwl">
+                                                <rect key="frame" x="20" y="419.66666666666669" width="350" height="128.00000000000006"/>
+                                                <color key="backgroundColor" name="Rhino"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="128" id="bMC-FF-5vs"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TAe-Aa-kXt">
+                                                <rect key="frame" x="20" y="593" width="350" height="148"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="148" id="VPq-hO-yUn"/>
+                                                </constraints>
+                                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="xIc-Y6-M6h">
+                                                    <size key="itemSize" width="350" height="148"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                </collectionViewFlowLayout>
+                                                <cells>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="iGN-zF-JhO">
+                                                        <rect key="frame" x="0.0" y="0.0" width="350" height="148"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gTS-4h-QXe">
+                                                            <rect key="frame" x="0.0" y="0.0" width="350" height="148"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                        </collectionViewCellContentView>
+                                                        <color key="backgroundColor" name="Rhino"/>
+                                                    </collectionViewCell>
+                                                </cells>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                        <integer key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </collectionView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Achievements" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="op5-Rx-pXy">
+                                                <rect key="frame" x="20" y="567.66666666666663" width="350" height="25.333333333333371"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
+                                                <color key="textColor" name="White Smoke"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="8"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
+                                        <color key="backgroundColor" name="Dark Blue"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="mvs-pI-FND" secondAttribute="trailing" constant="20" id="0ca-da-H8l"/>
+                                            <constraint firstItem="a35-m6-lbg" firstAttribute="leading" secondItem="2Ma-bc-Azb" secondAttribute="leading" constant="20" id="1Du-ta-UBz"/>
+                                            <constraint firstItem="5aB-n9-Fwl" firstAttribute="leading" secondItem="2Ma-bc-Azb" secondAttribute="leading" constant="20" id="5qk-Z7-TZJ"/>
+                                            <constraint firstAttribute="height" constant="1000" id="6Ys-v1-Dir"/>
+                                            <constraint firstItem="fME-rk-PZ4" firstAttribute="leading" secondItem="2Ma-bc-Azb" secondAttribute="leading" constant="20" id="781-7D-Bm7"/>
+                                            <constraint firstItem="5aB-n9-Fwl" firstAttribute="top" secondItem="yb3-Zd-LWg" secondAttribute="bottom" id="7rn-ed-IAP"/>
+                                            <constraint firstAttribute="trailing" secondItem="yb3-Zd-LWg" secondAttribute="trailing" constant="20" id="BZb-gf-zOF"/>
+                                            <constraint firstItem="Rnc-df-hoS" firstAttribute="leading" secondItem="2Ma-bc-Azb" secondAttribute="leading" constant="20" id="Bib-Hi-vws"/>
+                                            <constraint firstAttribute="trailing" secondItem="Rnc-df-hoS" secondAttribute="trailing" constant="20" id="CQt-7q-Dtw"/>
+                                            <constraint firstItem="yb3-Zd-LWg" firstAttribute="top" secondItem="fME-rk-PZ4" secondAttribute="bottom" constant="15" id="DYG-C6-QKp"/>
+                                            <constraint firstAttribute="trailing" secondItem="5aB-n9-Fwl" secondAttribute="trailing" constant="20" id="E1b-j7-Xl1"/>
+                                            <constraint firstItem="yb3-Zd-LWg" firstAttribute="leading" secondItem="2Ma-bc-Azb" secondAttribute="leading" constant="20" id="EMf-8j-hp7"/>
+                                            <constraint firstItem="TAe-Aa-kXt" firstAttribute="leading" secondItem="2Ma-bc-Azb" secondAttribute="leading" constant="20" id="GBP-QV-6kh"/>
+                                            <constraint firstItem="a35-m6-lbg" firstAttribute="top" secondItem="9v0-Nw-DES" secondAttribute="bottom" constant="8" id="HZD-VH-PkL"/>
+                                            <constraint firstItem="fME-rk-PZ4" firstAttribute="top" secondItem="Rnc-df-hoS" secondAttribute="top" id="Jie-z8-GBu"/>
+                                            <constraint firstAttribute="trailing" secondItem="TAe-Aa-kXt" secondAttribute="trailing" constant="20" id="PuY-i3-Wvz"/>
+                                            <constraint firstItem="9v0-Nw-DES" firstAttribute="top" secondItem="2Ma-bc-Azb" secondAttribute="top" constant="20" id="SCH-ev-EPI"/>
+                                            <constraint firstItem="TAe-Aa-kXt" firstAttribute="top" secondItem="op5-Rx-pXy" secondAttribute="bottom" id="aQK-UW-Zv1"/>
+                                            <constraint firstItem="op5-Rx-pXy" firstAttribute="leading" secondItem="2Ma-bc-Azb" secondAttribute="leading" constant="20" id="c9V-mv-eKO"/>
+                                            <constraint firstItem="op5-Rx-pXy" firstAttribute="top" secondItem="5aB-n9-Fwl" secondAttribute="bottom" constant="20" id="kPN-aC-O5W"/>
+                                            <constraint firstAttribute="trailing" secondItem="op5-Rx-pXy" secondAttribute="trailing" constant="20" id="loq-dk-CBQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="fME-rk-PZ4" secondAttribute="trailing" constant="20" id="lr9-ae-boJ"/>
+                                            <constraint firstAttribute="width" constant="390" id="pBj-Mh-hT7"/>
+                                            <constraint firstAttribute="trailing" secondItem="9v0-Nw-DES" secondAttribute="trailing" constant="128" id="pyA-PM-tk0"/>
+                                            <constraint firstItem="9v0-Nw-DES" firstAttribute="leading" secondItem="2Ma-bc-Azb" secondAttribute="leading" constant="127" id="uYj-Pd-w2O"/>
+                                            <constraint firstItem="mvs-pI-FND" firstAttribute="top" secondItem="a35-m6-lbg" secondAttribute="bottom" constant="20" id="vIz-UV-n7T"/>
+                                            <constraint firstItem="Rnc-df-hoS" firstAttribute="top" secondItem="mvs-pI-FND" secondAttribute="bottom" constant="15" id="x0Y-Zi-dZz"/>
+                                            <constraint firstAttribute="trailing" secondItem="a35-m6-lbg" secondAttribute="trailing" constant="20" id="xbf-VT-bax"/>
+                                            <constraint firstItem="mvs-pI-FND" firstAttribute="leading" secondItem="2Ma-bc-Azb" secondAttribute="leading" constant="20" id="yqm-K9-mXc"/>
+                                        </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5aB-n9-Fwl">
-                                        <rect key="frame" x="25" y="450" width="340" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="8"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TAe-Aa-kXt">
-                                        <rect key="frame" x="25" y="624" width="340" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xIc-Y6-M6h">
-                                            <size key="itemSize" width="174" height="128"/>
-                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        </collectionViewFlowLayout>
-                                        <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="iGN-zF-JhO">
-                                                <rect key="frame" x="83" y="0.0" width="174" height="128"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="gTS-4h-QXe">
-                                                    <rect key="frame" x="0.0" y="0.0" width="174" height="128"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                </collectionViewCellContentView>
-                                                <size key="customSize" width="174" height="128"/>
-                                            </collectionViewCell>
-                                        </cells>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="8"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </collectionView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Achievements" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="op5-Rx-pXy">
-                                        <rect key="frame" x="25" y="598" width="134" height="26"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
-                                        <color key="textColor" name="White Smoke"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" name="Dark Blue"/>
-                            </view>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="2Ma-bc-Azb" secondAttribute="bottom" id="8VV-NG-3o7"/>
+                                    <constraint firstItem="2Ma-bc-Azb" firstAttribute="top" secondItem="hp1-iN-Sqq" secondAttribute="top" id="c2F-P4-BVB"/>
+                                    <constraint firstAttribute="trailing" secondItem="2Ma-bc-Azb" secondAttribute="trailing" id="f07-G1-DRz"/>
+                                    <constraint firstItem="2Ma-bc-Azb" firstAttribute="leading" secondItem="hp1-iN-Sqq" secondAttribute="leading" id="mYs-rf-aPU"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="Dark Blue"/>
                         <color key="tintColor" name="Dark Blue"/>
                         <constraints>
-                            <constraint firstItem="hp1-iN-Sqq" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="1wm-8H-AnC"/>
-                            <constraint firstItem="hp1-iN-Sqq" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Af3-WD-bgD"/>
-                            <constraint firstItem="hp1-iN-Sqq" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="CUA-g5-D9N"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="hp1-iN-Sqq" secondAttribute="bottom" id="w6q-pY-ZQf"/>
+                            <constraint firstAttribute="bottom" secondItem="hp1-iN-Sqq" secondAttribute="bottom" id="Jzm-NI-d1Q"/>
+                            <constraint firstItem="hp1-iN-Sqq" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="hxn-eQ-Yoq"/>
+                            <constraint firstItem="hp1-iN-Sqq" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="ro6-Ua-xV7"/>
+                            <constraint firstItem="hp1-iN-Sqq" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="th0-fQ-Mw8"/>
                         </constraints>
                     </view>
                     <size key="freeformSize" width="390" height="844"/>
@@ -178,6 +223,8 @@
                         <outlet property="chatButton" destination="qFO-Q4-5hI" id="R9D-Lo-NuB"/>
                         <outlet property="despLabel" destination="yp1-63-hZb" id="ewL-L1-jHh"/>
                         <outlet property="genderLabel" destination="4iJ-X6-CHE" id="8gf-5M-kcD"/>
+                        <outlet property="heightAchievCollView" destination="VPq-hO-yUn" id="LVo-oX-9EP"/>
+                        <outlet property="heightProfileView" destination="6Ys-v1-Dir" id="ayg-f2-2hx"/>
                         <outlet property="inviteButton" destination="xZx-Tt-YEL" id="bPX-Of-4Uc"/>
                         <outlet property="profileImage" destination="9v0-Nw-DES" id="wVv-uX-N9b"/>
                         <outlet property="profileScrollView" destination="hp1-iN-Sqq" id="7Jw-66-5RR"/>
@@ -199,6 +246,9 @@
         </namedColor>
         <namedColor name="Dark Blue">
             <color red="0.10999999940395355" green="0.17299999296665192" blue="0.32899999618530273" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Rhino">
+            <color red="0.17599999904632568" green="0.22400000691413879" blue="0.3449999988079071" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="Vivid Tangerine">
             <color red="0.99599999189376831" green="0.58799999952316284" blue="0.46700000762939453" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

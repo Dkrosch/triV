@@ -376,13 +376,6 @@
 			path = "View Model";
 			sourceTree = "<group>";
 		};
-		84D9369626B2908500E29F12 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		BF72D14126B4016900F8DA6D /* AchievementProfileCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -456,11 +449,11 @@
 				E04E101226B01D1200A81F92 /* GoogleService-Info.plist */,
 				E04E0FEE26B0058500A81F92 /* Info.plist */,
 				A80E61DD26B3DD01005FF4B6 /* ProfileVisitor.storyboard */,
+				A80E61DF26B3ED40005FF4B6 /* ProfileVisitorViewController.swift */,
 				A80E61E426B421DF005FF4B6 /* Add Achievement.storyboard */,
 				A80E61E226B421DF005FF4B6 /* AddAchievementViewController.swift */,
 				A80E61E126B421DF005FF4B6 /* Edit Achievement.storyboard */,
 				A80E61E326B421DF005FF4B6 /* EditAchievementViewController.swift */,
-				A80E61DF26B3ED40005FF4B6 /* ProfileVisitorViewController.swift */,
 			);
 			path = GConnect;
 			sourceTree = "<group>";

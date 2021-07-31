@@ -79,14 +79,14 @@
                                                 <color key="textColor" name="White Smoke"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Statistics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yb3-Zd-LWg">
-                                                <rect key="frame" x="20" y="394.33333333333331" width="350" height="25.333333333333314"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Statistics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yb3-Zd-LWg">
+                                                <rect key="frame" x="19" y="425" width="350" height="25.333333333333314"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
                                                 <color key="textColor" name="White Smoke"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fME-rk-PZ4">
-                                                <rect key="frame" x="20" y="269.33333333333331" width="350" height="110"/>
+                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fME-rk-PZ4">
+                                                <rect key="frame" x="20" y="295" width="350" height="110"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yp1-63-hZb">
                                                         <rect key="frame" x="8" y="8" width="324" height="66"/>
@@ -96,7 +96,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="♂️Male" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4iJ-X6-CHE">
-                                                        <rect key="frame" x="8" y="82" width="59" height="20"/>
+                                                        <rect key="frame" x="8" y="82" width="146" height="20"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                                         <color key="textColor" name="White Smoke"/>
@@ -113,8 +113,8 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5aB-n9-Fwl">
-                                                <rect key="frame" x="20" y="419.66666666666669" width="350" height="128.00000000000006"/>
+                                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5aB-n9-Fwl">
+                                                <rect key="frame" x="19" y="450.99999999999994" width="350" height="128.00000000000006"/>
                                                 <color key="backgroundColor" name="Rhino"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="128" id="bMC-FF-5vs"/>
@@ -125,8 +125,14 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TAe-Aa-kXt">
-                                                <rect key="frame" x="20" y="593" width="350" height="148"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Achievements" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="op5-Rx-pXy">
+                                                <rect key="frame" x="19" y="599" width="350" height="25.333333333333371"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
+                                                <color key="textColor" name="White Smoke"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TAe-Aa-kXt">
+                                                <rect key="frame" x="20" y="624" width="350" height="148"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="148" id="VPq-hO-yUn"/>
@@ -154,18 +160,12 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </collectionView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Achievements" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="op5-Rx-pXy">
-                                                <rect key="frame" x="20" y="567.66666666666663" width="350" height="25.333333333333371"/>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
-                                                <color key="textColor" name="White Smoke"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" name="Dark Blue"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="mvs-pI-FND" secondAttribute="trailing" constant="20" id="0ca-da-H8l"/>
                                             <constraint firstItem="a35-m6-lbg" firstAttribute="leading" secondItem="2Ma-bc-Azb" secondAttribute="leading" constant="20" id="1Du-ta-UBz"/>
-                                            <constraint firstItem="5aB-n9-Fwl" firstAttribute="leading" secondItem="2Ma-bc-Azb" secondAttribute="leading" constant="20" id="5qk-Z7-TZJ"/>
+                                            <constraint firstItem="5aB-n9-Fwl" firstAttribute="leading" secondItem="2Ma-bc-Azb" secondAttribute="leading" constant="19" id="5qk-Z7-TZJ"/>
                                             <constraint firstAttribute="height" constant="1000" id="6Ys-v1-Dir"/>
                                             <constraint firstItem="fME-rk-PZ4" firstAttribute="leading" secondItem="2Ma-bc-Azb" secondAttribute="leading" constant="20" id="781-7D-Bm7"/>
                                             <constraint firstItem="5aB-n9-Fwl" firstAttribute="top" secondItem="yb3-Zd-LWg" secondAttribute="bottom" id="7rn-ed-IAP"/>
@@ -173,7 +173,7 @@
                                             <constraint firstItem="Rnc-df-hoS" firstAttribute="leading" secondItem="2Ma-bc-Azb" secondAttribute="leading" constant="20" id="Bib-Hi-vws"/>
                                             <constraint firstAttribute="trailing" secondItem="Rnc-df-hoS" secondAttribute="trailing" constant="20" id="CQt-7q-Dtw"/>
                                             <constraint firstItem="yb3-Zd-LWg" firstAttribute="top" secondItem="fME-rk-PZ4" secondAttribute="bottom" constant="15" id="DYG-C6-QKp"/>
-                                            <constraint firstAttribute="trailing" secondItem="5aB-n9-Fwl" secondAttribute="trailing" constant="20" id="E1b-j7-Xl1"/>
+                                            <constraint firstAttribute="trailing" secondItem="5aB-n9-Fwl" secondAttribute="trailing" constant="21" id="E1b-j7-Xl1"/>
                                             <constraint firstItem="yb3-Zd-LWg" firstAttribute="leading" secondItem="2Ma-bc-Azb" secondAttribute="leading" constant="20" id="EMf-8j-hp7"/>
                                             <constraint firstItem="TAe-Aa-kXt" firstAttribute="leading" secondItem="2Ma-bc-Azb" secondAttribute="leading" constant="20" id="GBP-QV-6kh"/>
                                             <constraint firstItem="a35-m6-lbg" firstAttribute="top" secondItem="9v0-Nw-DES" secondAttribute="bottom" constant="8" id="HZD-VH-PkL"/>

@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class ProfileVisitorViewController: UIViewController {
     
@@ -57,8 +59,34 @@ class ProfileVisitorViewController: UIViewController {
         view.layoutIfNeeded()
         
         // Do any additional setup after loading the view.
+        fetchDataProfile()
     }
     
+    func fetchDataProfile (){
+        guard let userID = Auth.auth().currentUser?.uid else { return }
+        
+        var gender: String?
+        var username: String?
+        
+        let db = Firestore.firestore()
+        let docRef = db.collection("users").document("1Fmh4aYuK3Ow8oPKInOSICt2rLu1")
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists{
+                gender = document.get("gender") as! String
+                username = document.get("username") as! String
+                self.usernameLabel.text = username
+                
+                if gender == "Male" {
+                    self.genderLabel.text = "♂️ \(gender!)"
+                }else{
+                    self.genderLabel.text = "♀ \(gender!)"
+                }
+                
+            }else{
+                print("error")
+            }
+        }
+    }
 
     /*
     // MARK: - Navigation

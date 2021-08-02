@@ -17,7 +17,7 @@ class ExploreLoungeViewController: UIViewController {
     
     var jum = 0
     
-    var datas = [Struct]()
+    var datas = [DetailLounge]()
     private var collectionRef: CollectionReference!
     
     override func viewDidLoad() {
@@ -67,7 +67,7 @@ class ExploreLoungeViewController: UIViewController {
                     let rank = data["Rank"] as? String ?? ""
                     let documentId = document.documentID
 
-                    let newData = Struct(game: game,title: judul, desc: desc, idMemberLounge: [member1!, member2!, member3!, member4!, member5!, member6!, member7!, member8!, member9!, member10!], idRequirementsLounge: [role1!, role2!, role3!, role4!], documentId: documentId, creatAt: creatAt, gender: gender, rank: rank)
+                    let newData = DetailLounge(game: game,title: judul, desc: desc, idMemberLounge: [member1!, member2!, member3!, member4!, member5!, member6!, member7!, member8!, member9!, member10!], idRequirementsLounge: [role1!, role2!, role3!, role4!], documentId: documentId, creatAt: creatAt, gender: gender, rank: rank)
 
                     self.datas.append(newData)
                 }

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class Struct{
+class DetailLounge{
 //       @DocumentID var id: String? = UUID().uuidString
     var game: String
     var title: String

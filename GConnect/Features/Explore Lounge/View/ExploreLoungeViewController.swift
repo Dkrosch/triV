@@ -85,7 +85,22 @@ class ExploreLoungeViewController: UIViewController {
     }
 }
 
-extension ExploreLoungeViewController: UICollectionViewDataSource, UICollectionViewDelegate{
+extension ExploreLoungeViewController: UICollectionViewDelegate{
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        var idLounge = datas[indexPath.row].documentId
+        performSegue(withIdentifier: "DetailLounge", sender: idLounge)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "DetailLounge"){
+            let loungeID = sender as? String
+            let vc = segue.destination as? DetailLoungeViewController
+            vc?.idLounge = loungeID!
+        }
+    }
+}
+
+extension ExploreLoungeViewController: UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return datas.count
@@ -113,10 +128,6 @@ extension ExploreLoungeViewController: UICollectionViewDataSource, UICollectionV
         cell.exploreLoungeCellView.layer.borderWidth = 1
         
         return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        print(datas[indexPath.row].title)
     }
 }
 

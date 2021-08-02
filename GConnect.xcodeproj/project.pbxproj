@@ -55,6 +55,8 @@
 		E001319626B51EDB00A315EB /* GamesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E001319426B51EDB00A315EB /* GamesCollectionViewCell.swift */; };
 		E001319726B51EDB00A315EB /* GamesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E001319526B51EDB00A315EB /* GamesCollectionViewCell.xib */; };
 		E001319B26B533BB00A315EB /* Games.swift in Sources */ = {isa = PBXBuildFile; fileRef = E001319A26B533BB00A315EB /* Games.swift */; };
+		E01EE1E526B818210065F668 /* DetailLoungeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01EE1E326B818210065F668 /* DetailLoungeCollectionViewCell.swift */; };
+		E01EE1E626B818210065F668 /* DetailLoungeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E01EE1E426B818210065F668 /* DetailLoungeCollectionViewCell.xib */; };
 		E02FC20726B174FE00963710 /* DatePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02FC20626B174FE00963710 /* DatePicker.swift */; };
 		E02FC20926B2B07400963710 /* CreateGameDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E02FC20826B2B07400963710 /* CreateGameDetailViewController.swift */; };
 		E04E0FE126B0058200A81F92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E04E0FE026B0058200A81F92 /* AppDelegate.swift */; };
@@ -120,6 +122,8 @@
 		E001319426B51EDB00A315EB /* GamesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesCollectionViewCell.swift; sourceTree = "<group>"; };
 		E001319526B51EDB00A315EB /* GamesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GamesCollectionViewCell.xib; sourceTree = "<group>"; };
 		E001319A26B533BB00A315EB /* Games.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Games.swift; sourceTree = "<group>"; };
+		E01EE1E326B818210065F668 /* DetailLoungeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLoungeCollectionViewCell.swift; sourceTree = "<group>"; };
+		E01EE1E426B818210065F668 /* DetailLoungeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailLoungeCollectionViewCell.xib; sourceTree = "<group>"; };
 		E02FC20626B174FE00963710 /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
 		E02FC20826B2B07400963710 /* CreateGameDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGameDetailViewController.swift; sourceTree = "<group>"; };
 		E04E0FDD26B0058200A81F92 /* GConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -266,6 +270,7 @@
 		84D9366E26B2837700E29F12 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				E01EE1DE26B817BC0065F668 /* DetailLounge */,
 				84F30A2C26B7E6E300A40BDB /* DetailLoungePlayer */,
 				84F30A2B26B7E6D000A40BDB /* DetailloungeRole */,
 				84F30A2626B7E66F00A40BDB /* KickPlayerCollection */,
@@ -539,6 +544,15 @@
 			path = GamesCell;
 			sourceTree = "<group>";
 		};
+		E01EE1DE26B817BC0065F668 /* DetailLounge */ = {
+			isa = PBXGroup;
+			children = (
+				E01EE1E326B818210065F668 /* DetailLoungeCollectionViewCell.swift */,
+				E01EE1E426B818210065F668 /* DetailLoungeCollectionViewCell.xib */,
+			);
+			path = DetailLounge;
+			sourceTree = "<group>";
+		};
 		E04E0FD426B0058200A81F92 = {
 			isa = PBXGroup;
 			children = (
@@ -756,6 +770,7 @@
 				7C75DFCF26B30BAA002400CA /* RoleCollectionViewCell.xib in Resources */,
 				84D9367726B2839A00E29F12 /* ExploreLoungeCell.xib in Resources */,
 				A80E61DE26B3DD01005FF4B6 /* ProfileVisitor.storyboard in Resources */,
+				E01EE1E626B818210065F668 /* DetailLoungeCollectionViewCell.xib in Resources */,
 				E04E0FEA26B0058500A81F92 /* Assets.xcassets in Resources */,
 				E04E101126B019D900A81F92 /* Login.storyboard in Resources */,
 				BFCE10D126B2B4EF00C206B5 /* ProfileUser.storyboard in Resources */,
@@ -826,6 +841,7 @@
 				84D9369826B2908F00E29F12 /* CreateLoungeVC.swift in Sources */,
 				7CB3A25426B2ABDF00259119 /* DetailLoungeViewController.swift in Sources */,
 				A80E61E626B421DF005FF4B6 /* AddAchievementViewController.swift in Sources */,
+				E01EE1E526B818210065F668 /* DetailLoungeCollectionViewCell.swift in Sources */,
 				84D9367626B2839A00E29F12 /* ExploreLoungeCell.swift in Sources */,
 				E001319B26B533BB00A315EB /* Games.swift in Sources */,
 				8405A5F526B15493009D1375 /* StoreDataAuth.swift in Sources */,

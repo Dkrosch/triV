@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="DetailLoungeCollectionViewCell" customModule="GConnect" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="92" height="104"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="92" height="104"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ViN-DP-qWH">
+                        <rect key="frame" x="0.0" y="0.0" width="92" height="104"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jokowi" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N2m-YC-fny">
+                                <rect key="frame" x="5" y="63" width="82" height="14.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="14.5" id="18j-U8-TYf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" name="White Smoke"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sentinel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7wY-hG-8kW">
+                                <rect key="frame" x="5" y="86.5" width="82" height="14.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="14.5" id="zjr-5T-fD4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" name="White Smoke"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hwU-j0-QCI">
+                                <rect key="frame" x="19" y="5" width="54" height="55"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="9Ns-wv-Y2H"/>
+                                </constraints>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Line" translatesAutoresizingMaskIntoConstraints="NO" id="upy-fh-tRT">
+                                <rect key="frame" x="0.0" y="79" width="60" height="7"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="7" id="KaR-Yz-Cj8"/>
+                                    <constraint firstAttribute="width" constant="60" id="tEC-KO-qfz"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" name="Rhino"/>
+                        <constraints>
+                            <constraint firstItem="N2m-YC-fny" firstAttribute="leading" secondItem="ViN-DP-qWH" secondAttribute="leading" constant="5" id="1vR-bZ-per"/>
+                            <constraint firstItem="N2m-YC-fny" firstAttribute="top" secondItem="hwU-j0-QCI" secondAttribute="bottom" constant="3" id="7Ea-v6-lCo"/>
+                            <constraint firstItem="upy-fh-tRT" firstAttribute="leading" secondItem="ViN-DP-qWH" secondAttribute="leading" constant="16" id="DRx-o4-MRW"/>
+                            <constraint firstItem="7wY-hG-8kW" firstAttribute="leading" secondItem="ViN-DP-qWH" secondAttribute="leading" constant="5" id="Fs0-Vb-9eN"/>
+                            <constraint firstAttribute="trailing" secondItem="N2m-YC-fny" secondAttribute="trailing" constant="5" id="HTJ-V9-PaZ"/>
+                            <constraint firstItem="hwU-j0-QCI" firstAttribute="leading" secondItem="ViN-DP-qWH" secondAttribute="leading" constant="19" id="THA-Jw-Zqn"/>
+                            <constraint firstItem="hwU-j0-QCI" firstAttribute="top" secondItem="ViN-DP-qWH" secondAttribute="top" constant="5" id="ayv-ft-1Wb"/>
+                            <constraint firstAttribute="trailing" secondItem="7wY-hG-8kW" secondAttribute="trailing" constant="5" id="mzI-9E-yvi"/>
+                            <constraint firstAttribute="trailing" secondItem="hwU-j0-QCI" secondAttribute="trailing" constant="19" id="oJa-Vf-PGR"/>
+                            <constraint firstAttribute="width" constant="92" id="rsw-GN-qR8"/>
+                            <constraint firstItem="7wY-hG-8kW" firstAttribute="top" secondItem="upy-fh-tRT" secondAttribute="bottom" constant="1" id="tyV-Yk-PbH"/>
+                            <constraint firstAttribute="height" constant="104" id="v11-PY-n87"/>
+                            <constraint firstItem="upy-fh-tRT" firstAttribute="top" secondItem="N2m-YC-fny" secondAttribute="bottom" constant="1" id="weg-VS-Hjn"/>
+                            <constraint firstAttribute="bottom" secondItem="7wY-hG-8kW" secondAttribute="bottom" constant="3" id="xCn-9m-BK3"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="ViN-DP-qWH" secondAttribute="bottom" id="051-IX-nZk"/>
+                <constraint firstItem="ViN-DP-qWH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="7gS-tE-vU3"/>
+                <constraint firstAttribute="trailing" secondItem="ViN-DP-qWH" secondAttribute="trailing" id="byd-4m-jDR"/>
+                <constraint firstItem="ViN-DP-qWH" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="sDy-Fl-7kh"/>
+            </constraints>
+            <point key="canvasLocation" x="16" y="92"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="Line" width="60" height="1"/>
+        <namedColor name="Rhino">
+            <color red="0.17599999904632568" green="0.22400000691413879" blue="0.3449999988079071" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="White Smoke">
+            <color red="0.9570000171661377" green="0.9570000171661377" blue="0.9570000171661377" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -115,8 +115,17 @@ extension ExploreLoungeViewController: UICollectionViewDataSource, UICollectionV
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        print(datas[indexPath.row].title)
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        var idLounge = datas[indexPath.row].documentId
+        performSegue(withIdentifier: "DetailLounge", sender: idLounge)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "DetailLounge"){
+            let loungeID = sender as? String
+            let vc = segue.destination as? DetailLoungeViewController
+            vc?.idLounge = loungeID!
+        }
     }
 }
 

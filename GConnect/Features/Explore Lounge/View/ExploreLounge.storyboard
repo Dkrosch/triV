@@ -108,6 +108,7 @@
                         <outlet property="notificationButton" destination="AOG-sG-Mnq" id="E1Q-pb-oOP"/>
                         <segue destination="a16-ZC-USx" kind="show" identifier="CreateLounge" id="Ydv-D2-a8s"/>
                         <segue destination="XpD-8O-st1" kind="show" identifier="SetFilter" id="Kkq-gU-nIr"/>
+                        <segue destination="6Si-He-quH" kind="show" identifier="DetailLounge" id="HMM-ml-ZXt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -123,6 +124,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H3x-0u-xj7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="872" y="-56"/>
+        </scene>
+        <!--DetailLounge-->
+        <scene sceneID="5Rx-v9-GbQ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DetailLounge" id="6Si-He-quH" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="QX5-9F-hCT"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b72-Sq-sAN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="944" y="107"/>
         </scene>
         <!--FilterLounge-->
         <scene sceneID="XRJ-kw-eUR">

@@ -65,6 +65,9 @@
                                         <state key="normal" image="slider.horizontal.3" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="17"/>
                                         </state>
+                                        <connections>
+                                            <action selector="setFilterTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="JNQ-81-iAw"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.99607843139999996" green="0.58823529409999997" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -94,6 +97,7 @@
                         <outlet property="loungeCollectionView" destination="RBf-eN-DbS" id="YoF-1i-0Bf"/>
                         <outlet property="notificationButton" destination="AOG-sG-Mnq" id="E1Q-pb-oOP"/>
                         <segue destination="a16-ZC-USx" kind="show" identifier="CreateLounge" id="Ydv-D2-a8s"/>
+                        <segue destination="XpD-8O-st1" kind="show" identifier="SetFilter" id="Kkq-gU-nIr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -109,6 +113,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H3x-0u-xj7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="872" y="-56"/>
+        </scene>
+        <!--FilterLounge-->
+        <scene sceneID="XRJ-kw-eUR">
+            <objects>
+                <viewControllerPlaceholder storyboardName="FilterLounge" id="XpD-8O-st1" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="48B-nv-o4y"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4M9-Ng-80q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="872" y="259"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="p58-Z1-YoA">

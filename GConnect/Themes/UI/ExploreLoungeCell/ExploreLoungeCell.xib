@@ -28,7 +28,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3/7" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfD-2e-GQj" userLabel="totalMemberLabel">
-                                <rect key="frame" x="26" y="37" width="78" height="15"/>
+                                <rect key="frame" x="26" y="37" width="27" height="15"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                 <color key="textColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -86,6 +86,13 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                             </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="| Games" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n0K-me-HRZ">
+                                <rect key="frame" x="68" y="37" width="166" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.1854924262" green="0.2216372788" blue="0.3372708559" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <userDefinedRuntimeAttributes>
@@ -100,6 +107,7 @@
             <connections>
                 <outlet property="descriptionLoungeLabel" destination="6mz-VV-P7w" id="BR8-Vj-ghy"/>
                 <outlet property="exploreLoungeCellView" destination="Lwd-PA-nTk" id="b6E-8Z-hlV"/>
+                <outlet property="gamesNameLabel" destination="n0K-me-HRZ" id="1Yz-sb-bxs"/>
                 <outlet property="loungeNameLabel" destination="xao-Kd-YH9" id="v8Z-zN-Jdp"/>
                 <outlet property="requirementExploreLoungeCollectionVIew" destination="van-MG-Jiz" id="tVj-qd-6Cj"/>
                 <outlet property="totalMemberLabel" destination="sfD-2e-GQj" id="4Fd-hP-A4n"/>

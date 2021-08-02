@@ -9,7 +9,6 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-
 class ExploreLoungeViewController: UIViewController {
     
     @IBOutlet weak var createLoungeButton: UIButton!
@@ -48,6 +47,7 @@ class ExploreLoungeViewController: UIViewController {
                     let data = document.data()
                     let creatAt = data["CreatAt"] as? String ?? ""
                     let desc = data["Desc"] as? String ?? ""
+                    let game = data["Game"] as? String ?? ""
                     let judul = data["Title"] as? String ?? ""
                     let idMemberLounge = data["idMemberLounge"] as? [String: Any]
                     let member1 = idMemberLounge!["Member1"] as? String
@@ -69,7 +69,11 @@ class ExploreLoungeViewController: UIViewController {
                     let role4 = idRequirementsLounge!["Role4"] as? String
                     let documentId = document.documentID
 
+<<<<<<< Updated upstream
                     let newData = DetailLounge(title: judul, desc: desc, idMemberLounge: [member1!, member2!, member3!, member4!, member5!, member6!, member7!, member8!, member9!, member10!], idRequirementsLounge: [gender!, rank!, role1!, role2!, role3!, role4!], documentId: documentId, creatAt: creatAt)
+=======
+                    let newData = Struct(game: game,title: judul, desc: desc, idMemberLounge: [member1!, member2!, member3!, member4!, member5!, member6!, member7!, member8!, member9!, member10!], idRequirementsLounge: [role1!, role2!, role3!, role4!], documentId: documentId, creatAt: creatAt, gender: gender, rank: rank)
+>>>>>>> Stashed changes
 
                     self.datas.append(newData)
                 }
@@ -89,6 +93,9 @@ class ExploreLoungeViewController: UIViewController {
         print("Data: \(userID)")
     }
 
+    @IBAction func setFilterTapped(_ sender: Any) {
+        performSegue(withIdentifier: "SetFilter", sender: self)
+    }
 }
 
 extension ExploreLoungeViewController: UICollectionViewDelegate{
@@ -105,6 +112,24 @@ extension ExploreLoungeViewController: UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "loungeCollectionViewCell", for: indexPath) as! ExploreLoungeCell
+<<<<<<< Updated upstream
+=======
+        var num = 10
+        
+        cell.loungeNameLabel.text = datas[indexPath.row].title
+        cell.descriptionLoungeLabel.text = datas[indexPath.row].desc
+        cell.gamesNameLabel.text = "| \(datas[indexPath.row].game)"
+        
+        for member in datas[indexPath.row].idMemberLounge{
+            print(member)
+            
+            if member == ""{
+                num -= 1
+            }
+        }
+    
+        cell.totalMemberLabel.text = "\(num)/10"
+>>>>>>> Stashed changes
         
         cell.configureCell(detailLounge: datas[indexPath.row])
         

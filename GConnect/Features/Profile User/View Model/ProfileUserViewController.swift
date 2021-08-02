@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class ProfileUserViewController: UIViewController {
+class ProfileUserViewController: UIViewController, UINavigationControllerDelegate {
 
     @IBOutlet weak var viewContentProfileUser: UIView!
     @IBOutlet weak var profilePicture: UIImageView!
@@ -30,6 +30,9 @@ class ProfileUserViewController: UIViewController {
     @IBOutlet weak var achievementCollectionView: UICollectionView!
     @IBOutlet weak var buttonLogoutProfileUser: UIButton!
     
+    
+    @IBOutlet weak var changePicButton: UIButton!
+    
     @IBOutlet weak var viewContentHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var achievementCollectionViewConstraintHeight: NSLayoutConstraint!
     
@@ -44,12 +47,17 @@ class ProfileUserViewController: UIViewController {
         aboutMeTextField.isEditable = false
         
         stackUsernameView.isHidden = true
+        changePicButton.isHidden = true
 
         let nib = UINib(nibName: "\(AchievementProfileCollectionViewCell.self)", bundle: nil)
         achievementCollectionView.register(nib, forCellWithReuseIdentifier: "achievementCell" )
         
+        //delegate
         achievementCollectionView.delegate = self
         achievementCollectionView.dataSource = self
+        
+        usernameTextField.delegate = self
+        aboutMeTextField.delegate = self
 
         achievementCollectionView.isScrollEnabled = false
         
@@ -71,11 +79,24 @@ class ProfileUserViewController: UIViewController {
     @objc func editTapped(){
         stackUsernameView.isHidden = false
         aboutMeTextField.isEditable = true
-        genderLabel.isHidden = true
         
-        stackTextFieldUsername.addBackground(color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
+        usernameLabelProfileUser.isHidden = true
+        genderLabel.isHidden = true
+        changePicButton.isHidden = false
+        
+        stackAboutMeTextField.layer.borderWidth = 0
+        
+        aboutMeTextField.textColor = .black
+        stackAboutMeTextField.layer.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneTapped))
+        
+//        var achievementProfile: UICollectionViewCell = achievementCollectionView.dequeueReusableCell(withReuseIdentifier: "achievementCell", for: [0,0]) as! AchievementProfileCollectionViewCell
+//        achievementProfile.button
+//
+//        let indexPath = IndexPath(row: 0, section: 0)
+//        let cell = achievementCollectionView.cellForItem(at: indexPath)
+//        viewDidLoad()
         
         print("mau edit bang")
     }
@@ -84,9 +105,14 @@ class ProfileUserViewController: UIViewController {
         stackUsernameView.isHidden = true
         aboutMeTextField.isEditable = false
         
+        usernameLabelProfileUser.isHidden = false
+        changePicButton.isHidden = true
         genderLabel.isHidden = false
         
-        stackTextFieldUsername.addBackground(color: #colorLiteral(red: 0.2309213281, green: 0.2924915552, blue: 0.4204188585, alpha: 1))
+        stackAboutMeTextField.layer.borderWidth = 1
+        
+        aboutMeTextField.textColor = .white
+        stackAboutMeTextField.layer.backgroundColor = #colorLiteral(red: 0.2309213281, green: 0.2924915552, blue: 0.4204188585, alpha: 1)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editTapped))
         
@@ -130,6 +156,18 @@ class ProfileUserViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func changeProfilePicButtonTapped(_ sender: UIButton) {
+        let image = UIImagePickerController()
+        image.delegate = self
+        
+        image.sourceType = UIImagePickerController.SourceType.photoLibrary
+        image.allowsEditing = false
+        
+        self.present(image, animated: true){
+        }
+    }
+    
 
     /*
     // MARK: - Navigation
@@ -163,5 +201,40 @@ extension ProfileUserViewController: UICollectionViewDataSource{
 extension ProfileUserViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 350, height: 148)
+    }
+}
+
+extension ProfileUserViewController: UIImagePickerControllerDelegate{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+            profilePicture.image = image
+        }else{
+            print("error")
+        }
+        self.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension ProfileUserViewController: UITextViewDelegate, UITextFieldDelegate{
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let maxLength = 15
+        let currentString: NSString = (textField.text ?? "") as NSString
+        let newString: NSString =
+            currentString.replacingCharacters(in: range, with: string) as NSString
+        return newString.length <= maxLength
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        // get the current text, or use an empty string if that failed
+        let currentText = textView.text ?? ""
+        
+        // attempt to read the range they are trying to change, or exit if we can't
+        guard let stringRange = Range(range, in: currentText) else { return false }
+        
+        // add their new text to the existing text
+        let updatedText = currentText.replacingCharacters(in: stringRange, with: text)
+        
+        // make sure the result is under 16 characters
+        return updatedText.count <= 100
     }
 }

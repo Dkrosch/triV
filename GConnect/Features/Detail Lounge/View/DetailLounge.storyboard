@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Detail Lounge-->
+        <!--Detail Lounge View Controller-->
         <scene sceneID="Xfe-KD-lJn">
             <objects>
-                <viewController storyboardIdentifier="DetailLounge" title="Detail Lounge" id="feZ-XR-tbx" customClass="DetailLoungeViewController" customModule="GConnect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="detailLounge" id="feZ-XR-tbx" customClass="DetailLoungeViewController" customModule="GConnect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0Sw-tS-ddN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

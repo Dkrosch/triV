@@ -39,6 +39,8 @@
 		84D9369826B2908F00E29F12 /* CreateLoungeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9369726B2908F00E29F12 /* CreateLoungeVC.swift */; };
 		84D9369A26B2909400E29F12 /* CreateLounge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84D9369926B2909400E29F12 /* CreateLounge.storyboard */; };
 		84D9369E26B2B22D00E29F12 /* DataLounge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9369D26B2B22D00E29F12 /* DataLounge.swift */; };
+		84F30A2926B7E69600A40BDB /* KickPlayerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F30A2726B7E69600A40BDB /* KickPlayerCollectionViewCell.xib */; };
+		84F30A2A26B7E69600A40BDB /* KickPlayerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F30A2826B7E69600A40BDB /* KickPlayerCollectionViewCell.swift */; };
 		A80E61DE26B3DD01005FF4B6 /* ProfileVisitor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A80E61DD26B3DD01005FF4B6 /* ProfileVisitor.storyboard */; };
 		A80E61E026B3ED40005FF4B6 /* ProfileVisitorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80E61DF26B3ED40005FF4B6 /* ProfileVisitorViewController.swift */; };
 		A80E61E526B421DF005FF4B6 /* Edit Achievement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A80E61E126B421DF005FF4B6 /* Edit Achievement.storyboard */; };
@@ -47,8 +49,6 @@
 		A80E61E826B421DF005FF4B6 /* Add Achievement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A80E61E426B421DF005FF4B6 /* Add Achievement.storyboard */; };
 		BF72D14426B401AC00F8DA6D /* AchievementProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF72D14226B401AC00F8DA6D /* AchievementProfileCollectionViewCell.swift */; };
 		BF72D14526B401AC00F8DA6D /* AchievementProfileCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF72D14326B401AC00F8DA6D /* AchievementProfileCollectionViewCell.xib */; };
-		BF72D14726B68A9F00F8DA6D /* TestTextView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF72D14626B68A9F00F8DA6D /* TestTextView.storyboard */; };
-		BF72D14926B68AC100F8DA6D /* TestTextViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF72D14826B68AC100F8DA6D /* TestTextViewViewController.swift */; };
 		BF72D14B26B7DE6300F8DA6D /* ChangeBgStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF72D14A26B7DE6300F8DA6D /* ChangeBgStackView.swift */; };
 		BFCE10CF26B2B4BD00C206B5 /* ProfileUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCE10CE26B2B4BD00C206B5 /* ProfileUserViewController.swift */; };
 		BFCE10D126B2B4EF00C206B5 /* ProfileUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFCE10D026B2B4EF00C206B5 /* ProfileUser.storyboard */; };
@@ -102,6 +102,8 @@
 		84D9369726B2908F00E29F12 /* CreateLoungeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateLoungeVC.swift; sourceTree = "<group>"; };
 		84D9369926B2909400E29F12 /* CreateLounge.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateLounge.storyboard; sourceTree = "<group>"; };
 		84D9369D26B2B22D00E29F12 /* DataLounge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLounge.swift; sourceTree = "<group>"; };
+		84F30A2726B7E69600A40BDB /* KickPlayerCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KickPlayerCollectionViewCell.xib; sourceTree = "<group>"; };
+		84F30A2826B7E69600A40BDB /* KickPlayerCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KickPlayerCollectionViewCell.swift; sourceTree = "<group>"; };
 		85B0446085D3146B31E566FE /* Pods-GConnect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GConnect.release.xcconfig"; path = "Target Support Files/Pods-GConnect/Pods-GConnect.release.xcconfig"; sourceTree = "<group>"; };
 		A80E61DD26B3DD01005FF4B6 /* ProfileVisitor.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileVisitor.storyboard; sourceTree = "<group>"; };
 		A80E61DF26B3ED40005FF4B6 /* ProfileVisitorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVisitorViewController.swift; sourceTree = "<group>"; };
@@ -111,8 +113,6 @@
 		A80E61E426B421DF005FF4B6 /* Add Achievement.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Add Achievement.storyboard"; sourceTree = "<group>"; };
 		BF72D14226B401AC00F8DA6D /* AchievementProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementProfileCollectionViewCell.swift; sourceTree = "<group>"; };
 		BF72D14326B401AC00F8DA6D /* AchievementProfileCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AchievementProfileCollectionViewCell.xib; sourceTree = "<group>"; };
-		BF72D14626B68A9F00F8DA6D /* TestTextView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestTextView.storyboard; sourceTree = "<group>"; };
-		BF72D14826B68AC100F8DA6D /* TestTextViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestTextViewViewController.swift; sourceTree = "<group>"; };
 		BF72D14A26B7DE6300F8DA6D /* ChangeBgStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeBgStackView.swift; sourceTree = "<group>"; };
 		BFCE10CE26B2B4BD00C206B5 /* ProfileUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileUserViewController.swift; path = "GConnect/Features/Profile User/View Model/ProfileUserViewController.swift"; sourceTree = SOURCE_ROOT; };
 		BFCE10D026B2B4EF00C206B5 /* ProfileUser.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileUser.storyboard; sourceTree = "<group>"; };
@@ -178,10 +178,6 @@
 		7CB3A24826B29DF000259119 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7C75DFC826B30727002400CA /* LoungeCollectionViewCell.swift */,
-				7C75DFC926B30727002400CA /* LoungeCollectionViewCell.xib */,
-				7C75DFCC26B30BAA002400CA /* RoleCollectionViewCell.swift */,
-				7C75DFCD26B30BAA002400CA /* RoleCollectionViewCell.xib */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -270,6 +266,9 @@
 		84D9366E26B2837700E29F12 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				84F30A2C26B7E6E300A40BDB /* DetailLoungePlayer */,
+				84F30A2B26B7E6D000A40BDB /* DetailloungeRole */,
+				84F30A2626B7E66F00A40BDB /* KickPlayerCollection */,
 				E001319326B51EAC00A315EB /* GamesCell */,
 				BF72D14126B4016900F8DA6D /* AchievementProfileCell */,
 				3936503D26B3DD80001907E6 /* ProfilePictRank */,
@@ -394,6 +393,101 @@
 			path = "View Model";
 			sourceTree = "<group>";
 		};
+		84F30A1E26B7E57A00A40BDB /* Achivment */ = {
+			isa = PBXGroup;
+			children = (
+				84F30A2126B7E58B00A40BDB /* Model View */,
+				84F30A2026B7E58700A40BDB /* Model */,
+				84F30A1F26B7E58100A40BDB /* View */,
+			);
+			path = Achivment;
+			sourceTree = "<group>";
+		};
+		84F30A1F26B7E58100A40BDB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A80E61E426B421DF005FF4B6 /* Add Achievement.storyboard */,
+				A80E61E226B421DF005FF4B6 /* AddAchievementViewController.swift */,
+				A80E61E126B421DF005FF4B6 /* Edit Achievement.storyboard */,
+				A80E61E326B421DF005FF4B6 /* EditAchievementViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		84F30A2026B7E58700A40BDB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		84F30A2126B7E58B00A40BDB /* Model View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Model View";
+			sourceTree = "<group>";
+		};
+		84F30A2226B7E5AF00A40BDB /* Profile Visitor */ = {
+			isa = PBXGroup;
+			children = (
+				84F30A2526B7E5E400A40BDB /* View Model */,
+				84F30A2426B7E5DC00A40BDB /* Model */,
+				84F30A2326B7E5D600A40BDB /* View */,
+			);
+			path = "Profile Visitor";
+			sourceTree = "<group>";
+		};
+		84F30A2326B7E5D600A40BDB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A80E61DD26B3DD01005FF4B6 /* ProfileVisitor.storyboard */,
+				A80E61DF26B3ED40005FF4B6 /* ProfileVisitorViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		84F30A2426B7E5DC00A40BDB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		84F30A2526B7E5E400A40BDB /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		84F30A2626B7E66F00A40BDB /* KickPlayerCollection */ = {
+			isa = PBXGroup;
+			children = (
+				84F30A2826B7E69600A40BDB /* KickPlayerCollectionViewCell.swift */,
+				84F30A2726B7E69600A40BDB /* KickPlayerCollectionViewCell.xib */,
+			);
+			path = KickPlayerCollection;
+			sourceTree = "<group>";
+		};
+		84F30A2B26B7E6D000A40BDB /* DetailloungeRole */ = {
+			isa = PBXGroup;
+			children = (
+				7C75DFCC26B30BAA002400CA /* RoleCollectionViewCell.swift */,
+				7C75DFCD26B30BAA002400CA /* RoleCollectionViewCell.xib */,
+			);
+			path = DetailloungeRole;
+			sourceTree = "<group>";
+		};
+		84F30A2C26B7E6E300A40BDB /* DetailLoungePlayer */ = {
+			isa = PBXGroup;
+			children = (
+				7C75DFC826B30727002400CA /* LoungeCollectionViewCell.swift */,
+				7C75DFC926B30727002400CA /* LoungeCollectionViewCell.xib */,
+			);
+			path = DetailLoungePlayer;
+			sourceTree = "<group>";
+		};
 		BF72D14126B4016900F8DA6D /* AchievementProfileCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -475,14 +569,6 @@
 				E04E0FEB26B0058500A81F92 /* LaunchScreen.storyboard */,
 				E04E101226B01D1200A81F92 /* GoogleService-Info.plist */,
 				E04E0FEE26B0058500A81F92 /* Info.plist */,
-				A80E61DD26B3DD01005FF4B6 /* ProfileVisitor.storyboard */,
-				A80E61DF26B3ED40005FF4B6 /* ProfileVisitorViewController.swift */,
-				A80E61E426B421DF005FF4B6 /* Add Achievement.storyboard */,
-				A80E61E226B421DF005FF4B6 /* AddAchievementViewController.swift */,
-				A80E61E126B421DF005FF4B6 /* Edit Achievement.storyboard */,
-				A80E61E326B421DF005FF4B6 /* EditAchievementViewController.swift */,
-				BF72D14626B68A9F00F8DA6D /* TestTextView.storyboard */,
-				BF72D14826B68AC100F8DA6D /* TestTextViewViewController.swift */,
 			);
 			path = GConnect;
 			sourceTree = "<group>";
@@ -490,6 +576,8 @@
 		E04E0FF426B0059800A81F92 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				84F30A2226B7E5AF00A40BDB /* Profile Visitor */,
+				84F30A1E26B7E57A00A40BDB /* Achivment */,
 				E06AA42426B7CE1200357B01 /* Filter Lounge */,
 				7CB3A24726B29DE300259119 /* Detail Lounge */,
 				84D9369326B2904D00E29F12 /* Create Lounge */,
@@ -675,7 +763,7 @@
 				7CB3A24C26B29EDD00259119 /* DetailLounge.storyboard in Resources */,
 				84D9369A26B2909400E29F12 /* CreateLounge.storyboard in Resources */,
 				BF72D14526B401AC00F8DA6D /* AchievementProfileCollectionViewCell.xib in Resources */,
-				BF72D14726B68A9F00F8DA6D /* TestTextView.storyboard in Resources */,
+				84F30A2926B7E69600A40BDB /* KickPlayerCollectionViewCell.xib in Resources */,
 				84D9368A26B289D100E29F12 /* Choose game detail.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -738,13 +826,13 @@
 				84D9369826B2908F00E29F12 /* CreateLoungeVC.swift in Sources */,
 				7CB3A25426B2ABDF00259119 /* DetailLoungeViewController.swift in Sources */,
 				A80E61E626B421DF005FF4B6 /* AddAchievementViewController.swift in Sources */,
-				BF72D14926B68AC100F8DA6D /* TestTextViewViewController.swift in Sources */,
 				84D9367626B2839A00E29F12 /* ExploreLoungeCell.swift in Sources */,
 				E001319B26B533BB00A315EB /* Games.swift in Sources */,
 				8405A5F526B15493009D1375 /* StoreDataAuth.swift in Sources */,
 				E06ED46626B410E600EC18B0 /* CreateLoungeViewModel.swift in Sources */,
 				84D9368F26B289F500E29F12 /* ChooseGameViewController.swift in Sources */,
 				7C75DFCE26B30BAA002400CA /* RoleCollectionViewCell.swift in Sources */,
+				84F30A2A26B7E69600A40BDB /* KickPlayerCollectionViewCell.swift in Sources */,
 				E001319626B51EDB00A315EB /* GamesCollectionViewCell.swift in Sources */,
 				84D9369026B289F500E29F12 /* GameCollectionViewCell.swift in Sources */,
 				8405A5FC26B155D8009D1375 /* PaddingTextField.swift in Sources */,

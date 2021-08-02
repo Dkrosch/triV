@@ -6,8 +6,15 @@
 //
 
 import UIKit
+import Firebase
 
 class DetailLoungeViewController: UIViewController {
+    
+    var dataLounge = [DetailLounge]()
+    private var collectionRef: CollectionReference!
+    private var collectionRefUser: CollectionReference!
+    
+    var idRoom: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,14 +27,16 @@ class DetailLoungeViewController: UIViewController {
         Game.layer.borderColor = #colorLiteral(red: 0.9921568627, green: 0.5882352941, blue: 0.4666666667, alpha: 1)
         DescriptionTextbox.layer.cornerRadius = 8
         JoinLoungeButton.layer.cornerRadius = 8
-        
-//        let nib = UINib(nibName: "\(LoungeCollectionViewCell.self)", bundle: nil)
-//        CollectionView.register(nib, forCellWithReuseIdentifier: "detailLoungeMember")
-        
+
         CollectionView.register(LoungeCollectionViewCell.nib(), forCellWithReuseIdentifier: LoungeCollectionViewCell.identifier)
         
         CollectionView.delegate = self
         CollectionView.dataSource = self
+        
+        collectionRef = Firestore.firestore().collection("LoungeDetail")
+        collectionRefUser = Firestore.firestore().collection("users")
+        
+        print(idRoom)
     }
 
 
@@ -49,7 +58,12 @@ class DetailLoungeViewController: UIViewController {
     @IBOutlet weak var JoinLoungeButton: UIButton!
     
     
+//    override func viewWillAppear(_ animated: Bool) {
+//        <#code#>
+//    }
+    
     }
+
 
 
 extension DetailLoungeViewController: UICollectionViewDataSource, UICollectionViewDelegate{

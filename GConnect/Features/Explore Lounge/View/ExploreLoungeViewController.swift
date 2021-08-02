@@ -85,13 +85,7 @@ class ExploreLoungeViewController: UIViewController {
     }
 }
 
-extension ExploreLoungeViewController: UICollectionViewDelegate{
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("\(indexPath)")
-    }
-}
-
-extension ExploreLoungeViewController: UICollectionViewDataSource{
+extension ExploreLoungeViewController: UICollectionViewDataSource, UICollectionViewDelegate{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return datas.count
@@ -119,6 +113,10 @@ extension ExploreLoungeViewController: UICollectionViewDataSource{
         cell.exploreLoungeCellView.layer.borderWidth = 1
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        print(datas[indexPath.row].title)
     }
 }
 

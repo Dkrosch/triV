@@ -33,3 +33,18 @@ class DetailLounge{
     }
 }
 
+struct UserInfo{
+    var uidUser: String
+    var dataUser: [ProfileData]
+}
+
+struct ProfileData{
+    var username: String
+    var game: String
+    var gender: String
+    var rank: String
+    var role: String
+    var birthday: String
+    var imageProfile: String
+    var imageRank: String
+}

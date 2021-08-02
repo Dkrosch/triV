@@ -178,10 +178,6 @@
 		7CB3A24826B29DF000259119 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7C75DFC826B30727002400CA /* LoungeCollectionViewCell.swift */,
-				7C75DFC926B30727002400CA /* LoungeCollectionViewCell.xib */,
-				7C75DFCC26B30BAA002400CA /* RoleCollectionViewCell.swift */,
-				7C75DFCD26B30BAA002400CA /* RoleCollectionViewCell.xib */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -189,6 +185,10 @@
 		7CB3A24926B29DF600259119 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
+				7C75DFC826B30727002400CA /* LoungeCollectionViewCell.swift */,
+				7C75DFC926B30727002400CA /* LoungeCollectionViewCell.xib */,
+				7C75DFCC26B30BAA002400CA /* RoleCollectionViewCell.swift */,
+				7C75DFCD26B30BAA002400CA /* RoleCollectionViewCell.xib */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";

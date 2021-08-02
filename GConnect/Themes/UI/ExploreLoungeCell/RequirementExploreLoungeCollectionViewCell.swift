@@ -16,9 +16,5 @@ class RequirementExploreLoungeCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-    
-    func setBackground(color: UIColor){
-        //requirementExploreLoungeCellView.layer.backgroundColor = color.cgColor
-        print("Hello")
-    }
+
 }

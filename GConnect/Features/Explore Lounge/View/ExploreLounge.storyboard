@@ -108,12 +108,11 @@
                         <outlet property="notificationButton" destination="AOG-sG-Mnq" id="E1Q-pb-oOP"/>
                         <segue destination="a16-ZC-USx" kind="show" identifier="CreateLounge" id="Ydv-D2-a8s"/>
                         <segue destination="XpD-8O-st1" kind="show" identifier="SetFilter" id="Kkq-gU-nIr"/>
-                        <segue destination="bK0-BW-73g" kind="show" identifier="DetailLounge" id="BgH-Yf-VVK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="92" y="107"/>
+            <point key="canvasLocation" x="-6.1538461538461533" y="107.34597156398104"/>
         </scene>
         <!--CreateLounge-->
         <scene sceneID="AHg-8K-kA2">
@@ -133,17 +132,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4M9-Ng-80q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="865" y="107"/>
-        </scene>
-        <!--DetailLounge-->
-        <scene sceneID="dzN-Ez-ZAS">
-            <objects>
-                <viewControllerPlaceholder storyboardName="DetailLounge" id="bK0-BW-73g" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="Xvf-dM-HLS"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Lwt-VS-wcI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="908" y="259"/>
+            <point key="canvasLocation" x="872" y="259"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="p58-Z1-YoA">

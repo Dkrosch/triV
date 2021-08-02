@@ -7,10 +7,10 @@
 
 import Foundation
 import UIKit
-import FirebaseFirestoreSwift
 
 class Struct{
 //       @DocumentID var id: String? = UUID().uuidString
+    var game: String
     var title: String
     var desc: String
     var idMemberLounge: [String] // isi member
@@ -20,7 +20,8 @@ class Struct{
     var gender: String
     var rank: String
     
-    init(title: String, desc: String, idMemberLounge: [String], idRequirementsLounge: [Bool], documentId: String, creatAt: String, gender: String, rank: String) {
+    init(game: String, title: String, desc: String, idMemberLounge: [String], idRequirementsLounge: [Bool], documentId: String, creatAt: String, gender: String, rank: String) {
+        self.game = game
         self.title = title
         self.desc = desc
         self.idMemberLounge = idMemberLounge

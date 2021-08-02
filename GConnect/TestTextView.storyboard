@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Test Text View View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="TestTextViewViewController" customModule="GConnect" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="UCR-6x-d5m">
+                                <rect key="frame" x="20" y="282.66666666666663" width="350" height="278.66666666666663"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="GXr-8Y-S9U">
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="129.33333333333334"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t82-n1-PKk">
+                                                <rect key="frame" x="0.0" y="0.0" width="41.333333333333336" height="20.333333333333332"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" name="White Smoke"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="iH8-VB-AVk">
+                                                <rect key="frame" x="0.0" y="28.333333333333314" width="334" height="101"/>
+                                                <subviews>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xRN-xK-LKq">
+                                                        <rect key="frame" x="0.0" y="0.0" width="334" height="101"/>
+                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="textColor" name="White Smoke"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
+                                                </subviews>
+                                                <color key="backgroundColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="129.33000000000001" id="B3s-UO-O9o"/>
+                                            <constraint firstAttribute="width" constant="350" id="smo-ja-Kur"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="q69-Xm-PGn">
+                                        <rect key="frame" x="0.0" y="149.33333333333331" width="350" height="129.33333333333331"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d4i-mp-E0j">
+                                                <rect key="frame" x="0.0" y="0.0" width="41.333333333333336" height="20.333333333333332"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" name="White Smoke"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="uzk-K6-Ba6">
+                                                <rect key="frame" x="0.0" y="28.333333333333314" width="334" height="101"/>
+                                                <subviews>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Saya mau jadi radiant di valorant gan dan apex predator di apex legend" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vDt-Jc-lKA">
+                                                        <rect key="frame" x="0.0" y="0.0" width="334" height="72.666666666666671"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="textColor" name="White Smoke"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="male" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hHA-ik-Mqr">
+                                                        <rect key="frame" x="0.0" y="80.666666666666686" width="334" height="20.333333333333329"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" name="White Smoke"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="labelColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="vDt-Jc-lKA" firstAttribute="leading" secondItem="uzk-K6-Ba6" secondAttribute="leading" id="Is1-fx-7TC"/>
+                                                    <constraint firstAttribute="trailing" secondItem="vDt-Jc-lKA" secondAttribute="trailing" id="QWn-gg-PS1"/>
+                                                    <constraint firstAttribute="trailing" secondItem="hHA-ik-Mqr" secondAttribute="trailing" id="f0H-db-wg0"/>
+                                                    <constraint firstAttribute="bottom" secondItem="hHA-ik-Mqr" secondAttribute="bottom" id="hX5-aa-683"/>
+                                                    <constraint firstItem="hHA-ik-Mqr" firstAttribute="top" secondItem="vDt-Jc-lKA" secondAttribute="bottom" constant="8" id="i0b-qy-1uF"/>
+                                                    <constraint firstItem="hHA-ik-Mqr" firstAttribute="leading" secondItem="uzk-K6-Ba6" secondAttribute="leading" id="tlI-gs-6Vz"/>
+                                                    <constraint firstItem="vDt-Jc-lKA" firstAttribute="top" secondItem="uzk-K6-Ba6" secondAttribute="top" id="zd5-UF-oTz"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="350" id="1pr-KO-7ny"/>
+                                            <constraint firstAttribute="height" constant="129.33000000000001" id="ujo-Yc-wBw"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" name="Dark Blue"/>
+                        <constraints>
+                            <constraint firstItem="UCR-6x-d5m" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="PHR-Xt-Sn0"/>
+                            <constraint firstItem="UCR-6x-d5m" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="pq7-dd-1d1"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="stackViewBio" destination="q69-Xm-PGn" id="q1q-nd-6ly"/>
+                        <outlet property="stackViewUsername" destination="GXr-8Y-S9U" id="tgs-mL-pXF"/>
+                        <outlet property="textViewBio" destination="vDt-Jc-lKA" id="e11-UO-zIN"/>
+                        <outlet property="textViewUsername" destination="xRN-xK-LKq" id="fxi-4T-8ki"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="87.723214285714278"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="Dark Blue">
+            <color red="0.10999999940395355" green="0.17299999296665192" blue="0.32899999618530273" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="White Smoke">
+            <color red="0.9570000171661377" green="0.9570000171661377" blue="0.9570000171661377" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

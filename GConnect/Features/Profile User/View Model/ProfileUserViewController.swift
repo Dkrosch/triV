@@ -6,31 +6,44 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class ProfileUserViewController: UIViewController {
 
     @IBOutlet weak var viewContentProfileUser: UIView!
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var usernameLabelProfileUser: UILabel!
-    @IBOutlet weak var aboutMeViewProfileUser: UIView!
-    @IBOutlet weak var aboutMeDescriptionLabel: UILabel!
+    
+    @IBOutlet weak var stackAboutMeTextField: UIStackView!
+    @IBOutlet weak var aboutMeTextField: UITextView!
+    
+    @IBOutlet weak var stackTextFieldUsername: UIStackView!
+    @IBOutlet weak var stackUsernameView: UIStackView!
+    @IBOutlet weak var usernameTextField: UITextField!
+//    @IBOutlet weak var aboutMeViewProfileUser: UIView!
+//    @IBOutlet weak var aboutMeDescriptionLabel: UILabel!
     @IBOutlet weak var genderLabel: UILabel!
     
     @IBOutlet weak var viewContent: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var achievementCollectionView: UICollectionView!
     @IBOutlet weak var buttonLogoutProfileUser: UIButton!
-    @IBOutlet weak var viewContentHeightConstraint: NSLayoutConstraint!
     
-//    var jumlahCell = 0
+    @IBOutlet weak var viewContentHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var achievementCollectionViewConstraintHeight: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        aboutMeViewProfileUser.layer.borderColor = #colorLiteral(red: 1, green: 0.6593824029, blue: 0.5392141342, alpha: 1)
-        aboutMeViewProfileUser.layer.borderWidth = 1
+        stackAboutMeTextField.layer.borderColor = #colorLiteral(red: 1, green: 0.6593824029, blue: 0.5392141342, alpha: 1)
+        stackAboutMeTextField.layer.borderWidth = 1
+        
+        aboutMeTextField.isScrollEnabled = false
+        aboutMeTextField.isEditable = false
+        
+        stackUsernameView.isHidden = true
 
         let nib = UINib(nibName: "\(AchievementProfileCollectionViewCell.self)", bundle: nil)
         achievementCollectionView.register(nib, forCellWithReuseIdentifier: "achievementCell" )
@@ -43,14 +56,80 @@ class ProfileUserViewController: UIViewController {
         achievementCollectionView.layer.borderWidth = 1
         achievementCollectionView.layer.borderColor = #colorLiteral(red: 1, green: 0.6593824029, blue: 0.5392141342, alpha: 1)
         
-        viewContentHeightConstraint.constant = 696 + (achievementCollectionView.frame.size.height*10)
+        viewContentHeightConstraint.constant = 766 + (achievementCollectionView.frame.size.height*10)
         
         achievementCollectionViewConstraintHeight.constant = achievementCollectionView.frame.size.height*10
         
         print(achievementCollectionView.frame.size.height)
         view.layoutIfNeeded()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editTapped))
+        
+        fetchDataProfile()
     }
     
+    @objc func editTapped(){
+        stackUsernameView.isHidden = false
+        aboutMeTextField.isEditable = true
+        genderLabel.isHidden = true
+        
+        stackTextFieldUsername.addBackground(color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneTapped))
+        
+        print("mau edit bang")
+    }
+    
+    @objc func doneTapped(){
+        stackUsernameView.isHidden = true
+        aboutMeTextField.isEditable = false
+        
+        genderLabel.isHidden = false
+        
+        stackTextFieldUsername.addBackground(color: #colorLiteral(red: 0.2309213281, green: 0.2924915552, blue: 0.4204188585, alpha: 1))
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editTapped))
+        
+        print("selesai edit bang")
+    }
+    
+    @IBAction func logOutButtonClicked(_ sender: Any) {
+        let alert = UIAlertController(title: "Warning", message: "Are you sure you want to log out?", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+            print("log out")
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true)
+    }
+    
+    func fetchDataProfile(){
+        let datas = Firestore.firestore()
+        
+        guard let userID = Auth.auth().currentUser?.uid else { return }
+        
+        let reference = datas.collection("users").document(userID)
+        reference.getDocument{ (document, err) in
+            if let error = err{
+                print(error)
+            }else if let document = document, document.exists{
+                let username = document.get("username") as! String
+                let gender = document.get("gender") as! String
+                
+                self.usernameLabelProfileUser.text = username
+                
+                
+                if gender == "Male" {
+                    self.genderLabel.text = ("♂️\(gender)")
+                }else{
+                    self.genderLabel.text = ("♀ \(gender)")
+                }
+                
+                print(username, gender)
+            }
+        }
+    }
 
     /*
     // MARK: - Navigation

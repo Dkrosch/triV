@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "Valorant.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Valorant@2x.png",
+      "filename" : "Valkyrie_Icon@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Valorant@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

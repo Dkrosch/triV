@@ -33,15 +33,8 @@ class StoreDataAuth {
             }
             succcesCompletionHandler(true)
             
-            var convertGender = ""
-            if gender == "♂️Male"{
-                convertGender = "Male"
-            }else{
-                convertGender = "Female"
-            }
-            
             let Dob = DoB
-            let gender = convertGender
+            let gender = gender
             let username = username
             let usrID = result!.user.uid
             

@@ -19,7 +19,7 @@ class ExploreLoungeViewController: UIViewController {
     
     var jum = 0
     
-    var datas = [DetailLounge]()
+    var datas = [Struct]()
     var dataLounge = DataLounge()
     private var collectionRef: CollectionReference!
     
@@ -35,11 +35,13 @@ class ExploreLoungeViewController: UIViewController {
         
        // DataLounge.showDatas()
         //print(datas)
-       print(dataLounge.showDatas())
+//       print(dataLounge.showDatas())
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        datas = []
+        
         collectionRef.getDocuments { snapshot, error in
             if let err = error{
                 print("error")
@@ -48,6 +50,7 @@ class ExploreLoungeViewController: UIViewController {
                     let data = document.data()
                     let creatAt = data["CreatAt"] as? String ?? ""
                     let desc = data["Desc"] as? String ?? ""
+                    let game = data["Game"] as? String ?? ""
                     let judul = data["Title"] as? String ?? ""
                     let idMemberLounge = data["idMemberLounge"] as? [String: Any]
                     let member1 = idMemberLounge!["Member1"] as? String
@@ -61,22 +64,19 @@ class ExploreLoungeViewController: UIViewController {
                     let member9 = idMemberLounge!["Member9"] as? String
                     let member10 = idMemberLounge!["Member10"] as? String
                     let idRequirementsLounge = data["idRequirementsLounge"] as? [String: Any]
-                    let gender = idRequirementsLounge!["Gender"] as? String
-                    let rank = idRequirementsLounge!["Rank"] as? String
-                    let role1 = idRequirementsLounge!["Role1"] as? String
-                    let role2 = idRequirementsLounge!["Role2"] as? String
-                    let role3 = idRequirementsLounge!["Role3"] as? String
-                    let role4 = idRequirementsLounge!["Role4"] as? String
+                    let role1 = idRequirementsLounge!["Sentinel"] as? Bool
+                    let role2 = idRequirementsLounge!["Initiator"] as? Bool
+                    let role3 = idRequirementsLounge!["Controller"] as? Bool
+                    let role4 = idRequirementsLounge!["Duelist"] as? Bool
+                    let gender = data["Gender"] as? String ?? ""
+                    let rank = data["Rank"] as? String ?? ""
                     let documentId = document.documentID
-
-                    let newData = DetailLounge(title: judul, desc: desc, idMemberLounge: [member1!, member2!, member3!, member4!, member5!, member6!, member7!, member8!, member9!, member10!], idRequirementsLounge: [gender!, rank!, role1!, role2!, role3!, role4!], documentId: documentId, creatAt: creatAt)
-
+                    
+                    let newData = Struct(game: game,title: judul, desc: desc, idMemberLounge: [member1!, member2!, member3!, member4!, member5!, member6!, member7!, member8!, member9!, member10!], idRequirementsLounge: [role1!, role2!, role3!, role4!], documentId: documentId, creatAt: creatAt, gender: gender, rank: rank)
+                    
                     self.datas.append(newData)
                 }
-                
-                DispatchQueue.main.async {
-                    self.loungeCollectionView.reloadData()
-                }
+                self.loungeCollectionView.reloadData()
             }
         }
         

@@ -31,7 +31,7 @@ class ExploreLoungeCell: UICollectionViewCell, UICollectionViewDelegate, UIColle
         requirementExploreLoungeCollectionVIew.register(nib, forCellWithReuseIdentifier: "cellContoh")
     }
     
-    func configureCell(detailLounge: Struct){
+    func configureCell(detailLounge: DetailLounge){
         var num = 10
         
         for member in detailLounge.idMemberLounge{

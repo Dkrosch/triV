@@ -69,6 +69,7 @@
 		E06AA42B26B7CE4D00357B01 /* FilterLounge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E06AA42926B7CE4A00357B01 /* FilterLounge.storyboard */; };
 		E06AA42C26B7CE4D00357B01 /* FilterLoungeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06AA42A26B7CE4D00357B01 /* FilterLoungeViewController.swift */; };
 		E06ED46626B410E600EC18B0 /* CreateLoungeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06ED46526B410E600EC18B0 /* CreateLoungeViewModel.swift */; };
+		E8AF68D926B8456F00E49A01 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AF68D826B8456F00E49A01 /* UserData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -138,6 +139,7 @@
 		E06AA42926B7CE4A00357B01 /* FilterLounge.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FilterLounge.storyboard; sourceTree = "<group>"; };
 		E06AA42A26B7CE4D00357B01 /* FilterLoungeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterLoungeViewController.swift; sourceTree = "<group>"; };
 		E06ED46526B410E600EC18B0 /* CreateLoungeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLoungeViewModel.swift; sourceTree = "<group>"; };
+		E8AF68D826B8456F00E49A01 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserData.swift; path = "GConnect/Features/Create Profile/View/UserData.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -515,6 +517,7 @@
 		BFCE10CB26B2B48300C206B5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E8AF68D826B8456F00E49A01 /* UserData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -832,6 +835,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8AF68D926B8456F00E49A01 /* UserData.swift in Sources */,
 				8405A5FD26B155D8009D1375 /* HideKeyboard.swift in Sources */,
 				84D9369E26B2B22D00E29F12 /* DataLounge.swift in Sources */,
 				8405A60026B155E4009D1375 /* CheckEmail.swift in Sources */,

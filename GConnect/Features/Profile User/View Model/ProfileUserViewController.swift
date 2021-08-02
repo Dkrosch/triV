@@ -76,6 +76,16 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         fetchDataProfile()
     }
     
+    static func getUserInfo(){
+        guard let userID = Auth.auth().currentUser?.uid else{
+            print("User not Found")
+            return
+        }
+        
+        let db = Firestore.firestore()
+        
+    }
+    
     @objc func editTapped(){
         stackUsernameView.isHidden = false
         aboutMeTextField.isEditable = true

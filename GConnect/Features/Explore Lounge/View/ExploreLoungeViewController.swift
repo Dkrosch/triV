@@ -7,8 +7,6 @@
 
 import UIKit
 import Firebase
-import FirebaseAuth
-
 
 class ExploreLoungeViewController: UIViewController {
     
@@ -19,12 +17,12 @@ class ExploreLoungeViewController: UIViewController {
     
     var jum = 0
     
-    var datas = [DetailLounge]()
-    var dataLounge = DataLounge()
+    var datas = [Struct]()
     private var collectionRef: CollectionReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         loungeCollectionView.delegate = self
         loungeCollectionView.dataSource = self
         
@@ -32,14 +30,13 @@ class ExploreLoungeViewController: UIViewController {
         loungeCollectionView.register(nib, forCellWithReuseIdentifier: "loungeCollectionViewCell" )
         
         collectionRef = Firestore.firestore().collection("LoungeDetail")
-        
-       // DataLounge.showDatas()
-        //print(datas)
-       print(dataLounge.showDatas())
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
+        
+        datas = []
+        
         collectionRef.getDocuments { snapshot, error in
             if let err = error{
                 print("error")
@@ -48,6 +45,7 @@ class ExploreLoungeViewController: UIViewController {
                     let data = document.data()
                     let creatAt = data["CreatAt"] as? String ?? ""
                     let desc = data["Desc"] as? String ?? ""
+                    let game = data["Game"] as? String ?? ""
                     let judul = data["Title"] as? String ?? ""
                     let idMemberLounge = data["idMemberLounge"] as? [String: Any]
                     let member1 = idMemberLounge!["Member1"] as? String
@@ -61,34 +59,30 @@ class ExploreLoungeViewController: UIViewController {
                     let member9 = idMemberLounge!["Member9"] as? String
                     let member10 = idMemberLounge!["Member10"] as? String
                     let idRequirementsLounge = data["idRequirementsLounge"] as? [String: Any]
-                    let gender = idRequirementsLounge!["Gender"] as? String
-                    let rank = idRequirementsLounge!["Rank"] as? String
-                    let role1 = idRequirementsLounge!["Role1"] as? String
-                    let role2 = idRequirementsLounge!["Role2"] as? String
-                    let role3 = idRequirementsLounge!["Role3"] as? String
-                    let role4 = idRequirementsLounge!["Role4"] as? String
+                    let role1 = idRequirementsLounge!["Sentinel"] as? Bool
+                    let role2 = idRequirementsLounge!["Initiator"] as? Bool
+                    let role3 = idRequirementsLounge!["Controller"] as? Bool
+                    let role4 = idRequirementsLounge!["Duelist"] as? Bool
+                    let gender = data["Gender"] as? String ?? ""
+                    let rank = data["Rank"] as? String ?? ""
                     let documentId = document.documentID
 
-                    let newData = DetailLounge(title: judul, desc: desc, idMemberLounge: [member1!, member2!, member3!, member4!, member5!, member6!, member7!, member8!, member9!, member10!], idRequirementsLounge: [gender!, rank!, role1!, role2!, role3!, role4!], documentId: documentId, creatAt: creatAt)
+                    let newData = Struct(game: game,title: judul, desc: desc, idMemberLounge: [member1!, member2!, member3!, member4!, member5!, member6!, member7!, member8!, member9!, member10!], idRequirementsLounge: [role1!, role2!, role3!, role4!], documentId: documentId, creatAt: creatAt, gender: gender, rank: rank)
 
                     self.datas.append(newData)
                 }
-                
-                DispatchQueue.main.async {
-                    self.loungeCollectionView.reloadData()
-                }
+                self.loungeCollectionView.reloadData()
             }
         }
-        
     }
     
-    
-    @IBAction func createLoungeAction(_ sender: UIButton) {
-        guard let userID = Auth.auth().currentUser?.uid else { return }
-        
-        print("Data: \(userID)")
+    @IBAction func createLoungeAction(_ sender: UIButton){
+        performSegue(withIdentifier: "CreateLounge", sender: self)
     }
 
+    @IBAction func setFilterTapped(_ sender: Any) {
+        performSegue(withIdentifier: "SetFilter", sender: self)
+    }
 }
 
 extension ExploreLoungeViewController: UICollectionViewDelegate{
@@ -105,8 +99,24 @@ extension ExploreLoungeViewController: UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "loungeCollectionViewCell", for: indexPath) as! ExploreLoungeCell
+        var num = 10
         
-        cell.configureCell(detailLounge: datas[indexPath.row])
+        cell.loungeNameLabel.text = datas[indexPath.row].title
+        cell.descriptionLoungeLabel.text = datas[indexPath.row].desc
+        cell.gamesNameLabel.text = "| \(datas[indexPath.row].game)"
+        
+        for member in datas[indexPath.row].idMemberLounge{
+            print(member)
+            
+            if member == ""{
+                num -= 1
+            }
+        }
+    
+        cell.totalMemberLabel.text = "\(num)/10"
+        
+        cell.exploreLoungeCellView.layer.borderColor = #colorLiteral(red: 1, green: 0.6593824029, blue: 0.5392141342, alpha: 1)
+        cell.exploreLoungeCellView.layer.borderWidth = 1
         
         return cell
     }

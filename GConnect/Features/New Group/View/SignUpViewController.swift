@@ -17,7 +17,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var txtFieldGender: UITextField!
     @IBOutlet weak var txtErrorMessage: UILabel!
     
-    let gender = ["Male", "Female"]
+    let gender = ["♂️Male", "♀ Female"]
     var pickerView = UIPickerView()
     var bottomLine = CALayer()
     public var username:String?

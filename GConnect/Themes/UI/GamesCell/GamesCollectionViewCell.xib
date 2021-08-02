@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="GamesCellId" id="gTV-IL-0wX" customClass="GamesCollectionViewCell" customModule="GConnect" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="155" height="104"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="155" height="104"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hXG-b5-etT">
+                        <rect key="frame" x="0.0" y="0.0" width="155" height="104"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mPv-vC-qJu">
+                                <rect key="frame" x="47" y="10" width="61" height="62"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="61" id="Jlq-4F-Am7"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="61" id="MSo-pS-oqG"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="62" id="TOi-fm-K9d"/>
+                                    <constraint firstAttribute="height" constant="62" id="uJL-Tf-vZD"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="dasdaaddasds" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lEX-P1-LwI">
+                                <rect key="frame" x="5" y="78" width="145" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="mPv-vC-qJu" secondAttribute="trailing" constant="47" id="FuE-S9-i6K"/>
+                            <constraint firstAttribute="trailing" secondItem="lEX-P1-LwI" secondAttribute="trailing" constant="5" id="KDt-Ol-kuk"/>
+                            <constraint firstAttribute="bottom" secondItem="lEX-P1-LwI" secondAttribute="bottom" constant="5" id="KZg-6d-gZs"/>
+                            <constraint firstItem="mPv-vC-qJu" firstAttribute="leading" secondItem="hXG-b5-etT" secondAttribute="leading" constant="47" id="L2k-Lk-cDs"/>
+                            <constraint firstItem="mPv-vC-qJu" firstAttribute="top" secondItem="hXG-b5-etT" secondAttribute="top" constant="10" id="Mnm-yO-4xj"/>
+                            <constraint firstItem="lEX-P1-LwI" firstAttribute="leading" secondItem="hXG-b5-etT" secondAttribute="leading" constant="5" id="wML-od-Irb"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="hXG-b5-etT" secondAttribute="trailing" id="Fzr-6U-qaG"/>
+                <constraint firstItem="hXG-b5-etT" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="ek6-JP-rb9"/>
+                <constraint firstItem="hXG-b5-etT" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="fLF-YS-Hin"/>
+                <constraint firstAttribute="bottom" secondItem="hXG-b5-etT" secondAttribute="bottom" id="u3X-SH-fCP"/>
+            </constraints>
+            <size key="customSize" width="155" height="104"/>
+            <connections>
+                <outlet property="imgGame" destination="mPv-vC-qJu" id="Qsr-GQ-u1S"/>
+                <outlet property="lblGameName" destination="lEX-P1-LwI" id="prV-xA-KRr"/>
+                <outlet property="viewBackground" destination="hXG-b5-etT" id="Ode-iw-JJs"/>
+            </connections>
+            <point key="canvasLocation" x="-25.384615384615383" y="110.90047393364928"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

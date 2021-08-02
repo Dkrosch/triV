@@ -14,6 +14,7 @@ class ExploreLoungeCell: UICollectionViewCell, UICollectionViewDelegate, UIColle
     @IBOutlet weak var totalMemberLabel: UILabel!
     @IBOutlet weak var descriptionLoungeLabel: UILabel!
     @IBOutlet weak var requirementExploreLoungeCollectionVIew: UICollectionView!
+    @IBOutlet weak var gamesNameLabel: UILabel!
     
     private let cellId = "cell"
     
@@ -23,7 +24,6 @@ class ExploreLoungeCell: UICollectionViewCell, UICollectionViewDelegate, UIColle
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-
         requirementExploreLoungeCollectionVIew.delegate = self
         requirementExploreLoungeCollectionVIew.dataSource = self
         

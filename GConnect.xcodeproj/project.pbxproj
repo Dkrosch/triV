@@ -12,8 +12,6 @@
 		611D92946047CC1CC6F6C168 /* Pods_GConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D9425B70F64E9871706E5B07 /* Pods_GConnect.framework */; };
 		7C75DFCA26B30727002400CA /* LoungeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C75DFC826B30727002400CA /* LoungeCollectionViewCell.swift */; };
 		7C75DFCB26B30727002400CA /* LoungeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C75DFC926B30727002400CA /* LoungeCollectionViewCell.xib */; };
-		7C75DFCE26B30BAA002400CA /* RoleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C75DFCC26B30BAA002400CA /* RoleCollectionViewCell.swift */; };
-		7C75DFCF26B30BAA002400CA /* RoleCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C75DFCD26B30BAA002400CA /* RoleCollectionViewCell.xib */; };
 		7CB3A24C26B29EDD00259119 /* DetailLounge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CB3A24B26B29EDD00259119 /* DetailLounge.storyboard */; };
 		7CB3A25426B2ABDF00259119 /* DetailLoungeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB3A25326B2ABDF00259119 /* DetailLoungeViewController.swift */; };
 		8405A5F226B1546A009D1375 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8405A5F026B15466009D1375 /* SignUpViewController.swift */; };
@@ -66,6 +64,7 @@
 		E04E101326B01D1200A81F92 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E04E101226B01D1200A81F92 /* GoogleService-Info.plist */; };
 		E06AA42B26B7CE4D00357B01 /* FilterLounge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E06AA42926B7CE4A00357B01 /* FilterLounge.storyboard */; };
 		E06AA42C26B7CE4D00357B01 /* FilterLoungeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06AA42A26B7CE4D00357B01 /* FilterLoungeViewController.swift */; };
+		E06AA42F26B7F2E500357B01 /* LoadFromNIB.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06AA42E26B7F2E500357B01 /* LoadFromNIB.swift */; };
 		E06ED46626B410E600EC18B0 /* CreateLoungeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06ED46526B410E600EC18B0 /* CreateLoungeViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -75,8 +74,6 @@
 		64CD961C1288F8B7BC7C940A /* Pods-GConnect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GConnect.debug.xcconfig"; path = "Target Support Files/Pods-GConnect/Pods-GConnect.debug.xcconfig"; sourceTree = "<group>"; };
 		7C75DFC826B30727002400CA /* LoungeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoungeCollectionViewCell.swift; sourceTree = "<group>"; };
 		7C75DFC926B30727002400CA /* LoungeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoungeCollectionViewCell.xib; sourceTree = "<group>"; };
-		7C75DFCC26B30BAA002400CA /* RoleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleCollectionViewCell.swift; sourceTree = "<group>"; };
-		7C75DFCD26B30BAA002400CA /* RoleCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoleCollectionViewCell.xib; sourceTree = "<group>"; };
 		7CB3A24B26B29EDD00259119 /* DetailLounge.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailLounge.storyboard; sourceTree = "<group>"; };
 		7CB3A25326B2ABDF00259119 /* DetailLoungeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLoungeViewController.swift; sourceTree = "<group>"; };
 		8405A5F026B15466009D1375 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +130,7 @@
 		E04E101226B01D1200A81F92 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E06AA42926B7CE4A00357B01 /* FilterLounge.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FilterLounge.storyboard; sourceTree = "<group>"; };
 		E06AA42A26B7CE4D00357B01 /* FilterLoungeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterLoungeViewController.swift; sourceTree = "<group>"; };
+		E06AA42E26B7F2E500357B01 /* LoadFromNIB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadFromNIB.swift; sourceTree = "<group>"; };
 		E06ED46526B410E600EC18B0 /* CreateLoungeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLoungeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -178,10 +176,6 @@
 		7CB3A24826B29DF000259119 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7C75DFC826B30727002400CA /* LoungeCollectionViewCell.swift */,
-				7C75DFC926B30727002400CA /* LoungeCollectionViewCell.xib */,
-				7C75DFCC26B30BAA002400CA /* RoleCollectionViewCell.swift */,
-				7C75DFCD26B30BAA002400CA /* RoleCollectionViewCell.xib */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -247,6 +241,7 @@
 				8405A5F926B155D5009D1375 /* PaddingTextField.swift */,
 				E02FC20626B174FE00963710 /* DatePicker.swift */,
 				BF72D14A26B7DE6300F8DA6D /* ChangeBgStackView.swift */,
+				E06AA42E26B7F2E500357B01 /* LoadFromNIB.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -270,6 +265,7 @@
 		84D9366E26B2837700E29F12 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				E06AA42D26B7ED9F00357B01 /* DetailLounge */,
 				E001319326B51EAC00A315EB /* GamesCell */,
 				BF72D14126B4016900F8DA6D /* AchievementProfileCell */,
 				3936503D26B3DD80001907E6 /* ProfilePictRank */,
@@ -579,6 +575,15 @@
 			path = "View Model";
 			sourceTree = "<group>";
 		};
+		E06AA42D26B7ED9F00357B01 /* DetailLounge */ = {
+			isa = PBXGroup;
+			children = (
+				7C75DFC826B30727002400CA /* LoungeCollectionViewCell.swift */,
+				7C75DFC926B30727002400CA /* LoungeCollectionViewCell.xib */,
+			);
+			path = DetailLounge;
+			sourceTree = "<group>";
+		};
 		E06ED46226B40A3200EC18B0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -665,7 +670,6 @@
 				3936504326B3F1CE001907E6 /* ProfilePickRankCollectionViewCell.xib in Resources */,
 				E04E0FED26B0058500A81F92 /* LaunchScreen.storyboard in Resources */,
 				E04E101326B01D1200A81F92 /* GoogleService-Info.plist in Resources */,
-				7C75DFCF26B30BAA002400CA /* RoleCollectionViewCell.xib in Resources */,
 				84D9367726B2839A00E29F12 /* ExploreLoungeCell.xib in Resources */,
 				A80E61DE26B3DD01005FF4B6 /* ProfileVisitor.storyboard in Resources */,
 				E04E0FEA26B0058500A81F92 /* Assets.xcassets in Resources */,
@@ -744,11 +748,11 @@
 				8405A5F526B15493009D1375 /* StoreDataAuth.swift in Sources */,
 				E06ED46626B410E600EC18B0 /* CreateLoungeViewModel.swift in Sources */,
 				84D9368F26B289F500E29F12 /* ChooseGameViewController.swift in Sources */,
-				7C75DFCE26B30BAA002400CA /* RoleCollectionViewCell.swift in Sources */,
 				E001319626B51EDB00A315EB /* GamesCollectionViewCell.swift in Sources */,
 				84D9369026B289F500E29F12 /* GameCollectionViewCell.swift in Sources */,
 				8405A5FC26B155D8009D1375 /* PaddingTextField.swift in Sources */,
 				84D9367526B2839A00E29F12 /* RequirementExploreLoungeCollectionViewCell.swift in Sources */,
+				E06AA42F26B7F2E500357B01 /* LoadFromNIB.swift in Sources */,
 				BF72D14426B401AC00F8DA6D /* AchievementProfileCollectionViewCell.swift in Sources */,
 				BF72D14B26B7DE6300F8DA6D /* ChangeBgStackView.swift in Sources */,
 				A80E61E026B3ED40005FF4B6 /* ProfileVisitorViewController.swift in Sources */,

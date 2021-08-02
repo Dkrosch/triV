@@ -87,7 +87,16 @@ class ExploreLoungeViewController: UIViewController {
 
 extension ExploreLoungeViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("\(indexPath)")
+        var idLounge = datas[indexPath.row].documentId
+        performSegue(withIdentifier: "DetailLounge", sender: idLounge)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "DetailLounge"){
+            let loungeID = sender as? String
+            let vc = segue.destination as? DetailLoungeViewController
+            vc?.idLounge = loungeID!
+        }
     }
 }
 

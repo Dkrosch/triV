@@ -1,0 +1,89 @@
+//
+//  DetailLoungeViewModel.swift
+//  GConnect
+//
+//  Created by Michael Tanakoman on 02/08/21.
+//
+
+import UIKit
+import Firebase
+
+class DetailLoungeViewModel {
+    
+    public func getData(id: String, escapingData: @escaping ([DetailLounge]) -> Void){
+        
+        let data = Firestore.firestore()
+        let reference = data.collection("LoungeDetail").document(id)
+        
+        reference.getDocument { snapshot, error in
+            if let err = error{
+                print(err)
+            }else if let snapshot = snapshot, snapshot.exists{
+                let game = snapshot.get("Game") as? String
+                let judul = snapshot.get("Title")as? String
+                let desc = snapshot.get("Desc") as? String
+                let gender = snapshot.get("Gender") as? String
+                let rank = snapshot.get("Rank") as? String
+                let creatAt = snapshot.get("CreateAt") as? String
+                let idMemberLounge = snapshot.get("idMemberLounge") as! [String:Any]
+                let idRequirementsLounge = snapshot.get("idRequirementsLounge") as! [String:Any]
+                
+                guard let member1 = idMemberLounge["Member1"] as? String else { return }
+                guard let member2 = idMemberLounge["Member2"] as? String else { return }
+                guard let member3 = idMemberLounge["Member3"] as? String else { return }
+                guard let member4 = idMemberLounge["Member4"] as? String else { return }
+                guard let member5 = idMemberLounge["Member5"] as? String else { return }
+                guard let member6 = idMemberLounge["Member6"] as? String else { return }
+                guard let member7 = idMemberLounge["Member7"] as? String else { return }
+                guard let member8 = idMemberLounge["Member8"] as? String else { return }
+                guard let member9 = idMemberLounge["Member9"] as? String else { return }
+                guard let member10 = idMemberLounge["Member10"] as? String else { return }
+
+                guard let role1 = idRequirementsLounge["Controller"] as? Bool else { return }
+                guard let role2 = idRequirementsLounge["Duelist"] as? Bool else { return }
+                guard let role3 = idRequirementsLounge["Initiator"] as? Bool else { return }
+                guard let role4 = idRequirementsLounge["Sentinel"] as? Bool else { return }
+
+                let newData = DetailLounge(game: game!,title: judul!, desc: desc!, idMemberLounge: [member1, member2, member3, member4, member5, member6, member7, member8, member9, member10], idRequirementsLounge: [role1, role2, role3, role4], documentId: id, creatAt: creatAt!, gender: gender!, rank: rank!)
+                
+                DispatchQueue.main.async {
+                    escapingData([newData])
+                }
+            }
+        }
+    }
+    
+    public func getDataMember(idMember: [String], dataMember: @escaping ([LoungeMember]) -> Void){
+        var datasMember = [LoungeMember]()
+        let data = Firestore.firestore()
+        let reference = data.collection("users")
+        var arrayMember: [String] = []
+        var idUser: [String] = []
+        var test: [String] = []
+        
+        for idMemberlah in idMember{
+            if idMemberlah != ""{
+                arrayMember.append(idMemberlah)
+            }
+        }
+        
+        for id in arrayMember{
+            DispatchQueue.global().async {
+                reference.document(id).getDocument { document, error in
+                    if error != nil{
+                        print(error!)
+                    }else if let document = document, document.exists {
+                        let name = document.get("username") as! String
+                        let role = document.get("role") as! String
+                        let dataMemberLounge = LoungeMember(idMember: id, name: name, rank: role)
+                        
+                        datasMember.append(dataMemberLounge)
+                        if datasMember.count == arrayMember.count {
+                            dataMember(datasMember)
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

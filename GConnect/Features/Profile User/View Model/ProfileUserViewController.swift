@@ -213,6 +213,35 @@ class ProfileUserViewController: UIViewController {
         
         self.present(alert, animated: true)
     }
+<<<<<<< Updated upstream
+=======
+    
+    func fetchDataProfile(){
+        let datas = Firestore.firestore()
+        
+        guard let userID = Auth.auth().currentUser?.uid else { return }
+        
+        let reference = datas.collection("users").document(userID)
+        reference.getDocument{ (document, err) in
+            if let error = err{
+                print(error)
+            }else if let document = document, document.exists{
+                let username = document.get("username") as! String
+                let gender = document.get("gender") as! String
+                
+                self.usernameLabelProfileUser.text = username
+                
+                if gender == "Male" {
+                    self.genderLabel.text = ("♂️\(gender)")
+                }else{
+                    self.genderLabel.text = ("♀ \(gender)")
+                }
+                
+                print(username, gender)
+            }
+        }
+    }
+>>>>>>> Stashed changes
 }
 
 extension ProfileUserViewController: UICollectionViewDelegate{

@@ -47,6 +47,7 @@ class ExploreLoungeViewController: UIViewController {
                     let desc = data["Desc"] as? String ?? ""
                     let game = data["Game"] as? String ?? ""
                     let judul = data["Title"] as? String ?? ""
+                    
                     let idMemberLounge = data["idMemberLounge"] as? [String: Any]
                     let member1 = idMemberLounge!["Member1"] as? String
                     let member2 = idMemberLounge!["Member2"] as? String
@@ -58,11 +59,13 @@ class ExploreLoungeViewController: UIViewController {
                     let member8 = idMemberLounge!["Member8"] as? String
                     let member9 = idMemberLounge!["Member9"] as? String
                     let member10 = idMemberLounge!["Member10"] as? String
+                    
                     let idRequirementsLounge = data["idRequirementsLounge"] as? [String: Any]
                     let role1 = idRequirementsLounge!["Sentinel"] as? Bool
                     let role2 = idRequirementsLounge!["Initiator"] as? Bool
                     let role3 = idRequirementsLounge!["Controller"] as? Bool
                     let role4 = idRequirementsLounge!["Duelist"] as? Bool
+                    
                     let gender = data["Gender"] as? String ?? ""
                     let rank = data["Rank"] as? String ?? ""
                     let documentId = document.documentID

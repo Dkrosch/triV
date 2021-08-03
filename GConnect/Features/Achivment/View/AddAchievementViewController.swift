@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class AddAchievementViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -27,6 +29,28 @@ class AddAchievementViewController: UIViewController, UITextViewDelegate, UIText
         titleTextField.delegate = self
         despTextField.delegate = self
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneTapped))
+        
+    }
+    
+    @objc func doneTapped(){
+        let db = Firestore.firestore()
+        
+        let title = titleTextField.text
+        let desc = despTextField.text
+        let image = "Hahahahaha"
+        guard let userID = Auth.auth().currentUser?.uid else { return }
+        
+        db.collection("achievement").document().setData(["Title": title, "Desc": desc, "Image": image, "uid": userID]){ (error) in
+            
+            if error != nil{
+                print("eror")
+            } else{
+                print("done")
+            }
+        }
+        
+        self.navigationController?.popViewController(animated: true)
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

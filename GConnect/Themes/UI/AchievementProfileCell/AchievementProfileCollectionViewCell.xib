@@ -44,8 +44,8 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" name="Vivid Tangerine"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8kV-mP-8yG">
-                                <rect key="frame" x="317" y="122" width="19" height="19"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gDQ-LZ-SCk">
+                                <rect key="frame" x="329" y="118" width="13" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" name="White Smoke"/>
                                 <state key="normal" image="Edit_icon">
@@ -60,7 +60,7 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <connections>
                 <outlet property="achievementProfileView" destination="zgU-eo-AtW" id="Kxh-6I-SAe"/>
-                <outlet property="buttonEdit" destination="8kV-mP-8yG" id="eW6-n0-tT8"/>
+                <outlet property="buttonEdit" destination="gDQ-LZ-SCk" id="U5w-PI-Isk"/>
                 <outlet property="descriptionLabelAchievement" destination="7Cw-Fm-MJF" id="AL8-sd-U8b"/>
                 <outlet property="imageViewAchievement" destination="cvQ-j7-g0F" id="GZA-0N-qrP"/>
                 <outlet property="titleLabelAchievement" destination="uFi-Up-h11" id="tVe-Vh-RnK"/>

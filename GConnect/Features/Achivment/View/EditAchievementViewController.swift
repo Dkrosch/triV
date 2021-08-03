@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class EditAchievementViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -20,15 +22,57 @@ class EditAchievementViewController: UIViewController, UITextFieldDelegate, UITe
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var editButton: UIButton!
     
+    var titleAchievement: String?
+    var desc: String?
+    var uid: String?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        titleTextField.attributedPlaceholder = NSAttributedString(string: "Input the title", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
+        
+        titleTextField.text = (titleAchievement)
+        despTextField.text = (desc)
+        
+        print("ini:::\(uid)")
         
         titleTextField.delegate = self
         despTextField.delegate = self
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(updateDataAchievement))
+        
+    }
+    
+    @objc func updateDataAchievement(){
+        
+        let db = Firestore.firestore()
+        
+        let titleAchv = titleTextField.text
+        let descAchv = despTextField.text
+        
+        db.collection("achievement").document(uid!).updateData(["Title": titleAchv,"Desc": descAchv]){(error) in
+            
+            if error != nil{
+                print("eror")
+            } else{
+                print("done")
+            }
+        }
+        
+    }
+    
+    func deleteDataAchievement(){
+        let db = Firestore.firestore()
+        
+        db.collection("achievement").document(uid!).delete(){ (error) in
+            
+            if error != nil{
+                print("eror")
+            } else{
+                print("done")
+            }
+            
+        }
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -58,7 +102,10 @@ class EditAchievementViewController: UIViewController, UITextFieldDelegate, UITe
         let alert = UIAlertController(title: "Are you sure?", message: "Do your really want to delete this achievement? This process cannot be undone.", preferredStyle: UIAlertController.Style.alert)
         
         // add the actions (buttons)
-        alert.addAction(UIAlertAction(title: "Delete", style: UIAlertAction.Style.destructive, handler: nil))
+        alert.addAction(UIAlertAction(title: "Delete", style: UIAlertAction.Style.destructive, handler: { action in
+            self.deleteDataAchievement()
+            self.navigationController?.popViewController(animated: true)
+        }))
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
         
         // show the alert
@@ -84,7 +131,4 @@ class EditAchievementViewController: UIViewController, UITextFieldDelegate, UITe
         }
         self.dismiss(animated: true, completion: nil)
     }
-    
-    
-    
 }

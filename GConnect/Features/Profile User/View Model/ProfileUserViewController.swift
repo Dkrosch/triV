@@ -38,6 +38,8 @@ class ProfileUserViewController: UIViewController {
     @IBOutlet weak var viewContentHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var achievementCollectionViewConstraintHeight: NSLayoutConstraint!
     
+    var editButtonDiPencet = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -83,6 +85,9 @@ class ProfileUserViewController: UIViewController {
         dataachivement = []
         
         guard let userID = Auth.auth().currentUser?.uid else { return }
+        self.editButtonDiPencet = true
+        print(self.editButtonDiPencet)
+        achievementCollectionView.reloadData()
         
         collectionRef.whereField("uid", isEqualTo: userID).getDocuments { snapshot, error in
             if let err = error{
@@ -112,6 +117,7 @@ class ProfileUserViewController: UIViewController {
         
         
 //        db.collection("achievement").document().setData(["Desc": ])
+
     }
     
     func updateDataProfile(){
@@ -222,6 +228,12 @@ extension ProfileUserViewController: UICollectionViewDataSource{
         
         cell.titleLabelAchievement.text = dataachivement[indexPath.row].title
         cell.descriptionLabelAchievement.text = "Hali"
+        if editButtonDiPencet == true {
+            cell.buttonEdit.isHidden = false
+        }else{
+            cell.buttonEdit.isHidden = true
+        }
+        
         return cell
     }
     

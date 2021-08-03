@@ -67,11 +67,13 @@ class Achivement{
     var image: String
     var desc: String
     var uid: String
+    var data: String
     
-    init(title: String, image: String, desc: String, uid: String) {
+    init(title: String, image: String, desc: String, uid: String, data: String) {
         self.title = title
         self.image = image
         self.desc = desc
         self.uid = uid
+        self.data = data
     }
 }

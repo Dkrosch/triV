@@ -95,12 +95,13 @@ class ProfileUserViewController: UIViewController {
             } else {
                 for document in (snapshot?.documents)!{
                     let data = document.data()
+                    let id = document.documentID
                     let title = data["Title"] as? String ?? ""
                     let Desc = data["Desc"] as? String ?? ""
                     let image = data["Image"] as? String ?? ""
                     let uid = data["uid"] as? String ?? ""
                     
-                    let newData = Achivement(title: title, image: image, desc: Desc, uid: uid)
+                    let newData = Achivement(title: title, image: image, desc: Desc, uid: uid, data: id)
                     
                     self.dataachivement.append(newData)
                 }
@@ -215,7 +216,14 @@ class ProfileUserViewController: UIViewController {
 }
 
 extension ProfileUserViewController: UICollectionViewDelegate{
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let achievementEdit = UIStoryboard(name: "Edit Achievement", bundle: nil)
+        let vc = achievementEdit.instantiateViewController(identifier: "editAchievement") as! EditAchievementViewController
+        vc.desc = dataachivement[indexPath.row].desc
+        vc.titleAchievement = dataachivement[indexPath.row].title
+        vc.uid = dataachivement[indexPath.row].data
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension ProfileUserViewController: UICollectionViewDataSource{
@@ -227,7 +235,7 @@ extension ProfileUserViewController: UICollectionViewDataSource{
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "achievementCell", for: indexPath) as! AchievementProfileCollectionViewCell
         
         cell.titleLabelAchievement.text = dataachivement[indexPath.row].title
-        cell.descriptionLabelAchievement.text = "Hali"
+        cell.descriptionLabelAchievement.text = dataachivement[indexPath.row].desc
         if editButtonDiPencet == true {
             cell.buttonEdit.isHidden = false
         }else{

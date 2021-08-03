@@ -212,6 +212,16 @@
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qvm-3v-6yd">
+                                                <rect key="frame" x="206" y="608.66666666666663" width="164" height="22"/>
+                                                <color key="tintColor" red="0.95686918499999996" green="0.95685130360000004" blue="0.95686334370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <state key="normal" image="Plus_icon">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
+                                                </state>
+                                                <connections>
+                                                    <segue destination="6ll-S0-h3F" kind="show" id="E9N-Os-uwE"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.10980392160000001" green="0.17254901959999999" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -220,6 +230,7 @@
                                             <constraint firstAttribute="trailing" secondItem="2wA-eI-GPF" secondAttribute="trailing" constant="20" id="87l-IQ-WB7"/>
                                             <constraint firstItem="2wA-eI-GPF" firstAttribute="top" secondItem="hcS-gv-wAg" secondAttribute="bottom" constant="40" id="8mv-Ky-0h6"/>
                                             <constraint firstAttribute="trailing" secondItem="jRa-NU-W8Q" secondAttribute="trailing" constant="20" id="AvE-yb-zMN"/>
+                                            <constraint firstAttribute="trailing" secondItem="Qvm-3v-6yd" secondAttribute="trailing" constant="20" id="BWQ-AI-rlj"/>
                                             <constraint firstAttribute="trailing" secondItem="rFD-7t-lge" secondAttribute="trailing" constant="20" id="EKi-r7-Isq"/>
                                             <constraint firstAttribute="trailing" secondItem="hcS-gv-wAg" secondAttribute="trailing" constant="20" id="LQU-FK-kHc"/>
                                             <constraint firstItem="BMj-iZ-1hA" firstAttribute="leading" secondItem="u2c-LE-qgK" secondAttribute="leading" constant="20" id="PL7-25-tRe"/>
@@ -229,9 +240,11 @@
                                             <constraint firstItem="joT-MJ-WmR" firstAttribute="top" secondItem="3LK-1p-sJR" secondAttribute="bottom" constant="8" id="Urc-dN-zy3"/>
                                             <constraint firstItem="9Gw-Ee-wTZ" firstAttribute="top" secondItem="BMj-iZ-1hA" secondAttribute="bottom" constant="20" id="b3i-ya-R93"/>
                                             <constraint firstAttribute="trailing" secondItem="BMj-iZ-1hA" secondAttribute="trailing" constant="20" id="b50-gQ-5Zm"/>
+                                            <constraint firstItem="hcS-gv-wAg" firstAttribute="top" secondItem="Qvm-3v-6yd" secondAttribute="bottom" constant="4" id="clL-Jn-baE"/>
                                             <constraint firstItem="hcS-gv-wAg" firstAttribute="leading" secondItem="u2c-LE-qgK" secondAttribute="leading" constant="20" id="cz8-NL-3aD"/>
                                             <constraint firstAttribute="trailing" secondItem="9Gw-Ee-wTZ" secondAttribute="trailing" constant="20" id="eJM-JW-Yie"/>
                                             <constraint firstAttribute="trailing" secondItem="joT-MJ-WmR" secondAttribute="trailing" constant="20" id="fzV-SA-rcY"/>
+                                            <constraint firstItem="Qvm-3v-6yd" firstAttribute="leading" relation="lessThanOrEqual" secondItem="u2c-LE-qgK" secondAttribute="leading" constant="206" id="hGL-Zj-385"/>
                                             <constraint firstAttribute="trailing" secondItem="3LK-1p-sJR" secondAttribute="trailing" constant="128" id="iM4-5h-9Jz"/>
                                             <constraint firstItem="jRa-NU-W8Q" firstAttribute="top" secondItem="joT-MJ-WmR" secondAttribute="bottom" constant="14" id="iZ8-oC-ijA"/>
                                             <constraint firstItem="BMj-iZ-1hA" firstAttribute="top" secondItem="rFD-7t-lge" secondAttribute="bottom" id="koK-3c-xur"/>
@@ -308,9 +321,20 @@
             </objects>
             <point key="canvasLocation" x="1047.6923076923076" y="112.32227488151658"/>
         </scene>
+        <!--Add Achievement-->
+        <scene sceneID="T4P-Q9-H6i">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Add Achievement" id="6ll-S0-h3F" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="aMu-mn-wCD"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O9D-Zz-wL9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2887" y="81"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Breach_icon" width="256" height="256"/>
+        <image name="Plus_icon" width="11" height="11"/>
         <image name="VALORANT_Logo_square" width="1000" height="1000"/>
         <image name="face.smiling.fill" catalog="system" width="128" height="121"/>
         <namedColor name="Black">

@@ -13,6 +13,7 @@ class AchievementProfileCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var titleLabelAchievement: UILabel!
     @IBOutlet weak var descriptionLabelAchievement: UILabel!
     @IBOutlet weak var imageViewAchievement: UIImageView!
+    @IBOutlet weak var buttonEdit: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

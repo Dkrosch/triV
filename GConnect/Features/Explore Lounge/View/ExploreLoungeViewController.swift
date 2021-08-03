@@ -23,6 +23,24 @@ class ExploreLoungeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+       
+        NetworkService.shared.myFirstRequest { (result) in
+            switch result{
+            case .success(let data):
+                print("The decoded data is: \(data)")
+            case .failure(let error):
+                print("The error is: \(error.localizedDescription)")
+            }
+            
+        }
+        
+//        let service = NetworkService()
+//        let request = service.createRequest(route: .temp, method: .get, parameters: ["version": "5", "platform": "PC", "player": "Pocounda", "auth": "JTQWkyqLXzJxFkVPu7dS"])
+//        print("The URL is:  \(request?.url)")
+        
+        //"https://api.mozambiquehe.re/bridge?version=5&platform=PC&player=Pocounda&auth=JTQWkyqLXzJxFkVPu7d"
+        //https://api.mozambiquehe.re/bridge?version=5&platform=PC&player=Pocounda&auth=JTQWkyqLXzJxFkVPu7dS
+        
         loungeCollectionView.delegate = self
         loungeCollectionView.dataSource = self
         

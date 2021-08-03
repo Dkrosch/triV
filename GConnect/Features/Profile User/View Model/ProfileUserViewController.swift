@@ -36,6 +36,8 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
     @IBOutlet weak var viewContentHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var achievementCollectionViewConstraintHeight: NSLayoutConstraint!
     
+    var editButtonDiPencet = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -91,12 +93,10 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneTapped))
         
-//        var achievementProfile: UICollectionViewCell = achievementCollectionView.dequeueReusableCell(withReuseIdentifier: "achievementCell", for: [0,0]) as! AchievementProfileCollectionViewCell
-//        achievementProfile.button
-//
-//        let indexPath = IndexPath(row: 0, section: 0)
-//        let cell = achievementCollectionView.cellForItem(at: indexPath)
-//        viewDidLoad()
+        self.editButtonDiPencet = true
+        print(self.editButtonDiPencet)
+        
+        achievementCollectionView.reloadData()
         
         print("mau edit bang")
     }
@@ -115,6 +115,11 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         stackAboutMeTextField.layer.backgroundColor = #colorLiteral(red: 0.2309213281, green: 0.2924915552, blue: 0.4204188585, alpha: 1)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editTapped))
+        
+        self.editButtonDiPencet = false
+        print(self.editButtonDiPencet)
+        
+        achievementCollectionView.reloadData()
         
         print("selesai edit bang")
     }
@@ -192,6 +197,13 @@ extension ProfileUserViewController: UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "achievementCell", for: indexPath) as! AchievementProfileCollectionViewCell
+        
+        if editButtonDiPencet == true {
+            cell.buttonEdit.isHidden = false
+        }else{
+            cell.buttonEdit.isHidden = true
+        }
+        
         return cell
     }
     

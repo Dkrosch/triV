@@ -38,7 +38,7 @@ struct UserInfo{
     var dataUser: [ProfileData]
 }
 
-struct ProfileData{
+class ProfileData{
     var username: String
     var game: String
     var gender: String
@@ -46,5 +46,32 @@ struct ProfileData{
     var role: String
     var birthday: String
     var imageProfile: String
+    var desc: String
     var imageRank: String
+    
+    init(username: String, game: String, gender: String, rank: String, role: String, birthday: String, imageProfile: String, desc: String, imageRank: String) {
+        self.username = username
+        self.game = game
+        self.gender = gender
+        self.rank = rank
+        self.role = role
+        self.birthday = birthday
+        self.imageProfile = imageProfile
+        self.desc = desc
+        self.imageRank = imageRank
+    }
+}
+
+class Achivement{
+    var title: String
+    var image: String
+    var desc: String
+    var uid: String
+    
+    init(title: String, image: String, desc: String, uid: String) {
+        self.title = title
+        self.image = image
+        self.desc = desc
+        self.uid = uid
+    }
 }

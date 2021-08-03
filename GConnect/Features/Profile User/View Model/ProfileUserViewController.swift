@@ -9,7 +9,12 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class ProfileUserViewController: UIViewController, UINavigationControllerDelegate {
+class ProfileUserViewController: UIViewController {
+    private var collectionRef: CollectionReference!
+    
+    var dataUser = [ProfileData]()
+    
+    var dataachivement = [Achivement]()
 
     @IBOutlet weak var viewContentProfileUser: UIView!
     @IBOutlet weak var profilePicture: UIImageView!
@@ -30,9 +35,6 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
     @IBOutlet weak var achievementCollectionView: UICollectionView!
     @IBOutlet weak var buttonLogoutProfileUser: UIButton!
     
-    
-    @IBOutlet weak var changePicButton: UIButton!
-    
     @IBOutlet weak var viewContentHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var achievementCollectionViewConstraintHeight: NSLayoutConstraint!
     
@@ -47,17 +49,12 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         aboutMeTextField.isEditable = false
         
         stackUsernameView.isHidden = true
-        changePicButton.isHidden = true
 
         let nib = UINib(nibName: "\(AchievementProfileCollectionViewCell.self)", bundle: nil)
         achievementCollectionView.register(nib, forCellWithReuseIdentifier: "achievementCell" )
         
-        //delegate
         achievementCollectionView.delegate = self
         achievementCollectionView.dataSource = self
-        
-        usernameTextField.delegate = self
-        aboutMeTextField.delegate = self
 
         achievementCollectionView.isScrollEnabled = false
         
@@ -73,40 +70,112 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editTapped))
         
+        collectionRef = Firestore.firestore().collection("achievement")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        fetchDataAchivement()
         fetchDataProfile()
     }
     
-    static func getUserInfo(){
-        guard let userID = Auth.auth().currentUser?.uid else{
-            print("User not Found")
-            return
+    func fetchDataAchivement(){
+
+        dataachivement = []
+        
+        guard let userID = Auth.auth().currentUser?.uid else { return }
+        
+        collectionRef.whereField("uid", isEqualTo: userID).getDocuments { snapshot, error in
+            if let err = error{
+                print(err)
+            } else {
+                for document in (snapshot?.documents)!{
+                    let data = document.data()
+                    let title = data["Title"] as? String ?? ""
+                    let Desc = data["Desc"] as? String ?? ""
+                    let image = data["Image"] as? String ?? ""
+                    let uid = data["uid"] as? String ?? ""
+                    
+                    let newData = Achivement(title: title, image: image, desc: Desc, uid: uid)
+                    
+                    self.dataachivement.append(newData)
+                }
+                self.achievementCollectionView.reloadData()
+            }
         }
+    }
+    
+    func addAchievement(){
+        guard let userID = Auth.auth().currentUser?.uid else { return }
         
         let db = Firestore.firestore()
         
+        
+        
+//        db.collection("achievement").document().setData(["Desc": ])
     }
+    
+    func updateDataProfile(){
+        guard let userID = Auth.auth().currentUser?.uid else { return }
+        
+        let username = usernameTextField.text
+        let about = aboutMeTextField.text
+        
+        let db = Firestore.firestore()
+        db.collection("users").document(userID).updateData(["About": about, "username": username]){ (error) in
+            
+            if error != nil{
+                print("eror")
+            } else{
+                print("done")
+            }
+        }
+    }
+    
+    func fetchDataProfile(){
+        let datas = Firestore.firestore()
+
+        guard let userID = Auth.auth().currentUser?.uid else { return }
+
+        let reference = datas.collection("users").document(userID)
+        reference.getDocument{ (document, err) in
+            if let error = err{
+                print(error)
+            }else if let document = document, document.exists{
+                let username = document.get("username") as! String
+                let gender = document.get("gender") as! String
+                let about = document.get("About") as! String
+                let imageRank = document.get("imageRank") as! String
+                let imageProfile = document.get("imageProfile") as! String
+                let role = document.get("role") as! String
+                let rank = document.get("rank") as! String
+                let game = document.get("game") as! String
+                let birthday = document.get("birthday") as! String
+
+                let newData = ProfileData(username: username, game: game, gender: gender, rank: rank, role: role, birthday: birthday, imageProfile: imageProfile, desc: about, imageRank: imageRank)
+                self.dataUser.append(newData)
+
+                self.usernameLabelProfileUser.text = username
+                self.aboutMeTextField.text = about
+
+
+                if gender == "Male" {
+                    self.genderLabel.text = ("♂️\(gender)")
+                }else{
+                    self.genderLabel.text = ("♀ \(gender)")
+                }
+            }
+        }
+    }
+
     
     @objc func editTapped(){
         stackUsernameView.isHidden = false
         aboutMeTextField.isEditable = true
-        
-        usernameLabelProfileUser.isHidden = true
         genderLabel.isHidden = true
-        changePicButton.isHidden = false
         
-        stackAboutMeTextField.layer.borderWidth = 0
-        
-        aboutMeTextField.textColor = .black
-        stackAboutMeTextField.layer.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        stackTextFieldUsername.addBackground(color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneTapped))
-        
-//        var achievementProfile: UICollectionViewCell = achievementCollectionView.dequeueReusableCell(withReuseIdentifier: "achievementCell", for: [0,0]) as! AchievementProfileCollectionViewCell
-//        achievementProfile.button
-//
-//        let indexPath = IndexPath(row: 0, section: 0)
-//        let cell = achievementCollectionView.cellForItem(at: indexPath)
-//        viewDidLoad()
         
         print("mau edit bang")
     }
@@ -115,17 +184,15 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         stackUsernameView.isHidden = true
         aboutMeTextField.isEditable = false
         
-        usernameLabelProfileUser.isHidden = false
-        changePicButton.isHidden = true
         genderLabel.isHidden = false
         
-        stackAboutMeTextField.layer.borderWidth = 1
+        stackTextFieldUsername.addBackground(color: #colorLiteral(red: 0.2309213281, green: 0.2924915552, blue: 0.4204188585, alpha: 1))
         
-        aboutMeTextField.textColor = .white
-        stackAboutMeTextField.layer.backgroundColor = #colorLiteral(red: 0.2309213281, green: 0.2924915552, blue: 0.4204188585, alpha: 1)
+        updateDataProfile()
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editTapped))
         
+        usernameLabelProfileUser.reloadInputViews()
         print("selesai edit bang")
     }
     
@@ -139,56 +206,6 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         
         self.present(alert, animated: true)
     }
-    
-    func fetchDataProfile(){
-        let datas = Firestore.firestore()
-        
-        guard let userID = Auth.auth().currentUser?.uid else { return }
-        
-        let reference = datas.collection("users").document(userID)
-        reference.getDocument{ (document, err) in
-            if let error = err{
-                print(error)
-            }else if let document = document, document.exists{
-                let username = document.get("username") as! String
-                let gender = document.get("gender") as! String
-                
-                self.usernameLabelProfileUser.text = username
-                
-                
-                if gender == "Male" {
-                    self.genderLabel.text = ("♂️\(gender)")
-                }else{
-                    self.genderLabel.text = ("♀ \(gender)")
-                }
-                
-                print(username, gender)
-            }
-        }
-    }
-    
-    @IBAction func changeProfilePicButtonTapped(_ sender: UIButton) {
-        let image = UIImagePickerController()
-        image.delegate = self
-        
-        image.sourceType = UIImagePickerController.SourceType.photoLibrary
-        image.allowsEditing = false
-        
-        self.present(image, animated: true){
-        }
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension ProfileUserViewController: UICollectionViewDelegate{
@@ -197,11 +214,14 @@ extension ProfileUserViewController: UICollectionViewDelegate{
 
 extension ProfileUserViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return dataachivement.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "achievementCell", for: indexPath) as! AchievementProfileCollectionViewCell
+        
+        cell.titleLabelAchievement.text = dataachivement[indexPath.row].title
+        cell.descriptionLabelAchievement.text = "Hali"
         return cell
     }
     
@@ -211,40 +231,5 @@ extension ProfileUserViewController: UICollectionViewDataSource{
 extension ProfileUserViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 350, height: 148)
-    }
-}
-
-extension ProfileUserViewController: UIImagePickerControllerDelegate{
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
-            profilePicture.image = image
-        }else{
-            print("error")
-        }
-        self.dismiss(animated: true, completion: nil)
-    }
-}
-
-extension ProfileUserViewController: UITextViewDelegate, UITextFieldDelegate{
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let maxLength = 15
-        let currentString: NSString = (textField.text ?? "") as NSString
-        let newString: NSString =
-            currentString.replacingCharacters(in: range, with: string) as NSString
-        return newString.length <= maxLength
-    }
-    
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        // get the current text, or use an empty string if that failed
-        let currentText = textView.text ?? ""
-        
-        // attempt to read the range they are trying to change, or exit if we can't
-        guard let stringRange = Range(range, in: currentText) else { return false }
-        
-        // add their new text to the existing text
-        let updatedText = currentText.replacingCharacters(in: stringRange, with: text)
-        
-        // make sure the result is under 16 characters
-        return updatedText.count <= 100
     }
 }

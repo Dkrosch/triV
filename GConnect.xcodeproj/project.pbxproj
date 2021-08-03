@@ -72,6 +72,11 @@
 		E06AA42B26B7CE4D00357B01 /* FilterLounge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E06AA42926B7CE4A00357B01 /* FilterLounge.storyboard */; };
 		E06AA42C26B7CE4D00357B01 /* FilterLoungeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06AA42A26B7CE4D00357B01 /* FilterLoungeViewController.swift */; };
 		E06ED46626B410E600EC18B0 /* CreateLoungeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06ED46526B410E600EC18B0 /* CreateLoungeViewModel.swift */; };
+		E8024AFC26B91E0A004674F3 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8024AFB26B91E0A004674F3 /* NetworkService.swift */; };
+		E8024AFF26B91F26004674F3 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8024AFE26B91F26004674F3 /* Route.swift */; };
+		E8024B0226B91FCC004674F3 /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8024B0126B91FCC004674F3 /* Method.swift */; };
+		E8024B0626B92322004674F3 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8024B0526B92322004674F3 /* String+Extension.swift */; };
+		E8AF68D926B8456F00E49A01 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AF68D826B8456F00E49A01 /* UserData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -144,6 +149,11 @@
 		E06AA42926B7CE4A00357B01 /* FilterLounge.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FilterLounge.storyboard; sourceTree = "<group>"; };
 		E06AA42A26B7CE4D00357B01 /* FilterLoungeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterLoungeViewController.swift; sourceTree = "<group>"; };
 		E06ED46526B410E600EC18B0 /* CreateLoungeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateLoungeViewModel.swift; sourceTree = "<group>"; };
+		E8024AFB26B91E0A004674F3 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkService.swift; path = "GConnect/Features/Create Profile/View/NetworkService.swift"; sourceTree = SOURCE_ROOT; };
+		E8024AFE26B91F26004674F3 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Route.swift; path = "GConnect/Features/Create Profile/View/Route.swift"; sourceTree = SOURCE_ROOT; };
+		E8024B0126B91FCC004674F3 /* Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Method.swift; path = "GConnect/Features/Create Profile/View/Method.swift"; sourceTree = SOURCE_ROOT; };
+		E8024B0526B92322004674F3 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "String+Extension.swift"; path = "GConnect/Features/Create Profile/View/String+Extension.swift"; sourceTree = SOURCE_ROOT; };
+		E8AF68D826B8456F00E49A01 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserData.swift; path = "GConnect/Features/Create Profile/View/UserData.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -652,6 +662,10 @@
 		E04E100626B0086700A81F92 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				E8024AFB26B91E0A004674F3 /* NetworkService.swift */,
+				E8024AFE26B91F26004674F3 /* Route.swift */,
+				E8024B0126B91FCC004674F3 /* Method.swift */,
+				E8024B0526B92322004674F3 /* String+Extension.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -850,6 +864,7 @@
 				84D9369826B2908F00E29F12 /* CreateLoungeVC.swift in Sources */,
 				7CB3A25426B2ABDF00259119 /* DetailLoungeViewController.swift in Sources */,
 				A80E61E626B421DF005FF4B6 /* AddAchievementViewController.swift in Sources */,
+				E8024AFC26B91E0A004674F3 /* NetworkService.swift in Sources */,
 				E01EE1E526B818210065F668 /* DetailLoungeCollectionViewCell.swift in Sources */,
 				84D9367626B2839A00E29F12 /* ExploreLoungeCell.swift in Sources */,
 				E001319B26B533BB00A315EB /* Games.swift in Sources */,
@@ -867,7 +882,9 @@
 				BF72D14B26B7DE6300F8DA6D /* ChangeBgStackView.swift in Sources */,
 				8434498826B8400F00F66A2B /* DataUser.swift in Sources */,
 				A80E61E026B3ED40005FF4B6 /* ProfileVisitorViewController.swift in Sources */,
+				E8024B0226B91FCC004674F3 /* Method.swift in Sources */,
 				84BB975926B12D730024A98B /* AuthLogin.swift in Sources */,
+				E8024AFF26B91F26004674F3 /* Route.swift in Sources */,
 				E04E0FE126B0058200A81F92 /* AppDelegate.swift in Sources */,
 				E04E0FE326B0058200A81F92 /* SceneDelegate.swift in Sources */,
 				8405A60226B155FD009D1375 /* PageControl.swift in Sources */,
@@ -882,6 +899,7 @@
 				8405A5FE26B155D8009D1375 /* BottomLineTextField.swift in Sources */,
 				E02FC20726B174FE00963710 /* DatePicker.swift in Sources */,
 				84D9367F26B283EA00E29F12 /* ExploreLoungeViewController.swift in Sources */,
+				E8024B0626B92322004674F3 /* String+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

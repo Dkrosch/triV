@@ -18,6 +18,11 @@ class DetailLoungeViewController: UIViewController {
     @IBOutlet weak var roles: UICollectionView!
     @IBOutlet weak var DescriptionTextbox: UITextView!
     @IBOutlet weak var JoinLoungeButton: UIButton!
+    @IBOutlet weak var gender: UITextField!
+    @IBOutlet weak var genderLabel: UILabel!
+    @IBOutlet weak var genderLabelDesc: UILabel!
+    @IBOutlet weak var viewRole: UIView!
+    @IBOutlet weak var RoleButton: UIButton!
     
     var idLounge = ""
     var detailLoungeVM = DetailLoungeViewModel()
@@ -36,6 +41,10 @@ class DetailLoungeViewController: UIViewController {
         Rank.layer.borderWidth = 2
         Rank.layer.borderColor = #colorLiteral(red: 0.9921568627, green: 0.5882352941, blue: 0.4666666667, alpha: 1)
         Rank.isUserInteractionEnabled = false
+        
+        gender.layer.cornerRadius = 8
+        gender.layer.borderWidth = 2
+        gender.layer.borderColor = #colorLiteral(red: 0.9921568627, green: 0.5882352941, blue: 0.4666666667, alpha: 1)
         
         Game.layer.cornerRadius = 8
         Game.layer.borderWidth = 2
@@ -69,7 +78,9 @@ class DetailLoungeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         guard let userID = Auth.auth().currentUser?.uid else { return }
-        
+        viewRole.isHidden = true
+        gender.isHidden = true
+        genderLabel.isHidden = true
         self.navigationController?.isNavigationBarHidden = false
         self.navigationItem.title = "Detail Lounge"
         
@@ -115,6 +126,10 @@ class DetailLoungeViewController: UIViewController {
         Rank.textColor = UIColor.black
         Rank.isUserInteractionEnabled = true
         
+        gender.isHidden = false
+        genderLabel.isHidden = false
+        genderLabelDesc.isHidden = true
+        
         DescriptionTextbox.layer.borderColor = nil
         DescriptionTextbox.layer.backgroundColor = UIColor.white.cgColor
         DescriptionTextbox.textColor = UIColor.black
@@ -131,6 +146,7 @@ class DetailLoungeViewController: UIViewController {
         Rank.backgroundColor = #colorLiteral(red: 0.1762152612, green: 0.223038137, blue: 0.3465815187, alpha: 1)
         Rank.textColor = UIColor.white
         Rank.isUserInteractionEnabled = false
+        genderLabelDesc.isHidden = false
         
         DescriptionTextbox.layer.borderColor = #colorLiteral(red: 0.9866532683, green: 0.5863298774, blue: 0.4647909403, alpha: 1)
         DescriptionTextbox.layer.backgroundColor = #colorLiteral(red: 0.1762152612, green: 0.223038137, blue: 0.3465815187, alpha: 1)

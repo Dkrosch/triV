@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -110,7 +111,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wbp-I5-IWp">
                                 <rect key="frame" x="20" y="747" width="350" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.95624989270000005" green="0.95627218479999998" blue="0.95626014469999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.99419420960000005" green="0.58988755940000004" blue="0.4666386843" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="Set Filter">
                                     <color key="titleColor" red="0.14389500020000001" green="0.2389072776" blue="0.40420788530000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -140,6 +141,13 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZEh-PW-uqB">
+                                <rect key="frame" x="20" y="697" width="350" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="Dark Blue"/>
@@ -151,6 +159,7 @@
                         <outlet property="btnInitiator" destination="LWE-wH-bdQ" id="Wzs-b7-9f3"/>
                         <outlet property="btnSentinel" destination="BYo-2s-C9f" id="fIs-Mv-ke8"/>
                         <outlet property="btnSetFilter" destination="wbp-I5-IWp" id="iWf-or-lTi"/>
+                        <outlet property="errorMessage" destination="ZEh-PW-uqB" id="BCu-rf-Tgc"/>
                         <outlet property="gamesCollectionView" destination="hug-7r-LsR" id="QFl-tO-WoR"/>
                         <outlet property="txtFieldGender" destination="c7t-5G-9JC" id="bZa-Dz-Wy6"/>
                         <outlet property="txtFieldRank" destination="g7v-JG-aBP" id="TsO-af-aiT"/>
@@ -168,5 +177,8 @@
         <namedColor name="Dark Blue">
             <color red="0.10999999940395355" green="0.17299999296665192" blue="0.32899999618530273" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

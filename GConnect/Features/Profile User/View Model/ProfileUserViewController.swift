@@ -281,7 +281,6 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         
         self.present(alert, animated: true)
     }
-    
 }
 
 extension ProfileUserViewController: UICollectionViewDelegate{

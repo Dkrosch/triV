@@ -17,6 +17,7 @@ class FilterLoungeViewController: UIViewController {
     @IBOutlet weak var txtFieldRank: UITextField!
     @IBOutlet weak var txtFieldGender: UITextField!
     @IBOutlet weak var btnSetFilter: UIButton!
+    @IBOutlet weak var errorMessage: UILabel!
     
     let arrayDataRank = ["Iron", "Bronze", "Silver", "Gold", "Platinum", "Diamond", "Immortal", "Radiant"]
     let arrayGender = ["♂️Male", "♀ Female"]
@@ -60,6 +61,8 @@ class FilterLoungeViewController: UIViewController {
         txtFieldGender.inputView = pickerView2
         txtFieldGender.setLeftPaddingPoints(10)
         
+        errorMessage.isHidden = true
+        
         btnSentinel.setImage(UIImage(named: "Checkmark_icon"), for: .normal)
         btnSentinel.semanticContentAttribute = .forceRightToLeft
         
@@ -87,36 +90,39 @@ class FilterLoungeViewController: UIViewController {
         createloungeVC.changeStatusRole(status: arrayStatusRole[0], sender: sender as! UIButton){ status in
             self.arrayStatusRole[0] = status
         }
-        print(arrayStatusRole)
     }
     
     @IBAction func btnInitiatorTapped(_ sender: Any) {
         createloungeVC.changeStatusRole(status: arrayStatusRole[1], sender: sender as! UIButton){ status in
             self.arrayStatusRole[1] = status
         }
-        print(arrayStatusRole)
     }
     
     @IBAction func btnControllerTapped(_ sender: Any) {
         createloungeVC.changeStatusRole(status: arrayStatusRole[2], sender: sender as! UIButton){ status in
             self.arrayStatusRole[2] = status
         }
-        print(arrayStatusRole)
     }
     
     @IBAction func btnDuelistTapped(_ sender: Any) {
         createloungeVC.changeStatusRole(status: arrayStatusRole[3], sender: sender as! UIButton){ status in
             self.arrayStatusRole[3] = status
         }
-        print(arrayStatusRole)
     }
     
     @IBAction func btnSetFilterTapped(_ sender: Any) {
         if arrayStatusRole == [false, false, false, false]{
-            print("pilih salah satu")
+            errorMessage.isHidden = false
+            errorMessage.text = "Choose minimal 1 role"
+            Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector (self.hideWrongLabel), userInfo: nil, repeats: false)
         }else{
+            print(arrayStatusRole)
             print("betoll")
         }
+    }
+    
+    @objc func hideWrongLabel(){
+        self.errorMessage.isHidden = true
     }
 }
 

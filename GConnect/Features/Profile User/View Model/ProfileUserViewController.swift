@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class ProfileUserViewController: UIViewController, UINavigationControllerDelegate {
+class ProfileUserViewController: UIViewController {
     private var collectionRef: CollectionReference!
     
     var dataUser = [ProfileData]()
@@ -18,9 +18,7 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
 
     @IBOutlet weak var viewContentProfileUser: UIView!
     @IBOutlet weak var profilePicture: UIImageView!
-    
     @IBOutlet weak var usernameLabelProfileUser: UILabel!
-    @IBOutlet weak var changeProfilePicButton: UIButton!
     
     @IBOutlet weak var stackAboutMeTextField: UIStackView!
     @IBOutlet weak var aboutMeTextField: UITextView!
@@ -41,7 +39,6 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
     @IBOutlet weak var achievementCollectionViewConstraintHeight: NSLayoutConstraint!
     
     var editButtonDiPencet = false
-    var udahDiFetch = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,24 +51,21 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         aboutMeTextField.isEditable = false
         
         stackUsernameView.isHidden = true
-        
-        changeProfilePicButton.isHidden = true
 
         let nib = UINib(nibName: "\(AchievementProfileCollectionViewCell.self)", bundle: nil)
         achievementCollectionView.register(nib, forCellWithReuseIdentifier: "achievementCell" )
         
-        
-        //delegate
         achievementCollectionView.delegate = self
         achievementCollectionView.dataSource = self
-        
-        usernameTextField.delegate = self
-        aboutMeTextField.delegate = self
 
         achievementCollectionView.isScrollEnabled = false
         
         achievementCollectionView.layer.borderWidth = 1
         achievementCollectionView.layer.borderColor = #colorLiteral(red: 1, green: 0.6593824029, blue: 0.5392141342, alpha: 1)
+        
+        viewContentHeightConstraint.constant = 766 + (achievementCollectionView.frame.size.height*10)
+        
+        achievementCollectionViewConstraintHeight.constant = achievementCollectionView.frame.size.height*10
         
         print(achievementCollectionView.frame.size.height)
         view.layoutIfNeeded()
@@ -79,14 +73,6 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editTapped))
         
         collectionRef = Firestore.firestore().collection("achievement")
-        
-//        let test = convertImageToBase64(image: profilePicture.image!)
-//
-//        if let decodedData = Data(base64Encoded: test, options: .ignoreUnknownCharacters) {
-//            let image = UIImage(data: decodedData)
-//            self.imageTest.image = image
-//        }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -95,10 +81,12 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
     }
     
     func fetchDataAchivement(){
+
         dataachivement = []
         
         guard let userID = Auth.auth().currentUser?.uid else { return }
-
+        self.editButtonDiPencet = true
+        print(self.editButtonDiPencet)
         achievementCollectionView.reloadData()
         
         collectionRef.whereField("uid", isEqualTo: userID).getDocuments { snapshot, error in
@@ -116,16 +104,8 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
                     let newData = Achivement(title: title, image: image, desc: Desc, uid: uid, data: id)
                     
                     self.dataachivement.append(newData)
-                    
-                }
-                if self.udahDiFetch == false {
-                    self.viewContentHeightConstraint.constant = 766 + (self.achievementCollectionView.frame.size.height*CGFloat(self.dataachivement.count))
-                    self.achievementCollectionViewConstraintHeight.constant = self.achievementCollectionView.frame.size.height*CGFloat(self.dataachivement.count)
-                    
-                    self.udahDiFetch = true
                 }
                 self.achievementCollectionView.reloadData()
-
             }
         }
     }
@@ -195,39 +175,14 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
             }
         }
     }
-    
-    func convertImageToBase64(image: UIImage) -> String {
-        let imageData = image.jpegData(compressionQuality: 1)!
-        return imageData.base64EncodedString()
-    }
 
-    @IBAction func changeProfilePicButtonTapped(_ sender: UIButton) {
-        let image = UIImagePickerController()
-        image.delegate = self
-        
-        image.sourceType = UIImagePickerController.SourceType.photoLibrary
-        image.allowsEditing = false
-        
-        self.present(image, animated: true){
-        }
-    }
     
     @objc func editTapped(){
         stackUsernameView.isHidden = false
         aboutMeTextField.isEditable = true
-        
-        usernameLabelProfileUser.isHidden = true
-        changeProfilePicButton.isHidden = false
         genderLabel.isHidden = true
         
-        usernameTextField.text = usernameLabelProfileUser.text
-        
-        self.editButtonDiPencet = true
-        achievementCollectionView.reloadData()
-        
-        aboutMeTextField.textColor = .black
-        stackAboutMeTextField.layer.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        stackAboutMeTextField.layer.borderWidth = 0
+        stackTextFieldUsername.addBackground(color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneTapped))
         
@@ -238,37 +193,16 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         stackUsernameView.isHidden = true
         aboutMeTextField.isEditable = false
         
-        usernameLabelProfileUser.isHidden = false
-        changeProfilePicButton.isHidden = true
         genderLabel.isHidden = false
         
-        aboutMeTextField.textColor = .white
-        stackAboutMeTextField.layer.backgroundColor = #colorLiteral(red: 0.2309213281, green: 0.2924915552, blue: 0.4204188585, alpha: 1)
-        stackAboutMeTextField.layer.borderWidth = 1
-        
-        self.editButtonDiPencet = false
-        achievementCollectionView.reloadData()
+        stackTextFieldUsername.addBackground(color: #colorLiteral(red: 0.2309213281, green: 0.2924915552, blue: 0.4204188585, alpha: 1))
         
         updateDataProfile()
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editTapped))
         
-        self.viewWillAppear(true)
-        
+        usernameLabelProfileUser.reloadInputViews()
         print("selesai edit bang")
-        
-//        var converted = convertImageToBase64(image: profilePicture.image!)
-//        guard let userID = Auth.auth().currentUser?.uid else { return }
-//
-//
-//        let reference = Firestore.firestore().collection("users").document(userID).updateData(["imageProfile": converted]){ (error) in
-//            if error != nil{
-//                print("eror")
-//            } else{
-//                print("done")
-//            }
-//        }
-        
     }
     
     @IBAction func logOutButtonClicked(_ sender: Any) {
@@ -305,7 +239,7 @@ extension ProfileUserViewController: UICollectionViewDataSource{
         
         cell.titleLabelAchievement.text = dataachivement[indexPath.row].title
         cell.descriptionLabelAchievement.text = dataachivement[indexPath.row].desc
-        if self.editButtonDiPencet == true {
+        if editButtonDiPencet == true {
             cell.buttonEdit.isHidden = false
         }else{
             cell.buttonEdit.isHidden = true
@@ -320,40 +254,5 @@ extension ProfileUserViewController: UICollectionViewDataSource{
 extension ProfileUserViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 350, height: 148)
-    }
-}
-
-extension ProfileUserViewController: UITextViewDelegate, UITextFieldDelegate{
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let maxLength = 15
-        let currentString: NSString = (textField.text ?? "") as NSString
-        let newString: NSString =
-            currentString.replacingCharacters(in: range, with: string) as NSString
-        return newString.length <= maxLength
-    }
-    
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        // get the current text, or use an empty string if that failed
-        let currentText = textView.text ?? ""
-        
-        // attempt to read the range they are trying to change, or exit if we can't
-        guard let stringRange = Range(range, in: currentText) else { return false }
-        
-        // add their new text to the existing text
-        let updatedText = currentText.replacingCharacters(in: stringRange, with: text)
-        
-        // make sure the result is under 16 characters
-        return updatedText.count <= 100
-    }
-}
-
-extension ProfileUserViewController: UIImagePickerControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
-            profilePicture.image = image
-        }else{
-            print("error")
-        }
-        self.dismiss(animated: true, completion: nil)
     }
 }

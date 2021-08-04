@@ -10,6 +10,8 @@ import Firebase
 
 class DetailLoungeViewModel {
     
+    let db = Firestore.firestore()
+    
     public func getData(id: String, escapingData: @escaping ([DetailLounge]) -> Void){
         
         let data = Firestore.firestore()
@@ -94,6 +96,38 @@ class DetailLoungeViewModel {
                         }
                     }
                 }
+            }
+        }
+    }
+    
+    func updateDataLounge(idLounge: String, desc: String, rank: String, role: [Bool], gender: String){
+        
+        
+        db.collection("LoungeDetail").document(idLounge).updateData(["Desc": desc, "Rank": rank, "idRequirementsLounge.Controller": role[0],"idRequirementsLounge.Duelist": role[1], "idRequirementsLounge.Initiator": role[2],"idRequirementsLounge.Sentinel": role[3], "Gender": gender]){ (error) in
+                if error != nil {
+                    print (error)
+                }else{
+                    print("sukses")
+                }
+        }
+    }
+    
+    func insertMember(idMember: String, idLounge: String, unfillMember: String){
+        db.collection("LoungeDetail").document(idLounge).updateData(["idMemberLounge.\(unfillMember)":idMember]){ error in
+            if error != nil {
+                print (error)
+            }else{
+                print("sukses")
+            }
+        }
+    }
+    
+    func deleteLounge(idLounge: String){
+        db.collection("LoungeDetail").document(idLounge).delete(){ error in
+            if error != nil{
+                print("eror")
+            } else{
+                print("done")
             }
         }
     }

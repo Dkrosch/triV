@@ -148,7 +148,11 @@ extension DetailLoungeViewController: UICollectionViewDataSource, UICollectionVi
                 for i in 0..<dataMember1.count{
                     arrDataLoungeMember = dataMember1
                 }
-                print(arrDataLoungeMember[indexPath.row].idMember)
+                
+                if dataLounge[0].idMemberLounge.contains(arrDataLoungeMember[indexPath.row].idMember){
+                    var memberKe = dataLounge[0].idMemberLounge.firstIndex(of: arrDataLoungeMember[indexPath.row].idMember)!
+                    print(memberKe + 1)
+                }
             }
         }
     }

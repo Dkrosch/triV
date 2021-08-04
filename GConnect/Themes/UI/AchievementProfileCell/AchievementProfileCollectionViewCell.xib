@@ -45,7 +45,7 @@
                                 <color key="backgroundColor" name="Vivid Tangerine"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gDQ-LZ-SCk">
-                                <rect key="frame" x="329" y="118" width="13" height="22"/>
+                                <rect key="frame" x="317" y="121" width="19" height="19"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" name="White Smoke"/>
                                 <state key="normal" image="Edit_icon">

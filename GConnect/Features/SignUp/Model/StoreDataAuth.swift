@@ -58,7 +58,7 @@ class StoreDataAuth {
         let db = Firestore.firestore()
         
                     //nama tabel    mau rubah/input di user mana
-        db.collection("users").document(userID).setData(["gender": gender, "birthday": dob, "username": username, "About": "", "id": userID, "imageProfile": "", "imageRank": "", "Achivment": ["Image": "", "Title": "", "deskripsi": ""]]) {(error) in
+        db.collection("users").document(userID).setData(["gender": gender, "birthday": dob, "username": username, "About": "", "id": userID, "imageProfile": "", "imageRank": ""]) {(error) in
             if error != nil{
                 print("Gagal")
             } else {

@@ -60,24 +60,35 @@ class DetailLoungeViewModel {
         var arrayMember: [String] = []
         var idUser: [String] = []
         var test: [String] = []
+        var arrTest: [LoungeMember] = []
+        
+        //print(idMember)
         
         for idMemberlah in idMember{
             if idMemberlah != ""{
                 arrayMember.append(idMemberlah)
+                //print(arrayMember)
             }
         }
         
-        for id in arrayMember{
-            DispatchQueue.global().async {
-                reference.document(id).getDocument { document, error in
+        for i in 0..<arrayMember.count{
+            //print(arrayMember)
+        }
+        
+        for (index, id) in arrayMember.enumerated(){
+            DispatchQueue.global().sync {
+                reference.document(arrayMember[index]).getDocument { document, error in
                     if error != nil{
                         print(error!)
                     }else if let document = document, document.exists {
                         let name = document.get("username") as! String
                         let role = document.get("role") as! String
-                        let dataMemberLounge = LoungeMember(idMember: id, name: name, rank: role)
+                        let dataMemberLounge = LoungeMember(idMember: arrayMember[index], name: name, rank: role)
                         
                         datasMember.append(dataMemberLounge)
+                        print(dataMemberLounge.idMember)
+                        
+                    
                         if datasMember.count == arrayMember.count {
                             dataMember(datasMember)
                         }

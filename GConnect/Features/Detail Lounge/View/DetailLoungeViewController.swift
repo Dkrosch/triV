@@ -19,10 +19,10 @@ class DetailLoungeViewController: UIViewController {
     @IBOutlet weak var DescriptionTextbox: UITextView!
     @IBOutlet weak var JoinLoungeButton: UIButton!
     @IBOutlet weak var gender: UITextField!
-    @IBOutlet weak var genderLabel: UILabel!
     @IBOutlet weak var genderLabelDesc: UILabel!
-    @IBOutlet weak var viewRole: UIView!
-    @IBOutlet weak var RoleButton: UIButton!
+    //@IBOutlet weak var roleStackView: UIStackView!
+    @IBOutlet weak var genderStackView: UIStackView!
+    @IBOutlet weak var bawahStackView: UIStackView!
     
     var idLounge = ""
     var detailLoungeVM = DetailLoungeViewModel()
@@ -31,11 +31,16 @@ class DetailLoungeViewController: UIViewController {
     var jumlahDataMember = 0
     var dataMember1 = [LoungeMember]()
     var pickerView = UIPickerView()
+    var arrDataLoungeMember: [LoungeMember] = []
+    
+    var status: Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         print("ID Lounge: \(idLounge)")
+        
+        bawahStackView.isHidden = true
         
         Rank.layer.cornerRadius = 8
         Rank.layer.borderWidth = 2
@@ -74,13 +79,12 @@ class DetailLoungeViewController: UIViewController {
         self.view.addSubview(CollectionView)
         self.view.addSubview(roles)
         self.hideKeyboardWhenTappedAround()
+        
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(self.btnEditTapped))
     }
     
     override func viewWillAppear(_ animated: Bool) {
         guard let userID = Auth.auth().currentUser?.uid else { return }
-        viewRole.isHidden = true
-        gender.isHidden = true
-        genderLabel.isHidden = true
         self.navigationController?.isNavigationBarHidden = false
         self.navigationItem.title = "Detail Lounge"
         
@@ -92,6 +96,8 @@ class DetailLoungeViewController: UIViewController {
                 self.Game.text = data[0].game
                 self.Rank.text = data[0].rank
                 self.DescriptionTextbox.text = data[0].desc
+                self.genderLabelDesc.text = data[0].gender
+                self.gender.text = data[0].gender
                 
                 if data[0].idMemberLounge[0] == userID{
                     self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(self.btnEditTapped))
@@ -126,14 +132,12 @@ class DetailLoungeViewController: UIViewController {
         Rank.textColor = UIColor.black
         Rank.isUserInteractionEnabled = true
         
-        gender.isHidden = false
-        genderLabel.isHidden = false
-        genderLabelDesc.isHidden = true
-        
         DescriptionTextbox.layer.borderColor = nil
         DescriptionTextbox.layer.backgroundColor = UIColor.white.cgColor
         DescriptionTextbox.textColor = UIColor.black
         DescriptionTextbox.isUserInteractionEnabled = true
+        status = true
+        CollectionView.reloadData()
     }
     
     @objc func btnDoneTapped(){
@@ -146,12 +150,13 @@ class DetailLoungeViewController: UIViewController {
         Rank.backgroundColor = #colorLiteral(red: 0.1762152612, green: 0.223038137, blue: 0.3465815187, alpha: 1)
         Rank.textColor = UIColor.white
         Rank.isUserInteractionEnabled = false
-        genderLabelDesc.isHidden = false
         
         DescriptionTextbox.layer.borderColor = #colorLiteral(red: 0.9866532683, green: 0.5863298774, blue: 0.4647909403, alpha: 1)
         DescriptionTextbox.layer.backgroundColor = #colorLiteral(red: 0.1762152612, green: 0.223038137, blue: 0.3465815187, alpha: 1)
         DescriptionTextbox.textColor = UIColor.white
         DescriptionTextbox.isUserInteractionEnabled = false
+        status = false
+        CollectionView.reloadData()
     }
 }
 
@@ -165,6 +170,19 @@ extension DetailLoungeViewController: UICollectionViewDataSource, UICollectionVi
                     arrDataLoungeMember = dataMember1
                 }
                 print(arrDataLoungeMember[indexPath.row].idMember)
+                
+                if status == true{
+                    let alert = UIAlertController(title: "Warning", message: "Are you sure you want kick this member?", preferredStyle: .alert)
+                    
+                    alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { action in
+                        self.CollectionView.reloadData()
+                    }))
+                    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                    
+                    self.present(alert, animated: true)
+                }else{
+                    print("")
+                }
             }
         }
     }
@@ -184,7 +202,7 @@ extension DetailLoungeViewController: UICollectionViewDataSource, UICollectionVi
                 isiReq = countableSet.count(for: true)
             }
             
-            return isiReq + 2
+            return isiReq + 1
         }
     }
     
@@ -192,20 +210,49 @@ extension DetailLoungeViewController: UICollectionViewDataSource, UICollectionVi
         
         if collectionView == self.CollectionView{
             let cellA = collectionView.dequeueReusableCell(withReuseIdentifier: DetailLoungeCollectionViewCell.identifier, for: indexPath) as! DetailLoungeCollectionViewCell
+            //print(status)
+            
+            for i in 0..<dataMember1.count{
+                arrDataLoungeMember = dataMember1
+            }
+            
+            print(dataLounge[0].idMemberLounge)
+            
+            if status == true{
+                if dataLounge[0].idMemberLounge[0] == arrDataLoungeMember[indexPath.row].idMember{
+                    cellA.kickButton.isHidden = true
+                }else{
+                    cellA.kickButton.isHidden = false
+                }
+            }else{
+                cellA.kickButton.isHidden = true
+            }
             
             cellA.layer.borderColor = #colorLiteral(red: 0.9960784314, green: 0.5882352941, blue: 0.4666666667, alpha: 1)
             cellA.layer.borderWidth = 2
             cellA.layer.cornerRadius = 10
             cellA.background.layer.backgroundColor = #colorLiteral(red: 0.1662740707, green: 0.2231230438, blue: 0.3549886644, alpha: 1)
             
-            var arrDataLoungeMember: [LoungeMember] = []
+            
+            
+            cellA.nama.text = arrDataLoungeMember[indexPath.row].name
+            cellA.role.text = arrDataLoungeMember[indexPath.row].rank
+            
             
             for i in 0..<dataMember1.count{
                 arrDataLoungeMember = dataMember1
             }
+              
             
-            cellA.nama.text = arrDataLoungeMember[indexPath.row].name
-            cellA.role.text = arrDataLoungeMember[indexPath.row].rank
+            var memberKe = dataLounge[0].idMemberLounge.firstIndex(of: arrDataLoungeMember[indexPath.row].idMember)!
+            if dataLounge[0].idMemberLounge.contains(arrDataLoungeMember[indexPath.row].idMember){
+                print(memberKe + 1)
+            }
+            
+            cellA.idLounge = idLounge
+            cellA.idMember = ("\(memberKe + 1)")
+            cellA.indx = indexPath
+            cellA.delegate = self
             
             return cellA
         }else{
@@ -227,7 +274,6 @@ extension DetailLoungeViewController: UICollectionViewDataSource, UICollectionVi
                 if arrRole[2] == true{ dataReq.append("Initiator") }
                 if arrRole[3] == true{ dataReq.append("Sentinel") }
                 dataReq.append(dataLounge[0].rank)
-                dataReq.append(dataLounge[0].gender)
                 
                 cellB.requirementExploreLoungeCellLabel.text = dataReq[indexPath.row]
             }
@@ -260,5 +306,13 @@ extension DetailLoungeViewController: UIPickerViewDelegate, UIPickerViewDataSour
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         Rank.text = rank[row]
         Rank.resignFirstResponder()
+    }
+}
+
+extension DetailLoungeViewController: dataLounge{
+    func tapped(indexMember: String, id: String, index: Int) {
+        print("\(indexMember) + \(id)")
+        self.dataMember1.remove(at: index)
+        self.CollectionView.reloadData()
     }
 }

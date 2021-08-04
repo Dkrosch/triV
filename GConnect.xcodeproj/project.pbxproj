@@ -78,7 +78,6 @@
 		E8024B0626B92322004674F3 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8024B0526B92322004674F3 /* String+Extension.swift */; };
 		E8024B1F26B941D5004674F3 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8024B1E26B941D5004674F3 /* AppError.swift */; };
 		E8024B2326B94D83004674F3 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8024B2226B94D83004674F3 /* APIResponse.swift */; };
-		E8AF68D926B8456F00E49A01 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AF68D826B8456F00E49A01 /* UserData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -135,7 +134,7 @@
 		E001319A26B533BB00A315EB /* Games.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Games.swift; sourceTree = "<group>"; };
 		E01EE1E326B818210065F668 /* DetailLoungeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLoungeCollectionViewCell.swift; sourceTree = "<group>"; };
 		E01EE1E426B818210065F668 /* DetailLoungeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailLoungeCollectionViewCell.xib; sourceTree = "<group>"; };
-		E01EE1E726B81D3B0065F668 /* DetailLoungeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailLoungeViewModel.swift; path = GConnect/Themes/UI/DetailLounge/DetailLoungeViewModel.swift; sourceTree = SOURCE_ROOT; };
+		E01EE1E726B81D3B0065F668 /* DetailLoungeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailLoungeViewModel.swift; path = "GConnect/Features/Detail Lounge/View Model/DetailLoungeViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		E01EE1E926B862EC0065F668 /* LoungeMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoungeMember.swift; sourceTree = "<group>"; };
 		E02FC20626B174FE00963710 /* DatePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePicker.swift; sourceTree = "<group>"; };
 		E02FC20826B2B07400963710 /* CreateGameDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGameDetailViewController.swift; sourceTree = "<group>"; };
@@ -157,7 +156,6 @@
 		E8024B0526B92322004674F3 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "String+Extension.swift"; path = "GConnect/Helper/Networking/String+Extension.swift"; sourceTree = SOURCE_ROOT; };
 		E8024B1E26B941D5004674F3 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		E8024B2226B94D83004674F3 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
-		E8AF68D826B8456F00E49A01 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserData.swift; path = "GConnect/Features/Create Profile/View/UserData.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,8 +190,8 @@
 		7CB3A24726B29DE300259119 /* Detail Lounge */ = {
 			isa = PBXGroup;
 			children = (
+				84BE2EF026BA695E005A9643 /* View Model */,
 				7CB3A24826B29DF000259119 /* Model */,
-				7CB3A24926B29DF600259119 /* View Model */,
 				7CB3A24A26B29DFF00259119 /* View */,
 			);
 			path = "Detail Lounge";
@@ -205,14 +203,6 @@
 				E01EE1E926B862EC0065F668 /* LoungeMember.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		7CB3A24926B29DF600259119 /* View Model */ = {
-			isa = PBXGroup;
-			children = (
-				E01EE1E726B81D3B0065F668 /* DetailLoungeViewModel.swift */,
-			);
-			path = "View Model";
 			sourceTree = "<group>";
 		};
 		7CB3A24A26B29DFF00259119 /* View */ = {
@@ -287,6 +277,14 @@
 				84BB975826B12D730024A98B /* AuthLogin.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		84BE2EF026BA695E005A9643 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				E01EE1E726B81D3B0065F668 /* DetailLoungeViewModel.swift */,
+			);
+			path = "View Model";
 			sourceTree = "<group>";
 		};
 		84D9366D26B2836A00E29F12 /* Themes */ = {

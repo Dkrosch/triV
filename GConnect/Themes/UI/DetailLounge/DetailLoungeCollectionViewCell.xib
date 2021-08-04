@@ -44,6 +44,14 @@
                                     <constraint firstAttribute="height" constant="55" id="xCM-u8-XgG"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qmy-lL-V52">
+                                <rect key="frame" x="80" y="0.0" width="20" height="22"/>
+                                <color key="tintColor" red="0.93529659509999996" green="0.6060530543" blue="0.45094478129999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" image="minus.circle.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="kickTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="xfI-wr-mpD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" name="Rhino"/>
                         <constraints>
@@ -52,10 +60,12 @@
                             <constraint firstAttribute="bottom" secondItem="7wY-hG-8kW" secondAttribute="bottom" constant="13" id="Jo3-3E-jwO"/>
                             <constraint firstAttribute="trailing" secondItem="upy-fh-tRT" secondAttribute="trailing" constant="20" id="Rqi-Qc-1vx"/>
                             <constraint firstItem="hwU-j0-QCI" firstAttribute="leading" secondItem="ViN-DP-qWH" secondAttribute="leading" constant="23" id="Slq-Y0-88U"/>
+                            <constraint firstItem="Qmy-lL-V52" firstAttribute="top" secondItem="ViN-DP-qWH" secondAttribute="top" id="Uhg-8y-SJU"/>
                             <constraint firstItem="7wY-hG-8kW" firstAttribute="leading" secondItem="ViN-DP-qWH" secondAttribute="leading" constant="9" id="XBC-iL-g1V"/>
                             <constraint firstItem="N2m-YC-fny" firstAttribute="leading" secondItem="ViN-DP-qWH" secondAttribute="leading" constant="9" id="Xc2-za-GVB"/>
                             <constraint firstAttribute="trailing" secondItem="7wY-hG-8kW" secondAttribute="trailing" constant="9" id="f0u-Bk-OLg"/>
                             <constraint firstAttribute="trailing" secondItem="N2m-YC-fny" secondAttribute="trailing" constant="9" id="m91-Io-vc1"/>
+                            <constraint firstAttribute="trailing" secondItem="Qmy-lL-V52" secondAttribute="trailing" id="tDC-cg-WPm"/>
                             <constraint firstItem="hwU-j0-QCI" firstAttribute="top" secondItem="ViN-DP-qWH" secondAttribute="top" constant="15" id="u3t-Mr-4NV"/>
                             <constraint firstAttribute="trailing" secondItem="hwU-j0-QCI" secondAttribute="trailing" constant="23" id="yYE-oU-vFq"/>
                             <constraint firstItem="upy-fh-tRT" firstAttribute="top" secondItem="N2m-YC-fny" secondAttribute="bottom" constant="8" id="ytu-mO-rjc"/>
@@ -72,6 +82,7 @@
             </constraints>
             <connections>
                 <outlet property="background" destination="ViN-DP-qWH" id="C80-n9-Mx1"/>
+                <outlet property="kickButton" destination="Qmy-lL-V52" id="NvO-Mf-vKb"/>
                 <outlet property="nama" destination="N2m-YC-fny" id="J7t-v8-v45"/>
                 <outlet property="role" destination="7wY-hG-8kW" id="s5f-j6-QEC"/>
                 <outlet property="viewImageProfile" destination="hwU-j0-QCI" id="wUJ-dd-ufK"/>
@@ -81,6 +92,7 @@
     </objects>
     <resources>
         <image name="Line" width="60" height="1"/>
+        <image name="minus.circle.fill" catalog="system" width="128" height="121"/>
         <namedColor name="Rhino">
             <color red="0.17599999904632568" green="0.22400000691413879" blue="0.3449999988079071" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

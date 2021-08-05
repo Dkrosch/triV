@@ -27,13 +27,17 @@ class CreateGameDetailViewController: UIViewController {
     @IBOutlet weak var gameIconImage: UIImageView!
     @IBOutlet weak var gameTitleLabel: UILabel!
     @IBOutlet weak var linkToGameAccBtn: UIButton!
-        
+    @IBOutlet weak var gamerUnameTextField: UITextField!
+    
+
+    
+    
     var pickerView1 = UIPickerView()
     var pickerView2 = UIPickerView()
     var name = ""
     
-    let listRole = ["Sentinel", "Controller", "Initiator", "Duelist"]
-    let listRank = ["Iron", "Bronze", "Silver", "Gold", "Platinum", "Diamond", "Immortal", "Radiant"]
+    let listRole = ["Offensive", "Support", "Defensive", "Recon"]
+    let listRank = ["Iron", "Bronze", "Silver", "Gold", "Platinum", "Diamond", "APEX Predator"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,8 +56,8 @@ class CreateGameDetailViewController: UIViewController {
         rankTextFiled.inputView = pickerView2
         
         //rounded button
-        linkToGameAccBtn.layer.cornerRadius = 10.0
-        linkToGameAccBtn.layer.masksToBounds = true
+//        linkToGameAccBtn.layer.cornerRadius = 10.0
+//        linkToGameAccBtn.layer.masksToBounds = true
         continueButton.layer.cornerRadius = 10.0
         continueButton.layer.masksToBounds = true
         
@@ -70,12 +74,13 @@ class CreateGameDetailViewController: UIViewController {
         let db = Firestore.firestore()
         let role = roleTextField.text
         let rank = rankTextFiled.text
-        let game = "valorant"
+        let gamerUname = gamerUnameTextField.text
+        let game = "Apex"
 
         if roleTextField.text == "Choose your role" && rankTextFiled.text == "Choose your rank"{
             print("ga bisa bang")
         }else{
-            db.collection("users").document(userID).updateData(["game": game, "role" : role, "rank" : rank]) {(error) in
+            db.collection("users").document(userID).updateData(["game": game, "role" : role, "rank" : rank, "gamerUname": gamerUname]) {(error) in
                 if error != nil{
                     print("Gagal")
                 } else {

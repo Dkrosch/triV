@@ -78,7 +78,7 @@
 		E8024B0626B92322004674F3 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8024B0526B92322004674F3 /* String+Extension.swift */; };
 		E8024B1F26B941D5004674F3 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8024B1E26B941D5004674F3 /* AppError.swift */; };
 		E8024B2326B94D83004674F3 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8024B2226B94D83004674F3 /* APIResponse.swift */; };
-		E8AF68D926B8456F00E49A01 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8AF68D826B8456F00E49A01 /* UserData.swift */; };
+		E8024B2926B9BEFB004674F3 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8024B2826B9BEFB004674F3 /* Statistics.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -157,7 +157,7 @@
 		E8024B0526B92322004674F3 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "String+Extension.swift"; path = "GConnect/Helper/Networking/String+Extension.swift"; sourceTree = SOURCE_ROOT; };
 		E8024B1E26B941D5004674F3 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		E8024B2226B94D83004674F3 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
-		E8AF68D826B8456F00E49A01 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserData.swift; path = "GConnect/Features/Create Profile/View/UserData.swift"; sourceTree = SOURCE_ROOT; };
+		E8024B2826B9BEFB004674F3 /* Statistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -723,6 +723,7 @@
 				E8024B0126B91FCC004674F3 /* Method.swift */,
 				E8024B0526B92322004674F3 /* String+Extension.swift */,
 				E8024B2226B94D83004674F3 /* APIResponse.swift */,
+				E8024B2826B9BEFB004674F3 /* Statistics.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -883,6 +884,7 @@
 				7C75DFCE26B30BAA002400CA /* RoleCollectionViewCell.swift in Sources */,
 				84F30A2A26B7E69600A40BDB /* KickPlayerCollectionViewCell.swift in Sources */,
 				E001319626B51EDB00A315EB /* GamesCollectionViewCell.swift in Sources */,
+				E8024B2926B9BEFB004674F3 /* Statistics.swift in Sources */,
 				84D9369026B289F500E29F12 /* GameCollectionViewCell.swift in Sources */,
 				8405A5FC26B155D8009D1375 /* PaddingTextField.swift in Sources */,
 				84D9367526B2839A00E29F12 /* RequirementExploreLoungeCollectionViewCell.swift in Sources */,

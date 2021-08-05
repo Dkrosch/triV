@@ -27,7 +27,10 @@ class ExploreLoungeViewController: UIViewController {
         NetworkService.shared.myFirstRequest { (result) in
             switch result{
             case .success(let data):
-                print("The decoded data is: \(data)")
+//                print("The decoded data is: \(data)")
+                for legends in data{
+                    print(legends.LegendName ?? "")
+                }
             case .failure(let error):
                 print("The error is: \(error.localizedDescription)")
             }

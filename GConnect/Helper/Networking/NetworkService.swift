@@ -14,7 +14,7 @@ struct NetworkService{
     
     private init() {}
     
-    func myFirstRequest(completion: @escaping(Result<String, Error>) -> Void){
+    func myFirstRequest(completion: @escaping(Result<[Statistics], Error>) -> Void){
         request(route: .temp, method: .get, completion: completion)
     }
      

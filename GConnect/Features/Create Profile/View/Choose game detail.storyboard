@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HOo-gi-chW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HOo-gi-chW">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -104,7 +104,7 @@
                                 <color key="textColor" name="White Smoke"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Apex Wallpaper" translatesAutoresizingMaskIntoConstraints="NO" id="mdC-YX-5n0">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Valorant Landscape" translatesAutoresizingMaskIntoConstraints="NO" id="mdC-YX-5n0">
                                 <rect key="frame" x="29" y="88" width="332" height="155"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="155" id="0XY-fO-lHI"/>
@@ -167,27 +167,20 @@
                                     <action selector="btnContinueTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="RRj-Lc-hKD"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Statistics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsz-l7-mVt">
-                                <rect key="frame" x="29" y="445" width="88" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CvK-WI-ugR">
-                                <rect key="frame" x="29" y="479" width="332" height="113"/>
+                                <rect key="frame" x="29" y="503" width="332" height="113"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z2U-Vz-bK3">
                                         <rect key="frame" x="0.0" y="0.0" width="332" height="29"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Apex Logo" translatesAutoresizingMaskIntoConstraints="NO" id="uZf-iy-yM2">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="VALORANT_Logo_square" translatesAutoresizingMaskIntoConstraints="NO" id="uZf-iy-yM2">
                                                 <rect key="frame" x="14" y="2" width="30" height="25"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="APEX Legends" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dah-8Q-jd5">
-                                                <rect key="frame" x="52" y="7" width="85" height="15"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Valorant" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dah-8Q-jd5">
+                                                <rect key="frame" x="52" y="7" width="49" height="15"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                 <nil key="textColor"/>
@@ -196,15 +189,32 @@
                                         </subviews>
                                         <color key="backgroundColor" name="Vivid Tangerine"/>
                                     </view>
-                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Put Your Username on Apex account here" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="whq-VR-qrm">
-                                        <rect key="frame" x="8" y="53" width="316" height="34"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="woC-ic-lvQ">
+                                        <rect key="frame" x="16" y="55" width="308" height="34"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                        <color key="backgroundColor" name="Vivid Tangerine"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                        <state key="normal" title=" Link to Riot Account">
+                                            <color key="titleColor" name="Dark Blue"/>
+                                        </state>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" name="Rhino"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Statistics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsz-l7-mVt">
+                                <rect key="frame" x="29" y="445" width="88" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This is not a compulsory, you can link from your profile too." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R93-hc-UCe">
+                                <rect key="frame" x="29" y="474" width="332" height="15"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="Dark Blue"/>
@@ -238,12 +248,13 @@
                         <outlet property="gameCoverImage" destination="mdC-YX-5n0" id="Bub-iw-roO"/>
                         <outlet property="gameIconImage" destination="uZf-iy-yM2" id="SIA-iM-JRw"/>
                         <outlet property="gameTitleLabel" destination="Dah-8Q-jd5" id="COn-C3-Xgv"/>
-                        <outlet property="gamerUnameTextField" destination="whq-VR-qrm" id="nYZ-1r-Xgw"/>
+                        <outlet property="linkToGameAccBtn" destination="woC-ic-lvQ" id="PIT-Al-NKE"/>
                         <outlet property="rankLabel" destination="B7a-vw-ERq" id="5Gx-VE-hZK"/>
                         <outlet property="rankTextFiled" destination="b0o-ga-WpZ" id="ozt-at-o5p"/>
                         <outlet property="roleLabel" destination="bPX-7u-Ue4" id="7GF-eh-wTQ"/>
                         <outlet property="roleTextField" destination="UYz-wW-CfZ" id="6Q1-Fp-1yJ"/>
                         <outlet property="statsHeaderView" destination="z2U-Vz-bK3" id="bid-op-JUx"/>
+                        <outlet property="statsSubtitleLabel" destination="R93-hc-UCe" id="65e-HC-ay2"/>
                         <outlet property="statsTitleLabel" destination="hsz-l7-mVt" id="qvM-te-LaQ"/>
                         <outlet property="statsView" destination="CvK-WI-ugR" id="Ick-z5-6I3"/>
                         <segue destination="dqD-p0-KyE" kind="show" identifier="ExploreLounge" id="5E4-hX-KXx"/>
@@ -265,8 +276,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Apex Logo" width="800" height="807"/>
-        <image name="Apex Wallpaper" width="1920" height="1080"/>
+        <image name="VALORANT_Logo_square" width="1000" height="1000"/>
+        <image name="Valorant Landscape" width="1920" height="1080"/>
         <namedColor name="Dark Blue">
             <color red="0.10999999940395355" green="0.17299999296665192" blue="0.32899999618530273" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

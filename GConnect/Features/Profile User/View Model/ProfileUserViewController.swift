@@ -32,33 +32,6 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
 //    @IBOutlet weak var aboutMeDescriptionLabel: UILabel!
     @IBOutlet weak var genderLabel: UILabel!
     
-    //Stats View
-    @IBOutlet weak var statsView: UIView!
-    @IBOutlet weak var statsHeaderView: UIView!
-    @IBOutlet weak var gameIcon: UIImageView!
-    @IBOutlet weak var gameTitleLabel: UILabel!
-    @IBOutlet weak var gamerNameLabel: UILabel!
-    @IBOutlet weak var levelTitleLabel: UILabel!
-    @IBOutlet weak var userLevelLabel: UILabel!
-    @IBOutlet weak var selectedlegendTitleLabel: UILabel!
-    @IBOutlet weak var legendNameLabel: UILabel!
-    @IBOutlet weak var legendImage: UIImageView!
-    @IBOutlet weak var roleTitleLabel: UILabel!
-    @IBOutlet weak var roleUserLabel: UILabel!
-    @IBOutlet weak var statsView1: UIView!
-    @IBOutlet weak var statsView2: UIView!
-    @IBOutlet weak var statsView3: UIView!
-    @IBOutlet weak var valueStatsLabel1: UILabel!
-    @IBOutlet weak var statsTitleLabel1: UILabel!
-    @IBOutlet weak var valueStatsLabel2: UILabel!
-    @IBOutlet weak var statsTitleLable2: UILabel!
-    @IBOutlet weak var valueStatsLabel3: UILabel!
-    @IBOutlet weak var statsTitleLabel3: UILabel!
-    @IBOutlet weak var rankTitleLabel: UILabel!
-    @IBOutlet weak var userRankLabel: UILabel!
-    @IBOutlet weak var rankIconImage: UIImageView!
-    
-    
     @IBOutlet weak var viewContent: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var achievementCollectionView: UICollectionView!
@@ -77,7 +50,7 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         stackAboutMeTextField.layer.borderColor = #colorLiteral(red: 1, green: 0.6593824029, blue: 0.5392141342, alpha: 1)
         stackAboutMeTextField.layer.borderWidth = 1
         
-//        aboutMeTextField.isScrollEnabled = true
+        aboutMeTextField.isScrollEnabled = false
         aboutMeTextField.isEditable = false
         
         stackUsernameView.isHidden = true
@@ -94,26 +67,11 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         
         usernameTextField.delegate = self
         aboutMeTextField.delegate = self
-        
-        //StatsView
-        statsView.layer.borderWidth = 1
-        statsView.layer.borderColor = UIColor(named: "Vivid Tangerine")?.cgColor
-        statsView.layer.cornerRadius = 10.0
-        statsView.layer.masksToBounds = true
-        
-        statsView1.layer.borderWidth = 2
-        statsView1.layer.borderColor = UIColor(named: "Red")?.cgColor
-        statsView2.layer.borderWidth = 2
-        statsView2.layer.borderColor = UIColor(named: "Red")?.cgColor
-        statsView3.layer.borderWidth = 2
-        statsView3.layer.borderColor = UIColor(named: "Red")?.cgColor
 
         achievementCollectionView.isScrollEnabled = false
         
         achievementCollectionView.layer.borderWidth = 1
         achievementCollectionView.layer.borderColor = #colorLiteral(red: 1, green: 0.6593824029, blue: 0.5392141342, alpha: 1)
-        
-        buttonLogoutProfileUser.layer.cornerRadius = 8
         
         print(achievementCollectionView.frame.size.height)
         view.layoutIfNeeded()
@@ -161,7 +119,7 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
                     
                 }
                 if self.udahDiFetch == false {
-                    self.viewContentHeightConstraint.constant = 716 + (self.achievementCollectionView.frame.size.height*CGFloat(self.dataachivement.count))
+                    self.viewContentHeightConstraint.constant = 766 + (self.achievementCollectionView.frame.size.height*CGFloat(self.dataachivement.count))
                     self.achievementCollectionViewConstraintHeight.constant = self.achievementCollectionView.frame.size.height*CGFloat(self.dataachivement.count)
                     
                     self.udahDiFetch = true
@@ -271,7 +229,6 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         stackAboutMeTextField.layer.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         stackAboutMeTextField.layer.borderWidth = 0
         
-        self.viewContentHeightConstraint.constant = 786 + (self.achievementCollectionView.frame.size.height*CGFloat(self.dataachivement.count))
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneTapped))
         
         print("mau edit bang")
@@ -293,7 +250,7 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         achievementCollectionView.reloadData()
         
         updateDataProfile()
-        self.viewContentHeightConstraint.constant = 716 + (self.achievementCollectionView.frame.size.height*CGFloat(self.dataachivement.count))
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editTapped))
         
         self.viewWillAppear(true)

@@ -91,15 +91,18 @@ class AddAchievementViewController: UIViewController, UITextViewDelegate, UIText
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        picker.dismiss(animated: true, completion: nil)
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
             imageView.image = image
-        }else{
+            return
+        }
+        else{
             print("error")
         }
         self.dismiss(animated: true, completion: nil)
     }
 
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true, completion: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>)
+        picker.dismiss(animated: true, completion: nil)
     }
 }

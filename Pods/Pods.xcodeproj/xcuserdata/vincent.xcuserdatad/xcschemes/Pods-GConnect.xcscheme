@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "BF5259B44958F2AA2B6E4A9A7ECBAC62"
-               BuildableName = "Pods-GConnect.framework"
+               BuildableName = "Pods_GConnect.framework"
                BlueprintName = "Pods-GConnect"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>

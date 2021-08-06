@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseStorage
 
 class ProfileUserViewController: UIViewController, UINavigationControllerDelegate {
     private var collectionRef: CollectionReference!
@@ -324,6 +325,26 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         
         self.present(alert, animated: true)
     }
+    
+    func uploadImageToStorage(fileURL: URL){
+        let storage = Storage.storage()
+        
+        let data = Data()
+        
+        let storageRef = storage.reference()
+        
+        let localFile = fileURL
+        
+        let photoRef = storageRef.child("UploadPhotoOne")
+        
+        let uploadTask = photoRef.putFile(from: localFile, metadata: nil) { metadata, error in
+            guard let metadata = metadata else{
+                print(error?.localizedDescription)
+                return
+            }
+            print("Photo Uploaded")
+        }
+    }
 }
 
 extension ProfileUserViewController: UICollectionViewDelegate{
@@ -395,6 +416,10 @@ extension ProfileUserViewController: UIImagePickerControllerDelegate {
             profilePicture.image = image
         }else{
             print("error")
+        }
+        
+        if let imageURL = info[UIImagePickerController.InfoKey.imageURL] as? URL{
+            uploadImageToStorage(fileURL: imageURL)
         }
         self.dismiss(animated: true, completion: nil)
     }

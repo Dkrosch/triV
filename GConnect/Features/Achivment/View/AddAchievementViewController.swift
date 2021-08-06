@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseStorage
 
 class AddAchievementViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -19,6 +20,8 @@ class AddAchievementViewController: UIViewController, UITextViewDelegate, UIText
     
     @IBOutlet weak var imageLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+    
+    private let storage = Storage.storage().reference()
     
     
     override func viewDidLoad() {
@@ -77,14 +80,13 @@ class AddAchievementViewController: UIViewController, UITextViewDelegate, UIText
     
     @IBAction func btnEditImageTapped(_ sender: UIButton) {
         
-        let image = UIImagePickerController()
-        image.delegate = self
+        let picker = UIImagePickerController()
+        picker.delegate = self
         
-        image.sourceType = UIImagePickerController.SourceType.photoLibrary
-        image.allowsEditing = false
+        picker.sourceType = UIImagePickerController.SourceType.photoLibrary
+        picker.allowsEditing = false
         
-        self.present(image, animated: true){
-        }
+        present(picker, animated: true)
         
     }
     
@@ -97,4 +99,7 @@ class AddAchievementViewController: UIViewController, UITextViewDelegate, UIText
         self.dismiss(animated: true, completion: nil)
     }
 
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>)
+    }
 }

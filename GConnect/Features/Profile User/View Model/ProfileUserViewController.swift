@@ -8,7 +8,6 @@
 import UIKit
 import Firebase
 import FirebaseAuth
-import FirebaseStorage
 
 class ProfileUserViewController: UIViewController, UINavigationControllerDelegate {
     private var collectionRef: CollectionReference!
@@ -16,6 +15,7 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
     var dataUser = [ProfileData]()
     
     var dataachivement = [Achivement]()
+    var dataAchievement1: [Achivement] = []
 
     @IBOutlet weak var viewContentProfileUser: UIView!
     @IBOutlet weak var profilePicture: UIImageView!
@@ -27,38 +27,12 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
     @IBOutlet weak var aboutMeTextField: UITextView!
     
     @IBOutlet weak var stackTextFieldUsername: UIStackView!
+    @IBOutlet weak var btnAddAchievement: UIButton!
     @IBOutlet weak var stackUsernameView: UIStackView!
     @IBOutlet weak var usernameTextField: UITextField!
 //    @IBOutlet weak var aboutMeViewProfileUser: UIView!
 //    @IBOutlet weak var aboutMeDescriptionLabel: UILabel!
     @IBOutlet weak var genderLabel: UILabel!
-    
-    //Stats View
-    @IBOutlet weak var statsView: UIView!
-    @IBOutlet weak var statsHeaderView: UIView!
-    @IBOutlet weak var gameIcon: UIImageView!
-    @IBOutlet weak var gameTitleLabel: UILabel!
-    @IBOutlet weak var gamerNameLabel: UILabel!
-    @IBOutlet weak var levelTitleLabel: UILabel!
-    @IBOutlet weak var userLevelLabel: UILabel!
-    @IBOutlet weak var selectedlegendTitleLabel: UILabel!
-    @IBOutlet weak var legendNameLabel: UILabel!
-    @IBOutlet weak var legendImage: UIImageView!
-    @IBOutlet weak var roleTitleLabel: UILabel!
-    @IBOutlet weak var roleUserLabel: UILabel!
-    @IBOutlet weak var statsView1: UIView!
-    @IBOutlet weak var statsView2: UIView!
-    @IBOutlet weak var statsView3: UIView!
-    @IBOutlet weak var valueStatsLabel1: UILabel!
-    @IBOutlet weak var statsTitleLabel1: UILabel!
-    @IBOutlet weak var valueStatsLabel2: UILabel!
-    @IBOutlet weak var statsTitleLable2: UILabel!
-    @IBOutlet weak var valueStatsLabel3: UILabel!
-    @IBOutlet weak var statsTitleLabel3: UILabel!
-    @IBOutlet weak var rankTitleLabel: UILabel!
-    @IBOutlet weak var userRankLabel: UILabel!
-    @IBOutlet weak var rankIconImage: UIImageView!
-    
     
     @IBOutlet weak var viewContent: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
@@ -70,26 +44,23 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
     
     var editButtonDiPencet = false
     var udahDiFetch = false
-    
-    var imageProfileSelected: UIImage? = nil
+    var idMemberVisitor = ""
+    var statusVisitor = false
+    var idUser = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         stackAboutMeTextField.layer.borderColor = #colorLiteral(red: 1, green: 0.6593824029, blue: 0.5392141342, alpha: 1)
         stackAboutMeTextField.layer.borderWidth = 1
         
-//        aboutMeTextField.isScrollEnabled = true
-        aboutMeTextField.isEditable = false
+        aboutMeTextField.isScrollEnabled = false
+        aboutMeTextField.isUserInteractionEnabled = false
         
         stackUsernameView.isHidden = true
         
         changeProfilePicButton.isHidden = true
-
-        let nib = UINib(nibName: "\(AchievementProfileCollectionViewCell.self)", bundle: nil)
-        achievementCollectionView.register(nib, forCellWithReuseIdentifier: "achievementCell" )
-        
         
         //delegate
         achievementCollectionView.delegate = self
@@ -97,26 +68,11 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         
         usernameTextField.delegate = self
         aboutMeTextField.delegate = self
-        
-        //StatsView
-        statsView.layer.borderWidth = 1
-        statsView.layer.borderColor = UIColor(named: "Vivid Tangerine")?.cgColor
-        statsView.layer.cornerRadius = 10.0
-        statsView.layer.masksToBounds = true
-        
-        statsView1.layer.borderWidth = 2
-        statsView1.layer.borderColor = UIColor(named: "Red")?.cgColor
-        statsView2.layer.borderWidth = 2
-        statsView2.layer.borderColor = UIColor(named: "Red")?.cgColor
-        statsView3.layer.borderWidth = 2
-        statsView3.layer.borderColor = UIColor(named: "Red")?.cgColor
 
         achievementCollectionView.isScrollEnabled = false
         
         achievementCollectionView.layer.borderWidth = 1
         achievementCollectionView.layer.borderColor = #colorLiteral(red: 1, green: 0.6593824029, blue: 0.5392141342, alpha: 1)
-        
-        buttonLogoutProfileUser.layer.cornerRadius = 8
         
         print(achievementCollectionView.frame.size.height)
         view.layoutIfNeeded()
@@ -124,29 +80,35 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editTapped))
         
         collectionRef = Firestore.firestore().collection("achievement")
-        
-//        let test = convertImageToBase64(image: profilePicture.image!)
-//
-//        if let decodedData = Data(base64Encoded: test, options: .ignoreUnknownCharacters) {
-//            let image = UIImage(data: decodedData)
-//            self.imageTest.image = image
-//        }
-        
+
+        let nib = UINib(nibName: "\(AchievementProfileCollectionViewCell.self)", bundle: nil)
+        self.achievementCollectionView.register(nib, forCellWithReuseIdentifier: "achievementCell" )
+       
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        guard let userID = Auth.auth().currentUser?.uid else { return }
+        idUser = userID
+        if statusVisitor == true{
+            idUser = idMemberVisitor
+            self.navigationItem.rightBarButtonItem = nil
+            buttonLogoutProfileUser.isHidden = true
+            btnAddAchievement.isHidden = true
+        }
         fetchDataAchivement()
         fetchDataProfile()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
     func fetchDataAchivement(){
         dataachivement = []
-        
-        guard let userID = Auth.auth().currentUser?.uid else { return }
 
         achievementCollectionView.reloadData()
         
-        collectionRef.whereField("uid", isEqualTo: userID).getDocuments { snapshot, error in
+        collectionRef.whereField("uid", isEqualTo: idUser).getDocuments { snapshot, error in
             if let err = error{
                 print(err)
             } else {
@@ -161,10 +123,15 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
                     let newData = Achivement(title: title, image: image, desc: Desc, uid: uid, data: id)
                     
                     self.dataachivement.append(newData)
-                    
+   
+                    if self.dataachivement.isEmpty{
+                        
+                    }else{
+                        
+                    }
                 }
                 if self.udahDiFetch == false {
-                    self.viewContentHeightConstraint.constant = 716 + (self.achievementCollectionView.frame.size.height*CGFloat(self.dataachivement.count))
+                    self.viewContentHeightConstraint.constant = 766 + (self.achievementCollectionView.frame.size.height*CGFloat(self.dataachivement.count))
                     self.achievementCollectionViewConstraintHeight.constant = self.achievementCollectionView.frame.size.height*CGFloat(self.dataachivement.count)
                     
                     self.udahDiFetch = true
@@ -173,17 +140,6 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
 
             }
         }
-    }
-    
-    func addAchievement(){
-        guard let userID = Auth.auth().currentUser?.uid else { return }
-        
-        let db = Firestore.firestore()
-        
-        
-        
-//        db.collection("achievement").document().setData(["Desc": ])
-
     }
     
     func updateDataProfile(){
@@ -204,13 +160,9 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
     }
     
     func fetchDataProfile(){
-        
-    
         let datas = Firestore.firestore()
 
-        guard let userID = Auth.auth().currentUser?.uid else { return }
-
-        let reference = datas.collection("users").document(userID)
+        let reference = datas.collection("users").document(idUser)
         reference.getDocument{ (document, err) in
             if let error = err{
                 print(error)
@@ -220,7 +172,6 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
                 let about = document.get("About") as! String
                 let imageRank = document.get("imageRank") as! String
                 let imageProfile = document.get("imageProfile") as! String
-                self.imageURL(urlKey: document.get("imageProfile") as! String)
                 let role = document.get("role") as! String
                 let rank = document.get("rank") as! String
                 let game = document.get("game") as! String
@@ -231,7 +182,6 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
 
                 self.usernameLabelProfileUser.text = username
                 self.aboutMeTextField.text = about
-//                self.profilePicture = test
 
 
                 if gender == "Male" {
@@ -261,7 +211,8 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
     
     @objc func editTapped(){
         stackUsernameView.isHidden = false
-        aboutMeTextField.isEditable = true
+        aboutMeTextField.isUserInteractionEnabled = true
+        aboutMeTextField.isScrollEnabled = true
         
         usernameLabelProfileUser.isHidden = true
         changeProfilePicButton.isHidden = false
@@ -276,7 +227,6 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         stackAboutMeTextField.layer.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         stackAboutMeTextField.layer.borderWidth = 0
         
-        self.viewContentHeightConstraint.constant = 786 + (self.achievementCollectionView.frame.size.height*CGFloat(self.dataachivement.count))
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneTapped))
         
         print("mau edit bang")
@@ -284,7 +234,7 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
     
     @objc func doneTapped(){
         stackUsernameView.isHidden = true
-        aboutMeTextField.isEditable = false
+        aboutMeTextField.isUserInteractionEnabled = false
         
         usernameLabelProfileUser.isHidden = false
         changeProfilePicButton.isHidden = true
@@ -298,94 +248,35 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         achievementCollectionView.reloadData()
         
         updateDataProfile()
-        self.viewContentHeightConstraint.constant = 716 + (self.achievementCollectionView.frame.size.height*CGFloat(self.dataachivement.count))
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editTapped))
         
         self.viewWillAppear(true)
         
         print("selesai edit bang")
-        
-//        var converted = convertImageToBase64(image: profilePicture.image!)
-//        guard let userID = Auth.auth().currentUser?.uid else { return }
-//
-//
-//        let reference = Firestore.firestore().collection("users").document(userID).updateData(["imageProfile": converted]){ (error) in
-//            if error != nil{
-//                print("eror")
-//            } else{
-//                print("done")
-//            }
-//        }
-        uploadImageToStorage()
-        
     }
     
     @IBAction func logOutButtonClicked(_ sender: Any) {
         let alert = UIAlertController(title: "Warning", message: "Are you sure you want to log out?", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
-            print("log out")
+            var dataFilter = FilterLounge(game: "Apex Legends", role: [true, true, true, true], rank: "Iron", gender: "All")
+            let encoder = JSONEncoder()
+            if let filter = try? encoder.encode(dataFilter){
+                UserDefaults.standard.set(filter, forKey: "filterLounge")
+            }
+            self.goToLogin()
         }))
         alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
         
         self.present(alert, animated: true)
     }
-    func imageURL(urlKey: String){
-        if let url = URL(string: urlKey){
-            
-            do{
-                let data = try Data(contentsOf: url)
-                self.profilePicture.image = UIImage(data: data)
-            } catch let err{
-                print("error")
-            }
-        }
-    }
-
     
-    func uploadImageToStorage(){
-        let storage = Storage.storage().reference()
-        let db = Firestore.firestore()
-        
-        guard let userID = Auth.auth().currentUser?.uid else { return }
-        
-        guard let imageSelected = self.imageProfileSelected else{
-            return
-        }
-        
-        guard let imageData = imageSelected.jpegData(compressionQuality: 0.4) else {
-            return
-        }
-        
-        //        let data = Data()
-        //
-        //        let localFile = fileURL
-        
-        let metadata = StorageMetadata()
-        metadata.contentType = "image/jpg"
-        
-        let photoRef = storage.child("profile").child(userID)
-        
-        photoRef.putData(imageData, metadata: metadata) { StorageMetadata, error in
-            if error != nil{
-                print(error?.localizedDescription)
-                return
-            }
-            
-            photoRef.downloadURL { url, error in
-                if let metaImageURL = url?.absoluteString{
-                    db.collection("users").document(userID).updateData(["imageProfile": metaImageURL]){ (error) in
-                        if error != nil{
-                            print("eror")
-                        } else{
-                            print("berhasil upload image")
-                        }
-                    }
-                }
-            }
-        }
+    func goToLogin(){
+        let showLogin = UIStoryboard(name: "Login", bundle: nil)
+        let vc = showLogin.instantiateViewController(identifier: "Login") as! LoginViewController
+        self.navigationController?.pushViewController(vc, animated: true)
     }
-    
 }
 
 extension ProfileUserViewController: UICollectionViewDelegate{
@@ -406,6 +297,8 @@ extension ProfileUserViewController: UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "achievementCell", for: indexPath) as! AchievementProfileCollectionViewCell
+        
+        dataAchievement1 = dataachivement
         
         cell.titleLabelAchievement.text = dataachivement[indexPath.row].title
         cell.descriptionLabelAchievement.text = dataachivement[indexPath.row].desc
@@ -455,28 +348,9 @@ extension ProfileUserViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
             profilePicture.image = image
-            imageProfileSelected = image
         }else{
             print("error")
         }
-        
-//        if let imageURL = info[UIImagePickerController.InfoKey.imageURL] as? URL{
-//            uploadImageToStorage(fileURL: imageURL)
-//        }
         self.dismiss(animated: true, completion: nil)
     }
 }
-
-//extension UIImageView {
-//    func load(url: URL) {
-//        DispatchQueue.global().async { [weak self] in
-//            if let data = try? Data(contentsOf: url) {
-//                if let image = UIImage(data: data) {
-//                    DispatchQueue.main.async {
-//                        self?.image = image
-//                    }
-//                }
-//            }
-//        }
-//    }
-//}

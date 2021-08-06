@@ -8,7 +8,6 @@
 import UIKit
 import Firebase
 
-
 class DetailLoungeViewController: UIViewController {
     
     //@IBOutlet
@@ -35,8 +34,8 @@ class DetailLoungeViewController: UIViewController {
     @IBOutlet weak var initiatorButtonAttrib: UIButton!
     @IBOutlet weak var duelistButtonAttrib: UIButton!
     
-    
     var idLounge = ""
+    var cek = ""
     var detailLoungeVM = DetailLoungeViewModel()
     let rank = ["Iron", "Bronze", "Silver", "Gold", "Platinum", "Diamond", "Immortal", "Radiant"]
     let arrGender = ["♂️Male", "♀ Female", "All"]
@@ -51,20 +50,21 @@ class DetailLoungeViewController: UIViewController {
     
     var arrayStatusRole: [Bool] = [true, true, true, true]
     var createloungeVC = CreateLoungeVC()
+    var clickedMember: String = ""
     
     var status: Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("ID Lounge: \(idLounge)")
+        print("ID Lounge: \(idLounge), cek doank \(cek)")
         
 //        bawahStackView.isHidden = true
         stackViewButton.isHidden = true
         
         constraintCollectionKeDesc.constant = 20
-        contraintStackKeDesc.constant = 20
-        constraintStackKeRolesLabel.constant = 8
+        contraintStackKeDesc.constant = 0
+        constraintStackKeRolesLabel.constant = 0
         
         Rank.layer.cornerRadius = 8
         Rank.layer.borderWidth = 2
@@ -138,6 +138,9 @@ class DetailLoungeViewController: UIViewController {
                 
                 if data[0].idMemberLounge.contains(userID) {
                     self.JoinLoungeButton.isHidden = true
+                    if userID != data[0].idMemberLounge[0]{
+                        self.navigationItem.rightBarButtonItem = nil
+                    }
                 }else{
                     self.navigationItem.rightBarButtonItem = nil
                 }
@@ -189,6 +192,13 @@ class DetailLoungeViewController: UIViewController {
         sender.semanticContentAttribute = .forceRightToLeft
     }
     
+    func gotoChat(){
+        let showProfile = UIStoryboard(name: "ChatLounge", bundle: nil)
+        let vc = showProfile.instantiateViewController(identifier: "ChatLounge") as! ChatLoungeViewController
+        vc.idLounge = idLounge
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     @IBAction func buttonJoinLoungeTapped(_ sender: UIButton) {
         if sender.titleLabel?.text == "Join Lounge" {
             var unfillMember = ""
@@ -204,6 +214,7 @@ class DetailLoungeViewController: UIViewController {
             else if arrDataLoungeMemberUnfilter[9] == "" {unfillMember = "Member10"}
             detailLoungeVM.insertMember(idMember: userID, idLounge: idLounge, unfillMember: unfillMember)
             viewWillAppear(true)
+            gotoChat()
         }else{
             let alert = UIAlertController(title: "Are you sure?", message: "Do your really want to delete this lounge? This process cannot be undone.", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "Delete", style: UIAlertAction.Style.destructive, handler: { action in
@@ -246,6 +257,7 @@ class DetailLoungeViewController: UIViewController {
     }
     
     @objc func btnEditTapped(){
+        self.navigationItem.setHidesBackButton(true, animated: true)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(btnDoneTapped))
         JoinLoungeButton.isHidden = false
         JoinLoungeButton.layer.backgroundColor = UIColor.red.cgColor
@@ -268,9 +280,9 @@ class DetailLoungeViewController: UIViewController {
         
         genderStackView.isHidden = false
         
-//        contraintStackKeDesc.constant = 20
-//        constraintCollectionKeDesc.constant = 20
-//        constraintStackKeRolesLabel.constant = 20
+        contraintStackKeDesc.constant = 20
+        constraintCollectionKeDesc.constant = 60
+        constraintStackKeRolesLabel.constant = 10
         
         DescriptionTextbox.layer.borderColor = nil
         DescriptionTextbox.layer.backgroundColor = UIColor.white.cgColor
@@ -281,6 +293,7 @@ class DetailLoungeViewController: UIViewController {
     }
     
     @objc func btnDoneTapped(){
+        self.navigationItem.setHidesBackButton(false, animated: true)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(self.btnEditTapped))
         JoinLoungeButton.isHidden = true
         JoinLoungeButton.layer.backgroundColor = #colorLiteral(red: 1, green: 0.5641875267, blue: 0.4353749454, alpha: 1)
@@ -303,9 +316,9 @@ class DetailLoungeViewController: UIViewController {
         roles.isHidden = false
         stackViewButton.isHidden = true
 
-//        contraintStackKeDesc.constant = 0
-//        constraintCollectionKeDesc.constant = 20
-//        constraintStackKeRolesLabel.constant = 0
+        contraintStackKeDesc.constant = 0
+        constraintCollectionKeDesc.constant = 20
+        constraintStackKeRolesLabel.constant = 0
         
         DescriptionTextbox.layer.borderColor = #colorLiteral(red: 0.9866532683, green: 0.5863298774, blue: 0.4647909403, alpha: 1)
         DescriptionTextbox.layer.backgroundColor = #colorLiteral(red: 0.1762152612, green: 0.223038137, blue: 0.3465815187, alpha: 1)
@@ -318,37 +331,36 @@ class DetailLoungeViewController: UIViewController {
         }else{
             detailLoungeVM.updateDataLounge(idLounge: idLounge, desc: DescriptionTextbox.text, rank: Rank.text!, role: arrayStatusRole, gender: gender.text!)
         }
-        
         CollectionView.reloadData()
+        viewWillAppear(true)
     }
 }
 
 extension DetailLoungeViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        var arrDataLoungeMember: [LoungeMember] = []
         if collectionView == CollectionView{
             if dataMember1.count != 0 {
-                var arrDataLoungeMember: [LoungeMember] = []
-                
                 for i in 0..<dataMember1.count{
                     arrDataLoungeMember = dataMember1
                 }
-                //print(arrDataLoungeMember[indexPath.row].idMember)
-                
-                if status == true{
-                    let alert = UIAlertController(title: "Warning", message: "Are you sure you want kick this member?", preferredStyle: .alert)
-                    
-                    alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { action in
-                        self.CollectionView.reloadData()
-                    }))
-                    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-                    
-                    self.present(alert, animated: true)
-                }else{
-                    print("")
-                }
             }
+            
+            clickedMember = arrDataLoungeMember[indexPath.row].idMember
+            gotoHome()
         }
     }
+    
+    func gotoHome(){
+        let showProfile = UIStoryboard(name: "ProfileUser", bundle: nil)
+        let vc = showProfile.instantiateViewController(identifier: "ProfileUser") as! ProfileUserViewController
+        vc.idMemberVisitor = clickedMember
+        vc.statusVisitor = true
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.CollectionView{
@@ -374,7 +386,7 @@ extension DetailLoungeViewController: UICollectionViewDataSource, UICollectionVi
                 isiReq = countableSet.count(for: true)
             }
             
-            return isiReq + 1
+            return isiReq
         }
     }
     
@@ -437,7 +449,6 @@ extension DetailLoungeViewController: UICollectionViewDataSource, UICollectionVi
                 if arrRole[1] == true{ dataReq.append("Duelist") }
                 if arrRole[2] == true{ dataReq.append("Initiator") }
                 if arrRole[3] == true{ dataReq.append("Sentinel") }
-                dataReq.append(dataLounge[0].rank)
                 
                 cellB.requirementExploreLoungeCellLabel.text = dataReq[indexPath.row]
             }

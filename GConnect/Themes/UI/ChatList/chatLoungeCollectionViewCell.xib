@@ -90,6 +90,7 @@
             <connections>
                 <outlet property="cellBackground" destination="U7d-hO-Ypp" id="bIF-CN-emA"/>
                 <outlet property="description" destination="qCc-1O-U7U" id="GJz-wS-iWJ"/>
+                <outlet property="deskripsi" destination="qCc-1O-U7U" id="qHn-a5-h4t"/>
                 <outlet property="gender" destination="7xG-8M-xZH" id="J8R-Vq-LbH"/>
                 <outlet property="profil" destination="W0E-GQ-MyM" id="Dxh-FH-Q7B"/>
                 <outlet property="rank" destination="B2v-ef-RWg" id="XKb-St-HVc"/>

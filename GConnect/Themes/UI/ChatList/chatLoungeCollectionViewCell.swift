@@ -11,7 +11,7 @@ class chatLoungeCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var cellBackground: UIView!
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var rankLabel: UILabel!
-    @IBOutlet weak var description: UILabel!
+    @IBOutlet weak var deskripsi: UILabel!
     @IBOutlet weak var gender: UILabel!
     @IBOutlet weak var profil: UIImageView!
     @IBOutlet weak var rank: UIImageView!

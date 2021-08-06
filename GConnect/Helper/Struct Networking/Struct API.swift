@@ -10,7 +10,7 @@ import Foundation
 struct PlayerData: Codable {
     var global: PlayerDataGlobalStatistic?
     var legends: PlayerDataLegends?
-//    var total: PlayerTotalKill?
+    var total: PlayerTotalKill?
 }
 
 struct PlayerDataGlobalStatistic: Codable {
@@ -31,12 +31,26 @@ struct PlayerDataLegends: Codable{
 
 struct LegendName: Codable {
     var LegendName: String?
+    var ImgAssets: ImageIcon?
 }
-//
-//struct PlayerTotalKill: Codable {
-//    var kills: KillTotal?
-//}
-//
-//struct KillTotal: Codable{
-//    var value: Int?
-//}
+
+struct ImageIcon: Codable{
+    var icon: String?
+}
+
+struct PlayerTotalKill: Codable {
+    var kills: KillTotal?
+    var damage: DamageTotal?
+    var headshots: HeadshotTotal?
+}
+
+struct KillTotal: Codable{
+    var value: Int?
+}
+
+struct DamageTotal: Codable{
+    var value: Int?
+}
+struct HeadshotTotal: Codable{
+    var value: Int?
+}

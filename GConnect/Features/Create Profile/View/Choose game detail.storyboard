@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HOo-gi-chW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HOo-gi-chW">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -98,12 +98,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is your current rank?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B7a-vw-ERq">
-                                <rect key="frame" x="29" y="353" width="247" height="26"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
-                                <color key="textColor" name="White Smoke"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Apex Wallpaper" translatesAutoresizingMaskIntoConstraints="NO" id="mdC-YX-5n0">
                                 <rect key="frame" x="29" y="88" width="332" height="155"/>
                                 <constraints>
@@ -123,19 +117,6 @@
                             </label>
                             <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Choose your role" borderStyle="roundedRect" textAlignment="justified" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UYz-wW-CfZ">
                                 <rect key="frame" x="29" y="299" width="332" height="34"/>
-                                <color key="backgroundColor" name="White Smoke"/>
-                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="textColor" name="Dark Blue"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </textField>
-                            <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Choose your rank" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b0o-ga-WpZ">
-                                <rect key="frame" x="29" y="389" width="332" height="34"/>
                                 <color key="backgroundColor" name="White Smoke"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" name="Dark Blue"/>
@@ -168,14 +149,14 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Statistics" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsz-l7-mVt">
-                                <rect key="frame" x="29" y="445" width="88" height="26"/>
+                                <rect key="frame" x="29" y="349" width="88" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CvK-WI-ugR">
-                                <rect key="frame" x="29" y="479" width="332" height="113"/>
+                                <rect key="frame" x="29" y="383" width="332" height="113"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z2U-Vz-bK3">
@@ -205,23 +186,26 @@
                                 </subviews>
                                 <color key="backgroundColor" name="Rhino"/>
                             </view>
+                            <view alpha="0.34999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="usx-KA-s9h">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" name="Dark Blue"/>
                         <constraints>
                             <constraint firstItem="2my-G5-yjj" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="27" id="1tq-vi-2rl"/>
-                            <constraint firstItem="b0o-ga-WpZ" firstAttribute="top" secondItem="B7a-vw-ERq" secondAttribute="bottom" constant="10" id="6AQ-9o-Ms1"/>
+                            <constraint firstItem="usx-KA-s9h" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="8aF-VO-mHO"/>
                             <constraint firstItem="mdC-YX-5n0" firstAttribute="leading" secondItem="UYz-wW-CfZ" secondAttribute="leading" id="AeL-Le-cnf"/>
                             <constraint firstItem="mdC-YX-5n0" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="29" id="E6c-rQ-hEy"/>
                             <constraint firstItem="mdC-YX-5n0" firstAttribute="trailing" secondItem="UYz-wW-CfZ" secondAttribute="trailing" id="Emb-KR-SJv"/>
                             <constraint firstItem="mdC-YX-5n0" firstAttribute="leading" secondItem="bPX-7u-Ue4" secondAttribute="leading" id="IPc-fR-y9F"/>
-                            <constraint firstItem="mdC-YX-5n0" firstAttribute="trailing" secondItem="b0o-ga-WpZ" secondAttribute="trailing" id="K3U-Fz-fRu"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="mdC-YX-5n0" secondAttribute="trailing" constant="29" id="Qcu-4P-A0P"/>
-                            <constraint firstItem="B7a-vw-ERq" firstAttribute="top" secondItem="UYz-wW-CfZ" secondAttribute="bottom" constant="20" id="Z3C-BR-Jri"/>
                             <constraint firstItem="UYz-wW-CfZ" firstAttribute="top" secondItem="bPX-7u-Ue4" secondAttribute="bottom" constant="10" id="ZOI-5y-VQe"/>
-                            <constraint firstItem="mdC-YX-5n0" firstAttribute="leading" secondItem="B7a-vw-ERq" secondAttribute="leading" id="eYC-4Y-39q"/>
+                            <constraint firstItem="usx-KA-s9h" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="ZY8-lz-yQZ"/>
                             <constraint firstItem="2my-G5-yjj" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="fDe-aD-lV2"/>
-                            <constraint firstItem="mdC-YX-5n0" firstAttribute="leading" secondItem="b0o-ga-WpZ" secondAttribute="leading" id="n6D-Im-vV3"/>
+                            <constraint firstItem="usx-KA-s9h" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="rCK-cO-KW4"/>
+                            <constraint firstAttribute="bottom" secondItem="usx-KA-s9h" secondAttribute="bottom" id="riv-OK-d8d"/>
                             <constraint firstItem="mdC-YX-5n0" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="tyL-ZD-e7i"/>
                             <constraint firstItem="mdC-YX-5n0" firstAttribute="centerX" secondItem="2my-G5-yjj" secondAttribute="centerX" id="xEA-qy-zGS"/>
                             <constraint firstItem="bPX-7u-Ue4" firstAttribute="top" secondItem="mdC-YX-5n0" secondAttribute="bottom" constant="20" id="ymA-px-sWf"/>
@@ -239,8 +223,7 @@
                         <outlet property="gameIconImage" destination="uZf-iy-yM2" id="SIA-iM-JRw"/>
                         <outlet property="gameTitleLabel" destination="Dah-8Q-jd5" id="COn-C3-Xgv"/>
                         <outlet property="gamerUnameTextField" destination="whq-VR-qrm" id="nYZ-1r-Xgw"/>
-                        <outlet property="rankLabel" destination="B7a-vw-ERq" id="5Gx-VE-hZK"/>
-                        <outlet property="rankTextFiled" destination="b0o-ga-WpZ" id="ozt-at-o5p"/>
+                        <outlet property="loadingView" destination="usx-KA-s9h" id="kWu-03-Gwk"/>
                         <outlet property="roleLabel" destination="bPX-7u-Ue4" id="7GF-eh-wTQ"/>
                         <outlet property="roleTextField" destination="UYz-wW-CfZ" id="6Q1-Fp-1yJ"/>
                         <outlet property="statsHeaderView" destination="z2U-Vz-bK3" id="bid-op-JUx"/>

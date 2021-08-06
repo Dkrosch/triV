@@ -48,8 +48,9 @@ class ProfileData{
     var imageProfile: String
     var desc: String
     var imageRank: String
+    var gamerUname: String
     
-    init(username: String, game: String, gender: String, rank: String, role: String, birthday: String, imageProfile: String, desc: String, imageRank: String) {
+    init(username: String, game: String, gender: String, rank: String, role: String, birthday: String, imageProfile: String, desc: String, imageRank: String, gamerUname: String) {
         self.username = username
         self.game = game
         self.gender = gender
@@ -59,6 +60,7 @@ class ProfileData{
         self.imageProfile = imageProfile
         self.desc = desc
         self.imageRank = imageRank
+        self.gamerUname = gamerUname
     }
 }
 

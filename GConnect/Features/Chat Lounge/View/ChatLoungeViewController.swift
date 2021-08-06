@@ -16,6 +16,7 @@ class ChatLoungeViewController: MessagesViewController, InputBarAccessoryViewDel
 
     var currentUser: User = Auth.auth().currentUser!
     private var docReference: DocumentReference?
+    private var collectionRef: CollectionReference?
     var messages: [Message] = []
 
     var user2Name: String?
@@ -40,17 +41,17 @@ class ChatLoungeViewController: MessagesViewController, InputBarAccessoryViewDel
         messagesCollectionView.messagesDisplayDelegate = self
                 
         loadChat()
+        
+        collectionRef = Firestore.firestore().collection("DetailLounge")
     }
     
     //ini buat load data
     func loadChat() {
-        let db = Firestore.firestore().collection("LoungeDetail").document(idLounge).collection("thread").getDocuments { snapshot, error in
+        Firestore.firestore().collection("DetailLounge").document(idLounge).collection("thread").getDocuments { snapshot, error in
             if let err = error{
                 print("error")
             } else {
                 for document in (snapshot?.documents)!{
-                    let chat = Chat(dictionary: document.data())
-                    self.docReference = document.reference
                     document.reference.collection("thread").order(by: "created", descending: false).addSnapshotListener(includeMetadataChanges: true, listener: { (threadQuery, error) in
                         
                         if let error = error{
@@ -92,13 +93,11 @@ class ChatLoungeViewController: MessagesViewController, InputBarAccessoryViewDel
             "senderName": message.senderName
         ]
             
-        docReference?.collection("thread").addDocument(data: data, completion: { (error) in
-                
+        Firestore.firestore().collection("DetailLounge").document(idLounge).collection("thread").addDocument(data: data, completion: { (error) in
             if let error = error {
                 print("Error Sending message: \(error)")
                 return
             }
-                
             self.messagesCollectionView.scrollToLastItem(at: .bottom, animated: true)
         })
     }

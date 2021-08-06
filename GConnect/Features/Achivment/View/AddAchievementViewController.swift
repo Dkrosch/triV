@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseStorage
 
 class AddAchievementViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -20,6 +21,7 @@ class AddAchievementViewController: UIViewController, UITextViewDelegate, UIText
     @IBOutlet weak var imageLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
+    private let storage = Storage.storage().reference()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +30,23 @@ class AddAchievementViewController: UIViewController, UITextViewDelegate, UIText
         
         titleTextField.delegate = self
         despTextField.delegate = self
+        
+        guard let urlString = UserDefaults.standard.value(forKey: "url") as? String,
+              let url = URL(string: urlString) else {
+            return
+        }
+        
+        URLSession.shared.dataTask(with: url, completionHandler: {data, _, error in
+            guard let data = data, error == nil else{
+                return
+            }
+            DispatchQueue.main.async {
+                let image = UIImage(data: data)
+                self.imageView.image = image
+            }
+        })
+        
+        
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneTapped))
         
@@ -77,23 +96,48 @@ class AddAchievementViewController: UIViewController, UITextViewDelegate, UIText
     
     @IBAction func btnEditImageTapped(_ sender: UIButton) {
         
-        let image = UIImagePickerController()
-        image.delegate = self
+        let picker = UIImagePickerController()
+        picker.delegate = self
         
-        image.sourceType = UIImagePickerController.SourceType.photoLibrary
-        image.allowsEditing = false
+        picker.sourceType = UIImagePickerController.SourceType.photoLibrary
+        picker.allowsEditing = false
         
-        self.present(image, animated: true){
+        self.present(picker, animated: true){
         }
         
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
-            imageView.image = image
-        }else{
-            print("error")
+        picker.dismiss(animated: true, completion: nil)
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else{
+            return
         }
+        guard let imageData = image.pngData()
+        else{
+            return
+        }
+        
+
+        
+        storage.child("images/file.png").putData(imageData,
+                                                 metadata: nil,
+                                                 completion: { _, error in
+                                                    guard error == nil else{
+                                                        print("Failed to upload")
+                                                        return
+                                                    }
+                                                    self.storage.child("image/files.png").downloadURL(completion: {url, error in
+                                                        guard let url = url, error == nil else{
+                                                            return
+                                                        }
+                                                        
+                                                        let urlString = url.absoluteURL
+                                                        print("Download URL: \(urlString)")
+                                                        UserDefaults.standard.set(urlString, forKey: "url")
+                                                    })
+                                                    
+        })
+        
         self.dismiss(animated: true, completion: nil)
     }
 

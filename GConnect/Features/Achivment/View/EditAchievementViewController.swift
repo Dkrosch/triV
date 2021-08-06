@@ -113,21 +113,24 @@ class EditAchievementViewController: UIViewController, UITextFieldDelegate, UITe
     }
     
     @IBAction func btnEditImageTapped(_ sender: Any) {
-        let image = UIImagePickerController()
-        image.delegate = self
+        let picker = UIImagePickerController()
+        picker.delegate = self
         
-        image.sourceType = UIImagePickerController.SourceType.photoLibrary
-        image.allowsEditing = false
+        picker.sourceType = UIImagePickerController.SourceType.photoLibrary
+        picker.allowsEditing = false
         
-        self.present(image, animated: true){
+        self.present(picker, animated: true){
         }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
-            imageView.image = image
-        }else{
-            print("error")
+        picker.dismiss(animated: true, completion: nil)
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else{
+            return
+        }
+        guard let imageData = image.pngData()
+        else{
+            return
         }
         self.dismiss(animated: true, completion: nil)
     }

@@ -325,6 +325,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		8447AE0926BD519B005AB338 /* LodingPage */ = {
+			isa = PBXGroup;
+			children = (
+				84BE2EFA26BBADB0005A9643 /* Loading.storyboard */,
+				84BE2EFC26BBAE44005A9643 /* LoadingViewController.swift */,
+			);
+			path = LodingPage;
+			sourceTree = "<group>";
+		};
 		84BB975726B12D610024A98B /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -348,8 +357,6 @@
 				84BE2EF426BAAD59005A9643 /* ViewController.swift */,
 				84BE2EF626BAAD6A005A9643 /* Test.storyboard */,
 				84BE2EF826BAF78B005A9643 /* ApiService.swift */,
-				84BE2EFA26BBADB0005A9643 /* Loading.storyboard */,
-				84BE2EFC26BBAE44005A9643 /* LoadingViewController.swift */,
 			);
 			path = "Struct Networking";
 			sourceTree = "<group>";
@@ -688,6 +695,7 @@
 			isa = PBXGroup;
 			children = (
 				7C6446AE26BD1268003F19E4 /* ChatList */,
+				8447AE0926BD519B005AB338 /* LodingPage */,
 				84F30A2226B7E5AF00A40BDB /* Profile Visitor */,
 				84F30A1E26B7E57A00A40BDB /* Achivment */,
 				E06AA42426B7CE1200357B01 /* Filter Lounge */,

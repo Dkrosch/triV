@@ -12,21 +12,18 @@ import FirebaseAuth
 class CreateGameDetailViewController: UIViewController {
 
     @IBOutlet weak var roleTextField: UITextField!
-    @IBOutlet weak var rankTextFiled: UITextField!
     @IBOutlet weak var roleLabel: UILabel!
-    @IBOutlet weak var rankLabel: UILabel!
     @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var gameCoverImage: UIImageView!
+    @IBOutlet weak var loadingView: UIView!
     
     
     //statistics
     @IBOutlet weak var statsTitleLabel: UILabel!
-    @IBOutlet weak var statsSubtitleLabel: UILabel!
     @IBOutlet weak var statsView: UIView!
     @IBOutlet weak var statsHeaderView: UIView!
     @IBOutlet weak var gameIconImage: UIImageView!
     @IBOutlet weak var gameTitleLabel: UILabel!
-    @IBOutlet weak var linkToGameAccBtn: UIButton!
     @IBOutlet weak var gamerUnameTextField: UITextField!
     
 
@@ -35,9 +32,10 @@ class CreateGameDetailViewController: UIViewController {
     var pickerView1 = UIPickerView()
     var pickerView2 = UIPickerView()
     var name = ""
-    
-    let listRole = ["Offensive", "Support", "Defensive", "Recon"]
+    var uName = ""
+
     let listRank = ["Iron", "Bronze", "Silver", "Gold", "Platinum", "Diamond", "APEX Predator"]
+    let listRole = ["Offensive","Recon","Defensive","Support"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +51,6 @@ class CreateGameDetailViewController: UIViewController {
         pickerView2.tag = 2
         
         roleTextField.inputView = pickerView1
-        rankTextFiled.inputView = pickerView2
         
         //rounded button
 //        linkToGameAccBtn.layer.cornerRadius = 10.0
@@ -66,29 +63,75 @@ class CreateGameDetailViewController: UIViewController {
         statsView.layer.borderColor = UIColor(named: "Vivid Tangerine")?.cgColor
         statsView.layer.cornerRadius = 10.0
         statsView.layer.masksToBounds = true
+        
+        loadingView.isHidden = true
     }
     
     @IBAction func btnContinueTapped(_ sender: Any) {
+        uName = gamerUnameTextField.text!
+        
+        storeData(uname: uName)
+        
+        loadingView.isHidden = false
+        loading()
+        Timer.scheduledTimer(withTimeInterval: 3, repeats: false){ (timer) in
+            self.dismiss(animated: true)
+            self.loadingView.isHidden = true
+        }
+        
+    }
+    
+    func storeData(uname: String){
+        
+        
         guard let userID = Auth.auth().currentUser?.uid else { return }
         
-        let db = Firestore.firestore()
-        let role = roleTextField.text
-        let rank = rankTextFiled.text
-        let gamerUname = gamerUnameTextField.text
-        let game = "Apex"
+        ApiService.getDatas(url: "https://api.mozambiquehe.re/bridge?version=5&platform=PC&player=\(uname)&auth=i6Xau6J5JvKzMy9J3LXI") { (response, error) in
+            if response != nil {
+                if let responseFromAPI = response {
+                    if responseFromAPI.global?.name == nil {
+                        self.alert()
+                    } else {
+                        let db = Firestore.firestore()
+                        let role = self.roleTextField.text
+                        let rank = responseFromAPI.global!.rank!.rankName!
+                        let gamerUname = self.gamerUnameTextField.text
+                        let game = "Apex"
 
-        if roleTextField.text == "Choose your role" && rankTextFiled.text == "Choose your rank"{
-            print("ga bisa bang")
-        }else{
-            db.collection("users").document(userID).updateData(["game": game, "role" : role, "rank" : rank, "gamerUname": gamerUname]) {(error) in
-                if error != nil{
-                    print("Gagal")
-                } else {
-                    print("Sukses")
+                        if self.roleTextField.text == "Choose your role"{
+                            print("ga bisa bang")
+                        }else{
+                            db.collection("users").document(userID).updateData(["game": game, "role" : role, "rank" : rank, "gamerUname": gamerUname]) {(error) in
+                                if error != nil{
+                                    print("Gagal")
+                                } else {
+                                    print("Sukses")
+                                }
+                            }
+                        self.performSegue(withIdentifier: "ExploreLounge", sender: self)
+                        }
+
+                    }
                 }
             }
-            performSegue(withIdentifier: "ExploreLounge", sender: self)
+        } failCompletion: { error in
+            print(error)
         }
+        
+    }
+    
+    func alert(){
+        let alert = UIAlertController(title: "Warning", message: "Username is incorrect", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Try Again!", style: .default, handler: nil))
+        self.present(alert, animated: true)
+    }
+    
+    func loading(){
+        let loadingModal = UIStoryboard(name: "Loading", bundle: nil)
+        let vc = loadingModal.instantiateViewController(identifier: "loadingScreen") as! LoadingViewController
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        self.present(vc, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -132,9 +175,6 @@ extension CreateGameDetailViewController: UIPickerViewDelegate, UIPickerViewData
         case 1:
             roleTextField.text = self.listRole[row]
             roleTextField.resignFirstResponder()
-        case 2:
-            rankTextFiled.text = self.listRank[row]
-            rankTextFiled.resignFirstResponder()
         default:
             return
         }

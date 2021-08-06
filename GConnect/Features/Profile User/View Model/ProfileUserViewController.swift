@@ -71,6 +71,8 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
     var editButtonDiPencet = false
     var udahDiFetch = false
     
+    var imageProfileSelected: UIImage? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -218,6 +220,7 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
                 let about = document.get("About") as! String
                 let imageRank = document.get("imageRank") as! String
                 let imageProfile = document.get("imageProfile") as! String
+                self.imageURL(urlKey: document.get("imageProfile") as! String)
                 let role = document.get("role") as! String
                 let rank = document.get("rank") as! String
                 let game = document.get("game") as! String
@@ -228,6 +231,7 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
 
                 self.usernameLabelProfileUser.text = username
                 self.aboutMeTextField.text = about
+//                self.profilePicture = test
 
 
                 if gender == "Male" {
@@ -312,6 +316,7 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
 //                print("done")
 //            }
 //        }
+        uploadImageToStorage()
         
     }
     
@@ -325,26 +330,62 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         
         self.present(alert, animated: true)
     }
+    func imageURL(urlKey: String){
+        if let url = URL(string: urlKey){
+            
+            do{
+                let data = try Data(contentsOf: url)
+                self.profilePicture.image = UIImage(data: data)
+            } catch let err{
+                print("error")
+            }
+        }
+    }
+
     
-    func uploadImageToStorage(fileURL: URL){
-        let storage = Storage.storage()
+    func uploadImageToStorage(){
+        let storage = Storage.storage().reference()
+        let db = Firestore.firestore()
         
-        let data = Data()
+        guard let userID = Auth.auth().currentUser?.uid else { return }
         
-        let storageRef = storage.reference()
+        guard let imageSelected = self.imageProfileSelected else{
+            return
+        }
         
-        let localFile = fileURL
+        guard let imageData = imageSelected.jpegData(compressionQuality: 0.4) else {
+            return
+        }
         
-        let photoRef = storageRef.child("UploadPhotoOne")
+        //        let data = Data()
+        //
+        //        let localFile = fileURL
         
-        let uploadTask = photoRef.putFile(from: localFile, metadata: nil) { metadata, error in
-            guard let metadata = metadata else{
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/jpg"
+        
+        let photoRef = storage.child("profile").child(userID)
+        
+        photoRef.putData(imageData, metadata: metadata) { StorageMetadata, error in
+            if error != nil{
                 print(error?.localizedDescription)
                 return
             }
-            print("Photo Uploaded")
+            
+            photoRef.downloadURL { url, error in
+                if let metaImageURL = url?.absoluteString{
+                    db.collection("users").document(userID).updateData(["imageProfile": metaImageURL]){ (error) in
+                        if error != nil{
+                            print("eror")
+                        } else{
+                            print("berhasil upload image")
+                        }
+                    }
+                }
+            }
         }
     }
+    
 }
 
 extension ProfileUserViewController: UICollectionViewDelegate{
@@ -414,13 +455,28 @@ extension ProfileUserViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
             profilePicture.image = image
+            imageProfileSelected = image
         }else{
             print("error")
         }
         
-        if let imageURL = info[UIImagePickerController.InfoKey.imageURL] as? URL{
-            uploadImageToStorage(fileURL: imageURL)
-        }
+//        if let imageURL = info[UIImagePickerController.InfoKey.imageURL] as? URL{
+//            uploadImageToStorage(fileURL: imageURL)
+//        }
         self.dismiss(animated: true, completion: nil)
     }
 }
+
+//extension UIImageView {
+//    func load(url: URL) {
+//        DispatchQueue.global().async { [weak self] in
+//            if let data = try? Data(contentsOf: url) {
+//                if let image = UIImage(data: data) {
+//                    DispatchQueue.main.async {
+//                        self?.image = image
+//                    }
+//                }
+//            }
+//        }
+//    }
+//}

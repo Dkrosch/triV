@@ -24,6 +24,7 @@ class CreateGameDetailViewController: UIViewController {
     @IBOutlet weak var statsHeaderView: UIView!
     @IBOutlet weak var gameIconImage: UIImageView!
     @IBOutlet weak var gameTitleLabel: UILabel!
+
     @IBOutlet weak var gamerUnameTextField: UITextField!
     
 
@@ -36,6 +37,7 @@ class CreateGameDetailViewController: UIViewController {
 
     let listRank = ["Iron", "Bronze", "Silver", "Gold", "Platinum", "Diamond", "APEX Predator"]
     let listRole = ["Offensive","Recon","Defensive","Support"]
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,8 +55,8 @@ class CreateGameDetailViewController: UIViewController {
         roleTextField.inputView = pickerView1
         
         //rounded button
-//        linkToGameAccBtn.layer.cornerRadius = 10.0
-//        linkToGameAccBtn.layer.masksToBounds = true
+        linkToGameAccBtn.layer.cornerRadius = 10.0
+        linkToGameAccBtn.layer.masksToBounds = true
         continueButton.layer.cornerRadius = 10.0
         continueButton.layer.masksToBounds = true
         
@@ -86,6 +88,7 @@ class CreateGameDetailViewController: UIViewController {
         
         guard let userID = Auth.auth().currentUser?.uid else { return }
         
+
         ApiService.getDatas(url: "https://api.mozambiquehe.re/bridge?version=5&platform=PC&player=\(uname)&auth=i6Xau6J5JvKzMy9J3LXI") { (response, error) in
             if response != nil {
                 if let responseFromAPI = response {
@@ -108,14 +111,19 @@ class CreateGameDetailViewController: UIViewController {
                                     print("Sukses")
                                 }
                             }
+        var dataFilter = FilterLounge(game: "Apex Legends", role: [true, true, true, true], rank: "Iron", gender: "All")
+        let encoder = JSONEncoder()
+        if let filter = try? encoder.encode(dataFilter){
+            UserDefaults.standard.set(filter, forKey: "filterLounge")
                         self.performSegue(withIdentifier: "ExploreLounge", sender: self)
                         }
 
                     }
                 }
-            }
+            
         } failCompletion: { error in
             print(error)
+
         }
         
     }

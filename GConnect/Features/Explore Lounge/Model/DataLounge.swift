@@ -27,7 +27,22 @@ class DataLounge: UIViewController{
             }
         }
     }
+}
+
+struct DataRequirement {
+    var controller: Bool
+    var duelist: Bool
+    var initiator: Bool
+    var sentinel: Bool
+    var rank: String
+    var gender: String
     
-    
-    
+    init(controller: Bool, duelist: Bool, initiator: Bool, sentinel: Bool, rank: String, gender: String) {
+        self.controller = controller
+        self.duelist = duelist
+        self.initiator = initiator
+        self.sentinel = sentinel
+        self.rank = rank
+        self.gender = gender
+    }
 }

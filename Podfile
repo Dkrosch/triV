@@ -9,6 +9,9 @@ pod 'FirebaseFirestoreSwift'
 pod 'Firebase/Firestore'
 pod 'Firebase/Auth'
 pod 'Firebase/Core'
+pod 'MessageKit'
+pod 'GoogleSignIn'
+pod 'SDWebImage'
 pod 'Firebase/Storage'
 
   # Pods for GConnect

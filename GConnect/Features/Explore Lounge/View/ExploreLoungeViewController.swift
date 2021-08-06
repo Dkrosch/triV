@@ -16,6 +16,7 @@ class ExploreLoungeViewController: UIViewController {
     @IBOutlet weak var loungeCollectionView: UICollectionView!
     
     var jum = 0
+    var arrayRequirement: [String] = []
     
     var datas = [DetailLounge]()
     private var collectionRef: CollectionReference!
@@ -39,6 +40,13 @@ class ExploreLoungeViewController: UIViewController {
         
         //"https://api.mozambiquehe.re/bridge?version=5&platform=PC&player=Pocounda&auth=JTQWkyqLXzJxFkVPu7d"
         //https://api.mozambiquehe.re/bridge?version=5&platform=PC&player=Pocounda&auth=JTQWkyqLXzJxFkVPu7dS
+        
+        if let savedFilter = UserDefaults.standard.object(forKey: "filterLounge") as? Data{
+            let decoder = JSONDecoder()
+            if let loadedFilter = try? decoder.decode(FilterLounge.self, from: savedFilter){
+                print("Hello \(loadedFilter)")
+            }
+        }
         
         loungeCollectionView.delegate = self
         loungeCollectionView.dataSource = self
@@ -88,7 +96,7 @@ class ExploreLoungeViewController: UIViewController {
                     let documentId = document.documentID
 
                     let newData = DetailLounge(game: game,title: judul, desc: desc, idMemberLounge: [member1!, member2!, member3!, member4!, member5!, member6!, member7!, member8!, member9!, member10!], idRequirementsLounge: [role1!, role2!, role3!, role4!], documentId: documentId, creatAt: creatAt, gender: gender, rank: rank)
-
+                    
                     self.datas.append(newData)
                 }
                 self.loungeCollectionView.reloadData()
@@ -119,16 +127,24 @@ extension ExploreLoungeViewController: UICollectionViewDataSource, UICollectionV
         cell.descriptionLoungeLabel.text = datas[indexPath.row].desc
         cell.gamesNameLabel.text = "| \(datas[indexPath.row].game)"
         
+        var sentinel = datas[indexPath.row].idRequirementsLounge[0]
+        var initiator = datas[indexPath.row].idRequirementsLounge[1]
+        var controller = datas[indexPath.row].idRequirementsLounge[2]
+        var duelist = datas[indexPath.row].idRequirementsLounge[3]
+        var rank = datas[indexPath.row].rank
+        var gender = datas[indexPath.row].gender
+        var initDataReq = DataRequirement(controller: controller, duelist: duelist, initiator: initiator, sentinel: sentinel, rank: rank, gender: gender)
+        
+        cell.setDataCollectionView(dataRequirement: initDataReq)
+        
         for member in datas[indexPath.row].idMemberLounge{
             print(member)
-            
             if member == ""{
                 num -= 1
             }
         }
     
         cell.totalMemberLabel.text = "\(num)/10"
-        
         cell.exploreLoungeCellView.layer.borderColor = #colorLiteral(red: 1, green: 0.6593824029, blue: 0.5392141342, alpha: 1)
         cell.exploreLoungeCellView.layer.borderWidth = 1
         

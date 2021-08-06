@@ -20,7 +20,7 @@ class FilterLoungeViewController: UIViewController {
     @IBOutlet weak var errorMessage: UILabel!
     
     let arrayDataRank = ["Iron", "Bronze", "Silver", "Gold", "Platinum", "Diamond", "Immortal", "Radiant"]
-    let arrayGender = ["♂️Male", "♀ Female"]
+    let arrayGender = ["♂️Male", "♀ Female", "All"]
     var arrayStatusRole:[Bool] = [true, true, true, true]
     var statusGame:[Bool] = [false, false, false]
     var selectedGames = ""
@@ -32,6 +32,7 @@ class FilterLoungeViewController: UIViewController {
     var createloungeVC = CreateLoungeVC()
     
     var statusValo = 1
+    var arrFilter: [FilterLounge]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,38 +88,48 @@ class FilterLoungeViewController: UIViewController {
     }
     
     @IBAction func btnSentinelTapped(_ sender: Any) {
-        createloungeVC.changeStatusRole(status: arrayStatusRole[0], sender: sender as! UIButton){ status in
-            self.arrayStatusRole[0] = status
-        }
-    }
-    
-    @IBAction func btnInitiatorTapped(_ sender: Any) {
-        createloungeVC.changeStatusRole(status: arrayStatusRole[1], sender: sender as! UIButton){ status in
-            self.arrayStatusRole[1] = status
-        }
-    }
-    
-    @IBAction func btnControllerTapped(_ sender: Any) {
-        createloungeVC.changeStatusRole(status: arrayStatusRole[2], sender: sender as! UIButton){ status in
-            self.arrayStatusRole[2] = status
-        }
-    }
-    
-    @IBAction func btnDuelistTapped(_ sender: Any) {
         createloungeVC.changeStatusRole(status: arrayStatusRole[3], sender: sender as! UIButton){ status in
             self.arrayStatusRole[3] = status
         }
     }
     
+    @IBAction func btnInitiatorTapped(_ sender: Any) {
+        createloungeVC.changeStatusRole(status: arrayStatusRole[2], sender: sender as! UIButton){ status in
+            self.arrayStatusRole[2] = status
+        }
+    }
+    
+    @IBAction func btnControllerTapped(_ sender: Any) {
+        createloungeVC.changeStatusRole(status: arrayStatusRole[0], sender: sender as! UIButton){ status in
+            self.arrayStatusRole[0] = status
+        }
+    }
+    
+    @IBAction func btnDuelistTapped(_ sender: Any) {
+        createloungeVC.changeStatusRole(status: arrayStatusRole[1], sender: sender as! UIButton){ status in
+            self.arrayStatusRole[1] = status
+        }
+    }
+    
     @IBAction func btnSetFilterTapped(_ sender: Any) {
         if arrayStatusRole == [false, false, false, false]{
-            errorMessage.isHidden = false
-            errorMessage.text = "Choose minimal 1 role"
-            Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector (self.hideWrongLabel), userInfo: nil, repeats: false)
+            showErrorMessage(msg: "Choose minimal 1 role")
+        }else if txtFieldRank.text == "" || txtFieldGender.text == ""{
+            showErrorMessage(msg: "Fill all data")
         }else{
-            print(arrayStatusRole)
-            print("betoll")
+            var dataFilter = FilterLounge(game: "Apex Legends", role: arrayStatusRole, rank: txtFieldRank.text!, gender: txtFieldGender.text!)
+            let encoder = JSONEncoder()
+            if let filter = try? encoder.encode(dataFilter){
+                UserDefaults.standard.set(filter, forKey: "filterLounge")
+            }
+            self.navigationController?.popViewController(animated: true)
         }
+    }
+    
+    func showErrorMessage(msg: String){
+        errorMessage.isHidden = false
+        errorMessage.text = msg
+        Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector (self.hideWrongLabel), userInfo: nil, repeats: false)
     }
     
     @objc func hideWrongLabel(){

@@ -10,6 +10,7 @@ import Firebase
 import FirebaseAuth
 
 
+
 class StoreDataAuth {
     
     //ini escaping di pake buat closure jadi bisa buat balikin result dari fungsi ke halaman yang manggil

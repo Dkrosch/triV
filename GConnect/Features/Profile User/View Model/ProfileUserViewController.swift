@@ -10,12 +10,15 @@ import Firebase
 import FirebaseAuth
 import FirebaseStorage
 
+
 class ProfileUserViewController: UIViewController, UINavigationControllerDelegate {
     private var collectionRef: CollectionReference!
     
     var dataUser = [ProfileData]()
     
     var dataachivement = [Achivement]()
+    
+    var image: UIImage? = nil
 
     @IBOutlet weak var viewContentProfileUser: UIView!
     @IBOutlet weak var profilePicture: UIImageView!
@@ -222,6 +225,8 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
                 let rank = document.get("rank") as! String
                 let game = document.get("game") as! String
                 let birthday = document.get("birthday") as! String
+                
+                let storageRef = Storage.storage().reference(forUrl:"")
 
                 let newData = ProfileData(username: username, game: game, gender: gender, rank: rank, role: role, birthday: birthday, imageProfile: imageProfile, desc: about, imageRank: imageRank)
                 self.dataUser.append(newData)
@@ -279,6 +284,16 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
     }
     
     @objc func doneTapped(){
+        
+        guard let imageSelected = self.image else{
+            print("Avatar is nil")
+            return
+        }
+        
+        guard let imageData = imageSelected.jpegData(compressionQuality: 0.4) else{
+            return
+        }
+        
         stackUsernameView.isHidden = true
         aboutMeTextField.isEditable = false
         
@@ -408,11 +423,17 @@ extension ProfileUserViewController: UITextViewDelegate, UITextFieldDelegate{
 
 extension ProfileUserViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
-            profilePicture.image = image
-        }else{
-            print("error")
+        if let imageSelected = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+            image = imageSelected
+            profilePicture.image = imageSelected
         }
+        if let imageOriginal = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            image = imageOriginal
+            profilePicture.image = imageOriginal
+        }
+//        else{
+//            print("error")
+//        }
         self.dismiss(animated: true, completion: nil)
     }
 }

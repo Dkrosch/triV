@@ -13,8 +13,8 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
     private var collectionRef: CollectionReference!
     
     var dataUser = [ProfileData]()
-    var defaults = UserDefaults.standard
     var dataachivement = [Achivement]()
+    var defaults = UserDefaults.standard
 
     @IBOutlet weak var viewContentProfileUser: UIView!
     @IBOutlet weak var profilePicture: UIImageView!
@@ -80,7 +80,6 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         stackAboutMeTextField.layer.borderColor = #colorLiteral(red: 1, green: 0.6593824029, blue: 0.5392141342, alpha: 1)
         stackAboutMeTextField.layer.borderWidth = 1
         
-//        aboutMeTextField.isScrollEnabled = true
         aboutMeTextField.isEditable = false
         
         stackUsernameView.isHidden = true
@@ -372,8 +371,40 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         
         print("selesai edit bang")
         
-
     }
+    
+    @IBAction func btnLogOut(_ sender: Any) {
+        print("LogOut guyss")
+        let alert = UIAlertController(title: nil, message: "Log Out", preferredStyle: .actionSheet)
+        let signOutAction = UIAlertAction(title: "Sign Out", style: .destructive) { (action) in
+            do{
+                try Auth.auth().signOut()
+                
+                var dataFilter = FilterLounge(game: "Apex Legends", role: [true, true, true, true], rank: "Iron", gender: "All")
+                let encoder = JSONEncoder()
+                if let filter = try? encoder.encode(dataFilter){
+                    UserDefaults.standard.set(filter, forKey: "filterLounge")
+                }
+                
+                self.defaults.set(false, forKey: "isUserSignedIn")
+                self.defaults.synchronize()
+                let backLogin = UIStoryboard(name: "Login", bundle: nil)
+                let vc = backLogin.instantiateViewController(identifier: "loginView") as! UINavigationController
+                vc.modalPresentationStyle = .overFullScreen
+                vc.modalTransitionStyle = .crossDissolve
+                self.present(vc, animated: true)
+            } catch let err{
+                print("error")
+            }
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(signOutAction)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true, completion: nil)
+        
+    }
+    
 }
 
 extension ProfileUserViewController: UICollectionViewDelegate{

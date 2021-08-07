@@ -25,10 +25,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     var bottomLine = CALayer()
     var status = true
     
-    var defaults = UserDefaults.standard
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if defaults.bool(forKey: "isUserSignedIn"){
+            let showExplore = UIStoryboard(name: "ExploreLounge", bundle: nil)
+            let vc = showExplore.instantiateViewController(identifier: "exploreLounge") as! UITabBarController
+            vc.modalPresentationStyle = .overFullScreen
+            vc.modalTransitionStyle = .crossDissolve
+            self.present(vc, animated: true)
+        }
         
         self.usernameField.addBottomBorder()
         self.passwordField.addBottomBorder()

@@ -13,6 +13,8 @@
 		7C75DFCB26B30727002400CA /* LoungeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C75DFC926B30727002400CA /* LoungeCollectionViewCell.xib */; };
 		7C75DFCE26B30BAA002400CA /* RoleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C75DFCC26B30BAA002400CA /* RoleCollectionViewCell.swift */; };
 		7C75DFCF26B30BAA002400CA /* RoleCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C75DFCD26B30BAA002400CA /* RoleCollectionViewCell.xib */; };
+		7C9ECE4126BE64E800DBA826 /* ChatList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C9ECE3E26BE64E800DBA826 /* ChatList.storyboard */; };
+		7C9ECE4226BE64E800DBA826 /* ChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9ECE4026BE64E800DBA826 /* ChatListViewController.swift */; };
 		7C9ECE4626BE650100DBA826 /* chatLoungeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9ECE4426BE650100DBA826 /* chatLoungeCollectionViewCell.swift */; };
 		7C9ECE4726BE650100DBA826 /* chatLoungeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C9ECE4526BE650100DBA826 /* chatLoungeCollectionViewCell.xib */; };
 		7CB18F6326BD93EB0065D1CC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB18F5F26BD93EB0065D1CC /* ViewController.swift */; };
@@ -105,6 +107,8 @@
 		7C75DFC926B30727002400CA /* LoungeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoungeCollectionViewCell.xib; sourceTree = "<group>"; };
 		7C75DFCC26B30BAA002400CA /* RoleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleCollectionViewCell.swift; sourceTree = "<group>"; };
 		7C75DFCD26B30BAA002400CA /* RoleCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RoleCollectionViewCell.xib; sourceTree = "<group>"; };
+		7C9ECE3E26BE64E800DBA826 /* ChatList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChatList.storyboard; sourceTree = "<group>"; };
+		7C9ECE4026BE64E800DBA826 /* ChatListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatListViewController.swift; sourceTree = "<group>"; };
 		7C9ECE4426BE650100DBA826 /* chatLoungeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chatLoungeCollectionViewCell.swift; sourceTree = "<group>"; };
 		7C9ECE4526BE650100DBA826 /* chatLoungeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = chatLoungeCollectionViewCell.xib; sourceTree = "<group>"; };
 		7CB18F5F26BD93EB0065D1CC /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -239,6 +243,48 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		7C9ECE4326BE650100DBA826 /* ChatList */ = {
+			isa = PBXGroup;
+			children = (
+				7C9ECE4426BE650100DBA826 /* chatLoungeCollectionViewCell.swift */,
+				7C9ECE4526BE650100DBA826 /* chatLoungeCollectionViewCell.xib */,
+			);
+			path = ChatList;
+			sourceTree = "<group>";
+		};
+		7C9ECE3B26BE64E800DBA826 /* ChatList */ = {
+			isa = PBXGroup;
+			children = (
+				7C9ECE3C26BE64E800DBA826 /* Model */,
+				7C9ECE3D26BE64E800DBA826 /* View */,
+				7C9ECE3F26BE64E800DBA826 /* View Model */,
+			);
+			path = ChatList;
+			sourceTree = "<group>";
+		};
+		7C9ECE3C26BE64E800DBA826 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7C9ECE3D26BE64E800DBA826 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				7C9ECE3E26BE64E800DBA826 /* ChatList.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7C9ECE3F26BE64E800DBA826 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				7C9ECE4026BE64E800DBA826 /* ChatListViewController.swift */,
+			);
+			path = "View Model";
 			sourceTree = "<group>";
 		};
 		7C9ECE4326BE650100DBA826 /* ChatList */ = {
@@ -914,6 +960,7 @@
 			files = (
 				7CB18F6926BD94130065D1CC /* Loading.storyboard in Resources */,
 				A80E61E526B421DF005FF4B6 /* Edit Achievement.storyboard in Resources */,
+				7C9ECE4126BE64E800DBA826 /* ChatList.storyboard in Resources */,
 				A80E61E826B421DF005FF4B6 /* Add Achievement.storyboard in Resources */,
 				84D9367D26B283E300E29F12 /* ExploreLounge.storyboard in Resources */,
 				84D9367426B2839A00E29F12 /* RequirementExploreLoungeCollectionViewCell.xib in Resources */,
@@ -1002,6 +1049,7 @@
 				84D9369826B2908F00E29F12 /* CreateLoungeVC.swift in Sources */,
 				E08F235326BCFBF400D7E0BA /* ChatUser.swift in Sources */,
 				E8024B2326B94D83004674F3 /* APIResponse.swift in Sources */,
+				7C9ECE4226BE64E800DBA826 /* ChatListViewController.swift in Sources */,
 				7C9ECE4626BE650100DBA826 /* chatLoungeCollectionViewCell.swift in Sources */,
 				E8024B1F26B941D5004674F3 /* AppError.swift in Sources */,
 				7CB18F6A26BD94130065D1CC /* LoadingViewController.swift in Sources */,

@@ -148,7 +148,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="p58-Z1-YoA">
             <objects>
-                <tabBarController storyboardIdentifier="exploreLounge" id="DIY-gD-SFn" sceneMemberID="viewController">
+                <tabBarController id="DIY-gD-SFn" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kam-bP-jnl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

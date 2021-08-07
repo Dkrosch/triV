@@ -330,6 +330,7 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         
         self.present(alert, animated: true)
     }
+    
     func imageURL(urlKey: String){
         if let url = URL(string: urlKey){
             
@@ -341,7 +342,6 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
             }
         }
     }
-
     
     func uploadImageToStorage(){
         let storage = Storage.storage().reference()
@@ -409,16 +409,23 @@ extension ProfileUserViewController: UICollectionViewDataSource{
         
         cell.titleLabelAchievement.text = dataachivement[indexPath.row].title
         cell.descriptionLabelAchievement.text = dataachivement[indexPath.row].desc
+        
+        if let url = URL(string: dataachivement[indexPath.row].image){
+            do{
+                let data = try Data(contentsOf: url)
+                cell.imageViewAchievement.image = UIImage(data: data)
+            } catch let err{
+                print("error")
+            }
+        }
+        
         if self.editButtonDiPencet == true {
             cell.buttonEdit.isHidden = false
         }else{
             cell.buttonEdit.isHidden = true
         }
-        
         return cell
     }
-    
-    
 }
 
 extension ProfileUserViewController: UICollectionViewDelegateFlowLayout{

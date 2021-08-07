@@ -376,7 +376,7 @@
                                                     <color key="titleColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="logOutButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="VOt-dz-y6y"/>
+                                                    <action selector="btnLogOut:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="5FQ-cf-qoe"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -438,7 +438,7 @@
                         <outlet property="aboutMeTextField" destination="3BA-AN-Ufw" id="rpm-0G-1jK"/>
                         <outlet property="achievementCollectionView" destination="hcS-gv-wAg" id="3qy-eZ-JQS"/>
                         <outlet property="achievementCollectionViewConstraintHeight" destination="KPR-tl-h6F" id="kgg-wO-KzD"/>
-                        <outlet property="buttonLogoutProfileUser" destination="2wA-eI-GPF" id="MAh-rC-ZWn"/>
+                        <outlet property="buttonLogoutProfileUser" destination="2wA-eI-GPF" id="wDi-uk-pBb"/>
                         <outlet property="changeProfilePicButton" destination="QnW-Xf-LPg" id="h8M-ac-3TN"/>
                         <outlet property="gameIcon" destination="bxn-2y-GIZ" id="LEz-OK-ZAP"/>
                         <outlet property="gameTitleLabel" destination="To9-Hf-7A4" id="nxi-9c-wKj"/>

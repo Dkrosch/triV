@@ -8,12 +8,13 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseStorage
 
 class ProfileUserViewController: UIViewController, UINavigationControllerDelegate {
     private var collectionRef: CollectionReference!
     
     var dataUser = [ProfileData]()
-    var defaults = UserDefaults.standard
+    
     var dataachivement = [Achivement]()
 
     @IBOutlet weak var viewContentProfileUser: UIView!
@@ -28,9 +29,10 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
     @IBOutlet weak var stackTextFieldUsername: UIStackView!
     @IBOutlet weak var stackUsernameView: UIStackView!
     @IBOutlet weak var usernameTextField: UITextField!
+//    @IBOutlet weak var aboutMeViewProfileUser: UIView!
+//    @IBOutlet weak var aboutMeDescriptionLabel: UILabel!
     @IBOutlet weak var genderLabel: UILabel!
     
-    @IBOutlet weak var btnAddAchievement: UIButton!
     //Stats View
     @IBOutlet weak var statsView: UIView!
     @IBOutlet weak var statsHeaderView: UIView!
@@ -68,9 +70,9 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
     
     var editButtonDiPencet = false
     var udahDiFetch = false
-    var statusVisitor = false
-    var idUser = ""
-    var idMemberVisitor = ""
+    
+    var imageProfileSelected: UIImage? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -123,30 +125,28 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         
         collectionRef = Firestore.firestore().collection("achievement")
         
+//        let test = convertImageToBase64(image: profilePicture.image!)
+//
+//        if let decodedData = Data(base64Encoded: test, options: .ignoreUnknownCharacters) {
+//            let image = UIImage(data: decodedData)
+//            self.imageTest.image = image
+//        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        achievementCollectionView.reloadData()
-        guard let userID = Auth.auth().currentUser?.uid else { return }
-        idUser = userID
-        
-        if statusVisitor == true{
-            idUser = idMemberVisitor
-            self.navigationItem.rightBarButtonItem = nil
-            buttonLogoutProfileUser.isHidden = true
-            btnAddAchievement.isHidden = true
-        }
-        
         fetchDataAchivement()
         fetchDataProfile()
     }
     
     func fetchDataAchivement(){
         dataachivement = []
+        
+        guard let userID = Auth.auth().currentUser?.uid else { return }
 
         achievementCollectionView.reloadData()
         
-        collectionRef.whereField("uid", isEqualTo: idUser).getDocuments { snapshot, error in
+        collectionRef.whereField("uid", isEqualTo: userID).getDocuments { snapshot, error in
             if let err = error{
                 print(err)
             } else {
@@ -175,6 +175,17 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         }
     }
     
+    func addAchievement(){
+        guard let userID = Auth.auth().currentUser?.uid else { return }
+        
+        let db = Firestore.firestore()
+        
+        
+        
+//        db.collection("achievement").document().setData(["Desc": ])
+
+    }
+    
     func updateDataProfile(){
         guard let userID = Auth.auth().currentUser?.uid else { return }
         
@@ -182,7 +193,7 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         let about = aboutMeTextField.text
         
         let db = Firestore.firestore()
-        db.collection("users").document(idUser).updateData(["About": about, "username": username]){ (error) in
+        db.collection("users").document(userID).updateData(["About": about, "username": username]){ (error) in
             
             if error != nil{
                 print("eror")
@@ -193,11 +204,13 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
     }
     
     func fetchDataProfile(){
+        
+    
         let datas = Firestore.firestore()
 
         guard let userID = Auth.auth().currentUser?.uid else { return }
 
-        let reference = datas.collection("users").document(idUser)
+        let reference = datas.collection("users").document(userID)
         reference.getDocument{ (document, err) in
             if let error = err{
                 print(error)
@@ -207,18 +220,18 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
                 let about = document.get("About") as! String
                 let imageRank = document.get("imageRank") as! String
                 let imageProfile = document.get("imageProfile") as! String
+                self.imageURL(urlKey: document.get("imageProfile") as! String)
                 let role = document.get("role") as! String
                 let rank = document.get("rank") as! String
                 let game = document.get("game") as! String
                 let birthday = document.get("birthday") as! String
-                let gamerUname = document.get("gamerUname") as! String
 
-                let newData = ProfileData(username: username, game: game, gender: gender, rank: rank, role: role, birthday: birthday, imageProfile: imageProfile, desc: about, imageRank: imageRank, gamerUname: gamerUname)
+                let newData = ProfileData(username: username, game: game, gender: gender, rank: rank, role: role, birthday: birthday, imageProfile: imageProfile, desc: about, imageRank: imageRank)
                 self.dataUser.append(newData)
 
                 self.usernameLabelProfileUser.text = username
                 self.aboutMeTextField.text = about
-                self.roleUserLabel.text = role
+//                self.profilePicture = test
 
 
                 if gender == "Male" {
@@ -226,69 +239,13 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
                 }else{
                     self.genderLabel.text = ("♀ \(gender)")
                 }
-                
-                ApiService.getDatas(url: "https://api.mozambiquehe.re/bridge?version=5&platform=PC&player=\(gamerUname)&auth=i6Xau6J5JvKzMy9J3LXI") { (response, error) in
-                    if response != nil {
-                        if let responseFromAPI = response {
-                            print(responseFromAPI.global?.name)
-                            self.gamerNameLabel.text = responseFromAPI.global?.name!
-                            self.userLevelLabel.text = ("\(responseFromAPI.global!.level!)")
-                            self.legendNameLabel.text = responseFromAPI.legends?.selected?.LegendName!
-                            self.userRankLabel.text = responseFromAPI.global?.rank?.rankName!
-                            self.imageURL(urlKey: (responseFromAPI.legends?.selected?.ImgAssets?.icon!)!)
-                            self.valueStatsLabel1.text = ("\(responseFromAPI.total?.damage?.value ?? 0)")
-                            self.valueStatsLabel2.text = ("\(responseFromAPI.total?.kills?.value ?? 0)")
-                            self.valueStatsLabel3.text = ("\(responseFromAPI.total?.headshots?.value ?? 0)")
-                            self.rankIconImage.image = UIImage(named: (responseFromAPI.global?.rank?.rankName!)!)
-                        }
-                    }
-                } failCompletion: { error in
-                    print(error)
-                }
             }
         }
     }
     
-    @IBAction func logOutButtonClicked(_ sender: Any) {
-        print("LogOut guyss")
-        let alert = UIAlertController(title: nil, message: "Log Out", preferredStyle: .actionSheet)
-        let signOutAction = UIAlertAction(title: "Sign Out", style: .destructive) { (action) in
-            do{
-                try Auth.auth().signOut()
-                
-                var dataFilter = FilterLounge(game: "Apex Legends", role: [true, true, true, true], rank: "Iron", gender: "All")
-                let encoder = JSONEncoder()
-                if let filter = try? encoder.encode(dataFilter){
-                    UserDefaults.standard.set(filter, forKey: "filterLounge")
-                }
-                
-                self.defaults.set(false, forKey: "isUserSignedIn")
-                self.defaults.synchronize()
-                let backLogin = UIStoryboard(name: "Login", bundle: nil)
-                let vc = backLogin.instantiateViewController(identifier: "loginView") as! UINavigationController
-                vc.modalPresentationStyle = .overFullScreen
-                vc.modalTransitionStyle = .crossDissolve
-                self.present(vc, animated: true)
-            } catch let err{
-                print("error")
-            }
-        }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        
-        alert.addAction(signOutAction)
-        alert.addAction(cancelAction)
-        self.present(alert, animated: true, completion: nil)
-    }
-    
-    func imageURL(urlKey: String){
-        if let url = URL(string: urlKey){
-            do{
-                let data = try Data(contentsOf: url)
-                self.legendImage.image = UIImage(data: data)
-            } catch let err{
-                print("error")
-            }
-        }
+    func convertImageToBase64(image: UIImage) -> String {
+        let imageData = image.jpegData(compressionQuality: 1)!
+        return imageData.base64EncodedString()
     }
 
     @IBAction func changeProfilePicButtonTapped(_ sender: UIButton) {
@@ -348,7 +305,87 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         
         print("selesai edit bang")
         
+//        var converted = convertImageToBase64(image: profilePicture.image!)
+//        guard let userID = Auth.auth().currentUser?.uid else { return }
+//
+//
+//        let reference = Firestore.firestore().collection("users").document(userID).updateData(["imageProfile": converted]){ (error) in
+//            if error != nil{
+//                print("eror")
+//            } else{
+//                print("done")
+//            }
+//        }
+        uploadImageToStorage()
+        
     }
+    
+    @IBAction func logOutButtonClicked(_ sender: Any) {
+        let alert = UIAlertController(title: "Warning", message: "Are you sure you want to log out?", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+            print("log out")
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true)
+    }
+    
+    func imageURL(urlKey: String){
+        if let url = URL(string: urlKey){
+            
+            do{
+                let data = try Data(contentsOf: url)
+                self.profilePicture.image = UIImage(data: data)
+            } catch let err{
+                print("error")
+            }
+        }
+    }
+    
+    func uploadImageToStorage(){
+        let storage = Storage.storage().reference()
+        let db = Firestore.firestore()
+        
+        guard let userID = Auth.auth().currentUser?.uid else { return }
+        
+        guard let imageSelected = self.imageProfileSelected else{
+            return
+        }
+        
+        guard let imageData = imageSelected.jpegData(compressionQuality: 0.4) else {
+            return
+        }
+        
+        //        let data = Data()
+        //
+        //        let localFile = fileURL
+        
+        let metadata = StorageMetadata()
+        metadata.contentType = "image/jpg"
+        
+        let photoRef = storage.child("profile").child(userID)
+        
+        photoRef.putData(imageData, metadata: metadata) { StorageMetadata, error in
+            if error != nil{
+                print(error?.localizedDescription)
+                return
+            }
+            
+            photoRef.downloadURL { url, error in
+                if let metaImageURL = url?.absoluteString{
+                    db.collection("users").document(userID).updateData(["imageProfile": metaImageURL]){ (error) in
+                        if error != nil{
+                            print("eror")
+                        } else{
+                            print("berhasil upload image")
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
 }
 
 extension ProfileUserViewController: UICollectionViewDelegate{
@@ -372,16 +409,23 @@ extension ProfileUserViewController: UICollectionViewDataSource{
         
         cell.titleLabelAchievement.text = dataachivement[indexPath.row].title
         cell.descriptionLabelAchievement.text = dataachivement[indexPath.row].desc
+        
+        if let url = URL(string: dataachivement[indexPath.row].image){
+            do{
+                let data = try Data(contentsOf: url)
+                cell.imageViewAchievement.image = UIImage(data: data)
+            } catch let err{
+                print("error")
+            }
+        }
+        
         if self.editButtonDiPencet == true {
             cell.buttonEdit.isHidden = false
         }else{
             cell.buttonEdit.isHidden = true
         }
-        
         return cell
     }
-    
-    
 }
 
 extension ProfileUserViewController: UICollectionViewDelegateFlowLayout{
@@ -418,9 +462,28 @@ extension ProfileUserViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
             profilePicture.image = image
+            imageProfileSelected = image
         }else{
             print("error")
         }
+        
+//        if let imageURL = info[UIImagePickerController.InfoKey.imageURL] as? URL{
+//            uploadImageToStorage(fileURL: imageURL)
+//        }
         self.dismiss(animated: true, completion: nil)
     }
 }
+
+//extension UIImageView {
+//    func load(url: URL) {
+//        DispatchQueue.global().async { [weak self] in
+//            if let data = try? Data(contentsOf: url) {
+//                if let image = UIImage(data: data) {
+//                    DispatchQueue.main.async {
+//                        self?.image = image
+//                    }
+//                }
+//            }
+//        }
+//    }
+//}

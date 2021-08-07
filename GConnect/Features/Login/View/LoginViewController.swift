@@ -25,18 +25,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     var bottomLine = CALayer()
     var status = true
     
-    let defaults = UserDefaults.standard
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if defaults.bool(forKey: "isUserSignedIn"){
-            let showExplore = UIStoryboard(name: "ExploreLounge", bundle: nil)
-            let vc = showExplore.instantiateViewController(identifier: "exploreLounge") as! UITabBarController
-            vc.modalPresentationStyle = .overFullScreen
-            vc.modalTransitionStyle = .crossDissolve
-            self.present(vc, animated: true)
-        }
         
         self.usernameField.addBottomBorder()
         self.passwordField.addBottomBorder()
@@ -89,8 +79,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         } else {
             AuthLogin.SignIn(email: usernameField.text!, password: passwordField.text!){ status in
                 if status{
-                    self.defaults.set(true, forKey: "isUserSignedIn")
-                    self.defaults.synchronize()
                     self.performSegue(withIdentifier: "LoginToExploreLounge", sender: self)
                     self.wrongLabel.isHidden = true
                 }else{

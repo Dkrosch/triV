@@ -13,7 +13,7 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
     private var collectionRef: CollectionReference!
     
     var dataUser = [ProfileData]()
-    
+    var defaults = UserDefaults.standard
     var dataachivement = [Achivement]()
 
     @IBOutlet weak var viewContentProfileUser: UIView!
@@ -252,25 +252,34 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
     
     @IBAction func logOutButtonClicked(_ sender: Any) {
 
-        let alert = UIAlertController(title: "Warning", message: "Are you sure you want to log out?", preferredStyle: .alert)
-            
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
-            var dataFilter = FilterLounge(game: "Apex Legends", role: [true, true, true, true], rank: "Iron", gender: "All")
-            let encoder = JSONEncoder()
-            if let filter = try? encoder.encode(dataFilter){
-                UserDefaults.standard.set(filter, forKey: "filterLounge")
+        print("LogOut guyss")
+        let alert = UIAlertController(title: nil, message: "Log Out", preferredStyle: .actionSheet)
+        let signOutAction = UIAlertAction(title: "Sign Out", style: .destructive) { (action) in
+            do{
+                try Auth.auth().signOut()
+                
+                var dataFilter = FilterLounge(game: "Apex Legends", role: [true, true, true, true], rank: "Iron", gender: "All")
+                let encoder = JSONEncoder()
+                if let filter = try? encoder.encode(dataFilter){
+                    UserDefaults.standard.set(filter, forKey: "filterLounge")
+                }
+                
+                self.defaults.set(false, forKey: "isUserSignedIn")
+                self.defaults.synchronize()
+                let backLogin = UIStoryboard(name: "Login", bundle: nil)
+                let vc = backLogin.instantiateViewController(identifier: "loginView") as! UINavigationController
+                vc.modalPresentationStyle = .overFullScreen
+                vc.modalTransitionStyle = .crossDissolve
+                self.present(vc, animated: true)
+            } catch let err{
+                print("error")
             }
-                self.goToLogin()
-            }))
-            alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
-            
-            self.present(alert, animated: true)
-    }
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
-    func goToLogin(){
-        let showLogin = UIStoryboard(name: "Login", bundle: nil)
-        let vc = showLogin.instantiateViewController(identifier: "Login") as! LoginViewController
-        self.navigationController?.pushViewController(vc, animated: true)
+        alert.addAction(signOutAction)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true, completion: nil)
     }
     
     func imageURL(urlKey: String){

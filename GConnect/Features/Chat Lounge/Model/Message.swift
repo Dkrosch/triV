@@ -33,7 +33,7 @@ extension Message {
               let senderID = dictionary["senderID"] as? String,
               let senderName = dictionary["senderName"] as? String
         else {return nil}
-        self.init(id: id, content: content, created: created, senderID: senderID, senderName:senderName)
+        self.init(id: id, content: content, created: created, senderID: senderID, senderName: senderName)
     }
 }
 

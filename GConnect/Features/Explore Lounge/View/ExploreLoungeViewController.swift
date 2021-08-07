@@ -102,6 +102,7 @@ class ExploreLoungeViewController: UIViewController {
                 self.loungeCollectionView.reloadData()
             }
         }
+        print("data lounge: \(datas.count)")
     }
     
     @IBAction func createLoungeAction(_ sender: UIButton){

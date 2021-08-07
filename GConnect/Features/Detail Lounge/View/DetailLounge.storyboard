@@ -306,13 +306,12 @@
                                 <color key="textColor" red="0.95686274510000002" green="0.95686274510000002" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8zV-he-aI3">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8zV-he-aI3">
                                 <rect key="frame" x="20" y="896" width="350" height="50"/>
                                 <color key="backgroundColor" name="Vivid Tangerine"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="xOr-nD-HuS"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <color key="tintColor" name="Dark Blue"/>
                                 <state key="normal" title="Join Lounge">
                                     <color key="titleColor" name="Dark Blue"/>

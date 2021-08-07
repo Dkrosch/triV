@@ -21,7 +21,7 @@ class CreateLoungeViewModel{
         let currentTime = formatter.string(from: currentDateTime)
         
         let db = Firestore.firestore().collection("LoungeDetail").document()
-        let idLounge = db.documentID
+        let idLounge = db.documentID as! String
         
         if game == ""{
             valid("game")
@@ -38,13 +38,31 @@ class CreateLoungeViewModel{
                 }
             }
             
-            Firestore.firestore().collection("LoungeDetail").document(idLounge).collection("thread").document().collection("thread").document().setData(["content":"", "created":"", "id":"", "senderID":"", "senderName":""]){(error) in
+            let db2 = Firestore.firestore().collection("LoungeDetail").document(idLounge).collection("chats").document()
+            let idChat = db2.documentID as! String
+            
+            db2.setData(["AnyField":""]){(error) in
                 if error != nil{
                     print("Gagal")
                 } else {
-                    print("Sukses create chat lounge")
+                    print("Sukses create lounge")
                 }
             }
+            
+            let data: [String: Any] = [
+                "content": "Welcome to \(title)",
+                "created": Timestamp(),
+                "id": UUID().uuidString,
+                "senderID": uid,
+                "senderName": ""
+            ]
+            
+            Firestore.firestore().collection("LoungeDetail").document(idLounge).collection("chats").document(idChat).collection("thread").addDocument(data: data, completion: { error in
+                if let error = error {
+                    print("Error Sending message: \(error)")
+                    return
+                }
+            })
             
             valid("true")
         }

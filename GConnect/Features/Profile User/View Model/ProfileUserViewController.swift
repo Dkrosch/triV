@@ -71,7 +71,6 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
     var statusVisitor = false
     var idUser = ""
     var imageProfileSelected: UIImage? = nil
-    
     var idMemberVisitor = ""
     override func viewDidLoad() {
         super.viewDidLoad()

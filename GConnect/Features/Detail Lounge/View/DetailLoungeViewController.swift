@@ -138,6 +138,13 @@ class DetailLoungeViewController: UIViewController {
                 
                 if self.statusInfo == true{
                     self.JoinLoungeButton.isHidden = true
+                }else{
+                    if data[0].idMemberLounge.contains(userID) {
+                        self.JoinLoungeButton.setTitle("Chat", for: .normal)
+                    }
+                }
+                
+                if data[0].idMemberLounge.contains(userID) {
                     if userID != data[0].idMemberLounge[0]{
                         self.navigationItem.rightBarButtonItem = nil
                     }

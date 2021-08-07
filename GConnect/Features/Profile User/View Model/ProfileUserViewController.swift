@@ -67,6 +67,9 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
     
     var editButtonDiPencet = false
     var udahDiFetch = false
+    var idMemberVisitor = ""
+    var statusVisitor: Bool?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -18,8 +18,9 @@ class FilterLoungeViewController: UIViewController {
     @IBOutlet weak var txtFieldGender: UITextField!
     @IBOutlet weak var btnSetFilter: UIButton!
     @IBOutlet weak var errorMessage: UILabel!
+    @IBOutlet weak var btnRemoveFilter: UIButton!
     
-    let arrayDataRank = ["Iron", "Bronze", "Silver", "Gold", "Platinum", "Diamond", "Immortal", "Radiant"]
+    let arrayDataRank = ["Iron", "Bronze", "Silver", "Gold", "Platinum", "Diamond", "APEX Predator"]
     let arrayGender = ["♂️Male", "♀ Female", "All"]
     var arrayStatusRole:[Bool] = [true, true, true, true]
     var statusGame:[Bool] = [false, false, false]
@@ -33,6 +34,7 @@ class FilterLoungeViewController: UIViewController {
     
     var statusValo = 1
     var arrFilter: [FilterLounge]?
+    var filter: FilterLounge?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +46,10 @@ class FilterLoungeViewController: UIViewController {
         txtFieldRank.layer.cornerRadius = 10
         txtFieldGender.layer.cornerRadius = 10
         btnSetFilter.layer.cornerRadius = 10
+        btnRemoveFilter.layer.cornerRadius = 10
+        
+        btnRemoveFilter.layer.borderWidth = 1
+        btnRemoveFilter.layer.borderColor = #colorLiteral(red: 1, green: 0.537874639, blue: 0.4000282884, alpha: 1)
         
         gamesCollectionView.delegate = self
         gamesCollectionView.dataSource = self
@@ -64,18 +70,6 @@ class FilterLoungeViewController: UIViewController {
         
         errorMessage.isHidden = true
         
-        btnSentinel.setImage(UIImage(named: "Checkmark_icon"), for: .normal)
-        btnSentinel.semanticContentAttribute = .forceRightToLeft
-        
-        btnInitiator.setImage(UIImage(named: "Checkmark_icon"), for: .normal)
-        btnInitiator.semanticContentAttribute = .forceRightToLeft
-        
-        btnController.setImage(UIImage(named: "Checkmark_icon"), for: .normal)
-        btnController.semanticContentAttribute = .forceRightToLeft
-        
-        btnDuelist.setImage(UIImage(named: "Checkmark_icon"), for: .normal)
-        btnDuelist.semanticContentAttribute = .forceRightToLeft
-        
         let nibCell = UINib(nibName: "GamesCollectionViewCell", bundle: nil)
         gamesCollectionView.register(nibCell, forCellWithReuseIdentifier: "GamesCellId")
         
@@ -89,6 +83,46 @@ class FilterLoungeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
         self.navigationItem.title = "Set Filter"
+        
+        if let savedFilter = UserDefaults.standard.object(forKey: "filterLounge") as? Data{
+            let decoder = JSONDecoder()
+            if let loadedFilter = try? decoder.decode(FilterLounge.self, from: savedFilter){
+                filter = loadedFilter
+            }
+        }
+        
+        if filter?.statusFilter == true{
+            btnRemoveFilter.isHidden = false
+        }else{
+            btnRemoveFilter.isHidden = true
+        }
+        
+        arrayStatusRole = filter!.arrayRole
+        
+        var controller = filter!.arrayRole[0]
+        var duelist = filter!.arrayRole[1]
+        var initiator = filter!.arrayRole[2]
+        var sentinel = filter!.arrayRole[3]
+        
+        if controller == true {
+            self.setButtonRole(sender: btnController)
+        }
+        if duelist == true{
+            self.setButtonRole(sender: btnDuelist)
+        }
+        if initiator == true{
+            self.setButtonRole(sender: btnInitiator)
+        }
+        if sentinel == true{
+            self.setButtonRole(sender: btnSentinel)
+        }
+        txtFieldRank.text = filter?.rank
+        txtFieldGender.text = filter?.gender
+    }
+    
+    func setButtonRole(sender: UIButton){
+        sender.setImage(UIImage(named: "Checkmark_icon"), for: .normal)
+        sender.semanticContentAttribute = .forceRightToLeft
     }
     
     @IBAction func btnSentinelTapped(_ sender: Any) {
@@ -121,13 +155,22 @@ class FilterLoungeViewController: UIViewController {
         }else if txtFieldRank.text == "" || txtFieldGender.text == ""{
             showErrorMessage(msg: "Fill all data")
         }else{
-            var dataFilter = FilterLounge(game: "Apex Legends", role: arrayStatusRole, rank: txtFieldRank.text!, gender: txtFieldGender.text!)
+            let dataFilter = FilterLounge(statusFilter: true, game: "Apex Legends", role: arrayStatusRole, rank: txtFieldRank.text!, gender: txtFieldGender.text!)
             let encoder = JSONEncoder()
             if let filter = try? encoder.encode(dataFilter){
                 UserDefaults.standard.set(filter, forKey: "filterLounge")
             }
             self.navigationController?.popViewController(animated: true)
         }
+    }
+    
+    @IBAction func btnRemoveFilterTapped(_ sender: Any) {
+        let dataFilter = FilterLounge(statusFilter: false, game: "Apex Legends", role: [true, true, true, true], rank: "Iron", gender: "All")
+        let encoder = JSONEncoder()
+        if let filter = try? encoder.encode(dataFilter){
+            UserDefaults.standard.set(filter, forKey: "filterLounge")
+        }
+        self.navigationController?.popViewController(animated: true)
     }
     
     func showErrorMessage(msg: String){

@@ -37,7 +37,7 @@ class DetailLoungeViewController: UIViewController {
     var idLounge = ""
     var cek = ""
     var detailLoungeVM = DetailLoungeViewModel()
-    let rank = ["Iron", "Bronze", "Silver", "Gold", "Platinum", "Diamond", "Immortal", "Radiant"]
+    let rank = ["Iron", "Bronze", "Silver", "Gold", "Platinum", "Diamond", "APEX Predator"]
     let arrGender = ["♂️Male", "♀ Female", "All"]
     var dataLounge = [DetailLounge]()
     var jumlahDataMember = 0
@@ -61,7 +61,6 @@ class DetailLoungeViewController: UIViewController {
         print("ID Lounge: \(idLounge), cek doank \(cek)")
         
         if statusCreate == true{
-            print("ini dari create")
             self.navigationController?.replaceCurrentViewControllerWith(viewController: self, animated: true)
         }
         
@@ -146,19 +145,25 @@ class DetailLoungeViewController: UIViewController {
                 var masterLounge = data[0].idMemberLounge[0]
                 
                 if self.statusInfo == true{
-                    self.JoinLoungeButton.isHidden = true
+                    if userID == masterLounge {
+                        self.JoinLoungeButton.isHidden = true
+                    }else if userID != data[0].idMemberLounge[0] {
+                        self.navigationItem.rightBarButtonItem = nil
+                        self.JoinLoungeButton.isHidden = false
+                        self.JoinLoungeButton.setTitle("Leave Lounge", for: .normal)
+                        self.JoinLoungeButton.layer.backgroundColor = UIColor.red.cgColor
+                        self.JoinLoungeButton.setTitleColor(UIColor.white, for: .normal)
+                    }
                 }else{
                     if data[0].idMemberLounge.contains(userID) {
+                        if userID != masterLounge {
+                            self.navigationItem.rightBarButtonItem = nil
+                        }
                         self.JoinLoungeButton.setTitle("Chat", for: .normal)
-                    }
-                }
-                
-                if data[0].idMemberLounge.contains(userID) {
-                    if userID != data[0].idMemberLounge[0]{
+                    }else{
+                        self.JoinLoungeButton.setTitle("Join Lounge", for: .normal)
                         self.navigationItem.rightBarButtonItem = nil
                     }
-                }else{
-                    self.navigationItem.rightBarButtonItem = nil
                 }
                 
                 var controller = data[0].idRequirementsLounge[0]
@@ -212,13 +217,14 @@ class DetailLoungeViewController: UIViewController {
         let showProfile = UIStoryboard(name: "ChatLounge", bundle: nil)
         let vc = showProfile.instantiateViewController(identifier: "ChatLounge") as! ChatLoungeViewController
         vc.idLounge = idLounge
+        vc.statusDetail = true
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func buttonJoinLoungeTapped(_ sender: UIButton) {
+        guard let userID = Auth.auth().currentUser?.uid else { return }
         if sender.titleLabel?.text == "Join Lounge" {
             var unfillMember = ""
-            guard let userID = Auth.auth().currentUser?.uid else { return }
             if arrDataLoungeMemberUnfilter[1] == "" {unfillMember = "Member2"}
             else if arrDataLoungeMemberUnfilter[2] == "" {unfillMember = "Member3"}
             else if arrDataLoungeMemberUnfilter[3] == "" {unfillMember = "Member4"}
@@ -233,14 +239,40 @@ class DetailLoungeViewController: UIViewController {
             gotoChat()
         }else if sender.titleLabel?.text == "Chat"{
             gotoChat()
-        }else{
-            let alert = UIAlertController(title: "Are you sure?", message: "Do your really want to delete this lounge? This process cannot be undone.", preferredStyle: UIAlertController.Style.alert)
+        }else if sender.titleLabel?.text == "Delete Lounge"{
+            let alert = UIAlertController(title: "Delete Lounge", message: "Are you sure want to delete this lounge? This process cannot be undone.", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "Delete", style: UIAlertAction.Style.destructive, handler: { action in
                 self.detailLoungeVM.deleteLounge(idLounge: self.idLounge)
+                
+                if self.statusInfo == true{
+                    self.navigationController?.replaceCurrentViewControllerWith2(viewController: self, animated: true)
+                }
+                
                 self.navigationController?.popViewController(animated: true)
             }))
             alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
             
+            self.present(alert, animated: true, completion: nil)
+        }else if sender.titleLabel?.text == "Leave Lounge"{
+            let alert = UIAlertController(title: "Leave Lounge", message: "Are you sure want to leave this lounge?", preferredStyle: UIAlertController.Style.alert)
+            
+            alert.addAction(UIAlertAction(title: "Leave", style: UIAlertAction.Style.destructive, handler: { action in
+                var filledCurrentMember = ""
+                if self.arrDataLoungeMemberUnfilter[1] == userID {filledCurrentMember = "Member2"}
+                else if self.arrDataLoungeMemberUnfilter[2] == userID {filledCurrentMember = "Member3"}
+                else if self.arrDataLoungeMemberUnfilter[3] == userID {filledCurrentMember = "Member4"}
+                else if self.arrDataLoungeMemberUnfilter[4] == userID {filledCurrentMember = "Member5"}
+                else if self.arrDataLoungeMemberUnfilter[5] == userID {filledCurrentMember = "Member6"}
+                else if self.arrDataLoungeMemberUnfilter[6] == userID {filledCurrentMember = "Member7"}
+                else if self.arrDataLoungeMemberUnfilter[7] == userID {filledCurrentMember = "Member8"}
+                else if self.arrDataLoungeMemberUnfilter[8] == userID {filledCurrentMember = "Member9"}
+                else if self.arrDataLoungeMemberUnfilter[9] == userID {filledCurrentMember = "Member10"}
+                self.detailLoungeVM.leaveLounge(idLounge: self.idLounge, filledCurrentMember: filledCurrentMember)
+                self.navigationController?.replaceCurrentViewControllerWith(viewController: self, animated: true)
+                self.navigationController?.popViewController(animated: true)
+            }))
+            
+            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)
         }
     }
@@ -278,8 +310,8 @@ class DetailLoungeViewController: UIViewController {
         self.navigationItem.setHidesBackButton(true, animated: true)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(btnDoneTapped))
         JoinLoungeButton.isHidden = false
-        JoinLoungeButton.layer.backgroundColor = UIColor.red.cgColor
         JoinLoungeButton.setTitle("Delete Lounge", for: .normal)
+        JoinLoungeButton.layer.backgroundColor = UIColor.red.cgColor
         JoinLoungeButton.setTitleColor(UIColor.white, for: .normal)
         
         Rank.layer.borderColor = UIColor.white.cgColor
@@ -462,10 +494,10 @@ extension DetailLoungeViewController: UICollectionViewDataSource, UICollectionVi
             if dataLounge.count != 0 {
                 arrRole = dataLounge[0].idRequirementsLounge
                 
-                if arrRole[0] == true{ dataReq.append("Controller") }
-                if arrRole[1] == true{ dataReq.append("Duelist") }
-                if arrRole[2] == true{ dataReq.append("Initiator") }
-                if arrRole[3] == true{ dataReq.append("Sentinel") }
+                if arrRole[0] == true{ dataReq.append("Defensive") }
+                if arrRole[1] == true{ dataReq.append("Recon") }
+                if arrRole[2] == true{ dataReq.append("Support") }
+                if arrRole[3] == true{ dataReq.append("Offensive") }
                 
                 cellB.requirementExploreLoungeCellLabel.text = dataReq[indexPath.row]
             }

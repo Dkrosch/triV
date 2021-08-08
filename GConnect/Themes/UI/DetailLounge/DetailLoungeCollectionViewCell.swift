@@ -16,10 +16,10 @@ protocol dataLounge{
 class DetailLoungeCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var background: UIView!
-    @IBOutlet weak var viewImageProfile: UIView!
     @IBOutlet weak var nama: UILabel!
     @IBOutlet weak var role: UILabel!
     @IBOutlet weak var kickButton: UIButton!
+    @IBOutlet weak var profilePic: ProfilePicView!
     
     static let identifier = "loungeMemberDetail"
     
@@ -36,6 +36,8 @@ class DetailLoungeCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         kickButton.isHidden = true
+        
+        profilePic.gantiImageProfile(image: #imageLiteral(resourceName: "Reyna_icon"))
     }
 
     

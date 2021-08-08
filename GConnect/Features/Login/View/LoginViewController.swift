@@ -77,6 +77,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         } else {
             AuthLogin.SignIn(email: usernameField.text!, password: passwordField.text!){ status in
                 if status{
+                    var dataFilter = FilterLounge(statusFilter: false,game: "Apex Legends", role: [true, true, true, true], rank: "Iron", gender: "All")
+                    let encoder = JSONEncoder()
+                    if let filter = try? encoder.encode(dataFilter){
+                        UserDefaults.standard.set(filter, forKey: "filterLounge")
+                    }
                     self.defaults.set(true, forKey: "isUserSignedIn")
                     self.defaults.synchronize()
                     self.performSegue(withIdentifier: "LoginToExploreLounge", sender: self)

@@ -72,7 +72,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <state key="normal" title="Sentinel">
+                                                <state key="normal" title="Offensive">
                                                     <color key="titleColor" name="Black"/>
                                                 </state>
                                                 <connections>
@@ -84,7 +84,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <state key="normal" title="Initiator">
+                                                <state key="normal" title="Support">
                                                     <color key="titleColor" name="Black"/>
                                                 </state>
                                                 <connections>
@@ -96,7 +96,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <state key="normal" title="Controller">
+                                                <state key="normal" title="Defensive">
                                                     <color key="titleColor" name="Black"/>
                                                 </state>
                                                 <connections>
@@ -108,7 +108,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <state key="normal" title="Duelist">
+                                                <state key="normal" title="Recon">
                                                     <color key="titleColor" name="Black"/>
                                                 </state>
                                                 <connections>

@@ -19,8 +19,7 @@ class ExploreLoungeCell: UICollectionViewCell, UICollectionViewDelegate, UIColle
     private let cellId = "cell"
     var dataReq: [String] = []
     
-    @IBAction func joinButton(_ sender: UIButton) {
-    }
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -51,10 +50,10 @@ class ExploreLoungeCell: UICollectionViewCell, UICollectionViewDelegate, UIColle
     
     func setDataCollectionView(dataRequirement: DataRequirement){
         dataReq = []
-        if dataRequirement.sentinel == true {dataReq.append("Sentinel")}
-        if dataRequirement.initiator == true {dataReq.append("Initiator")}
-        if dataRequirement.controller == true {dataReq.append("Controller")}
-        if dataRequirement.duelist == true {dataReq.append("Duelist")}
+        if dataRequirement.sentinel == true {dataReq.append("Offensive")}
+        if dataRequirement.initiator == true {dataReq.append("Support")}
+        if dataRequirement.controller == true {dataReq.append("Defensive")}
+        if dataRequirement.duelist == true {dataReq.append("Recon")}
         dataReq.append(dataRequirement.rank)
         dataReq.append(dataRequirement.gender)
         requirementExploreLoungeCollectionVIew.reloadData()

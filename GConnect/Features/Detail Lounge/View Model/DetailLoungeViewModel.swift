@@ -131,4 +131,14 @@ class DetailLoungeViewModel {
             }
         }
     }
+    
+    func leaveLounge(idLounge: String, filledCurrentMember: String){
+        db.collection("LoungeDetail").document(idLounge).updateData(["idMemberLounge.\(filledCurrentMember)": ""]) { error in
+            if error != nil {
+                print (error)
+            }else{
+                print("sukses")
+            }
+        }
+    }
 }

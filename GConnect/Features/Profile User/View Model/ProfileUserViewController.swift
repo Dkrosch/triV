@@ -258,9 +258,7 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         let alert = UIAlertController(title: nil, message: "Log Out", preferredStyle: .actionSheet)
         let signOutAction = UIAlertAction(title: "Sign Out", style: .destructive) { (action) in
             do{
-                try Auth.auth().signOut()
-                
-                var dataFilter = FilterLounge(game: "Apex Legends", role: [true, true, true, true], rank: "Iron", gender: "All")
+                var dataFilter = FilterLounge(statusFilter: false, game: "Apex Legends", role: [true, true, true, true], rank: "Iron", gender: "All")
                 let encoder = JSONEncoder()
                 if let filter = try? encoder.encode(dataFilter){
                     UserDefaults.standard.set(filter, forKey: "filterLounge")

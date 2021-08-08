@@ -110,7 +110,7 @@ class CreateGameDetailViewController: UIViewController {
                                     print("Sukses")
                                 }
                             }
-                            var dataFilter = FilterLounge(game: "Apex Legends", role: [true, true, true, true], rank: "Iron", gender: "All")
+                            var dataFilter = FilterLounge(statusFilter: false,game: "Apex Legends", role: [true, true, true, true], rank: "Iron", gender: "All")
                             let encoder = JSONEncoder()
                             if let filter = try? encoder.encode(dataFilter){
                             }

@@ -14,9 +14,9 @@ enum GamesImage{
     
     func getImage() -> UIImage{
         switch self {
-        case .apexLegends: return #imageLiteral(resourceName: "Sage_icon")
+        case .apexLegends: return UIImage(named: "Apex Legends")!
         case .valorant: return #imageLiteral(resourceName: "VALORANT_Logo_square")
-        case .pubgm: return #imageLiteral(resourceName: "Valorant_icon")
+        case .pubgm: return UIImage(named: "pubg-mobile-logo")!
         }
     }
 }

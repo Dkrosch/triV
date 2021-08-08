@@ -136,7 +136,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="108.33333333333333" height="34"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <state key="normal" title="Sentinel">
+                                                <state key="normal" title="Offensive">
                                                     <color key="titleColor" name="Black"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
@@ -152,7 +152,7 @@
                                                 <rect key="frame" x="130.33333333333334" y="0.0" width="108.33333333333334" height="34"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <state key="normal" title="Controller">
+                                                <state key="normal" title="Defensive">
                                                     <color key="titleColor" name="Black"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
@@ -177,7 +177,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="108.33333333333333" height="34"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <state key="normal" title="Initiator">
+                                                <state key="normal" title="Support">
                                                     <color key="titleColor" name="Black"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
@@ -193,7 +193,7 @@
                                                 <rect key="frame" x="130.33333333333334" y="0.0" width="108.33333333333334" height="34"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <state key="normal" title="Duelist">
+                                                <state key="normal" title="Recon">
                                                     <color key="titleColor" name="Black"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
@@ -312,6 +312,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="xOr-nD-HuS"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <color key="tintColor" name="Dark Blue"/>
                                 <state key="normal" title="Join Lounge">
                                     <color key="titleColor" name="Dark Blue"/>

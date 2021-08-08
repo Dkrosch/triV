@@ -37,7 +37,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Sentinel">
+                                <state key="normal" title="Offensive">
                                     <color key="titleColor" name="Black"/>
                                 </state>
                                 <connections>
@@ -49,7 +49,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Initiator">
+                                <state key="normal" title="Support">
                                     <color key="titleColor" name="Black"/>
                                 </state>
                                 <connections>
@@ -61,7 +61,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Controller">
+                                <state key="normal" title="Defensive">
                                     <color key="titleColor" name="Black"/>
                                 </state>
                                 <connections>
@@ -73,7 +73,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="Duelist">
+                                <state key="normal" title="Recon">
                                     <color key="titleColor" name="Black"/>
                                 </state>
                                 <connections>
@@ -120,6 +120,29 @@
                                     <action selector="btnSetFilterTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="7Zo-FL-Jby"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YTj-2x-noX">
+                                <rect key="frame" x="20" y="682" width="350" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.1121604368" green="0.16948282719999999" blue="0.32943078879999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <state key="normal" title="Remove Filter">
+                                    <color key="titleColor" red="0.99804586169999998" green="0.56645733119999997" blue="0.435262382" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                                        <color key="value" red="0.99804586169999998" green="0.56645733119999997" blue="0.435262382" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="btnRemoveFilterTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="3cx-ln-MwD"/>
+                                </connections>
+                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hug-7r-LsR">
                                 <rect key="frame" x="16" y="146" width="374" height="104"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -142,7 +165,7 @@
                                 </cells>
                             </collectionView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZEh-PW-uqB">
-                                <rect key="frame" x="20" y="697" width="350" height="21"/>
+                                <rect key="frame" x="20" y="640" width="350" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="systemRedColor"/>
@@ -157,6 +180,7 @@
                         <outlet property="btnController" destination="v5s-06-8Ug" id="co7-G7-xNj"/>
                         <outlet property="btnDuelist" destination="okO-c2-gU7" id="dW6-Pq-fAP"/>
                         <outlet property="btnInitiator" destination="LWE-wH-bdQ" id="Wzs-b7-9f3"/>
+                        <outlet property="btnRemoveFilter" destination="YTj-2x-noX" id="Gzz-uN-87Y"/>
                         <outlet property="btnSentinel" destination="BYo-2s-C9f" id="fIs-Mv-ke8"/>
                         <outlet property="btnSetFilter" destination="wbp-I5-IWp" id="iWf-or-lTi"/>
                         <outlet property="errorMessage" destination="ZEh-PW-uqB" id="BCu-rf-Tgc"/>

@@ -20,6 +20,7 @@ class ChatLoungeViewController: MessagesViewController, InputBarAccessoryViewDel
     var messages: [Message] = []
     
     var idLounge: String = ""
+    var statusDetail = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +30,10 @@ class ChatLoungeViewController: MessagesViewController, InputBarAccessoryViewDel
         self.title = "Chat"
         
         collectionRef = Firestore.firestore().collection("users")
+        
+        if statusDetail == true {
+            self.navigationController?.replaceCurrentViewControllerWith(viewController: self, animated: true)
+        }
         
         let infoButton = UIButton(type: .infoLight)
         infoButton.addTarget(self, action: #selector(getInfoAction), for: .touchUpInside)

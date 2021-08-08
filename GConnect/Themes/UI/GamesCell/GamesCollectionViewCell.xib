@@ -35,6 +35,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aKS-3b-jX0">
+                                <rect key="frame" x="0.0" y="0.0" width="155" height="104"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
@@ -66,6 +71,7 @@
                 <outlet property="imgGame" destination="mPv-vC-qJu" id="Qsr-GQ-u1S"/>
                 <outlet property="lblGameName" destination="lEX-P1-LwI" id="prV-xA-KRr"/>
                 <outlet property="viewBackground" destination="hXG-b5-etT" id="Ode-iw-JJs"/>
+                <outlet property="viewDisabled" destination="aKS-3b-jX0" id="7pH-bB-Jb9"/>
             </connections>
             <point key="canvasLocation" x="-25.384615384615383" y="110.90047393364928"/>
         </collectionViewCell>

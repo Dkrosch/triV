@@ -53,13 +53,18 @@ class DetailLoungeViewController: UIViewController {
     var clickedMember: String = ""
     var statusInfo = false
     var status: Bool?
+    var statusCreate: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         print("ID Lounge: \(idLounge), cek doank \(cek)")
         
-//        bawahStackView.isHidden = true
+        if statusCreate == true{
+            print("ini dari create")
+            self.navigationController?.replaceCurrentViewControllerWith(viewController: self, animated: true)
+        }
+        
         stackViewButton.isHidden = true
         
         constraintCollectionKeDesc.constant = 20
@@ -113,6 +118,10 @@ class DetailLoungeViewController: UIViewController {
         self.hideKeyboardWhenTappedAround()
         
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(self.btnEditTapped))
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        .lightContent
     }
     
     override func viewWillAppear(_ animated: Bool) {

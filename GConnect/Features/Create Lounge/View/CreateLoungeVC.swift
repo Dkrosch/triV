@@ -87,6 +87,10 @@ class CreateLoungeVC: UIViewController {
         gamesCollectionView.register(nibCell, forCellWithReuseIdentifier: "GamesCellId")
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        .lightContent
+    }
+    
     @IBAction func btnSentinelTapped(_ sender: Any) {
         changeStatusRole(status: statusSentinel, sender: sender as! UIButton){ status in
             self.statusSentinel = status
@@ -135,10 +139,20 @@ class CreateLoungeVC: UIViewController {
                 self.showErrorMessage(message: "Insert lounge title")
             }else if valid == "role" {
                 self.showErrorMessage(message: "Select min 1 role")
-            }else if valid == "true"{
-                print("Success")
+            }else{
+                var idLounge = valid
+                self.goToDetail(idLounge: idLounge)
             }
         }
+    }
+    
+    func goToDetail(idLounge: String){
+        let showProfile = UIStoryboard(name: "DetailLounge", bundle: nil)
+        let vc = showProfile.instantiateViewController(identifier: "detailLounge") as! DetailLoungeViewController
+        vc.statusInfo = true
+        vc.idLounge = idLounge
+        vc.statusCreate = true
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func showErrorMessage(message: String){

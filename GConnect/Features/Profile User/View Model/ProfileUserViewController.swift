@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseStorage
 
 class ProfileUserViewController: UIViewController, UINavigationControllerDelegate {
     private var collectionRef: CollectionReference!
@@ -71,6 +72,8 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
     var statusVisitor = false
     var idUser = ""
     var idMemberVisitor = ""
+    var imageProfileSelected: UIImage? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -211,6 +214,7 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
                 let about = document.get("About") as! String
                 let imageRank = document.get("imageRank") as! String
                 let imageProfile = document.get("imageProfile") as! String
+                self.profileimageURL(urlKey: document.get("imageProfile") as! String)
                 let role = document.get("role") as! String
                 let rank = document.get("rank") as! String
                 let game = document.get("game") as! String
@@ -292,6 +296,56 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
             }
         }
     }
+    
+    func profileimageURL(urlKey: String){
+        if let url = URL(string: urlKey){
+            do{
+                let data = try Data(contentsOf: url)
+                self.profilePicture.image = UIImage(data: data)
+            } catch let err{
+                print("error")
+            }
+        }
+    }
+    
+    func uploadImageToStorage(){
+            let storage = Storage.storage().reference()
+            let db = Firestore.firestore()
+
+            guard let userID = Auth.auth().currentUser?.uid else { return }
+
+            guard let imageSelected = self.imageProfileSelected else{
+                return
+            }
+
+            guard let imageData = imageSelected.jpegData(compressionQuality: 0.4) else {
+                return
+            }
+        
+            let metadata = StorageMetadata()
+            metadata.contentType = "image/jpg"
+
+            let photoRef = storage.child("profile").child(userID)
+
+            photoRef.putData(imageData, metadata: metadata) { StorageMetadata, error in
+                if error != nil{
+                    print(error?.localizedDescription)
+                    return
+                }
+
+                photoRef.downloadURL { url, error in
+                    if let metaImageURL = url?.absoluteString{
+                        db.collection("users").document(userID).updateData(["imageProfile": metaImageURL]){ (error) in
+                            if error != nil{
+                                print("eror")
+                            } else{
+                                print("berhasil upload image")
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
     @IBAction func changeProfilePicButtonTapped(_ sender: UIButton) {
         let image = UIImagePickerController()
@@ -321,7 +375,7 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         stackAboutMeTextField.layer.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         stackAboutMeTextField.layer.borderWidth = 0
         
-        self.viewContentHeightConstraint.constant = 786 + (self.achievementCollectionView.frame.size.height*CGFloat(self.dataachivement.count))
+//        self.viewContentHeightConstraint.constant = 786 + (self.achievementCollectionView.frame.size.height*CGFloat(self.dataachivement.count))
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneTapped))
         
         print("mau edit bang")
@@ -343,13 +397,14 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         achievementCollectionView.reloadData()
         
         updateDataProfile()
-        self.viewContentHeightConstraint.constant = 716 + (self.achievementCollectionView.frame.size.height*CGFloat(self.dataachivement.count))
+//        self.viewContentHeightConstraint.constant = 716 + (self.achievementCollectionView.frame.size.height*CGFloat(self.dataachivement.count))
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editTapped))
         
         self.viewWillAppear(true)
         
         print("selesai edit bang")
         
+        uploadImageToStorage()
     }
 }
 
@@ -374,6 +429,16 @@ extension ProfileUserViewController: UICollectionViewDataSource{
         
         cell.titleLabelAchievement.text = dataachivement[indexPath.row].title
         cell.descriptionLabelAchievement.text = dataachivement[indexPath.row].desc
+        
+        if let url = URL(string: dataachivement[indexPath.row].image){
+            do{
+                let data = try Data(contentsOf: url)
+                cell.imageViewAchievement.image = UIImage(data: data)
+            } catch let err{
+                print("error")
+            }
+        }
+
         if self.editButtonDiPencet == true {
             cell.buttonEdit.isHidden = false
         }else{
@@ -382,8 +447,6 @@ extension ProfileUserViewController: UICollectionViewDataSource{
         
         return cell
     }
-    
-    
 }
 
 extension ProfileUserViewController: UICollectionViewDelegateFlowLayout{
@@ -420,6 +483,7 @@ extension ProfileUserViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
             profilePicture.image = image
+            imageProfileSelected = image
         }else{
             print("error")
         }

@@ -68,6 +68,10 @@ class CreateGameDetailViewController: UIViewController {
         loadingView.isHidden = true
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        .lightContent
+    }
+    
     @IBAction func btnContinueTapped(_ sender: Any) {
         uName = gamerUnameTextField.text!
         
@@ -79,12 +83,9 @@ class CreateGameDetailViewController: UIViewController {
             self.dismiss(animated: true)
             self.loadingView.isHidden = true
         }
-        
     }
     
     func storeData(uname: String){
-        
-        
         guard let userID = Auth.auth().currentUser?.uid else { return }
         
         ApiService.getDatas(url: "https://api.mozambiquehe.re/bridge?version=5&platform=PC&player=\(uname)&auth=i6Xau6J5JvKzMy9J3LXI") { (response, error) in

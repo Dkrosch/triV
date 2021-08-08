@@ -18,15 +18,17 @@ class ChatLoungeViewController: MessagesViewController, InputBarAccessoryViewDel
     private var docReference: DocumentReference?
     private var collectionRef: CollectionReference?
     var messages: [Message] = []
-
-    var user2Name: String?
-    var user2ImgUrl: String?
+    
     var idLounge: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationController?.isNavigationBarHidden = false
+        
         self.title = "Chat"
+        
+        collectionRef = Firestore.firestore().collection("users")
         
         let infoButton = UIButton(type: .infoLight)
         infoButton.addTarget(self, action: #selector(getInfoAction), for: .touchUpInside)
@@ -48,6 +50,14 @@ class ChatLoungeViewController: MessagesViewController, InputBarAccessoryViewDel
         loadChat()
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        .lightContent
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
     @objc func getInfoAction(){
         let showProfile = UIStoryboard(name: "DetailLounge", bundle: nil)
         let vc = showProfile.instantiateViewController(identifier: "detailLounge") as! DetailLoungeViewController
@@ -63,7 +73,7 @@ class ChatLoungeViewController: MessagesViewController, InputBarAccessoryViewDel
             } else {
                 for document in (snapshot?.documents)!{
                     let chat = Chat(dictionary: document.data())
-                    print(document.reference)
+                    let data = document.data()
                     self.docReference = document.reference
                     document.reference.collection("thread").order(by: "created", descending: false).addSnapshotListener(includeMetadataChanges: true, listener: { (threadQuery, error) in
                         
@@ -71,11 +81,9 @@ class ChatLoungeViewController: MessagesViewController, InputBarAccessoryViewDel
                             print(error)
                         }else{
                             self.messages.removeAll()
-                            
                             for message in threadQuery!.documents{
                                 let msg = Message(dictionary: message.data())
                                 self.messages.append(msg!)
-                                print("Data: \(msg?.content ?? "No message found")")
                             }
                             self.messagesCollectionView.reloadData()
                             self.messagesCollectionView.scrollToLastItem(at: .bottom, animated: true)
@@ -116,9 +124,18 @@ class ChatLoungeViewController: MessagesViewController, InputBarAccessoryViewDel
     }
     
     func inputBar(_ inputBar: InputBarAccessoryView, didPressSendButtonWith text: String){
-        let message = Message(id: UUID().uuidString, content: text, created: Timestamp(), senderID: currentUser.uid, senderName: "Michael")
-        insertNewMessage(message)
-        save(message)
+        
+        Firestore.firestore().collection("users").document(currentUser.uid).getDocument { (document, error) in
+            if error != nil{
+                print(error)
+            }else if let document = document, document.exists{
+                let username = document.get("username") as! String
+                
+                let message = Message(id: UUID().uuidString, content: text, created: Timestamp(), senderID: self.currentUser.uid, senderName: username)
+                self.insertNewMessage(message)
+                self.save(message)
+            }
+        }
             
         inputBar.inputTextView.text = ""
         messagesCollectionView.reloadData()
@@ -131,6 +148,21 @@ class ChatLoungeViewController: MessagesViewController, InputBarAccessoryViewDel
         
     func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageType {
         return messages[indexPath.section]
+    }
+    
+    func messageTopLabelAttributedText(for message: MessageType, at indexPath: IndexPath) -> NSAttributedString? {
+        let name = message.sender.displayName
+        return NSAttributedString(
+          string: name,
+          attributes: [
+            .font: UIFont.preferredFont(forTextStyle: .caption1),
+            .foregroundColor: UIColor.black
+          ]
+        )
+    }
+    
+    func messageTopLabelHeight(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> CGFloat {
+        return 20
     }
     
     func numberOfSections(in messagesCollectionView: MessagesCollectionView) -> Int {

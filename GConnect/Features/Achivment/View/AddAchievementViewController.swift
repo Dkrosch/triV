@@ -27,6 +27,8 @@ class AddAchievementViewController: UIViewController, UITextViewDelegate, UIText
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        
         titleTextField.attributedPlaceholder = NSAttributedString(string: "Input the title", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])
         
         titleTextField.delegate = self
@@ -34,6 +36,10 @@ class AddAchievementViewController: UIViewController, UITextViewDelegate, UIText
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneTapped))
         
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        .lightContent
     }
     
     @objc func doneTapped(){

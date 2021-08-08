@@ -82,6 +82,10 @@ class FilterLoungeViewController: UIViewController {
         self.hideKeyboardWhenTappedAround()
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        .lightContent
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
         self.navigationItem.title = "Set Filter"

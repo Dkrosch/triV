@@ -74,6 +74,10 @@ class ExploreLoungeCell: UICollectionViewCell, UICollectionViewDelegate, UIColle
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 8
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 100, height: 32)
+    }
 }
 
 //https://stackoverflow.com/questions/17729582/uicollectionview-in-a-uicollectionviewcell

@@ -134,6 +134,10 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        .lightContent
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         fetchDataAchivement()
         fetchDataProfile()

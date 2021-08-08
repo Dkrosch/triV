@@ -70,6 +70,8 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
     
     var editButtonDiPencet = false
     var udahDiFetch = false
+    var idMemberVisitor = ""
+    var statusVisitor = false
     
     var imageProfileSelected: UIImage? = nil
     
@@ -229,8 +231,9 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
                 let rank = document.get("rank") as! String
                 let game = document.get("game") as! String
                 let birthday = document.get("birthday") as! String
+                let gamerUname = document.get("gamerUname") as! String
 
-                let newData = ProfileData(username: username, game: game, gender: gender, rank: rank, role: role, birthday: birthday, imageProfile: imageProfile, desc: about, imageRank: imageRank)
+                let newData = ProfileData(username: username, game: game, gender: gender, rank: rank, role: role, birthday: birthday, imageProfile: imageProfile, desc: about, imageRank: imageRank, gamerUname: gamerUname)
                 self.dataUser.append(newData)
 
                 self.usernameLabelProfileUser.text = username

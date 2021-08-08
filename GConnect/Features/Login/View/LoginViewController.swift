@@ -44,11 +44,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.navigationController?.isNavigationBarHidden = true
         
         if defaults.bool(forKey: "isUserSignedIn"){
-            let showExplore = UIStoryboard(name: "ExploreLounge", bundle: nil)
-            let vc = showExplore.instantiateViewController(identifier: "exploreLounge") as! UITabBarController
-            vc.modalPresentationStyle = .overFullScreen
-            vc.modalTransitionStyle = .crossDissolve
-            self.present(vc, animated: true)
+            self.performSegue(withIdentifier: "LoginToExploreLounge", sender: self)
         }
     }
     

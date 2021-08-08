@@ -16,7 +16,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7AE-PG-ntk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-132" y="-325"/>
+            <point key="canvasLocation" x="-231" y="-387"/>
         </scene>
         <!--Lounge-->
         <scene sceneID="s0d-6b-0kx">
@@ -115,6 +115,16 @@
             </objects>
             <point key="canvasLocation" x="-6.1538461538461533" y="107.34597156398104"/>
         </scene>
+        <!--ChatList-->
+        <scene sceneID="aq9-bX-Vmw">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ChatList" id="rMj-Q7-98t" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Zkk-xT-D4i"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="seN-p4-abZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-467" y="587"/>
+        </scene>
         <!--CreateLounge-->
         <scene sceneID="AHg-8K-kA2">
             <objects>
@@ -159,7 +169,8 @@
                     </tabBar>
                     <connections>
                         <segue destination="Y6W-OH-hqX" kind="relationship" relationship="viewControllers" id="3mf-a1-uUF"/>
-                        <segue destination="hoq-es-tS3" kind="relationship" relationship="viewControllers" id="USK-Su-Jvl"/>
+                        <segue destination="rMj-Q7-98t" kind="relationship" relationship="viewControllers" id="Tu0-ob-yhs"/>
+                        <segue destination="hoq-es-tS3" kind="relationship" relationship="viewControllers" id="7bQ-rm-K0N"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5i5-8q-ash" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

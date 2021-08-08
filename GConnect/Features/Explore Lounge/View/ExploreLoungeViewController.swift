@@ -24,23 +24,6 @@ class ExploreLoungeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
-//        NetworkService.shared.myFirstRequest { (result) in
-//            switch result{
-//            case .success(let data):
-//                print("The decoded data is: \(data)")
-//            case .failure(let error):
-//                print("The error is: \(error.localizedDescription)")
-//            }
-//        }
-        
-//        let service = NetworkService()
-//        let request = service.createRequest(route: .temp, method: .get, parameters: ["version": "5", "platform": "PC", "player": "Pocounda", "auth": "JTQWkyqLXzJxFkVPu7dS"])
-//        print("The URL is:  \(request?.url)")
-        
-        //"https://api.mozambiquehe.re/bridge?version=5&platform=PC&player=Pocounda&auth=JTQWkyqLXzJxFkVPu7d"
-        //https://api.mozambiquehe.re/bridge?version=5&platform=PC&player=Pocounda&auth=JTQWkyqLXzJxFkVPu7dS
-        
         if let savedFilter = UserDefaults.standard.object(forKey: "filterLounge") as? Data{
             let decoder = JSONDecoder()
             if let loadedFilter = try? decoder.decode(FilterLounge.self, from: savedFilter){
@@ -55,6 +38,10 @@ class ExploreLoungeViewController: UIViewController {
         loungeCollectionView.register(nib, forCellWithReuseIdentifier: "loungeCollectionViewCell" )
         
         collectionRef = Firestore.firestore().collection("LoungeDetail")
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        .lightContent
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -139,7 +126,6 @@ extension ExploreLoungeViewController: UICollectionViewDataSource, UICollectionV
         cell.setDataCollectionView(dataRequirement: initDataReq)
         
         for member in datas[indexPath.row].idMemberLounge{
-            print(member)
             if member == ""{
                 num -= 1
             }

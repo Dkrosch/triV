@@ -125,6 +125,10 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        .lightContent
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         achievementCollectionView.reloadData()
         guard let userID = Auth.auth().currentUser?.uid else { return }

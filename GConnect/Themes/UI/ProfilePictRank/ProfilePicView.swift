@@ -29,7 +29,14 @@ class ProfilePicView: UIView {
         self.addSubview(view)
     }
     
-    func gantiImageProfile(image: UIImage){
-        imageProfile.image = image
+    func profileimageURL(urlKey: String){
+        if let url = URL(string: urlKey){
+            do{
+                let data = try Data(contentsOf: url)
+                self.imageProfile.image = UIImage(data: data)
+            } catch let err{
+                print("error")
+            }
+        }
     }
 }

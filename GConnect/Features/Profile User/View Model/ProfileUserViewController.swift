@@ -57,8 +57,6 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
     @IBOutlet weak var rankTitleLabel: UILabel!
     @IBOutlet weak var userRankLabel: UILabel!
     @IBOutlet weak var rankIconImage: UIImageView!
-    
-    
     @IBOutlet weak var viewContent: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var achievementCollectionView: UICollectionView!
@@ -91,15 +89,14 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         let nib = UINib(nibName: "\(AchievementProfileCollectionViewCell.self)", bundle: nil)
         achievementCollectionView.register(nib, forCellWithReuseIdentifier: "achievementCell" )
         
+        aboutMeTextField.contentInset = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12)
         
-        //delegate
         achievementCollectionView.delegate = self
         achievementCollectionView.dataSource = self
         
         usernameTextField.delegate = self
         aboutMeTextField.delegate = self
         
-        //StatsView
         statsView.layer.borderWidth = 1
         statsView.layer.borderColor = UIColor(named: "Vivid Tangerine")?.cgColor
         statsView.layer.cornerRadius = 10.0
@@ -170,7 +167,6 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
                     let newData = Achivement(title: title, image: image, desc: Desc, uid: uid, data: id)
                     
                     self.dataachivement.append(newData)
-                    
                 }
                 if self.udahDiFetch == false {
                     self.viewContentHeightConstraint.constant = 816 + (self.achievementCollectionView.frame.size.height*CGFloat(self.dataachivement.count))
@@ -179,7 +175,6 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
                     self.udahDiFetch = true
                 }
                 self.achievementCollectionView.reloadData()
-
             }
         }
     }
@@ -361,6 +356,8 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
     }
     
     @objc func editTapped(){
+        self.tabBarController?.tabBar.isHidden = true
+        
         stackUsernameView.isHidden = false
         aboutMeTextField.isEditable = true
         
@@ -387,6 +384,7 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
     }
     
     @objc func doneTapped(){
+        self.tabBarController?.tabBar.isHidden = false
         stackUsernameView.isHidden = true
         aboutMeTextField.isEditable = false
         

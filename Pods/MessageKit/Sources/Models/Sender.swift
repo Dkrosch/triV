@@ -27,6 +27,8 @@ import Foundation
 /// An object that groups the metadata of a messages sender.
 @available(*, deprecated, message: "`Sender` has been replaced with the `SenderType` protocol in 3.0.0")
 public struct Sender: SenderType {
+    
+    public var imageProfile: String
 
     // MARK: - Properties
 
@@ -45,13 +47,14 @@ public struct Sender: SenderType {
 
     // MARK: - Intializers
 
-    public init(senderId: String, displayName: String) {
+    public init(senderId: String, displayName: String, imageProfile: String) {
         self.senderId = senderId
         self.displayName = displayName
+        self.imageProfile = imageProfile
     }
 
     @available(*, deprecated, message: "`id` has been renamed `senderId` as defined in the `SenderType` protocol")
-    public init(id: String, displayName: String) {
-        self.init(senderId: id, displayName: displayName)
+    public init(id: String, displayName: String, imageProfile: String) {
+        self.init(senderId: id, displayName: displayName, imageProfile: imageProfile)
     }
 }

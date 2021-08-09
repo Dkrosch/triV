@@ -59,10 +59,9 @@ class DetailLoungeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("ID Lounge: \(idLounge), cek doank \(cek)")
-        
         if statusCreate == true{
             self.navigationController?.replaceCurrentViewControllerWith(viewController: self, animated: true)
+            JoinLoungeButton.isHidden = false
         }
         
         stackViewButton.isHidden = true
@@ -168,6 +167,7 @@ class DetailLoungeViewController: UIViewController {
                         if userID != masterLounge {
                             self.navigationItem.rightBarButtonItem = nil
                         }
+                        self.JoinLoungeButton.isHidden = false
                         self.JoinLoungeButton.setTitle("Chat", for: .normal)
                     }else{
                         if num == 10{

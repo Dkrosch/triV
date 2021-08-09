@@ -149,7 +149,7 @@ class CreateLoungeVC: UIViewController {
     func goToDetail(idLounge: String){
         let showProfile = UIStoryboard(name: "DetailLounge", bundle: nil)
         let vc = showProfile.instantiateViewController(identifier: "detailLounge") as! DetailLoungeViewController
-        vc.statusInfo = true
+        vc.statusInfo = false
         vc.idLounge = idLounge
         vc.statusCreate = true
         self.navigationController?.pushViewController(vc, animated: true)

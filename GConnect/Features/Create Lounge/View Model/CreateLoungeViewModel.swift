@@ -54,7 +54,8 @@ class CreateLoungeViewModel{
                 "created": Timestamp(),
                 "id": UUID().uuidString,
                 "senderID": uid,
-                "senderName": ""
+                "senderName": "",
+                "imageProfile": ""
             ]
             
             Firestore.firestore().collection("LoungeDetail").document(idLounge).collection("chats").document(idChat).collection("thread").addDocument(data: data, completion: { error in

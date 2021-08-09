@@ -116,7 +116,8 @@ class ChatLoungeViewController: MessagesViewController, InputBarAccessoryViewDel
             "created": message.created,
             "id": message.id,
             "senderID": message.senderID,
-            "senderName": message.senderName
+            "senderName": message.senderName,
+            "imageProfile": message.imageProfile
         ]
             
         docReference?.collection("thread").addDocument(data: data, completion: { (error) in
@@ -135,8 +136,9 @@ class ChatLoungeViewController: MessagesViewController, InputBarAccessoryViewDel
                 print(error)
             }else if let document = document, document.exists{
                 let username = document.get("username") as! String
+                let imageProfile = document.get("imageProfile") as! String
                 
-                let message = Message(id: UUID().uuidString, content: text, created: Timestamp(), senderID: self.currentUser.uid, senderName: username)
+                let message = Message(id: UUID().uuidString, content: text, created: Timestamp(), senderID: self.currentUser.uid, senderName: username, imageProfile: imageProfile)
                 self.insertNewMessage(message)
                 self.save(message)
             }
@@ -148,7 +150,7 @@ class ChatLoungeViewController: MessagesViewController, InputBarAccessoryViewDel
     }
     
     func currentSender() -> SenderType {
-        return Sender(id: Auth.auth().currentUser!.uid, displayName: Auth.auth().currentUser?.email ?? "Name not found")
+        return Sender(id: Auth.auth().currentUser!.uid, displayName: Auth.auth().currentUser?.email ?? "Name not found", imageProfile: "")
     }
         
     func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageType {
@@ -188,16 +190,17 @@ class ChatLoungeViewController: MessagesViewController, InputBarAccessoryViewDel
     }
     
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
-            
-        if message.sender.senderId == currentUser.uid {
-//            SDWebImageManager.shared.loadImage(with: currentUser.photoURL, options: .highPriority, progress: nil) { (image, data, error, cacheType, isFinished, imageUrl) in
-//                avatarView.image = image
+        
+//        DispatchQueue.global().async {
+//            if let url = URL(string: message.sender.imageProfile){
+//                do{
+//                    let data = try Data(contentsOf: url)
+//                    avatarView.image = UIImage(data: data)
+//                } catch let err{
+//                    print("error")
+//                }
 //            }
-        } else {
-//            SDWebImageManager.shared.loadImage(with: URL(string: user2ImgUrl!), options: .highPriority, progress: nil) { (image, data, error, cacheType, isFinished, imageUrl) in
-//                avatarView.image = image
-//            }
-        }
+//        }
     }
     
     func messageStyle(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageStyle {

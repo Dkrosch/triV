@@ -15,13 +15,15 @@ struct Message {
     var created: Timestamp
     var senderID: String
     var senderName: String
-    var dictionary: [String: Any] {
+    var imageProfile: String
+    var dictionary: [String: Any]{
         return [
             "id": id,
             "content": content,
             "created": created,
             "senderID": senderID,
-            "senderName":senderName]
+            "senderName": senderName,
+            "imageProfile": imageProfile]
     }
 }
 
@@ -31,16 +33,17 @@ extension Message {
               let content = dictionary["content"] as? String,
               let created = dictionary["created"] as? Timestamp,
               let senderID = dictionary["senderID"] as? String,
-              let senderName = dictionary["senderName"] as? String
+              let senderName = dictionary["senderName"] as? String,
+              let imageProfile = dictionary["imageProfile"] as? String
         else {return nil}
-        self.init(id: id, content: content, created: created, senderID: senderID, senderName: senderName)
+        self.init(id: id, content: content, created: created, senderID: senderID, senderName: senderName, imageProfile: imageProfile)
     }
 }
 
 extension Message: MessageType {
 
     var sender: SenderType {
-        return ChatUser(senderId: senderID, displayName: senderName)
+        return ChatUser(senderId: senderID, displayName: senderName, imageProfile: imageProfile)
     }
 
     var messageId: String {

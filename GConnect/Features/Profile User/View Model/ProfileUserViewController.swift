@@ -57,8 +57,6 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
     @IBOutlet weak var rankTitleLabel: UILabel!
     @IBOutlet weak var userRankLabel: UILabel!
     @IBOutlet weak var rankIconImage: UIImageView!
-    
-    
     @IBOutlet weak var viewContent: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var achievementCollectionView: UICollectionView!
@@ -91,15 +89,14 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         let nib = UINib(nibName: "\(AchievementProfileCollectionViewCell.self)", bundle: nil)
         achievementCollectionView.register(nib, forCellWithReuseIdentifier: "achievementCell" )
         
+        aboutMeTextField.contentInset = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12)
         
-        //delegate
         achievementCollectionView.delegate = self
         achievementCollectionView.dataSource = self
         
         usernameTextField.delegate = self
         aboutMeTextField.delegate = self
         
-        //StatsView
         statsView.layer.borderWidth = 1
         statsView.layer.borderColor = UIColor(named: "Vivid Tangerine")?.cgColor
         statsView.layer.cornerRadius = 10.0
@@ -112,8 +109,8 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         statsView3.layer.borderWidth = 2
         statsView3.layer.borderColor = UIColor(named: "Red")?.cgColor
 
-        achievementCollectionView.isScrollEnabled = false
-        achievementCollectionView.isUserInteractionEnabled = false
+        achievementCollectionView.isScrollEnabled = true
+        achievementCollectionView.isUserInteractionEnabled = true
         
         achievementCollectionView.layer.borderWidth = 1
         achievementCollectionView.layer.borderColor = #colorLiteral(red: 1, green: 0.6593824029, blue: 0.5392141342, alpha: 1)
@@ -134,7 +131,6 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        achievementCollectionView.reloadData()
         guard let userID = Auth.auth().currentUser?.uid else { return }
         idUser = userID
         
@@ -145,9 +141,8 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
             btnAddAchievement.isHidden = true
         }
         
-        fetchDataAchivement()
         fetchDataProfile()
-        self.achievementCollectionView.reloadData()
+        fetchDataAchivement()
     }
     
     func fetchDataAchivement(){
@@ -155,7 +150,7 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
 
         achievementCollectionView.reloadData()
         
-        collectionRef.whereField("uid", isEqualTo: idUser).getDocuments { snapshot, error in
+        collectionRef.whereField("uid", isEqualTo: idUser).addSnapshotListener({ snapshot, error in
             if let err = error{
                 print(err)
             } else {
@@ -170,18 +165,21 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
                     let newData = Achivement(title: title, image: image, desc: Desc, uid: uid, data: id)
                     
                     self.dataachivement.append(newData)
-                    
+                    print(self.dataachivement.count)
                 }
+                
+                DispatchQueue.main.async {
+                    self.achievementCollectionView.reloadData()
+                }
+                
                 if self.udahDiFetch == false {
-                    self.viewContentHeightConstraint.constant = 816 + (self.achievementCollectionView.frame.size.height*CGFloat(self.dataachivement.count))
                     self.achievementCollectionViewConstraintHeight.constant = self.achievementCollectionView.frame.size.height*CGFloat(self.dataachivement.count)
-                    
+                    self.viewContentHeightConstraint.constant = 816 + self.achievementCollectionViewConstraintHeight.constant
                     self.udahDiFetch = true
                 }
                 self.achievementCollectionView.reloadData()
-
             }
-        }
+        })
     }
     
     func updateDataProfile(){
@@ -361,6 +359,8 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
     }
     
     @objc func editTapped(){
+        self.tabBarController?.tabBar.isHidden = true
+        
         stackUsernameView.isHidden = false
         aboutMeTextField.isEditable = true
         
@@ -380,15 +380,19 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         stackAboutMeTextField.layer.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         stackAboutMeTextField.layer.borderWidth = 0
         
-//        self.viewContentHeightConstraint.constant = 786 + (self.achievementCollectionView.frame.size.height*CGFloat(self.dataachivement.count))
+        btnAddAchievement.isHidden = true
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneTapped))
         
         print("mau edit bang")
     }
     
     @objc func doneTapped(){
+        self.tabBarController?.tabBar.isHidden = false
         stackUsernameView.isHidden = true
         aboutMeTextField.isEditable = false
+        
+        btnAddAchievement.isHidden = false
         
         usernameLabelProfileUser.isHidden = false
         changeProfilePicButton.isHidden = true
@@ -405,16 +409,16 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         achievementCollectionView.reloadData()
         
         updateDataProfile()
-//        self.viewContentHeightConstraint.constant = 716 + (self.achievementCollectionView.frame.size.height*CGFloat(self.dataachivement.count))
+
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editTapped))
-        
-        self.viewWillAppear(true)
         
         print("selesai edit bang")
         
         uploadImageToStorage()
         
-        viewWillAppear(true)
+        Timer.scheduledTimer(withTimeInterval: 2, repeats: false){ (timer) in
+            self.viewWillAppear(true)
+        }
     }
 }
 

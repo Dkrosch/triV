@@ -113,6 +113,7 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         statsView3.layer.borderColor = UIColor(named: "Red")?.cgColor
 
         achievementCollectionView.isScrollEnabled = false
+        achievementCollectionView.isUserInteractionEnabled = false
         
         achievementCollectionView.layer.borderWidth = 1
         achievementCollectionView.layer.borderColor = #colorLiteral(red: 1, green: 0.6593824029, blue: 0.5392141342, alpha: 1)
@@ -146,6 +147,7 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         
         fetchDataAchivement()
         fetchDataProfile()
+        self.achievementCollectionView.reloadData()
     }
     
     func fetchDataAchivement(){
@@ -171,7 +173,7 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
                     
                 }
                 if self.udahDiFetch == false {
-                    self.viewContentHeightConstraint.constant = 716 + (self.achievementCollectionView.frame.size.height*CGFloat(self.dataachivement.count))
+                    self.viewContentHeightConstraint.constant = 816 + (self.achievementCollectionView.frame.size.height*CGFloat(self.dataachivement.count))
                     self.achievementCollectionViewConstraintHeight.constant = self.achievementCollectionView.frame.size.height*CGFloat(self.dataachivement.count)
                     
                     self.udahDiFetch = true
@@ -259,7 +261,7 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
     
     @IBAction func logOutButtonClicked(_ sender: Any) {
         print("LogOut guyss")
-        let alert = UIAlertController(title: nil, message: "Log Out", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let signOutAction = UIAlertAction(title: "Sign Out", style: .destructive) { (action) in
             do{
                 var dataFilter = FilterLounge(statusFilter: false, game: "Apex Legends", role: [true, true, true, true], rank: "Iron", gender: "All")
@@ -365,6 +367,9 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         usernameLabelProfileUser.isHidden = true
         changeProfilePicButton.isHidden = false
         genderLabel.isHidden = true
+        buttonLogoutProfileUser.isHidden = true
+        
+        achievementCollectionView.isUserInteractionEnabled = true
         
         usernameTextField.text = usernameLabelProfileUser.text
         
@@ -388,6 +393,9 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         usernameLabelProfileUser.isHidden = false
         changeProfilePicButton.isHidden = true
         genderLabel.isHidden = false
+        buttonLogoutProfileUser.isHidden = false
+        
+        achievementCollectionView.isUserInteractionEnabled = false
         
         aboutMeTextField.textColor = .white
         stackAboutMeTextField.layer.backgroundColor = #colorLiteral(red: 0.2309213281, green: 0.2924915552, blue: 0.4204188585, alpha: 1)
@@ -405,6 +413,8 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         print("selesai edit bang")
         
         uploadImageToStorage()
+        
+        viewWillAppear(true)
     }
 }
 

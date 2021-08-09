@@ -79,19 +79,19 @@ class AddAchievementViewController: UIViewController, UITextViewDelegate, UIText
             let storage = Storage.storage().reference()
             let db = Firestore.firestore()
 
-
-
             guard let imageDidSelect = self.imageSelected else {
                 return
             }
-            guard let imageData = imageDidSelect.jpegData(compressionQuality: 0.4) else {
+            guard let imageData = imageDidSelect.jpegData(compressionQuality: 0.001) else {
                 return
             }
 
             let metadata = StorageMetadata()
             metadata.contentType = "image/jpg"
-
-            let photoRef = storage.child("AchievementImage").child(userID)
+            
+            
+        
+            let photoRef = storage.child("AchievementImage").child("Achievement\(userID)").child(UUID().uuidString)
 
             photoRef.putData(imageData, metadata: metadata){ StorageMetadata, error in
                 if error != nil{

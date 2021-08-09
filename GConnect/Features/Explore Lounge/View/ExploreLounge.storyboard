@@ -180,9 +180,9 @@
                     </tabBar>
                     <connections>
                         <segue destination="Y6W-OH-hqX" kind="relationship" relationship="viewControllers" id="3mf-a1-uUF"/>
-                        <segue destination="rMj-Q7-98t" kind="relationship" relationship="viewControllers" id="Tu0-ob-yhs"/>
                         <segue destination="8yX-Zy-Wq6" kind="relationship" relationship="viewControllers" id="lg5-DH-apG"/>
-                        <segue destination="hoq-es-tS3" kind="relationship" relationship="viewControllers" id="WIv-cl-fpI"/>
+                        <segue destination="rMj-Q7-98t" kind="relationship" relationship="viewControllers" id="DcS-1J-Im0"/>
+                        <segue destination="hoq-es-tS3" kind="relationship" relationship="viewControllers" id="hUk-QZ-oZC"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5i5-8q-ash" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

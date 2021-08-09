@@ -45,6 +45,7 @@
 		84D9369826B2908F00E29F12 /* CreateLoungeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9369726B2908F00E29F12 /* CreateLoungeVC.swift */; };
 		84D9369A26B2909400E29F12 /* CreateLounge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84D9369926B2909400E29F12 /* CreateLounge.storyboard */; };
 		84D9369E26B2B22D00E29F12 /* DataLounge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9369D26B2B22D00E29F12 /* DataLounge.swift */; };
+		84DC979526C1896E001412AD /* ExplorePeople.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84DC979426C1896E001412AD /* ExplorePeople.storyboard */; };
 		84F30A2926B7E69600A40BDB /* KickPlayerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84F30A2726B7E69600A40BDB /* KickPlayerCollectionViewCell.xib */; };
 		84F30A2A26B7E69600A40BDB /* KickPlayerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F30A2826B7E69600A40BDB /* KickPlayerCollectionViewCell.swift */; };
 		A80E61DE26B3DD01005FF4B6 /* ProfileVisitor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A80E61DD26B3DD01005FF4B6 /* ProfileVisitor.storyboard */; };
@@ -146,6 +147,7 @@
 		84D9369726B2908F00E29F12 /* CreateLoungeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateLoungeVC.swift; sourceTree = "<group>"; };
 		84D9369926B2909400E29F12 /* CreateLounge.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CreateLounge.storyboard; sourceTree = "<group>"; };
 		84D9369D26B2B22D00E29F12 /* DataLounge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLounge.swift; sourceTree = "<group>"; };
+		84DC979426C1896E001412AD /* ExplorePeople.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ExplorePeople.storyboard; sourceTree = "<group>"; };
 		84F30A2726B7E69600A40BDB /* KickPlayerCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KickPlayerCollectionViewCell.xib; sourceTree = "<group>"; };
 		84F30A2826B7E69600A40BDB /* KickPlayerCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KickPlayerCollectionViewCell.swift; sourceTree = "<group>"; };
 		A80E61DD26B3DD01005FF4B6 /* ProfileVisitor.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileVisitor.storyboard; sourceTree = "<group>"; };
@@ -537,6 +539,22 @@
 			path = "View Model";
 			sourceTree = "<group>";
 		};
+		84DC979226C1894D001412AD /* ExplorePeople */ = {
+			isa = PBXGroup;
+			children = (
+				84DC979326C18959001412AD /* View */,
+			);
+			path = ExplorePeople;
+			sourceTree = "<group>";
+		};
+		84DC979326C18959001412AD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				84DC979426C1896E001412AD /* ExplorePeople.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		84F30A1E26B7E57A00A40BDB /* Achivment */ = {
 			isa = PBXGroup;
 			children = (
@@ -731,6 +749,7 @@
 		E04E0FF426B0059800A81F92 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				84DC979226C1894D001412AD /* ExplorePeople */,
 				7C9ECE3B26BE64E800DBA826 /* ChatList */,
 				8447AE0926BD519B005AB338 /* LodingPage */,
 				E08F234626BCF69200D7E0BA /* Chat Lounge */,
@@ -974,6 +993,7 @@
 				A80E61DE26B3DD01005FF4B6 /* ProfileVisitor.storyboard in Resources */,
 				E01EE1E626B818210065F668 /* DetailLoungeCollectionViewCell.xib in Resources */,
 				E04E0FEA26B0058500A81F92 /* Assets.xcassets in Resources */,
+				84DC979526C1896E001412AD /* ExplorePeople.storyboard in Resources */,
 				E04E101126B019D900A81F92 /* Login.storyboard in Resources */,
 				E081880E26BFD8CA00A68633 /* EmptyExploreLoungeCollectionViewCell.xib in Resources */,
 				BFCE10D126B2B4EF00C206B5 /* ProfileUser.storyboard in Resources */,

@@ -86,7 +86,8 @@ class DetailLoungeViewModel {
                         let name = document.get("username") as! String
                         let role = document.get("role") as! String
                         let imageProfile = document.get("imageProfile") as! String
-                        let dataMemberLounge = LoungeMember(idMember: arrayMember[index], name: name, rank: role, imageProfile: imageProfile)
+                        let rank = document.get("rank") as! String
+                        let dataMemberLounge = LoungeMember(idMember: arrayMember[index], name: name, rank: rank, imageProfile: imageProfile, role: role)
                         
                         datasMember.append(dataMemberLounge)
                         print(dataMemberLounge.idMember)

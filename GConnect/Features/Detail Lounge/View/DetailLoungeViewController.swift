@@ -211,7 +211,7 @@ class DetailLoungeViewController: UIViewController {
             self.detailLoungeVM.getDataMember(idMember: self.dataLounge[0].idMemberLounge) { dataMember in
                 
                 for (index, item) in dataMember.enumerated() {
-                    self.dataMember1.append(LoungeMember(idMember: dataMember[index].idMember, name: dataMember[index].name, rank: dataMember[index].rank, imageProfile: dataMember[index].imageProfile))
+                    self.dataMember1.append(LoungeMember(idMember: dataMember[index].idMember, name: dataMember[index].name, rank: dataMember[index].rank, imageProfile: dataMember[index].imageProfile, role: dataMember[index].role))
                 }
 
                 DispatchQueue.main.async {
@@ -482,6 +482,11 @@ extension DetailLoungeViewController: UICollectionViewDataSource, UICollectionVi
             cellA.background.layer.backgroundColor = #colorLiteral(red: 0.1662740707, green: 0.2231230438, blue: 0.3549886644, alpha: 1)
             cellA.role.text = arrDataLoungeMember[indexPath.row].rank
             cellA.profilePic.profileimageURL(urlKey: arrDataLoungeMember[indexPath.row].imageProfile)
+            
+            print("Ini Rank :\(arrDataLoungeMember[indexPath.row].rank)")
+            print("Ini Role :\(arrDataLoungeMember[indexPath.row].role)")
+            
+            cellA.profilePic.imageRank.image = UIImage(named: arrDataLoungeMember[indexPath.row].rank)
             
             for i in 0..<dataMember1.count{
                 arrDataLoungeMember = dataMember1

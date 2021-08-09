@@ -54,6 +54,7 @@ class DetailLoungeViewController: UIViewController {
     var statusInfo = false
     var status: Bool?
     var statusCreate: Bool = false
+    var imageUrl: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -198,7 +199,7 @@ class DetailLoungeViewController: UIViewController {
             self.detailLoungeVM.getDataMember(idMember: self.dataLounge[0].idMemberLounge) { dataMember in
                 
                 for (index, item) in dataMember.enumerated() {
-                    self.dataMember1.append(LoungeMember(idMember: dataMember[index].idMember, name: dataMember[index].name, rank: dataMember[index].rank))
+                    self.dataMember1.append(LoungeMember(idMember: dataMember[index].idMember, name: dataMember[index].name, rank: dataMember[index].rank, imageProfile: dataMember[index].imageProfile))
                 }
 
                 DispatchQueue.main.async {
@@ -410,7 +411,6 @@ extension DetailLoungeViewController: UICollectionViewDataSource, UICollectionVi
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.CollectionView{
             return dataMember1.count
@@ -464,6 +464,7 @@ extension DetailLoungeViewController: UICollectionViewDataSource, UICollectionVi
             cellA.background.layer.backgroundColor = #colorLiteral(red: 0.1662740707, green: 0.2231230438, blue: 0.3549886644, alpha: 1)
             cellA.nama.text = arrDataLoungeMember[indexPath.row].name
             cellA.role.text = arrDataLoungeMember[indexPath.row].rank
+            cellA.profilePic.profileimageURL(urlKey: arrDataLoungeMember[indexPath.row].imageProfile)
             
             for i in 0..<dataMember1.count{
                 arrDataLoungeMember = dataMember1

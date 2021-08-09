@@ -85,7 +85,8 @@ class DetailLoungeViewModel {
                     }else if let document = document, document.exists {
                         let name = document.get("username") as! String
                         let role = document.get("role") as! String
-                        let dataMemberLounge = LoungeMember(idMember: arrayMember[index], name: name, rank: role)
+                        let imageProfile = document.get("imageProfile") as! String
+                        let dataMemberLounge = LoungeMember(idMember: arrayMember[index], name: name, rank: role, imageProfile: imageProfile)
                         
                         datasMember.append(dataMemberLounge)
                         print(dataMemberLounge.idMember)

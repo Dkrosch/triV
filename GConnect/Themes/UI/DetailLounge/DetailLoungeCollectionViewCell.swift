@@ -36,9 +36,7 @@ class DetailLoungeCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         kickButton.isHidden = true
-        
-        profilePic.gantiImageProfile(image: #imageLiteral(resourceName: "Reyna_icon"))
-    }
+        }
 
     
     @IBAction func kickTapped(_ sender: Any) {

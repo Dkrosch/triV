@@ -8,13 +8,12 @@
 import UIKit
 import Firebase
 import FirebaseAuth
-import FirebaseStorage
 
 class ProfileUserViewController: UIViewController, UINavigationControllerDelegate {
     private var collectionRef: CollectionReference!
     
     var dataUser = [ProfileData]()
-    
+    var defaults = UserDefaults.standard
     var dataachivement = [Achivement]()
 
     @IBOutlet weak var viewContentProfileUser: UIView!
@@ -210,7 +209,6 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
                 let about = document.get("About") as! String
                 let imageRank = document.get("imageRank") as! String
                 let imageProfile = document.get("imageProfile") as! String
-                self.imageURL(urlKey: document.get("imageProfile") as! String)
                 let role = document.get("role") as! String
                 let rank = document.get("rank") as! String
                 let game = document.get("game") as! String
@@ -222,7 +220,6 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
 
                 self.usernameLabelProfileUser.text = username
                 self.aboutMeTextField.text = about
-//                self.profilePicture = test
                 self.roleUserLabel.text = role
 
 
@@ -252,6 +249,37 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
                 }
             }
         }
+    }
+    
+    @IBAction func logOutButtonClicked(_ sender: Any) {
+        print("LogOut guyss")
+        let alert = UIAlertController(title: nil, message: "Log Out", preferredStyle: .actionSheet)
+        let signOutAction = UIAlertAction(title: "Sign Out", style: .destructive) { (action) in
+            do{
+                try Auth.auth().signOut()
+                
+                var dataFilter = FilterLounge(game: "Apex Legends", role: [true, true, true, true], rank: "Iron", gender: "All")
+                let encoder = JSONEncoder()
+                if let filter = try? encoder.encode(dataFilter){
+                    UserDefaults.standard.set(filter, forKey: "filterLounge")
+                }
+                
+                self.defaults.set(false, forKey: "isUserSignedIn")
+                self.defaults.synchronize()
+                let backLogin = UIStoryboard(name: "Login", bundle: nil)
+                let vc = backLogin.instantiateViewController(identifier: "loginView") as! UINavigationController
+                vc.modalPresentationStyle = .overFullScreen
+                vc.modalTransitionStyle = .crossDissolve
+                self.present(vc, animated: true)
+            } catch let err{
+                print("error")
+            }
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction(signOutAction)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true, completion: nil)
     }
     
     @IBAction func logOutButtonClicked(_ sender: Any) {
@@ -344,97 +372,7 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         
         print("selesai edit bang")
         
-//        var converted = convertImageToBase64(image: profilePicture.image!)
-//        guard let userID = Auth.auth().currentUser?.uid else { return }
-//
-//
-//        let reference = Firestore.firestore().collection("users").document(userID).updateData(["imageProfile": converted]){ (error) in
-//            if error != nil{
-//                print("eror")
-//            } else{
-//                print("done")
-//            }
-//        }
-        uploadImageToStorage()
-        
-    }
-    
-    @IBAction func logOutButtonClicked(_ sender: Any) {
-        let alert = UIAlertController(title: "Warning", message: "Are you sure you want to log out?", preferredStyle: .alert)
-        
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
-            var dataFilter = FilterLounge(game: "Apex Legends", role: [true, true, true, true], rank: "Iron", gender: "All")
-            let encoder = JSONEncoder()
-            if let filter = try? encoder.encode(dataFilter){
-                UserDefaults.standard.set(filter, forKey: "filterLounge")
-            }
-            self.goToLogin()
-        }))
-        alert.addAction(UIAlertAction(title: "No", style: .cancel, handler: nil))
-        
-        self.present(alert, animated: true)
-    }
-    
-    func imageURL(urlKey: String){
-        if let url = URL(string: urlKey){
-            
-            do{
-                let data = try Data(contentsOf: url)
-                self.profilePicture.image = UIImage(data: data)
-            } catch let err{
-                print("error")
-            }
-        }
-    }
-    
-    func uploadImageToStorage(){
-        let storage = Storage.storage().reference()
-        let db = Firestore.firestore()
-        
-        guard let userID = Auth.auth().currentUser?.uid else { return }
-        
-        guard let imageSelected = self.imageProfileSelected else{
-            return
-        }
-        
-        guard let imageData = imageSelected.jpegData(compressionQuality: 0.4) else {
-            return
-        }
-        
-        //        let data = Data()
-        //
-        //        let localFile = fileURL
-        
-        let metadata = StorageMetadata()
-        metadata.contentType = "image/jpg"
-        
-        let photoRef = storage.child("profile").child(userID)
-        
-        photoRef.putData(imageData, metadata: metadata) { StorageMetadata, error in
-            if error != nil{
-                print(error?.localizedDescription)
-                return
-            }
-            
-            photoRef.downloadURL { url, error in
-                if let metaImageURL = url?.absoluteString{
-                    db.collection("users").document(userID).updateData(["imageProfile": metaImageURL]){ (error) in
-                        if error != nil{
-                            print("eror")
-                        } else{
-                            print("berhasil upload image")
-                        }
-                    }
-                }
-            }
-        }
-    }
-    
-    
-    func goToLogin(){
-        let showLogin = UIStoryboard(name: "Login", bundle: nil)
-        let vc = showLogin.instantiateViewController(identifier: "Login") as! LoginViewController
-        self.navigationController?.pushViewController(vc, animated: true)
+
     }
 }
 
@@ -512,28 +450,9 @@ extension ProfileUserViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
             profilePicture.image = image
-            imageProfileSelected = image
         }else{
             print("error")
         }
-        
-//        if let imageURL = info[UIImagePickerController.InfoKey.imageURL] as? URL{
-//            uploadImageToStorage(fileURL: imageURL)
-//        }
         self.dismiss(animated: true, completion: nil)
     }
 }
-
-//extension UIImageView {
-//    func load(url: URL) {
-//        DispatchQueue.global().async { [weak self] in
-//            if let data = try? Data(contentsOf: url) {
-//                if let image = UIImage(data: data) {
-//                    DispatchQueue.main.async {
-//                        self?.image = image
-//                    }
-//                }
-//            }
-//        }
-//    }
-//}

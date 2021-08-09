@@ -27,6 +27,10 @@ class ChatLoungeViewController: MessagesViewController, InputBarAccessoryViewDel
         super.viewDidLoad()
 
         self.title = "Chat"
+        let infoButton = UIButton(type: .infoLight)
+        infoButton.addTarget(self, action: #selector(getInfoAction), for: .touchUpInside)
+        let infoBarButtonItem = UIBarButtonItem(customView: infoButton)
+        self.navigationItem.rightBarButtonItem = infoBarButtonItem
 
         navigationItem.largeTitleDisplayMode = .never
         maintainPositionOnKeyboardFrameChanged = true
@@ -41,17 +45,26 @@ class ChatLoungeViewController: MessagesViewController, InputBarAccessoryViewDel
         messagesCollectionView.messagesDisplayDelegate = self
                 
         loadChat()
-        
-        collectionRef = Firestore.firestore().collection("DetailLounge")
     }
     
-    //ini buat load data
+    @objc func getInfoAction(){
+        let showProfile = UIStoryboard(name: "DetailLounge", bundle: nil)
+        let vc = showProfile.instantiateViewController(identifier: "detailLounge") as! DetailLoungeViewController
+        vc.statusInfo = true
+        vc.idLounge = idLounge
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func loadChat() {
-        Firestore.firestore().collection("DetailLounge").document(idLounge).collection("thread").getDocuments { snapshot, error in
+        Firestore.firestore().collection("LoungeDetail").document(idLounge).collection("chats").getDocuments { snapshot, error in
+
             if let err = error{
                 print("error")
             } else {
                 for document in (snapshot?.documents)!{
+                    let chat = Chat(dictionary: document.data())
+                    print(document.reference)
+                    self.docReference = document.reference
                     document.reference.collection("thread").order(by: "created", descending: false).addSnapshotListener(includeMetadataChanges: true, listener: { (threadQuery, error) in
                         
                         if let error = error{
@@ -93,7 +106,7 @@ class ChatLoungeViewController: MessagesViewController, InputBarAccessoryViewDel
             "senderName": message.senderName
         ]
             
-        Firestore.firestore().collection("DetailLounge").document(idLounge).collection("thread").addDocument(data: data, completion: { (error) in
+        docReference?.collection("thread").addDocument(data: data, completion: { (error) in
             if let error = error {
                 print("Error Sending message: \(error)")
                 return
@@ -134,7 +147,7 @@ class ChatLoungeViewController: MessagesViewController, InputBarAccessoryViewDel
     }
         
     func backgroundColor(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> UIColor {
-        return isFromCurrentSender(message: message) ? .blue: .lightGray
+        return isFromCurrentSender(message: message) ? #colorLiteral(red: 0.2381618619, green: 0.2898079157, blue: 0.4220144749, alpha: 1): .lightGray
     }
     
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {

@@ -51,7 +51,7 @@ class DetailLoungeViewController: UIViewController {
     var arrayStatusRole: [Bool] = [true, true, true, true]
     var createloungeVC = CreateLoungeVC()
     var clickedMember: String = ""
-    
+    var statusInfo = false
     var status: Bool?
     
     override func viewDidLoad() {
@@ -136,8 +136,18 @@ class DetailLoungeViewController: UIViewController {
                 
                 var masterLounge = data[0].idMemberLounge[0]
                 
-                if data[0].idMemberLounge.contains(userID) {
+                if self.statusInfo == true{
                     self.JoinLoungeButton.isHidden = true
+                    if userID != data[0].idMemberLounge[0]{
+                        self.navigationItem.rightBarButtonItem = nil
+                    }
+                }else{
+                    if data[0].idMemberLounge.contains(userID) {
+                        self.JoinLoungeButton.setTitle("Chat", for: .normal)
+                    }
+                }
+                
+                if data[0].idMemberLounge.contains(userID) {
                     if userID != data[0].idMemberLounge[0]{
                         self.navigationItem.rightBarButtonItem = nil
                     }
@@ -214,6 +224,8 @@ class DetailLoungeViewController: UIViewController {
             else if arrDataLoungeMemberUnfilter[9] == "" {unfillMember = "Member10"}
             detailLoungeVM.insertMember(idMember: userID, idLounge: idLounge, unfillMember: unfillMember)
             viewWillAppear(true)
+            gotoChat()
+        }else if sender.titleLabel?.text == "Chat"{
             gotoChat()
         }else{
             let alert = UIAlertController(title: "Are you sure?", message: "Do your really want to delete this lounge? This process cannot be undone.", preferredStyle: UIAlertController.Style.alert)
@@ -295,7 +307,6 @@ class DetailLoungeViewController: UIViewController {
     @objc func btnDoneTapped(){
         self.navigationItem.setHidesBackButton(false, animated: true)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(self.btnEditTapped))
-        JoinLoungeButton.isHidden = true
         JoinLoungeButton.layer.backgroundColor = #colorLiteral(red: 1, green: 0.5641875267, blue: 0.4353749454, alpha: 1)
         JoinLoungeButton.setTitle("Join Lounge", for: .normal)
         JoinLoungeButton.setTitleColor(#colorLiteral(red: 0.0931308046, green: 0.1756470799, blue: 0.3408471346, alpha: 1), for: .normal)

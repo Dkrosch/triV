@@ -25,6 +25,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     var bottomLine = CALayer()
     var status = true
     
+    var defaults = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,6 +42,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         self.hideKeyboardWhenTappedAround()
         self.navigationController?.isNavigationBarHidden = true
+        
+        if defaults.bool(forKey: "isUserSignedIn"){
+            let showExplore = UIStoryboard(name: "ExploreLounge", bundle: nil)
+            let vc = showExplore.instantiateViewController(identifier: "exploreLounge") as! UITabBarController
+            vc.modalPresentationStyle = .overFullScreen
+            vc.modalTransitionStyle = .crossDissolve
+            self.present(vc, animated: true)
+        }
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -71,6 +81,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         } else {
             AuthLogin.SignIn(email: usernameField.text!, password: passwordField.text!){ status in
                 if status{
+                    self.defaults.set(true, forKey: "isUserSignedIn")
+                    self.defaults.synchronize()
                     self.performSegue(withIdentifier: "LoginToExploreLounge", sender: self)
                     self.wrongLabel.isHidden = true
                 }else{
@@ -79,6 +91,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 }
             }
         }
+
     }
     
     @objc func hideWrongLabel(){

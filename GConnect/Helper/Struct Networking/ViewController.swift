@@ -60,7 +60,7 @@ class ViewController: UIViewController {
                     self.rankLabel.text = responseFromAPI.global?.rank?.rankName
                     self.rankScore.text = ("\(responseFromAPI.global!.rank!.rankScore!)")
                     self.legendLabel.text = responseFromAPI.legends?.selected?.LegendName
-                    self.imageURL(urlKey: (responseFromAPI.global?.avatar)!)
+                    self.imageURL(urlKey: (responseFromAPI.legends?.selected?.ImgAssets?.icon)!)
                 }
             }
         } failCompletion: { error in
@@ -71,7 +71,6 @@ class ViewController: UIViewController {
     
     func imageURL(urlKey: String){
         if let url = URL(string: urlKey){
-            
             do{
                 let data = try Data(contentsOf: url)
                 self.profileImage.image = UIImage(data: data)

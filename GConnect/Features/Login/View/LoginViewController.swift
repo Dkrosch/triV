@@ -52,7 +52,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
             let updateText = currectText.replacingCharacters(in: stringRange, with: string)
             
-            return updateText.count < 21
+            return updateText.count < 35
         } else {
             let currectText = textField.text ?? ""
             guard let stringRange = Range(range, in: currectText) else {

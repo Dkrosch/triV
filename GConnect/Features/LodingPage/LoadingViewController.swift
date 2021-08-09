@@ -16,7 +16,7 @@ class LoadingViewController: UIViewController {
         super.viewDidLoad()
 
         loadingSpinner.startAnimating()
-        Timer.scheduledTimer(withTimeInterval: 4, repeats: false){ (timer) in
+        Timer.scheduledTimer(withTimeInterval: 3, repeats: false){ (timer) in
             self.dismiss(animated: true){
                 self.loadingSpinner.stopAnimating()
             }

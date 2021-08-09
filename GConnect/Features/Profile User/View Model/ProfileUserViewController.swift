@@ -29,8 +29,6 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
     @IBOutlet weak var stackTextFieldUsername: UIStackView!
     @IBOutlet weak var stackUsernameView: UIStackView!
     @IBOutlet weak var usernameTextField: UITextField!
-//    @IBOutlet weak var aboutMeViewProfileUser: UIView!
-//    @IBOutlet weak var aboutMeDescriptionLabel: UILabel!
     @IBOutlet weak var genderLabel: UILabel!
     
     //Stats View
@@ -125,16 +123,10 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         
         collectionRef = Firestore.firestore().collection("achievement")
         
-//        let test = convertImageToBase64(image: profilePicture.image!)
-//
-//        if let decodedData = Data(base64Encoded: test, options: .ignoreUnknownCharacters) {
-//            let image = UIImage(data: decodedData)
-//            self.imageTest.image = image
-//        }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        achievementCollectionView.reloadData()
         fetchDataAchivement()
         fetchDataProfile()
     }
@@ -175,17 +167,6 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         }
     }
     
-    func addAchievement(){
-        guard let userID = Auth.auth().currentUser?.uid else { return }
-        
-        let db = Firestore.firestore()
-        
-        
-        
-//        db.collection("achievement").document().setData(["Desc": ])
-
-    }
-    
     func updateDataProfile(){
         guard let userID = Auth.auth().currentUser?.uid else { return }
         
@@ -204,8 +185,6 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
     }
     
     func fetchDataProfile(){
-        
-    
         let datas = Firestore.firestore()
 
         guard let userID = Auth.auth().currentUser?.uid else { return }
@@ -225,13 +204,15 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
                 let rank = document.get("rank") as! String
                 let game = document.get("game") as! String
                 let birthday = document.get("birthday") as! String
+                let gamerUname = document.get("gamerUname") as! String
 
-                let newData = ProfileData(username: username, game: game, gender: gender, rank: rank, role: role, birthday: birthday, imageProfile: imageProfile, desc: about, imageRank: imageRank)
+                let newData = ProfileData(username: username, game: game, gender: gender, rank: rank, role: role, birthday: birthday, imageProfile: imageProfile, desc: about, imageRank: imageRank, gamerUname: gamerUname)
                 self.dataUser.append(newData)
 
                 self.usernameLabelProfileUser.text = username
                 self.aboutMeTextField.text = about
 //                self.profilePicture = test
+                self.roleUserLabel.text = role
 
 
                 if gender == "Male" {
@@ -239,13 +220,38 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
                 }else{
                     self.genderLabel.text = ("♀ \(gender)")
                 }
+                
+                ApiService.getDatas(url: "https://api.mozambiquehe.re/bridge?version=5&platform=PC&player=\(gamerUname)&auth=i6Xau6J5JvKzMy9J3LXI") { (response, error) in
+                    if response != nil {
+                        if let responseFromAPI = response {
+                            print(responseFromAPI.global?.name)
+                            self.gamerNameLabel.text = responseFromAPI.global?.name!
+                            self.userLevelLabel.text = ("\(responseFromAPI.global!.level!)")
+                            self.legendNameLabel.text = responseFromAPI.legends?.selected?.LegendName!
+                            self.userRankLabel.text = responseFromAPI.global?.rank?.rankName!
+                            self.imageURL(urlKey: (responseFromAPI.legends?.selected?.ImgAssets?.icon!)!)
+                            self.valueStatsLabel1.text = ("\(responseFromAPI.total?.damage?.value ?? 0)")
+                            self.valueStatsLabel2.text = ("\(responseFromAPI.total?.kills?.value ?? 0)")
+                            self.valueStatsLabel3.text = ("\(responseFromAPI.total?.headshots?.value ?? 0)")
+                            self.rankIconImage.image = UIImage(named: (responseFromAPI.global?.rank?.rankName!)!)
+                        }
+                    }
+                } failCompletion: { error in
+                    print(error)
+                }
             }
         }
     }
     
-    func convertImageToBase64(image: UIImage) -> String {
-        let imageData = image.jpegData(compressionQuality: 1)!
-        return imageData.base64EncodedString()
+    func imageURL(urlKey: String){
+        if let url = URL(string: urlKey){
+            do{
+                let data = try Data(contentsOf: url)
+                self.legendImage.image = UIImage(data: data)
+            } catch let err{
+                print("error")
+            }
+        }
     }
 
     @IBAction func changeProfilePicButtonTapped(_ sender: UIButton) {

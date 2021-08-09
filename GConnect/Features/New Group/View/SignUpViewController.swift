@@ -50,7 +50,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         datePicker.createDatepicker(textField: txtFieldBirthday)
         
         txtFieldGender.inputView = pickerView
-        txtFieldGender.text = "Male"
+        txtFieldGender.text = "♂️Male"
         txtFieldGender.setLeftPaddingPoints(10)
         
         self.navigationController?.isNavigationBarHidden = false
@@ -72,7 +72,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         }else{
             StoreDataAuth.CreateData(username: txtFieldUsername.text!, email: txtFieldEmail.text!, DoB: txtFieldBirthday.text!, password: txtFieldPassword.text!, gender: txtFieldGender.text!) { status in
                 if status {
-                    print("hello")
                     self.performSegue(withIdentifier: "CreateProfile", sender: self)
                 }else if status == false{
                     self.showErrorMessage(message: "Email has been registered")

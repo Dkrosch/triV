@@ -85,6 +85,8 @@ class DetailLoungeViewController: UIViewController {
         Game.isUserInteractionEnabled = false
         
         DescriptionTextbox.layer.cornerRadius = 8
+        DescriptionTextbox.layer.borderWidth = 2
+        DescriptionTextbox.layer.borderColor = #colorLiteral(red: 0.9921568627, green: 0.5882352941, blue: 0.4666666667, alpha: 1)
         DescriptionTextbox.isUserInteractionEnabled = false
         
         genderStackView.isHidden = true
@@ -126,7 +128,6 @@ class DetailLoungeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         guard let userID = Auth.auth().currentUser?.uid else { return }
         self.navigationController?.isNavigationBarHidden = false
-        self.navigationItem.title = "Detail Lounge"
         
         dataLounge = []
         dataMember1 = []
@@ -143,6 +144,13 @@ class DetailLoungeViewController: UIViewController {
                 self.gender.text = data[0].gender
                 
                 var masterLounge = data[0].idMemberLounge[0]
+                
+                var num = 10
+                for member in data[0].idMemberLounge{
+                    if member == ""{
+                        num -= 1
+                    }
+                }
                 
                 if self.statusInfo == true{
                     if userID == masterLounge {
@@ -161,7 +169,11 @@ class DetailLoungeViewController: UIViewController {
                         }
                         self.JoinLoungeButton.setTitle("Chat", for: .normal)
                     }else{
-                        self.JoinLoungeButton.setTitle("Join Lounge", for: .normal)
+                        if num == 10{
+                            self.JoinLoungeButton.isHidden = true
+                        }else{
+                            self.JoinLoungeButton.setTitle("Join Lounge", for: .normal)
+                        }
                         self.navigationItem.rightBarButtonItem = nil
                     }
                 }
@@ -448,6 +460,12 @@ extension DetailLoungeViewController: UICollectionViewDataSource, UICollectionVi
                 arrDataLoungeMember = dataMember1
             }
             
+            if dataLounge[0].idMemberLounge[0] == arrDataLoungeMember[indexPath.row].idMember {
+                cellA.nama.text = "\(arrDataLoungeMember[indexPath.row].name) 👑"
+            }else{
+                cellA.nama.text = arrDataLoungeMember[indexPath.row].name
+            }
+            
             if status == true{
                 if dataLounge[0].idMemberLounge[0] == arrDataLoungeMember[indexPath.row].idMember{
                     cellA.kickButton.isHidden = true
@@ -462,7 +480,6 @@ extension DetailLoungeViewController: UICollectionViewDataSource, UICollectionVi
             cellA.layer.borderWidth = 2
             cellA.layer.cornerRadius = 10
             cellA.background.layer.backgroundColor = #colorLiteral(red: 0.1662740707, green: 0.2231230438, blue: 0.3549886644, alpha: 1)
-            cellA.nama.text = arrDataLoungeMember[indexPath.row].name
             cellA.role.text = arrDataLoungeMember[indexPath.row].rank
             
             for i in 0..<dataMember1.count{
@@ -471,7 +488,6 @@ extension DetailLoungeViewController: UICollectionViewDataSource, UICollectionVi
             
             var memberKe = dataLounge[0].idMemberLounge.firstIndex(of: arrDataLoungeMember[indexPath.row].idMember)!
             if dataLounge[0].idMemberLounge.contains(arrDataLoungeMember[indexPath.row].idMember){
-                //print(memberKe + 1)
             }
             
             cellA.idLounge = idLounge

@@ -100,7 +100,7 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" red="0.1234773025" green="0.1697947383" blue="0.3176649809" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="1" title="Lounge" image="house.fill" catalog="system" id="ASx-On-iep"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="Lounge" image="gamecontroller.fill" catalog="system" id="ASx-On-iep"/>
                     <connections>
                         <outlet property="createLoungeButton" destination="SpP-qo-XSm" id="BU5-W3-qvq"/>
                         <outlet property="filterLoungeButton" destination="7IF-sd-cea" id="2SL-Xd-er9"/>
@@ -180,7 +180,7 @@
     </scenes>
     <resources>
         <image name="bell.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="gamecontroller.fill" catalog="system" width="128" height="80"/>
         <image name="slider.horizontal.3" catalog="system" width="128" height="100"/>
     </resources>
 </document>

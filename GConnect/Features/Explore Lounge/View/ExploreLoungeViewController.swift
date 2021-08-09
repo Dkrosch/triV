@@ -52,10 +52,8 @@ class ExploreLoungeViewController: UIViewController {
         var reference: Query?
         
         if filter?.statusFilter == true {
-            print("true filternya")
             reference = Firestore.firestore().collection("LoungeDetail").whereField("idRequirementsLounge.Controller", isEqualTo: filter?.arrayRole[0]).whereField("idRequirementsLounge.Duelist", isEqualTo: filter?.arrayRole[1]).whereField("idRequirementsLounge.Initiator", isEqualTo: filter?.arrayRole[2]).whereField("idRequirementsLounge.Sentinel", isEqualTo: filter?.arrayRole[3]).whereField("Rank", isEqualTo: filter?.rank).whereField("Gender", isEqualTo: filter?.gender)
         } else if filter?.statusFilter == false{
-            print("filternya false")
             reference = Firestore.firestore().collection("LoungeDetail")
         }
         
@@ -95,13 +93,11 @@ class ExploreLoungeViewController: UIViewController {
                     let newData = DetailLounge(game: game,title: judul, desc: desc, idMemberLounge: [member1!, member2!, member3!, member4!, member5!, member6!, member7!, member8!, member9!, member10!], idRequirementsLounge: [role1!, role2!, role3!, role4!], documentId: documentId, creatAt: creatAt, gender: gender, rank: rank)
                     
                     self.datas.append(newData)
-                    print(self.datas[0].idRequirementsLounge)
                 }
                 self.loungeCollectionView.reloadData()
             }
         }
         loungeCollectionView.reloadData()
-        print("data lounge: \(datas.count)")
     }
     
     @IBAction func createLoungeAction(_ sender: UIButton){

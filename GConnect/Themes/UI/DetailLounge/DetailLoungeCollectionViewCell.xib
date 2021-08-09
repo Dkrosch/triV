@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="100" height="140"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jokowi" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N2m-YC-fny">
-                                <rect key="frame" x="9" y="78" width="82" height="17"/>
+                                <rect key="frame" x="4" y="78" width="92" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" name="White Smoke"/>
                                 <nil key="highlightedColor"/>
@@ -61,9 +61,9 @@
                             <constraint firstItem="hwU-j0-QCI" firstAttribute="leading" secondItem="ViN-DP-qWH" secondAttribute="leading" constant="23" id="Slq-Y0-88U"/>
                             <constraint firstItem="Qmy-lL-V52" firstAttribute="top" secondItem="ViN-DP-qWH" secondAttribute="top" id="Uhg-8y-SJU"/>
                             <constraint firstItem="7wY-hG-8kW" firstAttribute="leading" secondItem="ViN-DP-qWH" secondAttribute="leading" constant="9" id="XBC-iL-g1V"/>
-                            <constraint firstItem="N2m-YC-fny" firstAttribute="leading" secondItem="ViN-DP-qWH" secondAttribute="leading" constant="9" id="Xc2-za-GVB"/>
+                            <constraint firstItem="N2m-YC-fny" firstAttribute="leading" secondItem="ViN-DP-qWH" secondAttribute="leading" constant="4" id="Xc2-za-GVB"/>
                             <constraint firstAttribute="trailing" secondItem="7wY-hG-8kW" secondAttribute="trailing" constant="9" id="f0u-Bk-OLg"/>
-                            <constraint firstAttribute="trailing" secondItem="N2m-YC-fny" secondAttribute="trailing" constant="9" id="m91-Io-vc1"/>
+                            <constraint firstAttribute="trailing" secondItem="N2m-YC-fny" secondAttribute="trailing" constant="4" id="m91-Io-vc1"/>
                             <constraint firstAttribute="trailing" secondItem="Qmy-lL-V52" secondAttribute="trailing" id="tDC-cg-WPm"/>
                             <constraint firstItem="hwU-j0-QCI" firstAttribute="top" secondItem="ViN-DP-qWH" secondAttribute="top" constant="15" id="u3t-Mr-4NV"/>
                             <constraint firstAttribute="trailing" secondItem="hwU-j0-QCI" secondAttribute="trailing" constant="22" id="yYE-oU-vFq"/>

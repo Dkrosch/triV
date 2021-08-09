@@ -204,19 +204,21 @@ extension FilterLoungeViewController: UICollectionViewDelegate, UICollectionView
         cell.imgGame.image = games[indexPath.row].gameImage.getImage()
         cell.viewBackground.layer.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         
-        if indexPath.row+1 == statusValo{
-            cell.viewBackground.layer.borderColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
-            cell.viewBackground.layer.borderWidth = 4
+        if indexPath.row != 0 {
+            cell.isUserInteractionEnabled = false
+            cell.viewDisabled.layer.cornerRadius = 10
+            cell.viewDisabled.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.6916429128)
         }
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedGames = games[indexPath.row].gameName
         
-        statusValo = indexPath.row + 1
-        gamesCollectionView.reloadData()
-        viewDidLoad()
+        let cell = collectionView.cellForItem(at: indexPath) as! GamesCollectionViewCell
+        cell.viewBackground.layer.borderColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
+        cell.viewBackground.layer.borderWidth = 5
     }
 }
 

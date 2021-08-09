@@ -16,6 +16,7 @@ class CreateGameDetailViewController: UIViewController {
     @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var gameCoverImage: UIImageView!
     @IBOutlet weak var loadingView: UIView!
+    @IBOutlet weak var errorMessage: UILabel!
     
     
     //statistics
@@ -43,6 +44,8 @@ class CreateGameDetailViewController: UIViewController {
         super.viewDidLoad()
         
         self.hideKeyboardWhenTappedAround()
+        
+        errorMessage.isHidden = true
         
         pickerView1.delegate = self
         pickerView1.dataSource = self
@@ -75,14 +78,34 @@ class CreateGameDetailViewController: UIViewController {
     @IBAction func btnContinueTapped(_ sender: Any) {
         uName = gamerUnameTextField.text!
         
-        storeData(uname: uName)
-        
-        loadingView.isHidden = false
-        loading()
-        Timer.scheduledTimer(withTimeInterval: 3, repeats: false){ (timer) in
-            self.dismiss(animated: true)
-            self.loadingView.isHidden = true
+        if roleTextField.text == "Choose your role"{
+            self.showErrorMessage(message: "Choose your role first")
+        }else if gamerUnameTextField.text == ""{
+            self.showErrorMessage(message: "Insert your game username")
+        }else{
+            var dataFilter = FilterLounge(statusFilter: false,game: "Apex Legends", role: [true, true, true, true], rank: "Iron", gender: "All")
+            let encoder = JSONEncoder()
+            if let filter = try? encoder.encode(dataFilter){
+                UserDefaults.standard.set(filter, forKey: "filterLounge")
+            }
+            storeData(uname: uName)
+            loadingView.isHidden = false
+            loading()
+            Timer.scheduledTimer(withTimeInterval: 3, repeats: false){ (timer) in
+                self.dismiss(animated: true)
+                self.loadingView.isHidden = true
+            }
         }
+    }
+    
+    func showErrorMessage(message: String){
+        errorMessage.isHidden = false
+        errorMessage.text = message
+        Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector (self.hideWrongLabel), userInfo: nil, repeats: false)
+    }
+    
+    @objc func hideWrongLabel(){
+        self.errorMessage.isHidden = true
     }
     
     func storeData(uname: String){
@@ -114,16 +137,14 @@ class CreateGameDetailViewController: UIViewController {
                             let encoder = JSONEncoder()
                             if let filter = try? encoder.encode(dataFilter){
                             }
-                        self.performSegue(withIdentifier: "ExploreLounge", sender: self)
                         }
-
                     }
                 }
             }
         } failCompletion: { error in
             print(error)
         }
-        
+        self.performSegue(withIdentifier: "ExploreLounge", sender: self)
     }
     
     func alert(){

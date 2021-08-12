@@ -133,7 +133,7 @@ class ChatLoungeViewController: MessagesViewController, InputBarAccessoryViewDel
         
         Firestore.firestore().collection("users").document(currentUser.uid).getDocument { (document, error) in
             if error != nil{
-                print(error)
+                print(error ?? "")
             }else if let document = document, document.exists{
                 let username = document.get("username") as! String
                 let imageProfile = document.get("imageProfile") as! String

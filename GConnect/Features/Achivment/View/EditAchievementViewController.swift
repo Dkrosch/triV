@@ -30,11 +30,8 @@ class EditAchievementViewController: UIViewController, UITextFieldDelegate, UITe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         titleTextField.text = (titleAchievement)
         despTextField.text = (desc)
-        
-        print("ini:::\(uid)")
         
         titleTextField.delegate = self
         despTextField.delegate = self
@@ -50,8 +47,7 @@ class EditAchievementViewController: UIViewController, UITextFieldDelegate, UITe
         let titleAchv = titleTextField.text
         let descAchv = despTextField.text
         
-        db.collection("achievement").document(uid!).updateData(["Title": titleAchv,"Desc": descAchv]){(error) in
-            
+        db.collection("achievement").document(uid!).updateData(["Title": titleAchv ?? "" ,"Desc": descAchv ?? ""]){(error) in
             if error != nil{
                 print("eror")
             } else{

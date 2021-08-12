@@ -29,6 +29,8 @@ class ChatLoungeViewController: MessagesViewController, InputBarAccessoryViewDel
         
         self.title = "Chat"
         
+        print("ini idlounge di chat \(idLounge)")
+        
         collectionRef = Firestore.firestore().collection("users")
         
         if statusDetail == true {
@@ -73,15 +75,12 @@ class ChatLoungeViewController: MessagesViewController, InputBarAccessoryViewDel
     
     func loadChat() {
         Firestore.firestore().collection("LoungeDetail").document(idLounge).collection("chats").getDocuments { snapshot, error in
-            if let err = error{
+            if error != nil{
                 print("error")
             } else {
                 for document in (snapshot?.documents)!{
-                    let chat = Chat(dictionary: document.data())
-                    let data = document.data()
                     self.docReference = document.reference
                     document.reference.collection("thread").order(by: "created", descending: false).addSnapshotListener(includeMetadataChanges: true, listener: { (threadQuery, error) in
-                        
                         if let error = error{
                             print(error)
                         }else{
@@ -133,7 +132,7 @@ class ChatLoungeViewController: MessagesViewController, InputBarAccessoryViewDel
         
         Firestore.firestore().collection("users").document(currentUser.uid).getDocument { (document, error) in
             if error != nil{
-                print(error)
+                print(error as Any)
             }else if let document = document, document.exists{
                 let username = document.get("username") as! String
                 let imageProfile = document.get("imageProfile") as! String
@@ -146,11 +145,11 @@ class ChatLoungeViewController: MessagesViewController, InputBarAccessoryViewDel
             
         inputBar.inputTextView.text = ""
         messagesCollectionView.reloadData()
-        messagesCollectionView.scrollToBottom(animated: true)
+        messagesCollectionView.scrollToLastItem(animated: true)
     }
     
     func currentSender() -> SenderType {
-        return Sender(id: Auth.auth().currentUser!.uid, displayName: Auth.auth().currentUser?.email ?? "Name not found", imageProfile: "")
+        return Sender(senderId: Auth.auth().currentUser!.uid, displayName: Auth.auth().currentUser?.email ?? "Name not found", imageProfile: "")
     }
         
     func messageForItem(at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageType {
@@ -190,7 +189,6 @@ class ChatLoungeViewController: MessagesViewController, InputBarAccessoryViewDel
     }
     
     func configureAvatarView(_ avatarView: AvatarView, for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) {
-        
 //        DispatchQueue.global().async {
 //            if let url = URL(string: message.sender.imageProfile){
 //                do{

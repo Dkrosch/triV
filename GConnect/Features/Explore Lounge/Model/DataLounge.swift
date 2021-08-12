@@ -16,7 +16,7 @@ class DataLounge: UIViewController{
         var count = 0
         db.collection("LoungeDetail").getDocuments(){
             (querySnapshot, err) in
-            if let err = err{
+            if err != nil{
                 print("error")
             } else {
                 for document in querySnapshot!.documents{

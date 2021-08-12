@@ -34,7 +34,7 @@ class ProfilePicView: UIView {
             do{
                 let data = try Data(contentsOf: url)
                 self.imageProfile.image = UIImage(data: data)
-            } catch let err{
+            } catch {
                 print("error")
             }
         }

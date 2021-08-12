@@ -54,7 +54,6 @@ class ViewController: UIViewController {
         ApiService.getDatas(url: "https://api.mozambiquehe.re/bridge?version=5&platform=PC&player=\(nickname!)&auth=i6Xau6J5JvKzMy9J3LXI") { (response, error) in
             if response != nil {
                 if let responseFromAPI = response {
-                    print(responseFromAPI.global?.name)
                     self.nameLabel.text = responseFromAPI.global?.name
                     self.levelLabel.text = ("\(responseFromAPI.global!.level!)")
                     self.rankLabel.text = responseFromAPI.global?.rank?.rankName
@@ -74,7 +73,7 @@ class ViewController: UIViewController {
             do{
                 let data = try Data(contentsOf: url)
                 self.profileImage.image = UIImage(data: data)
-            } catch let err{
+            } catch {
                 print("error")
             }
         }

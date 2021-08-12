@@ -73,7 +73,6 @@ class AddAchievementViewController: UIViewController, UITextViewDelegate, UIText
 
             let title = titleTextField.text
             let desc = despTextField.text
-            let image = "Hahahahaha"
             guard let userID = Auth.auth().currentUser?.uid else { return }
 
             let storage = Storage.storage().reference()
@@ -95,14 +94,13 @@ class AddAchievementViewController: UIViewController, UITextViewDelegate, UIText
 
             photoRef.putData(imageData, metadata: metadata){ StorageMetadata, error in
                 if error != nil{
-                    print(error?.localizedDescription)
+                    print(error?.localizedDescription as Any)
                     return
                 }
 
                 photoRef.downloadURL { (url, error) in
                     if let metaImageURL = url?.absoluteString{
-                        db.collection("achievement").document().setData(["Title": title, "Desc": desc, "Image": metaImageURL, "uid": userID]){ (error) in
-
+                        db.collection("achievement").document().setData(["Title": title ?? "", "Desc": desc ?? "", "Image": metaImageURL, "uid": userID]){ (error) in
                             if error != nil{
                                 print("eror")
                             } else{

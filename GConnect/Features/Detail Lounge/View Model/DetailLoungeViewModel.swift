@@ -60,24 +60,14 @@ class DetailLoungeViewModel {
         let data = Firestore.firestore()
         let reference = data.collection("users")
         var arrayMember: [String] = []
-        var idUser: [String] = []
-        var test: [String] = []
-        var arrTest: [LoungeMember] = []
-        
-        //print(idMember)
         
         for idMemberlah in idMember{
             if idMemberlah != ""{
                 arrayMember.append(idMemberlah)
-                //print(arrayMember)
             }
         }
         
-        for i in 0..<arrayMember.count{
-            //print(arrayMember)
-        }
-        
-        for (index, id) in arrayMember.enumerated(){
+        for (index, _) in arrayMember.enumerated(){
             DispatchQueue.global().sync {
                 reference.document(arrayMember[index]).getDocument { document, error in
                     if error != nil{
@@ -106,7 +96,7 @@ class DetailLoungeViewModel {
         
         db.collection("LoungeDetail").document(idLounge).updateData(["Desc": desc, "Rank": rank, "idRequirementsLounge.Controller": role[0],"idRequirementsLounge.Duelist": role[1], "idRequirementsLounge.Initiator": role[2],"idRequirementsLounge.Sentinel": role[3], "Gender": gender]){ (error) in
                 if error != nil {
-                    print (error)
+                    print (error as Any)
                 }else{
                     print("sukses")
                 }
@@ -116,7 +106,7 @@ class DetailLoungeViewModel {
     func insertMember(idMember: String, idLounge: String, unfillMember: String){
         db.collection("LoungeDetail").document(idLounge).updateData(["idMemberLounge.\(unfillMember)":idMember]){ error in
             if error != nil {
-                print (error)
+                print (error as Any)
             }else{
                 print("sukses")
             }
@@ -136,7 +126,7 @@ class DetailLoungeViewModel {
     func leaveLounge(idLounge: String, filledCurrentMember: String){
         db.collection("LoungeDetail").document(idLounge).updateData(["idMemberLounge.\(filledCurrentMember)": ""]) { error in
             if error != nil {
-                print (error)
+                print (error as Any)
             }else{
                 print("sukses")
             }

@@ -63,8 +63,6 @@ class ProfileVisitorViewController: UIViewController {
     }
     
     func fetchDataProfile (){
-        guard let userID = Auth.auth().currentUser?.uid else { return }
-        
         var gender: String?
         var username: String?
         
@@ -72,8 +70,8 @@ class ProfileVisitorViewController: UIViewController {
         let docRef = db.collection("users").document("1Fmh4aYuK3Ow8oPKInOSICt2rLu1")
         docRef.getDocument { (document, error) in
             if let document = document, document.exists{
-                gender = document.get("gender") as! String
-                username = document.get("username") as! String
+                gender = document.get("gender") as? String
+                username = document.get("username") as? String
                 self.usernameLabel.text = username
                 
                 if gender == "Male" {
@@ -87,17 +85,6 @@ class ProfileVisitorViewController: UIViewController {
             }
         }
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension ProfileVisitorViewController: UICollectionViewDelegate{

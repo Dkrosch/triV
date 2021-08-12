@@ -40,6 +40,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         usernameField.delegate = self
         passwordField.delegate = self
         
+        //logo rounded
+        logoImage.layer.cornerRadius = logoImage.frame.height/2
+        logoImage.clipsToBounds = true
+        
         self.hideKeyboardWhenTappedAround()
         self.navigationController?.isNavigationBarHidden = true
         

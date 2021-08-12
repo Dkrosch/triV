@@ -82,6 +82,8 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
 //        aboutMeTextField.isScrollEnabled = true
         aboutMeTextField.isEditable = false
         
+        self.hideKeyboardWhenTappedAround()
+        
         stackUsernameView.isHidden = true
         
         changeProfilePicButton.isHidden = true
@@ -89,7 +91,7 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         let nib = UINib(nibName: "\(AchievementProfileCollectionViewCell.self)", bundle: nil)
         achievementCollectionView.register(nib, forCellWithReuseIdentifier: "achievementCell" )
         
-        aboutMeTextField.contentInset = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12)
+        aboutMeTextField.contentInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 12)
         
         achievementCollectionView.delegate = self
         achievementCollectionView.dataSource = self

@@ -211,7 +211,7 @@ class DetailLoungeViewController: UIViewController {
             self.detailLoungeVM.getDataMember(idMember: self.dataLounge[0].idMemberLounge) { dataMember in
                 
                 for (index, _) in dataMember.enumerated() {
-                    self.dataMember1.append(LoungeMember(idMember: dataMember[index].idMember, name: dataMember[index].name, rank: dataMember[index].rank, imageProfile: dataMember[index].imageProfile))
+                    self.dataMember1.append(LoungeMember(idMember: dataMember[index].idMember, name: dataMember[index].name, rank: dataMember[index].rank, imageProfile: dataMember[index].imageProfile, role: dataMember[index].role))
                 }
 
                 DispatchQueue.main.async {
@@ -356,45 +356,48 @@ class DetailLoungeViewController: UIViewController {
     }
     
     @objc func btnDoneTapped(){
-        self.navigationItem.setHidesBackButton(false, animated: true)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(self.btnEditTapped))
-        JoinLoungeButton.layer.backgroundColor = #colorLiteral(red: 1, green: 0.5641875267, blue: 0.4353749454, alpha: 1)
-        JoinLoungeButton.setTitle("Join Lounge", for: .normal)
-        JoinLoungeButton.setTitleColor(#colorLiteral(red: 0.0931308046, green: 0.1756470799, blue: 0.3408471346, alpha: 1), for: .normal)
-        
-        Rank.layer.borderColor = #colorLiteral(red: 0.9866532683, green: 0.5863298774, blue: 0.4647909403, alpha: 1)
-        Rank.backgroundColor = #colorLiteral(red: 0.1762152612, green: 0.223038137, blue: 0.3465815187, alpha: 1)
-        Rank.textColor = UIColor.white
-        Rank.isUserInteractionEnabled = false
-        
-        genderLabelDesc.isHidden = false
-        gender.layer.borderColor = #colorLiteral(red: 0.9866532683, green: 0.5863298774, blue: 0.4647909403, alpha: 1)
-        gender.backgroundColor = #colorLiteral(red: 0.1762152612, green: 0.223038137, blue: 0.3465815187, alpha: 1)
-        gender.textColor = UIColor.white
-        gender.isUserInteractionEnabled = false
-        
-        genderStackView.isHidden = true
-        
-        roles.isHidden = false
-        stackViewButton.isHidden = true
-
-        contraintStackKeDesc.constant = 0
-        constraintCollectionKeDesc.constant = 20
-        constraintStackKeRolesLabel.constant = 0
-        
-        DescriptionTextbox.layer.borderColor = #colorLiteral(red: 0.9866532683, green: 0.5863298774, blue: 0.4647909403, alpha: 1)
-        DescriptionTextbox.layer.backgroundColor = #colorLiteral(red: 0.1762152612, green: 0.223038137, blue: 0.3465815187, alpha: 1)
-        DescriptionTextbox.textColor = UIColor.white
-        DescriptionTextbox.isUserInteractionEnabled = false
-        status = false
-        
         if arrayStatusRole == [false, false, false, false]{
-            print("Choose mininal 1 role")
+            let alert = UIAlertController(title: "Warning", message: "You need to choose minimal 1 role", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Try Again!", style: .default, handler: nil))
+            self.present(alert, animated: true)
         }else{
+            self.navigationItem.setHidesBackButton(false, animated: true)
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(self.btnEditTapped))
+            
+            JoinLoungeButton.layer.backgroundColor = #colorLiteral(red: 1, green: 0.5641875267, blue: 0.4353749454, alpha: 1)
+            JoinLoungeButton.setTitle("Join Lounge", for: .normal)
+            JoinLoungeButton.setTitleColor(#colorLiteral(red: 0.0931308046, green: 0.1756470799, blue: 0.3408471346, alpha: 1), for: .normal)
+            
+            Rank.layer.borderColor = #colorLiteral(red: 0.9866532683, green: 0.5863298774, blue: 0.4647909403, alpha: 1)
+            Rank.backgroundColor = #colorLiteral(red: 0.1762152612, green: 0.223038137, blue: 0.3465815187, alpha: 1)
+            Rank.textColor = UIColor.white
+            Rank.isUserInteractionEnabled = false
+            
+            genderLabelDesc.isHidden = false
+            gender.layer.borderColor = #colorLiteral(red: 0.9866532683, green: 0.5863298774, blue: 0.4647909403, alpha: 1)
+            gender.backgroundColor = #colorLiteral(red: 0.1762152612, green: 0.223038137, blue: 0.3465815187, alpha: 1)
+            gender.textColor = UIColor.white
+            gender.isUserInteractionEnabled = false
+            
+            genderStackView.isHidden = true
+            
+            roles.isHidden = false
+            stackViewButton.isHidden = true
+
+            contraintStackKeDesc.constant = 0
+            constraintCollectionKeDesc.constant = 20
+            constraintStackKeRolesLabel.constant = 0
+            
+            DescriptionTextbox.layer.borderColor = #colorLiteral(red: 0.9866532683, green: 0.5863298774, blue: 0.4647909403, alpha: 1)
+            DescriptionTextbox.layer.backgroundColor = #colorLiteral(red: 0.1762152612, green: 0.223038137, blue: 0.3465815187, alpha: 1)
+            DescriptionTextbox.textColor = UIColor.white
+            DescriptionTextbox.isUserInteractionEnabled = false
+            status = false
+            
             detailLoungeVM.updateDataLounge(idLounge: idLounge, desc: DescriptionTextbox.text, rank: Rank.text!, role: arrayStatusRole, gender: gender.text!)
+            CollectionView.reloadData()
+            viewWillAppear(true)
         }
-        CollectionView.reloadData()
-        viewWillAppear(true)
     }
 }
 
@@ -480,8 +483,9 @@ extension DetailLoungeViewController: UICollectionViewDataSource, UICollectionVi
             cellA.layer.borderWidth = 2
             cellA.layer.cornerRadius = 10
             cellA.background.layer.backgroundColor = #colorLiteral(red: 0.1662740707, green: 0.2231230438, blue: 0.3549886644, alpha: 1)
-            cellA.role.text = arrDataLoungeMember[indexPath.row].rank
+            cellA.role.text = arrDataLoungeMember[indexPath.row].role
             cellA.profilePic.profileimageURL(urlKey: arrDataLoungeMember[indexPath.row].imageProfile)
+            cellA.profilePic.imageRank.image = UIImage(named: arrDataLoungeMember[indexPath.row].rank)
             
             for _ in 0..<dataMember1.count{
                 arrDataLoungeMember = dataMember1

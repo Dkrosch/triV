@@ -87,16 +87,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     self.performSegue(withIdentifier: "LoginToExploreLounge", sender: self)
                     self.wrongLabel.isHidden = true
                 }else{
-                    self.wrongLabel.isHidden = false
-                    Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector (self.hideWrongLabel), userInfo: nil, repeats: false)
+                    let alert = UIAlertController(title: "Warning", message: "Incorrect email or password", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Try Again!", style: .default, handler: nil))
+                    self.present(alert, animated: true)
                 }
             }
         }
 
-    }
-    
-    @objc func hideWrongLabel(){
-        self.wrongLabel.isHidden = true
     }
     
     @IBAction func btnSignUpTapped(_ sender: Any) {

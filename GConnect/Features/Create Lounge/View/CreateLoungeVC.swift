@@ -51,8 +51,6 @@ class CreateLoungeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.navigationController?.isNavigationBarHidden = false
         self.hideKeyboardWhenTappedAround()
         
         ErrorMessageLabel.isHidden = true
@@ -85,6 +83,10 @@ class CreateLoungeVC: UIViewController {
         
         let nibCell = UINib(nibName: "GamesCollectionViewCell", bundle: nil)
         gamesCollectionView.register(nibCell, forCellWithReuseIdentifier: "GamesCellId")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle{

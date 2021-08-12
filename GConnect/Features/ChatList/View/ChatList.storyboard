@@ -25,6 +25,7 @@
                                     <segment title="Lounge Chat"/>
                                     <segment title="Personal Chat" enabled="NO"/>
                                 </segments>
+                                <color key="tintColor" red="0.07685018331" green="0.13453343509999999" blue="0.27452626819999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="selectedSegmentTintColor" name="Vivid Tangerine"/>
                             </segmentedControl>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sKl-HD-Qn9">

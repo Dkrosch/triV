@@ -62,34 +62,30 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func btnSignUpTapped(_ sender: Any) {
         if (txtFieldUsername.text == ""  || txtFieldGender.text == "" || txtFieldEmail.text == "" || txtFieldBirthday.text == "" || txtFieldPassword.text == "" || txtFieldConPassword.text == ""){
-            showErrorMessage(message: "Fill All Data")
+            alert(msg: "You need to fill all field")
         }else if (txtFieldEmail.text?.isValidEmail == false) {
-            showErrorMessage(message: "Wrong Email Format")
+            alert(msg: "Wrong Email Format")
         }else if (txtFieldPassword.text != txtFieldConPassword.text){
-            showErrorMessage(message: "Password is not same")
+            alert(msg: "Password is not same")
         }else if txtFieldPassword.text!.count < 6{
-            showErrorMessage(message: "Password must be 6 characters or more")
+            alert(msg: "Password must be 6 characters or more")
         }else{
             StoreDataAuth.CreateData(username: txtFieldUsername.text!, email: txtFieldEmail.text!, DoB: txtFieldBirthday.text!, password: txtFieldPassword.text!, gender: txtFieldGender.text!) { status in
                 if status {
                     self.performSegue(withIdentifier: "CreateProfile", sender: self)
                 }else if status == false{
-                    self.showErrorMessage(message: "Email has been registered")
+                    self.alert(msg: "Email has been registered")
                 }
             }
         }
     }
     
-    func showErrorMessage(message: String){
-        txtErrorMessage.isHidden = false
-        txtErrorMessage.text = message
-        Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector (self.hideWrongLabel), userInfo: nil, repeats: false)
+    func alert(msg: String){
+        let alert = UIAlertController(title: "Warning", message: msg, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Try Again!", style: .default, handler: nil))
+        self.present(alert, animated: true)
     }
-    
-    @objc func hideWrongLabel(){
-        self.txtErrorMessage.isHidden = true
-    }
-    
+
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let maxLength = 20
         let currentString: NSString = (textField.text ?? "") as NSString

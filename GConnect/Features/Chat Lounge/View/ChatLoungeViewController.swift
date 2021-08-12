@@ -73,12 +73,10 @@ class ChatLoungeViewController: MessagesViewController, InputBarAccessoryViewDel
     
     func loadChat() {
         Firestore.firestore().collection("LoungeDetail").document(idLounge).collection("chats").getDocuments { snapshot, error in
-            if let err = error{
+            if error != nil{
                 print("error")
             } else {
                 for document in (snapshot?.documents)!{
-                    let chat = Chat(dictionary: document.data())
-                    let data = document.data()
                     self.docReference = document.reference
                     document.reference.collection("thread").order(by: "created", descending: false).addSnapshotListener(includeMetadataChanges: true, listener: { (threadQuery, error) in
                         
@@ -146,7 +144,7 @@ class ChatLoungeViewController: MessagesViewController, InputBarAccessoryViewDel
             
         inputBar.inputTextView.text = ""
         messagesCollectionView.reloadData()
-        messagesCollectionView.scrollToBottom(animated: true)
+        messagesCollectionView.scrollToLastItem(animated: true)
     }
     
     func currentSender() -> SenderType {

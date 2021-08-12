@@ -72,8 +72,8 @@ class ProfileVisitorViewController: UIViewController {
         let docRef = db.collection("users").document("1Fmh4aYuK3Ow8oPKInOSICt2rLu1")
         docRef.getDocument { (document, error) in
             if let document = document, document.exists{
-                gender = document.get("gender") as! String
-                username = document.get("username") as! String
+                gender = document.get("gender") as? String
+                username = document.get("username") as? String
                 self.usernameLabel.text = username
                 
                 if gender == "Male" {

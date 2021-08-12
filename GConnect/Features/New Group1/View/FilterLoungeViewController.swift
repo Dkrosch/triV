@@ -99,10 +99,10 @@ class FilterLoungeViewController: UIViewController {
         
         arrayStatusRole = filter!.arrayRole
         
-        var controller = filter!.arrayRole[0]
-        var duelist = filter!.arrayRole[1]
-        var initiator = filter!.arrayRole[2]
-        var sentinel = filter!.arrayRole[3]
+        let controller = filter!.arrayRole[0]
+        let duelist = filter!.arrayRole[1]
+        let initiator = filter!.arrayRole[2]
+        let sentinel = filter!.arrayRole[3]
         
         if controller == true {
             self.setButtonRole(sender: btnController)

@@ -183,13 +183,11 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
     }
     
     func updateDataProfile(){
-        guard let userID = Auth.auth().currentUser?.uid else { return }
-        
         let username = usernameTextField.text
         let about = aboutMeTextField.text
         
         let db = Firestore.firestore()
-        db.collection("users").document(idUser).updateData(["About": about, "username": username]){ (error) in
+        db.collection("users").document(idUser).updateData(["About": about ?? "", "username": username ?? ""]){ (error) in
             
             if error != nil{
                 print("eror")
@@ -201,8 +199,6 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
     
     func fetchDataProfile(){
         let datas = Firestore.firestore()
-
-        guard let userID = Auth.auth().currentUser?.uid else { return }
 
         let reference = datas.collection("users").document(idUser)
         reference.getDocument{ (document, err) in
@@ -238,7 +234,6 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
                 ApiService.getDatas(url: "https://api.mozambiquehe.re/bridge?version=5&platform=PC&player=\(gamerUname)&auth=i6Xau6J5JvKzMy9J3LXI") { (response, error) in
                     if response != nil {
                         if let responseFromAPI = response {
-                            print(responseFromAPI.global?.name)
                             self.gamerNameLabel.text = responseFromAPI.global?.name!
                             self.userLevelLabel.text = ("\(responseFromAPI.global!.level!)")
                             self.legendNameLabel.text = responseFromAPI.legends?.selected?.LegendName!
@@ -262,7 +257,7 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let signOutAction = UIAlertAction(title: "Sign Out", style: .destructive) { (action) in
             do{
-                var dataFilter = FilterLounge(statusFilter: false, game: "Apex Legends", role: [true, true, true, true], rank: "Iron", gender: "All")
+                let dataFilter = FilterLounge(statusFilter: false, game: "Apex Legends", role: [true, true, true, true], rank: "Iron", gender: "All")
                 let encoder = JSONEncoder()
                 if let filter = try? encoder.encode(dataFilter){
                     UserDefaults.standard.set(filter, forKey: "filterLounge")
@@ -275,8 +270,6 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
                 vc.modalPresentationStyle = .overFullScreen
                 vc.modalTransitionStyle = .crossDissolve
                 self.present(vc, animated: true)
-            } catch let err{
-                print("error")
             }
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -291,7 +284,7 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
             do{
                 let data = try Data(contentsOf: url)
                 self.legendImage.image = UIImage(data: data)
-            } catch let err{
+            } catch {
                 print("error")
             }
         }
@@ -302,7 +295,7 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
             do{
                 let data = try Data(contentsOf: url)
                 self.profilePicture.image = UIImage(data: data)
-            } catch let err{
+            } catch {
                 print("error")
             }
         }
@@ -329,7 +322,7 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
 
             photoRef.putData(imageData, metadata: metadata) { StorageMetadata, error in
                 if error != nil{
-                    print(error?.localizedDescription)
+                    print(error?.localizedDescription as Any)
                     return
                 }
 
@@ -448,7 +441,7 @@ extension ProfileUserViewController: UICollectionViewDataSource{
             do{
                 let data = try Data(contentsOf: url)
                 cell.imageViewAchievement.image = UIImage(data: data)
-            } catch let err{
+            } catch {
                 print("error")
             }
         }

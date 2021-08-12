@@ -140,7 +140,7 @@ class CreateLoungeVC: UIViewController {
             }else if valid == "role" {
                 self.showErrorMessage(message: "Select min 1 role")
             }else{
-                var idLounge = valid
+                let idLounge = valid
                 self.goToDetail(idLounge: idLounge)
             }
         }

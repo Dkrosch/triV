@@ -28,7 +28,7 @@ class ChatListViewController: UIViewController {
         dataLounge.removeAll()
         
         chatListVM.getDataLounge(){ data in
-            for (index, item) in data.enumerated(){
+            for (index, _) in data.enumerated(){
                 self.dataLounge.append(DetailLounge(game: data[index].game, title: data[index].title, desc: data[index].desc, idMemberLounge: data[index].idMemberLounge, idRequirementsLounge: data[index].idRequirementsLounge, documentId: data[index].documentId, creatAt: data[index].creatAt, gender: data[index].gender, rank: data[index].rank))
                 
                 print("ini data lounge yang dijoin \(self.dataLounge.count)")

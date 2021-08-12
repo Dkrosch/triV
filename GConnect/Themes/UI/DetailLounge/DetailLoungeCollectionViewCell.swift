@@ -46,7 +46,7 @@ class DetailLoungeCollectionViewCell: UICollectionViewCell {
             let db = Firestore.firestore()
             db.collection("LoungeDetail").document(idLounge!).updateData(["idMemberLounge.Member\(idMember!)": ""]){ (error) in
                 if error != nil {
-                    print (error)
+                    print (error as Any)
                 }else{
                     print("sukses")
                 }

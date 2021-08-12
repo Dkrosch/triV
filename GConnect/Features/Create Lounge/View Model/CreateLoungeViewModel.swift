@@ -21,7 +21,7 @@ class CreateLoungeViewModel{
         let currentTime = formatter.string(from: currentDateTime)
         
         let db = Firestore.firestore().collection("LoungeDetail").document()
-        let idLounge = db.documentID as! String
+        let idLounge = db.documentID 
         
         if game == ""{
             valid("game")
@@ -39,7 +39,7 @@ class CreateLoungeViewModel{
             }
             
             let db2 = Firestore.firestore().collection("LoungeDetail").document(idLounge).collection("chats").document()
-            let idChat = db2.documentID as! String
+            let idChat = db2.documentID 
             
             db2.setData(["AnyField":""]){(error) in
                 if error != nil{

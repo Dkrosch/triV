@@ -240,18 +240,10 @@
 		7C9ECE3B26BE64E800DBA826 /* ChatList */ = {
 			isa = PBXGroup;
 			children = (
-				7C9ECE3C26BE64E800DBA826 /* Model */,
 				7C9ECE3D26BE64E800DBA826 /* View */,
 				7C9ECE3F26BE64E800DBA826 /* View Model */,
 			);
 			path = ChatList;
-			sourceTree = "<group>";
-		};
-		7C9ECE3C26BE64E800DBA826 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		7C9ECE3D26BE64E800DBA826 /* View */ = {
@@ -321,7 +313,6 @@
 		8405A5EC26B15427009D1375 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				8405A5EE26B15435009D1375 /* ViewModel */,
 				8405A5EF26B1543D009D1375 /* Model */,
 				8405A5ED26B1542F009D1375 /* View */,
 			);
@@ -336,13 +327,6 @@
 			);
 			name = View;
 			path = "../New Group/View";
-			sourceTree = "<group>";
-		};
-		8405A5EE26B15435009D1375 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		8405A5EF26B1543D009D1375 /* Model */ = {
@@ -540,8 +524,6 @@
 		84F30A1E26B7E57A00A40BDB /* Achivment */ = {
 			isa = PBXGroup;
 			children = (
-				84F30A2126B7E58B00A40BDB /* Model View */,
-				84F30A2026B7E58700A40BDB /* Model */,
 				84F30A1F26B7E58100A40BDB /* View */,
 			);
 			path = Achivment;
@@ -556,20 +538,6 @@
 				A80E61E326B421DF005FF4B6 /* EditAchievementViewController.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		84F30A2026B7E58700A40BDB /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		84F30A2126B7E58B00A40BDB /* Model View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Model View";
 			sourceTree = "<group>";
 		};
 		84F30A2226B7E5AF00A40BDB /* Profile Visitor */ = {
@@ -752,7 +720,6 @@
 			isa = PBXGroup;
 			children = (
 				84BB975726B12D610024A98B /* Model */,
-				E04E0FF826B005D900A81F92 /* ViewModel */,
 				E04E0FF726B005D200A81F92 /* View */,
 			);
 			path = Login;
@@ -765,13 +732,6 @@
 				E04E101026B019D900A81F92 /* Login.storyboard */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		E04E0FF826B005D900A81F92 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		E04E100526B0085400A81F92 /* Helper */ = {
@@ -841,7 +801,6 @@
 		E08F234626BCF69200D7E0BA /* Chat Lounge */ = {
 			isa = PBXGroup;
 			children = (
-				E08F234926BCF6B000D7E0BA /* View Model */,
 				E08F234826BCF6A400D7E0BA /* Model */,
 				E08F234726BCF69B00D7E0BA /* View */,
 			);
@@ -865,13 +824,6 @@
 				E08F235426BCFBFF00D7E0BA /* Message.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		E08F234926BCF6B000D7E0BA /* View Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "View Model";
 			sourceTree = "<group>";
 		};
 		E5781C8DB87779570753F36A /* Pods */ = {

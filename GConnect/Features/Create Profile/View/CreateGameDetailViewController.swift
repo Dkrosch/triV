@@ -112,7 +112,7 @@ class CreateGameDetailViewController: UIViewController {
                             if self.roleTextField.text == "Choose your role"{
                                 print("ga bisa bang")
                             }else{
-                                db.collection("users").document(userID).updateData(["game": game, "role" : role, "rank" : rank, "gamerUname": gamerUname]) {(error) in
+                                db.collection("users").document(userID).updateData(["game": game, "role" : role ?? "", "rank" : rank, "gamerUname": gamerUname ?? ""]) {(error) in
                                     if error != nil{
                                         print("Gagal")
                                     } else {

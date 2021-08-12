@@ -133,7 +133,7 @@ class DetailLoungeViewController: UIViewController {
         dataMember1 = []
         
         detailLoungeVM.getData(id: idLounge){ data in
-            for (index, item) in data.enumerated(){
+            for (index, _) in data.enumerated(){
                 self.dataLounge.append(DetailLounge(game: data[index].game, title: data[index].title, desc: data[index].desc, idMemberLounge: data[index].idMemberLounge, idRequirementsLounge: data[index].idRequirementsLounge, documentId: self.idLounge, creatAt: data[index].creatAt, gender: data[index].gender, rank: data[index].rank))
             
                 self.navigationItem.title = data[0].title
@@ -143,7 +143,7 @@ class DetailLoungeViewController: UIViewController {
                 self.genderLabelDesc.text = data[0].gender
                 self.gender.text = data[0].gender
                 
-                var masterLounge = data[0].idMemberLounge[0]
+                let masterLounge = data[0].idMemberLounge[0]
                 
                 var num = 10
                 for member in data[0].idMemberLounge{
@@ -179,10 +179,10 @@ class DetailLoungeViewController: UIViewController {
                     }
                 }
                 
-                var controller = data[0].idRequirementsLounge[0]
-                var duelist = data[0].idRequirementsLounge[1]
-                var initiator = data[0].idRequirementsLounge[2]
-                var sentinel = data[0].idRequirementsLounge[3]
+                let controller = data[0].idRequirementsLounge[0]
+                let duelist = data[0].idRequirementsLounge[1]
+                let initiator = data[0].idRequirementsLounge[2]
+                let sentinel = data[0].idRequirementsLounge[3]
                 
                 if controller == true {
                     self.setButtonRole(sender: self.controllerButtonAttrib)
@@ -210,7 +210,7 @@ class DetailLoungeViewController: UIViewController {
             
             self.detailLoungeVM.getDataMember(idMember: self.dataLounge[0].idMemberLounge) { dataMember in
                 
-                for (index, item) in dataMember.enumerated() {
+                for (index, _) in dataMember.enumerated() {
                     self.dataMember1.append(LoungeMember(idMember: dataMember[index].idMember, name: dataMember[index].name, rank: dataMember[index].rank, imageProfile: dataMember[index].imageProfile))
                 }
 
@@ -405,7 +405,7 @@ extension DetailLoungeViewController: UICollectionViewDataSource, UICollectionVi
         var arrDataLoungeMember: [LoungeMember] = []
         if collectionView == CollectionView{
             if dataMember1.count != 0 {
-                for i in 0..<dataMember1.count{
+                for _ in 0..<dataMember1.count{
                     arrDataLoungeMember = dataMember1
                 }
             }
@@ -432,10 +432,10 @@ extension DetailLoungeViewController: UICollectionViewDataSource, UICollectionVi
             let countableSet = NSCountedSet()
             
             if dataLounge.count != 0{
-                var controller = dataLounge[0].idRequirementsLounge[0]
-                var duelist = dataLounge[0].idRequirementsLounge[1]
-                var initiator = dataLounge[0].idRequirementsLounge[2]
-                var sentinel = dataLounge[0].idRequirementsLounge[3]
+                let controller = dataLounge[0].idRequirementsLounge[0]
+                let duelist = dataLounge[0].idRequirementsLounge[1]
+                let initiator = dataLounge[0].idRequirementsLounge[2]
+                let sentinel = dataLounge[0].idRequirementsLounge[3]
                 
                 arrayStatusRole = [controller, duelist, initiator, sentinel]
                 arrDataLoungeMemberUnfilter = dataLounge[0].idMemberLounge
@@ -456,7 +456,7 @@ extension DetailLoungeViewController: UICollectionViewDataSource, UICollectionVi
         if collectionView == self.CollectionView{
             let cellA = collectionView.dequeueReusableCell(withReuseIdentifier: DetailLoungeCollectionViewCell.identifier, for: indexPath) as! DetailLoungeCollectionViewCell
             
-            for i in 0..<dataMember1.count{
+            for _ in 0..<dataMember1.count{
                 arrDataLoungeMember = dataMember1
             }
             
@@ -483,11 +483,11 @@ extension DetailLoungeViewController: UICollectionViewDataSource, UICollectionVi
             cellA.role.text = arrDataLoungeMember[indexPath.row].rank
             cellA.profilePic.profileimageURL(urlKey: arrDataLoungeMember[indexPath.row].imageProfile)
             
-            for i in 0..<dataMember1.count{
+            for _ in 0..<dataMember1.count{
                 arrDataLoungeMember = dataMember1
             }
             
-            var memberKe = dataLounge[0].idMemberLounge.firstIndex(of: arrDataLoungeMember[indexPath.row].idMember)!
+            let memberKe = dataLounge[0].idMemberLounge.firstIndex(of: arrDataLoungeMember[indexPath.row].idMember)!
             if dataLounge[0].idMemberLounge.contains(arrDataLoungeMember[indexPath.row].idMember){
             }
             
@@ -499,7 +499,6 @@ extension DetailLoungeViewController: UICollectionViewDataSource, UICollectionVi
             return cellA
         }else{
             let cellB = collectionView.dequeueReusableCell(withReuseIdentifier: "cellContoh", for: indexPath) as! RequirementExploreLoungeCollectionViewCell
-            var requirement = RequirementExploreLoungeCollectionViewCell()
             cellB.layer.cornerRadius = 10
             cellB.layer.borderColor = #colorLiteral(red: 0.9960784314, green: 0.5882352941, blue: 0.4666666667, alpha: 1)
             cellB.layer.borderWidth = 2

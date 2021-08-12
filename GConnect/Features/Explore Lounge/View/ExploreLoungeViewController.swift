@@ -25,8 +25,6 @@ class ExploreLoungeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let userEmail = Auth.auth().currentUser?.email else { return }
-        
         loungeCollectionView.delegate = self
         loungeCollectionView.dataSource = self
         
@@ -52,13 +50,13 @@ class ExploreLoungeViewController: UIViewController {
         var reference: Query?
         
         if filter?.statusFilter == true {
-            reference = Firestore.firestore().collection("LoungeDetail").whereField("idRequirementsLounge.Controller", isEqualTo: filter?.arrayRole[0]).whereField("idRequirementsLounge.Duelist", isEqualTo: filter?.arrayRole[1]).whereField("idRequirementsLounge.Initiator", isEqualTo: filter?.arrayRole[2]).whereField("idRequirementsLounge.Sentinel", isEqualTo: filter?.arrayRole[3]).whereField("Rank", isEqualTo: filter?.rank).whereField("Gender", isEqualTo: filter?.gender)
+            reference = Firestore.firestore().collection("LoungeDetail").whereField("idRequirementsLounge.Controller", isEqualTo: filter?.arrayRole[0] ?? "").whereField("idRequirementsLounge.Duelist", isEqualTo: filter?.arrayRole[1] ?? "").whereField("idRequirementsLounge.Initiator", isEqualTo: filter?.arrayRole[2] ?? "").whereField("idRequirementsLounge.Sentinel", isEqualTo: filter?.arrayRole[3] ?? "").whereField("Rank", isEqualTo: filter?.rank ?? "").whereField("Gender", isEqualTo: filter?.gender ?? "")
         } else if filter?.statusFilter == false{
             reference = Firestore.firestore().collection("LoungeDetail")
         }
         
         reference!.getDocuments { snapshot, error in
-            if let err = error{
+            if error != nil{
                 print("error")
             } else {
                 for document in (snapshot?.documents)!{
@@ -131,13 +129,13 @@ extension ExploreLoungeViewController: UICollectionViewDataSource, UICollectionV
             cell.descriptionLoungeLabel.text = datas[indexPath.row].desc
             cell.gamesNameLabel.text = "| \(datas[indexPath.row].game)"
             
-            var sentinel = datas[indexPath.row].idRequirementsLounge[0]
-            var initiator = datas[indexPath.row].idRequirementsLounge[1]
-            var controller = datas[indexPath.row].idRequirementsLounge[2]
-            var duelist = datas[indexPath.row].idRequirementsLounge[3]
-            var rank = datas[indexPath.row].rank
-            var gender = datas[indexPath.row].gender
-            var initDataReq = DataRequirement(controller: controller, duelist: duelist, initiator: initiator, sentinel: sentinel, rank: rank, gender: gender)
+            let sentinel = datas[indexPath.row].idRequirementsLounge[0]
+            let initiator = datas[indexPath.row].idRequirementsLounge[1]
+            let controller = datas[indexPath.row].idRequirementsLounge[2]
+            let duelist = datas[indexPath.row].idRequirementsLounge[3]
+            let rank = datas[indexPath.row].rank
+            let gender = datas[indexPath.row].gender
+            let initDataReq = DataRequirement(controller: controller, duelist: duelist, initiator: initiator, sentinel: sentinel, rank: rank, gender: gender)
             
             cell.setDataCollectionView(dataRequirement: initDataReq)
             
@@ -162,7 +160,7 @@ extension ExploreLoungeViewController: UICollectionViewDataSource, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        var idLounge = datas[indexPath.row].documentId
+        let idLounge = datas[indexPath.row].documentId
         performSegue(withIdentifier: "DetailLounge", sender: idLounge)
     }
     

@@ -23,8 +23,6 @@ class StoreDataAuth {
         FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { result, error in
             
             guard error == nil else{
-                var signUpViewController = SignUpViewController()
-
                 //ini panggil untuk balikin ke halaman yang manggil fungsi CreateData
                 succcesCompletionHandler(false)
                 print("Email sudah kepake")
@@ -40,7 +38,6 @@ class StoreDataAuth {
                 convertGender = "Female"
             }
             
-            let Dob = DoB
             let gender = convertGender
             let username = username
             let usrID = result!.user.uid

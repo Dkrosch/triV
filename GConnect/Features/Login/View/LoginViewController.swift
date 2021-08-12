@@ -73,7 +73,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func btnTapped(_ sender: Any) {
         if (usernameField.text == "" || passwordField.text == ""){
-            wrongLabel.isHidden = true
+            let alert = UIAlertController(title: "Warning", message: "Insert your email and password", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Try Again!", style: .default, handler: nil))
+            self.present(alert, animated: true)
         } else {
             AuthLogin.SignIn(email: usernameField.text!, password: passwordField.text!){ status in
                 if status{

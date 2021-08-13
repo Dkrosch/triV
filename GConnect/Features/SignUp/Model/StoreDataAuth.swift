@@ -21,30 +21,24 @@ class StoreDataAuth {
                            succcesCompletionHandler: @escaping (Bool) -> Void){
         
         FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { result, error in
-            
-            guard error == nil else{
-                //ini panggil untuk balikin ke halaman yang manggil fungsi CreateData
+            if error != nil{
                 succcesCompletionHandler(false)
-                print("Email sudah kepake")
-                
-                return
-            }
-            succcesCompletionHandler(true)
-            
-            var convertGender = ""
-            if gender == "♂️Male"{
-                convertGender = "Male"
             }else{
-                convertGender = "Female"
-            }
-            
-            let gender = convertGender
-            let username = username
-            let usrID = result!.user.uid
-            
-            self.saveUserDetail(userID: usrID, dob: DoB, gender: gender, username: username)
+                succcesCompletionHandler(true)
                 
-            print("Sukses register")
+                var convertGender = ""
+                if gender == "♂️Male"{
+                    convertGender = "Male"
+                }else{
+                    convertGender = "Female"
+                }
+                
+                let gender = convertGender
+                let username = username
+                let usrID = result!.user.uid
+                
+                self.saveUserDetail(userID: usrID, dob: DoB, gender: gender, username: username)
+            }
         })
     }
     

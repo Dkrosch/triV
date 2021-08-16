@@ -25,8 +25,6 @@ class ChatLoungeViewController: MessagesViewController, InputBarAccessoryViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationController?.isNavigationBarHidden = false
-        
         self.title = "Chat"
         
         print("ini idlounge di chat \(idLounge)")
@@ -59,6 +57,10 @@ class ChatLoungeViewController: MessagesViewController, InputBarAccessoryViewDel
     
     override var preferredStatusBarStyle: UIStatusBarStyle{
         .lightContent
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {

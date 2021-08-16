@@ -45,7 +45,11 @@ class ChatListViewController: UIViewController {
 extension ChatListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        gotoChat(idLounge: dataLounge[indexPath.row].documentId)
+        if dataLounge.count != 0{
+            gotoChat(idLounge: dataLounge[indexPath.row].documentId)
+        }else{
+            
+        }
     }
     
     func gotoChat(idLounge: String){

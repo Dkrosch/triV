@@ -160,8 +160,12 @@ extension ExploreLoungeViewController: UICollectionViewDataSource, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let idLounge = datas[indexPath.row].documentId
-        performSegue(withIdentifier: "DetailLounge", sender: idLounge)
+        if datas.count != 0{
+            let idLounge = datas[indexPath.row].documentId
+            performSegue(withIdentifier: "DetailLounge", sender: idLounge)
+        }else{
+            
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

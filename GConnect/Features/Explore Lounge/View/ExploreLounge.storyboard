@@ -26,10 +26,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RBf-eN-DbS" userLabel="LoungeCollectionView">
-                                <rect key="frame" x="8" y="137" width="374" height="673"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="RBf-eN-DbS" userLabel="LoungeCollectionView">
+                                <rect key="frame" x="8" y="137" width="374" height="624"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="RBf-eN-DbS" secondAttribute="height" multiplier="187:312" id="lx1-iF-poa"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ffl-FI-u47">
                                     <size key="itemSize" width="374" height="174"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -47,58 +49,84 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SpP-qo-XSm" userLabel="CreateLoungeButton">
-                                <rect key="frame" x="16" y="72" width="229" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.99607843137254903" green="0.58823529411764708" blue="0.46666666666666667" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                <state key="normal" title="Create Lounge">
-                                    <color key="titleColor" red="0.10980392156862745" green="0.17254901960784313" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="createLoungeAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="DzH-np-TYU"/>
-                                </connections>
-                            </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K4M-R0-uep">
-                                <rect key="frame" x="269" y="69" width="43" height="43"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yzc-LN-ZIZ">
+                                <rect key="frame" x="16" y="64" width="358" height="53"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7IF-sd-cea" userLabel="FilterLoungeButton">
-                                        <rect key="frame" x="12" y="10" width="21" height="22"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="tintColor" red="0.10980392160000001" green="0.17254901959999999" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" image="slider.horizontal.3" catalog="system">
-                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="17"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SpP-qo-XSm" userLabel="CreateLoungeButton">
+                                        <rect key="frame" x="0.0" y="10" width="229" height="33"/>
+                                        <color key="backgroundColor" red="0.99607843137254903" green="0.58823529411764708" blue="0.46666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="33" id="7qe-F9-MFR"/>
+                                            <constraint firstAttribute="width" constant="229" id="YsY-kb-c90"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                        <state key="normal" title="Create Lounge">
+                                            <color key="titleColor" red="0.10980392156862745" green="0.17254901960784313" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="8"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="setFilterTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="JNQ-81-iAw"/>
+                                            <action selector="createLoungeAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="DzH-np-TYU"/>
                                         </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K4M-R0-uep">
+                                        <rect key="frame" x="246" y="5" width="43" height="43"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7IF-sd-cea" userLabel="FilterLoungeButton">
+                                                <rect key="frame" x="12" y="10" width="21" height="22"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" red="0.10980392160000001" green="0.17254901959999999" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" image="slider.horizontal.3" catalog="system">
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="17"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="setFilterTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="JNQ-81-iAw"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.99607843139999996" green="0.58823529409999997" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="43" id="cEk-hn-vYL"/>
+                                            <constraint firstAttribute="height" constant="43" id="dXy-XM-YNJ"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="22"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AOG-sG-Mnq" userLabel="NotificationButton">
+                                        <rect key="frame" x="306" y="0.0" width="52" height="53"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="52" id="17N-Zg-CuO"/>
+                                            <constraint firstAttribute="height" constant="53" id="jgy-hQ-UmS"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="44"/>
+                                        <color key="tintColor" red="0.99607843139999996" green="0.58823529409999997" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" image="bell.circle.fill" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="44"/>
+                                        </state>
+                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.99607843139999996" green="0.58823529409999997" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="22"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AOG-sG-Mnq" userLabel="NotificationButton">
-                                <rect key="frame" x="322" y="64" width="52" height="53"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="44"/>
-                                <color key="tintColor" red="0.99607843139999996" green="0.58823529409999997" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" image="bell.circle.fill" catalog="system">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="44"/>
-                                </state>
-                            </button>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Yzc-LN-ZIZ" secondAttribute="height" multiplier="358:53" id="i1G-6s-0GS"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" red="0.1234773025" green="0.1697947383" blue="0.3176649809" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="RBf-eN-DbS" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="1w9-6Z-lRD"/>
+                            <constraint firstItem="RBf-eN-DbS" firstAttribute="top" secondItem="Yzc-LN-ZIZ" secondAttribute="bottom" constant="20" id="3Zk-dk-s8v"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="RBf-eN-DbS" secondAttribute="trailing" constant="8" id="EZl-Ca-ehR"/>
+                            <constraint firstItem="RBf-eN-DbS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="FKL-VY-HMC"/>
+                            <constraint firstItem="Yzc-LN-ZIZ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="HXn-EM-Hdk"/>
+                            <constraint firstItem="Yzc-LN-ZIZ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="g7t-ou-3F6"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Yzc-LN-ZIZ" secondAttribute="trailing" constant="16" id="gOA-iR-DM8"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" tag="1" title="Lounge" image="gamecontroller.fill" catalog="system" id="ASx-On-iep"/>
                     <connections>

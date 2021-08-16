@@ -48,13 +48,11 @@ class ChatLoungeViewController: MessagesViewController, InputBarAccessoryViewDel
 
         messageInputBar.inputTextView.tintColor = .systemBlue
         messageInputBar.sendButton.setTitleColor(.systemTeal, for: .normal)
-        messageInputBar.backgroundView.backgroundColor = UIColor.white
-                
+                    
         messageInputBar.delegate = self
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
-        messagesCollectionView.layer.backgroundColor = UIColor.white.cgColor
                 
         loadChat()
     }

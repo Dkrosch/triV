@@ -42,7 +42,24 @@ class ExploreLoungeCell: UICollectionViewCell, UICollectionViewDelegate, UIColle
         
         loungeNameLabel.text = detailLounge.title
         descriptionLoungeLabel.text = detailLounge.desc
-        totalMemberLabel.text = "\(num)"
+        gamesNameLabel.text = "| \(detailLounge.game)"
+        totalMemberLabel.text = "\(num)/10"
+        
+        let sentinel = detailLounge.idRequirementsLounge[0]
+        let initiator = detailLounge.idRequirementsLounge[1]
+        let controller = detailLounge.idRequirementsLounge[2]
+        let dueletist = detailLounge.idRequirementsLounge[3]
+        let rank = detailLounge.rank
+        let gender = detailLounge.gender
+        let initDataReq = DataRequirement(controller: controller, duelist: dueletist, initiator: initiator, sentinel: sentinel, rank: rank, gender: gender)
+        
+        setDataCollectionView(dataRequirement: initDataReq)
+        
+        for member in detailLounge.idMemberLounge{
+            if member == ""{
+                num -= 1
+            }
+        }
         
         exploreLoungeCellView.layer.borderWidth = 1
         exploreLoungeCellView.layer.borderColor = #colorLiteral(red: 1, green: 0.6593824029, blue: 0.5392141342, alpha: 1)

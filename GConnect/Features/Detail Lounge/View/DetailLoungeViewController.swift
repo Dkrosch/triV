@@ -45,7 +45,7 @@ class DetailLoungeViewController: UIViewController {
     var dataMember1 = [LoungeMember]()
     var pickerView = UIPickerView()
     var pickerView2 = UIPickerView()
-    var arrDataLoungeMember: [LoungeMember] = []
+    var arrDataLoungeMember = [LoungeMember]()
     var arrDataLoungeMemberUnfilter: [String] = []
     
     var arrayStatusRole: [Bool] = [true, true, true, true]
@@ -405,15 +405,8 @@ extension DetailLoungeViewController: UICollectionViewDataSource, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        var arrDataLoungeMember: [LoungeMember] = []
         if collectionView == CollectionView{
-            if dataMember1.count != 0 {
-                for _ in 0..<dataMember1.count{
-                    arrDataLoungeMember = dataMember1
-                }
-            }
-            
-            clickedMember = arrDataLoungeMember[indexPath.row].idMember
+            clickedMember = dataMember1[indexPath.row].idMember
             gotoHome()
         }
     }
@@ -457,60 +450,55 @@ extension DetailLoungeViewController: UICollectionViewDataSource, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if collectionView == self.CollectionView{
-            let cellA = collectionView.dequeueReusableCell(withReuseIdentifier: DetailLoungeCollectionViewCell.identifier, for: indexPath) as! DetailLoungeCollectionViewCell
-            
-            for _ in 0..<dataMember1.count{
-                arrDataLoungeMember = dataMember1
-            }
-            
-            if dataLounge[0].idMemberLounge[0] == arrDataLoungeMember[indexPath.row].idMember {
-                cellA.nama.text = "\(arrDataLoungeMember[indexPath.row].name) 👑"
-            }else{
-                cellA.nama.text = arrDataLoungeMember[indexPath.row].name
-            }
-            
-            if status == true{
-                if dataLounge[0].idMemberLounge[0] == arrDataLoungeMember[indexPath.row].idMember{
-                    cellA.kickButton.isHidden = true
-                }else{
-                    cellA.kickButton.isHidden = false
-                }
-            }else{
-                cellA.kickButton.isHidden = true
-            }
-            
-            cellA.layer.borderColor = #colorLiteral(red: 0.9960784314, green: 0.5882352941, blue: 0.4666666667, alpha: 1)
-            cellA.layer.borderWidth = 2
-            cellA.layer.cornerRadius = 10
-            cellA.background.layer.backgroundColor = #colorLiteral(red: 0.1662740707, green: 0.2231230438, blue: 0.3549886644, alpha: 1)
-            cellA.role.text = arrDataLoungeMember[indexPath.row].role
-            cellA.profilePic.profileimageURL(urlKey: arrDataLoungeMember[indexPath.row].imageProfile)
-            cellA.profilePic.imageRank.image = UIImage(named: arrDataLoungeMember[indexPath.row].rank)
-            
-            for _ in 0..<dataMember1.count{
-                arrDataLoungeMember = dataMember1
-            }
-            
-            let memberKe = dataLounge[0].idMemberLounge.firstIndex(of: arrDataLoungeMember[indexPath.row].idMember)!
-            if dataLounge[0].idMemberLounge.contains(arrDataLoungeMember[indexPath.row].idMember){
-            }
-            
-            cellA.idLounge = idLounge
-            cellA.idMember = ("\(memberKe + 1)")
-            cellA.indx = indexPath
-            cellA.delegate = self
-            
-            return cellA
+                    let cellA = collectionView.dequeueReusableCell(withReuseIdentifier: DetailLoungeCollectionViewCell.identifier, for: indexPath) as! DetailLoungeCollectionViewCell
+                    
+                    for _ in 0..<dataMember1.count{
+                        arrDataLoungeMember = dataMember1
+                    }
+                    
+                    if dataLounge[0].idMemberLounge[0] == arrDataLoungeMember[indexPath.row].idMember {
+                        cellA.nama.text = "\(arrDataLoungeMember[indexPath.row].name) 👑"
+                    }else{
+                        cellA.nama.text = arrDataLoungeMember[indexPath.row].name
+                    }
+                    
+                    if status == true{
+                        if dataLounge[0].idMemberLounge[0] == arrDataLoungeMember[indexPath.row].idMember{
+                            cellA.kickButton.isHidden = true
+                        }else{
+                            cellA.kickButton.isHidden = false
+                        }
+                    }else{
+                        cellA.kickButton.isHidden = true
+                    }
+                    
+                    cellA.layer.borderColor = #colorLiteral(red: 0.9960784314, green: 0.5882352941, blue: 0.4666666667, alpha: 1)
+                    cellA.layer.borderWidth = 2
+                    cellA.layer.cornerRadius = 10
+                    cellA.background.layer.backgroundColor = #colorLiteral(red: 0.1662740707, green: 0.2231230438, blue: 0.3549886644, alpha: 1)
+                    cellA.role.text = arrDataLoungeMember[indexPath.row].role
+                    cellA.profilePic.profileimageURL(urlKey: arrDataLoungeMember[indexPath.row].imageProfile)
+                    cellA.profilePic.imageRank.image = UIImage(named: arrDataLoungeMember[indexPath.row].rank)
+                    
+                    for _ in 0..<dataMember1.count{
+                        arrDataLoungeMember = dataMember1
+                    }
+                    
+                    let memberKe = dataLounge[0].idMemberLounge.firstIndex(of: arrDataLoungeMember[indexPath.row].idMember)!
+                    if dataLounge[0].idMemberLounge.contains(arrDataLoungeMember[indexPath.row].idMember){
+                    }
+                    
+                    cellA.idLounge = idLounge
+                    cellA.idMember = ("\(memberKe + 1)")
+                    cellA.indx = indexPath
+                    cellA.delegate = self
+                    
+                    return cellA
         }else{
-            let cellB = collectionView.dequeueReusableCell(withReuseIdentifier: "cellContoh", for: indexPath) as! RequirementExploreLoungeCollectionViewCell
-            cellB.layer.cornerRadius = 10
-            cellB.layer.borderColor = #colorLiteral(red: 0.9960784314, green: 0.5882352941, blue: 0.4666666667, alpha: 1)
-            cellB.layer.borderWidth = 2
-            cellB.requirementExploreLoungeCellView.layer.backgroundColor = #colorLiteral(red: 0.1682771742, green: 0.2152610421, blue: 0.3345189095, alpha: 1)
-        
+            let cellRequirement = collectionView.dequeueReusableCell(withReuseIdentifier: "cellContoh", for: indexPath) as! RequirementExploreLoungeCollectionViewCell
+            cellRequirement.configureCell()
             var arrRole: [Bool] = []
             var dataReq: [String] = []
-            
             if dataLounge.count != 0 {
                 arrRole = dataLounge[0].idRequirementsLounge
                 
@@ -519,9 +507,9 @@ extension DetailLoungeViewController: UICollectionViewDataSource, UICollectionVi
                 if arrRole[2] == true{ dataReq.append("Support") }
                 if arrRole[3] == true{ dataReq.append("Offensive") }
                 
-                cellB.requirementExploreLoungeCellLabel.text = dataReq[indexPath.row]
+                cellRequirement .requirementExploreLoungeCellLabel.text = dataReq[indexPath.row]
             }
-            return cellB
+            return cellRequirement
         }
     }
     

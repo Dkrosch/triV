@@ -19,6 +19,8 @@ class EmptyExploreLoungeCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        viewBackground.layer.borderColor = #colorLiteral(red: 0.9866532683, green: 0.5863298774, blue: 0.4647909403, alpha: 1)
+        viewBackground.layer.borderWidth = 1
         
     }
 }

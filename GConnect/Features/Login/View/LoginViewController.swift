@@ -70,7 +70,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             }
             
             let updateText = currectText.replacingCharacters(in: stringRange, with: string)
-            return updateText.count < 17
+            return updateText.count < 20
         }
     }
     

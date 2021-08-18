@@ -25,16 +25,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     var imageView = UIImageView()
     var image = UIImage(named: "Upload_icon.svg")
     var signUpSuccess: Bool = false
+    var defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.txtFieldUsername.addBottomBorder()
-        self.txtFieldEmail.addBottomBorder()
-        self.txtFieldBirthday.addBottomBorder()
-        self.txtFieldPassword.addBottomBorder()
-        self.txtFieldConPassword.addBottomBorder()
-        self.hideKeyboardWhenTappedAround()
         
         pickerView.delegate = self
         pickerView.dataSource = self
@@ -58,6 +52,15 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewDidLayoutSubviews() {
+        self.txtFieldUsername.addBottomBorder()
+        self.txtFieldEmail.addBottomBorder()
+        self.txtFieldBirthday.addBottomBorder()
+        self.txtFieldPassword.addBottomBorder()
+        self.txtFieldConPassword.addBottomBorder()
+        self.hideKeyboardWhenTappedAround()
     }
     
     @IBAction func btnSignUpTapped(_ sender: Any) {

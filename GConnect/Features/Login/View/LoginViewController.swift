@@ -30,19 +30,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.usernameField.addBottomBorder()
-        self.passwordField.addBottomBorder()
-        
         wrongLabel.isHidden = true
         
         loginBtn.layer.cornerRadius = 10
-        
+
         usernameField.delegate = self
         passwordField.delegate = self
-        
-        //logo rounded
-        logoImage.layer.cornerRadius = logoImage.frame.height/2
-        logoImage.clipsToBounds = true
         
         self.hideKeyboardWhenTappedAround()
         self.navigationController?.isNavigationBarHidden = true
@@ -50,6 +43,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         if defaults.bool(forKey: "isUserSignedIn"){
             self.performSegue(withIdentifier: "LoginToExploreLounge", sender: self)
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        logoImage.layer.cornerRadius = logoImage.frame.height/2
+        self.usernameField.addBottomBorder()
+        self.passwordField.addBottomBorder()
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

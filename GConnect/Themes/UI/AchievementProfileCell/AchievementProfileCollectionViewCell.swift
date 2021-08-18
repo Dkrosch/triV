@@ -19,5 +19,17 @@ class AchievementProfileCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         
     }
-
+    
+    func dataAchivement(achivement: Achivement){
+        titleLabelAchievement.text = achivement.title
+        descriptionLabelAchievement.text = achivement.desc
+        if let url = URL(string: achivement.image){
+            do{
+                let data = try Data(contentsOf: url)
+                imageViewAchievement.image = UIImage(data: data)
+            } catch{
+                print("error")
+            }
+        }
+    }
 }

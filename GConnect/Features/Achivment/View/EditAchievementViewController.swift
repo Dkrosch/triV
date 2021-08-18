@@ -80,41 +80,27 @@ class EditAchievementViewController: UIViewController, UITextFieldDelegate, UITe
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        // get the current text, or use an empty string if that failed
         let currentText = textView.text ?? ""
-        
-        // attempt to read the range they are trying to change, or exit if we can't
         guard let stringRange = Range(range, in: currentText) else { return false }
-        
-        // add their new text to the existing text
         let updatedText = currentText.replacingCharacters(in: stringRange, with: text)
-        
-        // make sure the result is under 16 characters
         return updatedText.count <= 150
     }
     
     @IBAction func deleteButton(_ sender: Any) {
-        // create the alert
         let alert = UIAlertController(title: "Are you sure?", message: "Do your really want to delete this achievement? This process cannot be undone.", preferredStyle: UIAlertController.Style.alert)
-        
-        // add the actions (buttons)
         alert.addAction(UIAlertAction(title: "Delete", style: UIAlertAction.Style.destructive, handler: { action in
             self.deleteDataAchievement()
             self.navigationController?.popViewController(animated: true)
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
-        
-        // show the alert
         self.present(alert, animated: true, completion: nil)
     }
     
     @IBAction func btnEditImageTapped(_ sender: Any) {
         let image = UIImagePickerController()
         image.delegate = self
-        
         image.sourceType = UIImagePickerController.SourceType.photoLibrary
         image.allowsEditing = false
-        
         self.present(image, animated: true){
         }
     }
@@ -126,5 +112,11 @@ class EditAchievementViewController: UIViewController, UITextFieldDelegate, UITe
             print("error")
         }
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func configureCell(dataAchievement: Achivement){
+        desc = dataAchievement.desc
+        titleAchievement = dataAchievement.title
+        uid = dataAchievement.data
     }
 }

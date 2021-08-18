@@ -19,7 +19,15 @@ class GamesCollectionViewCell: UICollectionViewCell {
         
     }
     
-    func changeSelectedGames(){
-        
+    func configureCellAvailabel(games: Games){
+        lblGameName.text = games.gameName
+        imgGame.image = games.gameImage.getImage()
+        viewBackground.layer.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+    }
+    
+    func configureCell(){
+        isUserInteractionEnabled = false
+        viewDisabled.layer.cornerRadius = 10
+        viewDisabled.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.6916429128)
     }
 }

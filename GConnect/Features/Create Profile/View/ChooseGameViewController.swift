@@ -15,7 +15,6 @@ class ChooseGameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.collectionViewLayout = UICollectionViewFlowLayout()

@@ -68,4 +68,6 @@ class CreateLoungeViewModel{
             valid(idLounge)
         }
     }
+    
+    
 }

@@ -42,7 +42,6 @@ class DetailLoungeCollectionViewCell: UICollectionViewCell {
     @IBAction func kickTapped(_ sender: Any) {
 
         delegate?.tapped(indexMember: idMember!, id: idLounge!, index: indx!.row)
-
             let db = Firestore.firestore()
             db.collection("LoungeDetail").document(idLounge!).updateData(["idMemberLounge.Member\(idMember!)": ""]){ (error) in
                 if error != nil {

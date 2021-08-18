@@ -29,7 +29,7 @@ class FilterLoungeViewController: UIViewController {
     let pickerView1 = UIPickerView()
     let pickerView2 = UIPickerView()
     
-    var games = Games.getData()
+    var games = [Games]()
     var createloungeVC = CreateLoungeVC()
     
     var statusValo = 1
@@ -38,41 +38,9 @@ class FilterLoungeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        btnSentinel.layer.cornerRadius = 10
-        btnInitiator.layer.cornerRadius = 10
-        btnController.layer.cornerRadius = 10
-        btnDuelist.layer.cornerRadius = 10
-        txtFieldRank.layer.cornerRadius = 10
-        txtFieldGender.layer.cornerRadius = 10
-        btnSetFilter.layer.cornerRadius = 10
-        btnRemoveFilter.layer.cornerRadius = 10
-        
-        btnRemoveFilter.layer.borderWidth = 1
-        btnRemoveFilter.layer.borderColor = #colorLiteral(red: 1, green: 0.537874639, blue: 0.4000282884, alpha: 1)
-        
-        gamesCollectionView.delegate = self
-        gamesCollectionView.dataSource = self
-        
-        pickerView1.dataSource = self
-        pickerView1.delegate = self
-        pickerView1.tag = 1
-        
-        pickerView2.dataSource = self
-        pickerView2.delegate = self
-        pickerView2.tag = 2
-        
-        txtFieldRank.inputView = pickerView1
-        txtFieldRank.setLeftPaddingPoints(10)
-        
-        txtFieldGender.inputView = pickerView2
-        txtFieldGender.setLeftPaddingPoints(10)
-        
-        errorMessage.isHidden = true
-        
+        viewConfigure()
         let nibCell = UINib(nibName: "GamesCollectionViewCell", bundle: nil)
         gamesCollectionView.register(nibCell, forCellWithReuseIdentifier: "GamesCellId")
-        
         self.hideKeyboardWhenTappedAround()
     }
     
@@ -83,41 +51,7 @@ class FilterLoungeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
         self.navigationItem.title = "Set Filter"
-        
-        if let savedFilter = UserDefaults.standard.object(forKey: "filterLounge") as? Data{
-            let decoder = JSONDecoder()
-            if let loadedFilter = try? decoder.decode(FilterLounge.self, from: savedFilter){
-                filter = loadedFilter
-            }
-        }
-        
-        if filter?.statusFilter == true{
-            btnRemoveFilter.isHidden = false
-        }else{
-            btnRemoveFilter.isHidden = true
-        }
-        
-        arrayStatusRole = filter!.arrayRole
-        
-        let controller = filter!.arrayRole[0]
-        let duelist = filter!.arrayRole[1]
-        let initiator = filter!.arrayRole[2]
-        let sentinel = filter!.arrayRole[3]
-        
-        if controller == true {
-            self.setButtonRole(sender: btnController)
-        }
-        if duelist == true{
-            self.setButtonRole(sender: btnDuelist)
-        }
-        if initiator == true{
-            self.setButtonRole(sender: btnInitiator)
-        }
-        if sentinel == true{
-            self.setButtonRole(sender: btnSentinel)
-        }
-        txtFieldRank.text = filter?.rank
-        txtFieldGender.text = filter?.gender
+        storeFilter()
     }
     
     func setButtonRole(sender: UIButton){
@@ -150,33 +84,11 @@ class FilterLoungeViewController: UIViewController {
     }
     
     @IBAction func btnSetFilterTapped(_ sender: Any) {
-        if arrayStatusRole == [false, false, false, false]{
-            showErrorMessage(msg: "Choose minimal 1 role")
-        }else if txtFieldRank.text == "" || txtFieldGender.text == ""{
-            showErrorMessage(msg: "Fill all data")
-        }else{
-            let dataFilter = FilterLounge(statusFilter: true, game: "Apex Legends", role: arrayStatusRole, rank: txtFieldRank.text!, gender: txtFieldGender.text!)
-            let encoder = JSONEncoder()
-            if let filter = try? encoder.encode(dataFilter){
-                UserDefaults.standard.set(filter, forKey: "filterLounge")
-            }
-            self.navigationController?.popViewController(animated: true)
-        }
+        setFilter()
     }
     
     @IBAction func btnRemoveFilterTapped(_ sender: Any) {
-        let dataFilter = FilterLounge(statusFilter: false, game: "Apex Legends", role: [true, true, true, true], rank: "Iron", gender: "All")
-        let encoder = JSONEncoder()
-        if let filter = try? encoder.encode(dataFilter){
-            UserDefaults.standard.set(filter, forKey: "filterLounge")
-        }
-        self.navigationController?.popViewController(animated: true)
-    }
-    
-    func showErrorMessage(msg: String){
-        errorMessage.isHidden = false
-        errorMessage.text = msg
-        Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector (self.hideWrongLabel), userInfo: nil, repeats: false)
+        removeFilter()
     }
     
     @objc func hideWrongLabel(){
@@ -200,22 +112,15 @@ extension FilterLoungeViewController: UICollectionViewDelegate, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GamesCellId", for: indexPath) as! GamesCollectionViewCell
-        cell.lblGameName.text = games[indexPath.row].gameName
-        cell.imgGame.image = games[indexPath.row].gameImage.getImage()
-        cell.viewBackground.layer.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        
+        cell.configureCellAvailabel(games: games[indexPath.row])
         if indexPath.row != 0 {
-            cell.isUserInteractionEnabled = false
-            cell.viewDisabled.layer.cornerRadius = 10
-            cell.viewDisabled.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.6916429128)
+            cell.configureCell()
         }
-        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedGames = games[indexPath.row].gameName
-        
         let cell = collectionView.cellForItem(at: indexPath) as! GamesCollectionViewCell
         cell.viewBackground.layer.borderColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
         cell.viewBackground.layer.borderWidth = 5

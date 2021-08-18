@@ -141,7 +141,7 @@
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="24"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="6ll-S0-h3F" kind="show" id="E9N-Os-uwE"/>
+                                                    <action selector="addAchivementTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="bUp-SY-pww"/>
                                                 </connections>
                                             </button>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="N0p-sz-WNP">

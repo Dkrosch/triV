@@ -12,40 +12,31 @@ import FirebaseAuth
 class CreateLoungeVC: UIViewController {
 
     @IBOutlet weak var gamesCollectionView: UICollectionView!
-    
     @IBOutlet weak var ChooseRoleLabel: UILabel!
     @IBOutlet weak var ErrorMessageLabel: UILabel!
-    
     @IBOutlet weak var btnSentinel: UIButton!
     @IBOutlet weak var btnInitiator: UIButton!
     @IBOutlet weak var btnController: UIButton!
     @IBOutlet weak var btnDuelist: UIButton!
-    
     @IBOutlet weak var DescriptionTextbox: UITextView!
-    
     @IBOutlet weak var txtFieldRanked: UITextField!
     @IBOutlet weak var txtFieldGender: UITextField!
     @IBOutlet weak var txtLoungeTitle: UITextField!
-    
     @IBOutlet weak var CreateButton: UIButton!
     
     let arrayDataRank = ["Iron", "Bronze", "Silver", "Gold", "Platinum", "Diamond", "APEX Predator"]
     let arrayGender = ["♂️Male", "♀ Female", "All"]
-    
     let pickerView1 = UIPickerView()
     let pickerView2 = UIPickerView()
-    
     var selectedRole: [Bool] = [false, false, false, false]
     var statusSentinel = false
     var statusInitiator = false
     var statusController = false
     var statusDuelist = false
-    
     var createLoungeVM = CreateLoungeViewModel()
-    var games = Games.getData()
+    var games = [Games]()
     var selectedGame = ""
     var arrSelectedGame = [false, false, false]
-    
     let gamesCellId = "GamesCellId"
     var statusValo = 0
     
@@ -223,16 +214,11 @@ extension CreateLoungeVC: UICollectionViewDelegate, UICollectionViewDataSource, 
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: gamesCellId, for: indexPath) as! GamesCollectionViewCell
-        cell.lblGameName.text = games[indexPath.row].gameName
-        cell.imgGame.image = games[indexPath.row].gameImage.getImage()
-        cell.viewBackground.layer.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        cell.configureCellAvailabel(games: games[indexPath.row])
         
         if indexPath.row != 0 {
-            cell.isUserInteractionEnabled = false
-            cell.viewDisabled.layer.cornerRadius = 10
-            cell.viewDisabled.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.6916429128)
+            cell.configureCell()
         }
-        
         return cell
     }
     

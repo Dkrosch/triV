@@ -143,6 +143,16 @@
             </objects>
             <point key="canvasLocation" x="-6.1538461538461533" y="107.34597156398104"/>
         </scene>
+        <!--ExplorePeople-->
+        <scene sceneID="DK0-8K-S9D">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ExplorePeople" id="wvu-Qv-PZI" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="VjE-I7-NNd"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VQl-Bn-SvZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1345" y="573"/>
+        </scene>
         <!--ChatList-->
         <scene sceneID="aq9-bX-Vmw">
             <objects>
@@ -197,13 +207,14 @@
                     </tabBar>
                     <connections>
                         <segue destination="Y6W-OH-hqX" kind="relationship" relationship="viewControllers" id="3mf-a1-uUF"/>
-                        <segue destination="rMj-Q7-98t" kind="relationship" relationship="viewControllers" id="Tu0-ob-yhs"/>
-                        <segue destination="hoq-es-tS3" kind="relationship" relationship="viewControllers" id="7bQ-rm-K0N"/>
+                        <segue destination="wvu-Qv-PZI" kind="relationship" relationship="viewControllers" id="Czw-do-lGY"/>
+                        <segue destination="rMj-Q7-98t" kind="relationship" relationship="viewControllers" id="WGW-jy-VKp"/>
+                        <segue destination="hoq-es-tS3" kind="relationship" relationship="viewControllers" id="nlw-FZ-syd"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5i5-8q-ash" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-997" y="107"/>
+            <point key="canvasLocation" x="-1026" y="114"/>
         </scene>
     </scenes>
     <resources>

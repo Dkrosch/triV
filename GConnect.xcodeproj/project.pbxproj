@@ -30,6 +30,8 @@
 		8405A60026B155E4009D1375 /* CheckEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8405A5FF26B155E4009D1375 /* CheckEmail.swift */; };
 		8405A60226B155FD009D1375 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8405A60126B155FD009D1375 /* PageControl.swift */; };
 		8434498826B8400F00F66A2B /* DataUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8434498726B8400F00F66A2B /* DataUser.swift */; };
+		846D97A426CD15E500546A27 /* ExplorePeople.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846D97A326CD15E500546A27 /* ExplorePeople.storyboard */; };
+		846D97A626CD18B000546A27 /* ExplorePeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846D97A526CD18B000546A27 /* ExplorePeopleViewController.swift */; };
 		8476092B26C97D0A006B9878 /* AchivementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476092A26C97D0A006B9878 /* AchivementViewModel.swift */; };
 		8476093026CA45F7006B9878 /* Datas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476092F26CA45F7006B9878 /* Datas.swift */; };
 		8476093326CA55C9006B9878 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8476093226CA55C9006B9878 /* ViewModel.swift */; };
@@ -139,6 +141,8 @@
 		8405A5FF26B155E4009D1375 /* CheckEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckEmail.swift; sourceTree = "<group>"; };
 		8405A60126B155FD009D1375 /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
 		8434498726B8400F00F66A2B /* DataUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUser.swift; sourceTree = "<group>"; };
+		846D97A326CD15E500546A27 /* ExplorePeople.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ExplorePeople.storyboard; sourceTree = "<group>"; };
+		846D97A526CD18B000546A27 /* ExplorePeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorePeopleViewController.swift; sourceTree = "<group>"; };
 		8476092A26C97D0A006B9878 /* AchivementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchivementViewModel.swift; sourceTree = "<group>"; };
 		8476092F26CA45F7006B9878 /* Datas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Datas.swift; sourceTree = "<group>"; };
 		8476093226CA55C9006B9878 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
@@ -386,6 +390,23 @@
 				7CB18F6826BD94130065D1CC /* LoadingViewController.swift */,
 			);
 			path = LodingPage;
+			sourceTree = "<group>";
+		};
+		846D97A126CD15AD00546A27 /* Explore People */ = {
+			isa = PBXGroup;
+			children = (
+				846D97A226CD15D600546A27 /* View */,
+			);
+			path = "Explore People";
+			sourceTree = "<group>";
+		};
+		846D97A226CD15D600546A27 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				846D97A326CD15E500546A27 /* ExplorePeople.storyboard */,
+				846D97A526CD18B000546A27 /* ExplorePeopleViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		8476092926C97CEC006B9878 /* ViewModel */ = {
@@ -754,6 +775,7 @@
 		E04E0FF426B0059800A81F92 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				846D97A126CD15AD00546A27 /* Explore People */,
 				7C9ECE3B26BE64E800DBA826 /* ChatList */,
 				8447AE0926BD519B005AB338 /* LodingPage */,
 				E08F234626BCF69200D7E0BA /* Chat Lounge */,
@@ -982,6 +1004,7 @@
 				A80E61DE26B3DD01005FF4B6 /* ProfileVisitor.storyboard in Resources */,
 				E01EE1E626B818210065F668 /* DetailLoungeCollectionViewCell.xib in Resources */,
 				E04E0FEA26B0058500A81F92 /* Assets.xcassets in Resources */,
+				846D97A426CD15E500546A27 /* ExplorePeople.storyboard in Resources */,
 				E04E101126B019D900A81F92 /* Login.storyboard in Resources */,
 				E081880E26BFD8CA00A68633 /* EmptyExploreLoungeCollectionViewCell.xib in Resources */,
 				BFCE10D126B2B4EF00C206B5 /* ProfileUser.storyboard in Resources */,
@@ -1052,6 +1075,7 @@
 				8405A60026B155E4009D1375 /* CheckEmail.swift in Sources */,
 				E06AA42C26B7CE4D00357B01 /* FilterLoungeViewController.swift in Sources */,
 				E04E100C26B00A1D00A81F92 /* LoginViewController.swift in Sources */,
+				846D97A626CD18B000546A27 /* ExplorePeopleViewController.swift in Sources */,
 				84D9369826B2908F00E29F12 /* CreateLoungeVC.swift in Sources */,
 				E08F235326BCFBF400D7E0BA /* ChatUser.swift in Sources */,
 				E081880926BFC2A700A68633 /* LoadViewFromNib.swift in Sources */,

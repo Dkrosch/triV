@@ -12,9 +12,19 @@ import FirebaseStorage
 
 protocol AddAchievementTapped {
     func addAchievement(isTapped: Bool)
+    func deleteAchievement(isDelete: Bool)
 }
 
 extension ProfileUserViewController: AddAchievementTapped{
+    func deleteAchievement(isDelete: Bool) {
+        statusDelete = isDelete
+        if isDelete == true{
+            achievementCollectionViewConstraintHeight.constant -= 148
+            viewContentHeightConstraint.constant -= 148
+            achievementCollectionView.reloadData()
+        }
+    }
+    
     func addAchievement(isTapped: Bool) {
         statusTapped = isTapped
         if statusTapped == true {
@@ -79,6 +89,7 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
     var idMemberVisitor = ""
     var imageProfileSelected: UIImage? = nil
     var statusTapped = false
+    var statusDelete = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -159,6 +170,7 @@ extension ProfileUserViewController: UICollectionViewDelegate{
         let achievementEdit = UIStoryboard(name: "Edit Achievement", bundle: nil)
         let vc = achievementEdit.instantiateViewController(identifier: "editAchievement") as! EditAchievementViewController
         vc.configureCell(dataAchievement: dataachivement[indexPath.row])
+        vc.delegate = self
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

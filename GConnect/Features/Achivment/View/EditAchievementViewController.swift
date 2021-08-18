@@ -25,6 +25,8 @@ class EditAchievementViewController: UIViewController, UITextFieldDelegate, UITe
     var titleAchievement: String?
     var desc: String?
     var uid: String?
+    var delegate: AddAchievementTapped?
+    var status = false
     
     
     override func viewDidLoad() {
@@ -69,6 +71,8 @@ class EditAchievementViewController: UIViewController, UITextFieldDelegate, UITe
             }
             
         }
+        status = true
+        delegate?.deleteAchievement(isDelete: status)
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

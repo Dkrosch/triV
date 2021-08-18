@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -17,9 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bHX-F2-4dD">
-                                <rect key="frame" x="16" y="132" width="358" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bHX-F2-4dD">
+                                <rect key="frame" x="20" y="132" width="350" height="32"/>
                                 <color key="backgroundColor" red="0.74911862610000002" green="0.75673276190000005" blue="0.76470750570000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <segments>
                                     <segment title="Lounge Chat"/>
@@ -28,9 +27,8 @@
                                 <color key="tintColor" red="0.07685018331" green="0.13453343509999999" blue="0.27452626819999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="selectedSegmentTintColor" name="Vivid Tangerine"/>
                             </segmentedControl>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sKl-HD-Qn9">
-                                <rect key="frame" x="8" y="190" width="375" height="539"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sKl-HD-Qn9">
+                                <rect key="frame" x="8" y="190" width="374" height="539"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="g6K-tq-hcU">
                                     <size key="itemSize" width="375" height="120"/>
@@ -40,7 +38,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellLoungeChat" id="xFV-CR-R4k">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+                                        <rect key="frame" x="-0.66666666666666663" y="0.0" width="375" height="120"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="MYr-9f-Lv9">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
@@ -49,25 +47,37 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Chats" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vlc-GF-7nF">
-                                <rect key="frame" x="16" y="72" width="70" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
-                                <color key="textColor" name="White Smoke"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lAA-P8-lKc" userLabel="NotificationButton">
-                                <rect key="frame" x="322" y="64" width="52" height="53"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lAA-P8-lKc" userLabel="NotificationButton">
+                                <rect key="frame" x="318" y="64" width="52" height="53"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                 <color key="tintColor" red="0.99607843139999996" green="0.58823529409999997" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" image="bell.circle.fill" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="44"/>
                                 </state>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chats" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vlc-GF-7nF">
+                                <rect key="frame" x="23" y="75" width="70" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <color key="textColor" name="White Smoke"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" red="0.1121604368" green="0.16948282719999999" blue="0.32943078879999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="sKl-HD-Qn9" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="7TB-XA-Fz0"/>
+                            <constraint firstItem="Vlc-GF-7nF" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="23" id="AZJ-YL-Fka"/>
+                            <constraint firstItem="bHX-F2-4dD" firstAttribute="top" secondItem="Vlc-GF-7nF" secondAttribute="bottom" constant="27" id="CSc-hR-n9q"/>
+                            <constraint firstItem="sKl-HD-Qn9" firstAttribute="centerX" secondItem="bHX-F2-4dD" secondAttribute="centerX" id="Dca-9G-SdX"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="lAA-P8-lKc" secondAttribute="trailing" constant="20" id="JXZ-Nb-Sbz"/>
+                            <constraint firstItem="sKl-HD-Qn9" firstAttribute="top" secondItem="bHX-F2-4dD" secondAttribute="bottom" constant="27" id="LGV-O2-1ob"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="sKl-HD-Qn9" secondAttribute="bottom" constant="32" id="TOj-Ui-gCf"/>
+                            <constraint firstItem="bHX-F2-4dD" firstAttribute="top" secondItem="lAA-P8-lKc" secondAttribute="bottom" constant="15" id="cMK-Ln-2fo"/>
+                            <constraint firstItem="lAA-P8-lKc" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="hmg-EL-oD1"/>
+                            <constraint firstItem="bHX-F2-4dD" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="lhQ-yd-97p"/>
+                            <constraint firstItem="Vlc-GF-7nF" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="31" id="rEj-zi-N05"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="bHX-F2-4dD" secondAttribute="trailing" constant="20" id="zVG-Nl-msa"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Chat" image="Chat_icon" id="5Xh-uz-0DW"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>

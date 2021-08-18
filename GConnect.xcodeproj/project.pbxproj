@@ -96,6 +96,7 @@
 		E09D67C826BE8F4400270C19 /* ListChatLoungeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09D67C626BE8F4400270C19 /* ListChatLoungeCollectionViewCell.swift */; };
 		E09D67C926BE8F4400270C19 /* ListChatLoungeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E09D67C726BE8F4400270C19 /* ListChatLoungeCollectionViewCell.xib */; };
 		E09D67CB26BE920A00270C19 /* ChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09D67CA26BE920A00270C19 /* ChatListViewModel.swift */; };
+		E0E51A2826CCE4E30084C22E /* SetRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E51A2726CCE4E30084C22E /* SetRounded.swift */; };
 		E8024AFC26B91E0A004674F3 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8024AFB26B91E0A004674F3 /* NetworkService.swift */; };
 		E8024AFF26B91F26004674F3 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8024AFE26B91F26004674F3 /* Route.swift */; };
 		E8024B0226B91FCC004674F3 /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8024B0126B91FCC004674F3 /* Method.swift */; };
@@ -200,6 +201,7 @@
 		E09D67C626BE8F4400270C19 /* ListChatLoungeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChatLoungeCollectionViewCell.swift; sourceTree = "<group>"; };
 		E09D67C726BE8F4400270C19 /* ListChatLoungeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListChatLoungeCollectionViewCell.xib; sourceTree = "<group>"; };
 		E09D67CA26BE920A00270C19 /* ChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewModel.swift; sourceTree = "<group>"; };
+		E0E51A2726CCE4E30084C22E /* SetRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetRounded.swift; sourceTree = "<group>"; };
 		E8024AFB26B91E0A004674F3 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkService.swift; path = GConnect/Helper/Networking/NetworkService.swift; sourceTree = SOURCE_ROOT; };
 		E8024AFE26B91F26004674F3 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Route.swift; path = GConnect/Helper/Networking/Route.swift; sourceTree = SOURCE_ROOT; };
 		E8024B0126B91FCC004674F3 /* Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Method.swift; path = GConnect/Helper/Networking/Method.swift; sourceTree = SOURCE_ROOT; };
@@ -349,6 +351,7 @@
 				BF72D14A26B7DE6300F8DA6D /* ChangeBgStackView.swift */,
 				E081880226BF9FDE00A68633 /* ReplaceCurrentViewController.swift */,
 				E081880826BFC2A700A68633 /* LoadViewFromNib.swift */,
+				E0E51A2726CCE4E30084C22E /* SetRounded.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -1026,6 +1029,7 @@
 				7CB18F6526BD93EB0065D1CC /* Struct API.swift in Sources */,
 				8405A5FC26B155D8009D1375 /* PaddingTextField.swift in Sources */,
 				E08F234F26BCFB9E00D7E0BA /* ChatLoungeViewController.swift in Sources */,
+				E0E51A2826CCE4E30084C22E /* SetRounded.swift in Sources */,
 				84D9367526B2839A00E29F12 /* RequirementExploreLoungeCollectionViewCell.swift in Sources */,
 				BF72D14426B401AC00F8DA6D /* AchievementProfileCollectionViewCell.swift in Sources */,
 				BF72D14B26B7DE6300F8DA6D /* ChangeBgStackView.swift in Sources */,

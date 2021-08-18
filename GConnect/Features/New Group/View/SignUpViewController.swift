@@ -25,16 +25,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     var imageView = UIImageView()
     var image = UIImage(named: "Upload_icon.svg")
     var signUpSuccess: Bool = false
+    var defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.txtFieldUsername.addBottomBorder()
-        self.txtFieldEmail.addBottomBorder()
-        self.txtFieldBirthday.addBottomBorder()
-        self.txtFieldPassword.addBottomBorder()
-        self.txtFieldConPassword.addBottomBorder()
-        self.hideKeyboardWhenTappedAround()
         
         pickerView.delegate = self
         pickerView.dataSource = self
@@ -60,6 +54,15 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         self.navigationController?.isNavigationBarHidden = true
     }
     
+    override func viewDidLayoutSubviews() {
+        self.txtFieldUsername.addBottomBorder()
+        self.txtFieldEmail.addBottomBorder()
+        self.txtFieldBirthday.addBottomBorder()
+        self.txtFieldPassword.addBottomBorder()
+        self.txtFieldConPassword.addBottomBorder()
+        self.hideKeyboardWhenTappedAround()
+    }
+    
     @IBAction func btnSignUpTapped(_ sender: Any) {
         if (txtFieldUsername.text == ""  || txtFieldGender.text == "" || txtFieldEmail.text == "" || txtFieldBirthday.text == "" || txtFieldPassword.text == "" || txtFieldConPassword.text == ""){
             alert(msg: "You need to fill all field")
@@ -72,6 +75,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         }else{
             StoreDataAuth.CreateData(username: txtFieldUsername.text!, email: txtFieldEmail.text!, DoB: txtFieldBirthday.text!, password: txtFieldPassword.text!, gender: txtFieldGender.text!) { status in
                 if status {
+                    self.defaults.set(true, forKey: "isUserSignedIn")
+                    self.defaults.synchronize()
                     self.performSegue(withIdentifier: "CreateProfile", sender: self)
                 }else if status == false{
                     self.alert(msg: "Email has been registered")

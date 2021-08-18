@@ -75,8 +75,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         }else{
             StoreDataAuth.CreateData(username: txtFieldUsername.text!, email: txtFieldEmail.text!, DoB: txtFieldBirthday.text!, password: txtFieldPassword.text!, gender: txtFieldGender.text!) { status in
                 if status {
-                    self.defaults.set(true, forKey: "isUserSignedIn")
-                    self.defaults.synchronize()
                     self.performSegue(withIdentifier: "CreateProfile", sender: self)
                 }else if status == false{
                     self.alert(msg: "Email has been registered")

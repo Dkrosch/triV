@@ -16,8 +16,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "20"
             endingLineNumber = "20"
-            landmarkName = "ProfileUserViewController"
-            landmarkType = "3">
+            landmarkName = "deleteAchievement(isDelete:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   uuid = "ECCAC265-4E0E-4374-8E89-9EE6153880D9 - 402e976e5d13c89b"
@@ -124,7 +124,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "310"
             endingLineNumber = "310"
-            landmarkName = "btnDoneTapped()"
+            landmarkName = "btnControllerTapped(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

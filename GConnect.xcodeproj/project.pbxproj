@@ -67,6 +67,8 @@
 		BF72D14B26B7DE6300F8DA6D /* ChangeBgStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF72D14A26B7DE6300F8DA6D /* ChangeBgStackView.swift */; };
 		BFCE10CF26B2B4BD00C206B5 /* ProfileUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFCE10CE26B2B4BD00C206B5 /* ProfileUserViewController.swift */; };
 		BFCE10D126B2B4EF00C206B5 /* ProfileUser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFCE10D026B2B4EF00C206B5 /* ProfileUser.storyboard */; };
+		BFE80C0426CE56DC00FFC9DE /* DataPeople.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE80C0326CE56DC00FFC9DE /* DataPeople.swift */; };
+		BFE80C0626CE5D4C00FFC9DE /* DataModelPeople.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE80C0526CE5D4C00FFC9DE /* DataModelPeople.swift */; };
 		E001319626B51EDB00A315EB /* GamesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E001319426B51EDB00A315EB /* GamesCollectionViewCell.swift */; };
 		E001319726B51EDB00A315EB /* GamesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E001319526B51EDB00A315EB /* GamesCollectionViewCell.xib */; };
 		E001319B26B533BB00A315EB /* Games.swift in Sources */ = {isa = PBXBuildFile; fileRef = E001319A26B533BB00A315EB /* Games.swift */; };
@@ -182,6 +184,8 @@
 		BF72D14A26B7DE6300F8DA6D /* ChangeBgStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeBgStackView.swift; sourceTree = "<group>"; };
 		BFCE10CE26B2B4BD00C206B5 /* ProfileUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileUserViewController.swift; path = "GConnect/Features/Profile User/View Model/ProfileUserViewController.swift"; sourceTree = SOURCE_ROOT; };
 		BFCE10D026B2B4EF00C206B5 /* ProfileUser.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileUser.storyboard; sourceTree = "<group>"; };
+		BFE80C0326CE56DC00FFC9DE /* DataPeople.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPeople.swift; sourceTree = "<group>"; };
+		BFE80C0526CE5D4C00FFC9DE /* DataModelPeople.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModelPeople.swift; sourceTree = "<group>"; };
 		C092DB4CBC1EC1413549CEB6 /* Pods-GConnect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GConnect.release.xcconfig"; path = "Target Support Files/Pods-GConnect/Pods-GConnect.release.xcconfig"; sourceTree = "<group>"; };
 		E001319426B51EDB00A315EB /* GamesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesCollectionViewCell.swift; sourceTree = "<group>"; };
 		E001319526B51EDB00A315EB /* GamesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GamesCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -404,6 +408,8 @@
 		846D97A126CD15AD00546A27 /* Explore People */ = {
 			isa = PBXGroup;
 			children = (
+				BFE80C0226CE56AC00FFC9DE /* Model */,
+				BFE80C0126CE56A400FFC9DE /* ViewModel */,
 				846D97A226CD15D600546A27 /* View */,
 			);
 			path = "Explore People";
@@ -720,6 +726,22 @@
 				8476093826CCD1FC006B9878 /* ConfigureView.swift */,
 			);
 			path = "View Model";
+			sourceTree = "<group>";
+		};
+		BFE80C0126CE56A400FFC9DE /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BFE80C0326CE56DC00FFC9DE /* DataPeople.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BFE80C0226CE56AC00FFC9DE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BFE80C0526CE5D4C00FFC9DE /* DataModelPeople.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		E001319326B51EAC00A315EB /* GamesCell */ = {
@@ -1158,9 +1180,11 @@
 				84D9368426B285A500E29F12 /* Struct.swift in Sources */,
 				7C75DFCA26B30727002400CA /* LoungeCollectionViewCell.swift in Sources */,
 				84D9368C26B289E500E29F12 /* Game.swift in Sources */,
+				BFE80C0626CE5D4C00FFC9DE /* DataModelPeople.swift in Sources */,
 				7CB18F6326BD93EB0065D1CC /* ViewController.swift in Sources */,
 				E02FC20926B2B07400963710 /* CreateGameDetailViewController.swift in Sources */,
 				8405A5FE26B155D8009D1375 /* BottomLineTextField.swift in Sources */,
+				BFE80C0426CE56DC00FFC9DE /* DataPeople.swift in Sources */,
 				E02FC20726B174FE00963710 /* DatePicker.swift in Sources */,
 				84D9367F26B283EA00E29F12 /* ExploreLoungeViewController.swift in Sources */,
 				7CB18F6626BD93EB0065D1CC /* ApiService.swift in Sources */,

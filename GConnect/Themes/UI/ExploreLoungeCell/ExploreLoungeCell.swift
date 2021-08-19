@@ -95,5 +95,3 @@ class ExploreLoungeCell: UICollectionViewCell, UICollectionViewDelegate, UIColle
         return CGSize(width: 100, height: 32)
     }
 }
-
-//https://stackoverflow.com/questions/17729582/uicollectionview-in-a-uicollectionviewcell

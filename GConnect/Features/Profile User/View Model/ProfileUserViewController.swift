@@ -101,6 +101,7 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         
         achievementCollectionView.delegate = self
         achievementCollectionView.dataSource = self
+        achievementCollectionView.isUserInteractionEnabled = false
         
         usernameTextField.delegate = self
         aboutMeTextField.delegate = self
@@ -182,7 +183,9 @@ extension ProfileUserViewController: UICollectionViewDataSource{
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "achievementCell", for: indexPath) as! AchievementProfileCollectionViewCell
-        cell.dataAchivement(achivement: dataachivement[indexPath.row])
+        DispatchQueue.main.async {
+            cell.dataAchivement(achivement: self.dataachivement[indexPath.row])
+        }
         if self.editButtonDiPencet == true {
             cell.buttonEdit.isHidden = false
         }else{

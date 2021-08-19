@@ -8,10 +8,9 @@
 import Foundation
 import Firebase
 
-class DataPeople{
-    func getData(dataUser: @escaping ([ProfileData]) -> Void){
-        
-        var userProfile = [ProfileData]()
+extension ExplorePeopleUIView{
+    func getData(){
+        userProfile = []
         
         let reference = Firestore.firestore().collection("users")
         
@@ -35,15 +34,15 @@ class DataPeople{
                         let gender = data["gender"] as? String ?? ""
                         
                         let newData = ProfileData(username: username, game: game, gender: gender, rank: rank, role: role, birthday: birthday, imageProfile: imageProfile, desc: about, imageRank: imageRank, gamerUname: gamerUname)
-                        
-                        userProfile.append(newData)
-                        
-                        if userProfile.count != 0 {
-                            dataUser(userProfile)
-                        }
+                        print("ini data image rank: \(imageRank)")
+                        self.userProfile.append(newData)
                     }
+                }
+                DispatchQueue.main.async {
+                    self.userCollectionView.reloadData()
                 }
             }
         }
+        userCollectionView.reloadData()
     }
 }

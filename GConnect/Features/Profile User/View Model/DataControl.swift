@@ -75,7 +75,6 @@ extension ProfileUserViewController{
                 let about = document.get("About") as! String
                 let imageRank = document.get("imageRank") as! String
                 let imageProfile = document.get("imageProfile") as! String
-                self.profileimageURL(urlKey: document.get("imageProfile") as! String)
                 let role = document.get("role") as! String
                 let rank = document.get("rank") as! String
                 let game = document.get("game") as! String
@@ -88,7 +87,9 @@ extension ProfileUserViewController{
                 self.usernameLabelProfileUser.text = username
                 self.aboutMeTextField.text = about
                 self.roleUserLabel.text = role
-
+                DispatchQueue.main.async {
+                    self.profileimageURL(urlKey: imageProfile)
+                }
 
                 if gender == "Male" {
                     self.genderLabel.text = ("♂️\(gender)")
@@ -99,15 +100,17 @@ extension ProfileUserViewController{
                 ApiService.getDatas(url: "https://api.mozambiquehe.re/bridge?version=5&platform=PC&player=\(gamerUname)&auth=i6Xau6J5JvKzMy9J3LXI") { (response, error) in
                     if response != nil {
                         if let responseFromAPI = response {
-                            self.gamerNameLabel.text = responseFromAPI.global?.name!
-                            self.userLevelLabel.text = ("\(responseFromAPI.global!.level!)")
-                            self.legendNameLabel.text = responseFromAPI.legends?.selected?.LegendName!
-                            self.userRankLabel.text = responseFromAPI.global?.rank?.rankName!
-                            self.imageURL(urlKey: (responseFromAPI.legends?.selected?.ImgAssets?.icon!)!)
-                            self.valueStatsLabel1.text = ("\(responseFromAPI.total?.damage?.value ?? 0)")
-                            self.valueStatsLabel2.text = ("\(responseFromAPI.total?.kills?.value ?? 0)")
-                            self.valueStatsLabel3.text = ("\(responseFromAPI.total?.headshots?.value ?? 0)")
-                            self.rankIconImage.image = UIImage(named: (responseFromAPI.global?.rank?.rankName!)!)
+                            DispatchQueue.main.async {
+                                self.gamerNameLabel.text = responseFromAPI.global?.name!
+                                self.userLevelLabel.text = ("\(responseFromAPI.global!.level!)")
+                                self.legendNameLabel.text = responseFromAPI.legends?.selected?.LegendName!
+                                self.userRankLabel.text = responseFromAPI.global?.rank?.rankName!
+                                self.imageURL(urlKey: (responseFromAPI.legends?.selected?.ImgAssets?.icon!)!)
+                                self.valueStatsLabel1.text = ("\(responseFromAPI.total?.damage?.value ?? 0)")
+                                self.valueStatsLabel2.text = ("\(responseFromAPI.total?.kills?.value ?? 0)")
+                                self.valueStatsLabel3.text = ("\(responseFromAPI.total?.headshots?.value ?? 0)")
+                                self.rankIconImage.image = UIImage(named: (responseFromAPI.global?.rank?.rankName!)!)
+                            }
                         }
                     }
                 } failCompletion: { error in

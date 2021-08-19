@@ -15,4 +15,8 @@ class ExplorePeopleViewController: UIViewController {
         super.viewDidLoad()
         explorePeopleUI.configureView()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+
+    }
 }

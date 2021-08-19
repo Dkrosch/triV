@@ -106,6 +106,10 @@
 		E09D67C926BE8F4400270C19 /* ListChatLoungeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E09D67C726BE8F4400270C19 /* ListChatLoungeCollectionViewCell.xib */; };
 		E09D67CB26BE920A00270C19 /* ChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09D67CA26BE920A00270C19 /* ChatListViewModel.swift */; };
 		E0E51A2826CCE4E30084C22E /* SetRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E51A2726CCE4E30084C22E /* SetRounded.swift */; };
+		E0E51A3326CD83500084C22E /* ExplorePeopleUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E51A3226CD83500084C22E /* ExplorePeopleUIView.swift */; };
+		E0E51A3526CD87940084C22E /* SetImageTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E51A3426CD87940084C22E /* SetImageTextField.swift */; };
+		E0E51A3926CE10F40084C22E /* ExplorePeopleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E51A3726CE10F40084C22E /* ExplorePeopleCollectionViewCell.swift */; };
+		E0E51A3A26CE10F40084C22E /* ExplorePeopleCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0E51A3826CE10F40084C22E /* ExplorePeopleCollectionViewCell.xib */; };
 		E8024AFC26B91E0A004674F3 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8024AFB26B91E0A004674F3 /* NetworkService.swift */; };
 		E8024AFF26B91F26004674F3 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8024AFE26B91F26004674F3 /* Route.swift */; };
 		E8024B0226B91FCC004674F3 /* Method.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8024B0126B91FCC004674F3 /* Method.swift */; };
@@ -220,6 +224,10 @@
 		E09D67C726BE8F4400270C19 /* ListChatLoungeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListChatLoungeCollectionViewCell.xib; sourceTree = "<group>"; };
 		E09D67CA26BE920A00270C19 /* ChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewModel.swift; sourceTree = "<group>"; };
 		E0E51A2726CCE4E30084C22E /* SetRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetRounded.swift; sourceTree = "<group>"; };
+		E0E51A3226CD83500084C22E /* ExplorePeopleUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorePeopleUIView.swift; sourceTree = "<group>"; };
+		E0E51A3426CD87940084C22E /* SetImageTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetImageTextField.swift; sourceTree = "<group>"; };
+		E0E51A3726CE10F40084C22E /* ExplorePeopleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorePeopleCollectionViewCell.swift; sourceTree = "<group>"; };
+		E0E51A3826CE10F40084C22E /* ExplorePeopleCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExplorePeopleCollectionViewCell.xib; sourceTree = "<group>"; };
 		E8024AFB26B91E0A004674F3 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkService.swift; path = GConnect/Helper/Networking/NetworkService.swift; sourceTree = SOURCE_ROOT; };
 		E8024AFE26B91F26004674F3 /* Route.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Route.swift; path = GConnect/Helper/Networking/Route.swift; sourceTree = SOURCE_ROOT; };
 		E8024B0126B91FCC004674F3 /* Method.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Method.swift; path = GConnect/Helper/Networking/Method.swift; sourceTree = SOURCE_ROOT; };
@@ -371,6 +379,7 @@
 				E081880226BF9FDE00A68633 /* ReplaceCurrentViewController.swift */,
 				E081880826BFC2A700A68633 /* LoadViewFromNib.swift */,
 				E0E51A2726CCE4E30084C22E /* SetRounded.swift */,
+				E0E51A3426CD87940084C22E /* SetImageTextField.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -405,6 +414,7 @@
 			children = (
 				846D97A326CD15E500546A27 /* ExplorePeople.storyboard */,
 				846D97A526CD18B000546A27 /* ExplorePeopleViewController.swift */,
+				E0E51A3226CD83500084C22E /* ExplorePeopleUIView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -468,6 +478,7 @@
 		84D9366E26B2837700E29F12 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				E0E51A3626CE10C20084C22E /* ExplorePeopleCell */,
 				E081880F26BFE48800A68633 /* EmptyChatList */,
 				E081880A26BFD8A000A68633 /* EmptyExploreLounge */,
 				7C9ECE4326BE650100DBA826 /* ChatList */,
@@ -904,6 +915,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		E0E51A3626CE10C20084C22E /* ExplorePeopleCell */ = {
+			isa = PBXGroup;
+			children = (
+				E0E51A3726CE10F40084C22E /* ExplorePeopleCollectionViewCell.swift */,
+				E0E51A3826CE10F40084C22E /* ExplorePeopleCollectionViewCell.xib */,
+			);
+			path = ExplorePeopleCell;
+			sourceTree = "<group>";
+		};
 		E5781C8DB87779570753F36A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -992,6 +1012,7 @@
 				84D9367D26B283E300E29F12 /* ExploreLounge.storyboard in Resources */,
 				84D9367426B2839A00E29F12 /* RequirementExploreLoungeCollectionViewCell.xib in Resources */,
 				E001319726B51EDB00A315EB /* GamesCollectionViewCell.xib in Resources */,
+				E0E51A3A26CE10F40084C22E /* ExplorePeopleCollectionViewCell.xib in Resources */,
 				7C75DFCB26B30727002400CA /* LoungeCollectionViewCell.xib in Resources */,
 				E06AA42B26B7CE4D00357B01 /* FilterLounge.storyboard in Resources */,
 				E09D67C926BE8F4400270C19 /* ListChatLoungeCollectionViewCell.xib in Resources */,
@@ -1082,6 +1103,7 @@
 				E081880526BFC1C900A68633 /* ProfilePicView.swift in Sources */,
 				E8024B2326B94D83004674F3 /* APIResponse.swift in Sources */,
 				7C9ECE4226BE64E800DBA826 /* ChatListViewController.swift in Sources */,
+				E0E51A3326CD83500084C22E /* ExplorePeopleUIView.swift in Sources */,
 				E8024B1F26B941D5004674F3 /* AppError.swift in Sources */,
 				7CB18F6A26BD94130065D1CC /* LoadingViewController.swift in Sources */,
 				7CB3A25426B2ABDF00259119 /* DetailLoungeViewController.swift in Sources */,
@@ -1097,6 +1119,7 @@
 				8476093C26CCD42B006B9878 /* GetData.swift in Sources */,
 				E08F235526BCFBFF00D7E0BA /* Message.swift in Sources */,
 				E01EE1EA26B862EC0065F668 /* LoungeMember.swift in Sources */,
+				E0E51A3526CD87940084C22E /* SetImageTextField.swift in Sources */,
 				8476092B26C97D0A006B9878 /* AchivementViewModel.swift in Sources */,
 				E011EC5B26BBC0FF005E929B /* FilterLoungeModel.swift in Sources */,
 				7C75DFCE26B30BAA002400CA /* RoleCollectionViewCell.swift in Sources */,
@@ -1126,6 +1149,7 @@
 				8476093026CA45F7006B9878 /* Datas.swift in Sources */,
 				8405A60226B155FD009D1375 /* PageControl.swift in Sources */,
 				E01EE1E826B81D3B0065F668 /* DetailLoungeViewModel.swift in Sources */,
+				E0E51A3926CE10F40084C22E /* ExplorePeopleCollectionViewCell.swift in Sources */,
 				8405A5F226B1546A009D1375 /* SignUpViewController.swift in Sources */,
 				8476093526CCCD9B006B9878 /* CreateGameDetail.swift in Sources */,
 				BFCE10CF26B2B4BD00C206B5 /* ProfileUserViewController.swift in Sources */,

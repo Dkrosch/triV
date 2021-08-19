@@ -9,9 +9,10 @@ import UIKit
 
 class ExplorePeopleViewController: UIViewController {
 
+    @IBOutlet var explorePeopleUI: ExplorePeopleUIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        explorePeopleUI.configureView()
     }
 }

@@ -20,6 +20,10 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bHX-F2-4dD">
                                 <rect key="frame" x="20" y="132" width="350" height="32"/>
                                 <color key="backgroundColor" red="0.74911862610000002" green="0.75673276190000005" blue="0.76470750570000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="31" id="5uJ-M5-8HX"/>
+                                    <constraint firstAttribute="height" constant="31" id="s9T-QA-cT7"/>
+                                </constraints>
                                 <segments>
                                     <segment title="Lounge Chat"/>
                                     <segment title="Personal Chat" enabled="NO"/>
@@ -28,8 +32,11 @@
                                 <color key="selectedSegmentTintColor" name="Vivid Tangerine"/>
                             </segmentedControl>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sKl-HD-Qn9">
-                                <rect key="frame" x="8" y="190" width="374" height="539"/>
+                                <rect key="frame" x="8" y="190" width="374" height="571"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="sKl-HD-Qn9" secondAttribute="height" multiplier="374:571" id="Mf1-AS-kN0"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="g6K-tq-hcU">
                                     <size key="itemSize" width="375" height="120"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -48,7 +55,7 @@
                                 </cells>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lAA-P8-lKc" userLabel="NotificationButton">
-                                <rect key="frame" x="318" y="64" width="52" height="53"/>
+                                <rect key="frame" x="322" y="64" width="52" height="53"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                 <color key="tintColor" red="0.99607843139999996" green="0.58823529409999997" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" image="bell.circle.fill" catalog="system">
@@ -65,17 +72,17 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" red="0.1121604368" green="0.16948282719999999" blue="0.32943078879999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="sKl-HD-Qn9" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="7TB-XA-Fz0"/>
                             <constraint firstItem="Vlc-GF-7nF" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="23" id="AZJ-YL-Fka"/>
                             <constraint firstItem="bHX-F2-4dD" firstAttribute="top" secondItem="Vlc-GF-7nF" secondAttribute="bottom" constant="27" id="CSc-hR-n9q"/>
-                            <constraint firstItem="sKl-HD-Qn9" firstAttribute="centerX" secondItem="bHX-F2-4dD" secondAttribute="centerX" id="Dca-9G-SdX"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="lAA-P8-lKc" secondAttribute="trailing" constant="20" id="JXZ-Nb-Sbz"/>
-                            <constraint firstItem="sKl-HD-Qn9" firstAttribute="top" secondItem="bHX-F2-4dD" secondAttribute="bottom" constant="27" id="LGV-O2-1ob"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="sKl-HD-Qn9" secondAttribute="bottom" constant="32" id="TOj-Ui-gCf"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="lAA-P8-lKc" secondAttribute="trailing" constant="16" id="JXZ-Nb-Sbz"/>
                             <constraint firstItem="bHX-F2-4dD" firstAttribute="top" secondItem="lAA-P8-lKc" secondAttribute="bottom" constant="15" id="cMK-Ln-2fo"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="sKl-HD-Qn9" secondAttribute="trailing" constant="8" id="dep-D5-4XE"/>
                             <constraint firstItem="lAA-P8-lKc" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="hmg-EL-oD1"/>
+                            <constraint firstItem="sKl-HD-Qn9" firstAttribute="top" secondItem="bHX-F2-4dD" secondAttribute="bottom" constant="27" id="kFu-Xd-imM"/>
                             <constraint firstItem="bHX-F2-4dD" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="lhQ-yd-97p"/>
                             <constraint firstItem="Vlc-GF-7nF" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="31" id="rEj-zi-N05"/>
+                            <constraint firstItem="sKl-HD-Qn9" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="uM2-mg-Hh9"/>
+                            <constraint firstItem="sKl-HD-Qn9" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="ytM-4R-24M"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="bHX-F2-4dD" secondAttribute="trailing" constant="20" id="zVG-Nl-msa"/>
                         </constraints>
                     </view>

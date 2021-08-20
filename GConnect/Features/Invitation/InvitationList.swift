@@ -8,11 +8,22 @@
 import SwiftUI
 
 struct InvitationList: View {
+    
+    let posts = ["1", "2", "3"]
+    
     var body: some View {
-        ZStack{
-            Color.init("Dark Blue").edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
-        
+        NavigationView{
+            
+            List{
+                
+//                ForEach(posts.identified(by: \.self)){ post in
+//                    Text(post)
+//                }
+                
+            }.navigationBarTitle(Text("Invitation"))
+            
         }
+       
         
     }
 }

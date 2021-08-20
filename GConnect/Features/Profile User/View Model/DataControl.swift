@@ -76,7 +76,6 @@ extension ProfileUserViewController{
                 let username = document.get("username") as! String
                 let gender = document.get("gender") as! String
                 let about = document.get("About") as! String
-                let imageRank = document.get("imageRank") as! String
                 let imageProfile = document.get("imageProfile") as! String
                 let role = document.get("role") as! String
                 let rank = document.get("rank") as! String
@@ -84,7 +83,7 @@ extension ProfileUserViewController{
                 let birthday = document.get("birthday") as! String
                 let gamerUname = document.get("gamerUname") as! String
 
-                let newData = ProfileData(username: username, game: game, gender: gender, rank: rank, role: role, birthday: birthday, imageProfile: imageProfile, desc: about, imageRank: imageRank, gamerUname: gamerUname)
+                let newData = ProfileData(username: username, game: game, gender: gender, rank: rank, role: role, birthday: birthday, imageProfile: imageProfile, desc: about, gamerUname: gamerUname)
                 self.dataUser.append(newData)
 
                 self.usernameLabelProfileUser.text = username

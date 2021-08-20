@@ -25,14 +25,13 @@ class KickPlayerCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     func configureCell(dataPlayer: ProfileData){
         imageProfile.image = UIImage(named: dataPlayer.imageProfile)
         labelName.text = dataPlayer.username
         labelRole.text = dataPlayer.role
-        imageRank.image = UIImage(named: dataPlayer.imageRank)
+        imageRank.image = UIImage(named: dataPlayer.rank)
     }
     
 }

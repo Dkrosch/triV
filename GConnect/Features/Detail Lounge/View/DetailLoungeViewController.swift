@@ -407,11 +407,11 @@ extension DetailLoungeViewController: UICollectionViewDataSource, UICollectionVi
         
         if collectionView == CollectionView{
             clickedMember = dataMember1[indexPath.row].idMember
-            gotoHome()
+            goToProfile()
         }
     }
     
-    func gotoHome(){
+    func goToProfile(){
         let showProfile = UIStoryboard(name: "ProfileUser", bundle: nil)
         let vc = showProfile.instantiateViewController(identifier: "ProfileUser") as! ProfileUserViewController
         vc.idMemberVisitor = clickedMember

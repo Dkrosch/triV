@@ -34,7 +34,7 @@ class CreateLoungeVC: UIViewController {
     var statusController = false
     var statusDuelist = false
     var createLoungeVM = CreateLoungeViewModel()
-    var games = [Games]()
+    var games = Games.getData()
     var selectedGame = ""
     var arrSelectedGame = [false, false, false]
     let gamesCellId = "GamesCellId"

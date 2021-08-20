@@ -118,6 +118,7 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
         guard let userID = Auth.auth().currentUser?.uid else { return }
         idUser = userID
         

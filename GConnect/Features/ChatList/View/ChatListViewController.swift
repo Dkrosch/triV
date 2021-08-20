@@ -72,7 +72,6 @@ extension ChatListViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         if dataLounge.count != 0{
             loungeCollection.register(ListChatLoungeCollectionViewCell.nib(), forCellWithReuseIdentifier: ListChatLoungeCollectionViewCell.identifier)
             

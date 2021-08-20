@@ -14,6 +14,7 @@ class ExplorePeopleUIView: UIView {
     @IBOutlet weak var searchBar: UITextField!
     @IBOutlet weak var userCollectionView: UICollectionView!
     
+    var delegate: ExplorePeopleUIViewDelegate?
     var userProfile = [ExplorePeople]()
     
     func configureView(){
@@ -41,8 +42,6 @@ extension ExplorePeopleUIView: UICollectionViewDelegate, UICollectionViewDataSou
             cell.labelRoleUser.text = userProfile[indexPath.row].role
             cell.labelUsername.text = userProfile[indexPath.row].username
             cell.labelRank.text = userProfile[indexPath.row].rank
-            cell.labelLevel.text = userProfile[indexPath.row].level
-            cell.labelSelectedLegends.text = userProfile[indexPath.row].legend
         }
 
         return cell
@@ -58,7 +57,7 @@ extension ExplorePeopleUIView: UICollectionViewDelegate, UICollectionViewDataSou
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 175, height: 149)
+        return CGSize(width: 175, height: 120)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -66,6 +65,6 @@ extension ExplorePeopleUIView: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(userProfile[indexPath.row].idUser)
+        delegate?.goToHome(idUser: userProfile[indexPath.row].idUser)
     }
 }

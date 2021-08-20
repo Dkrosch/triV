@@ -25,6 +25,7 @@ class ProfilePicView: UIView {
     
     func configureView(){
         guard let view = self.loadViewFromNib(nibName: "ProfilePic") else { return }
+        imageProfile.layer.cornerRadius = imageRank.frame.height/2
         view.frame = self.bounds
         self.addSubview(view)
     }

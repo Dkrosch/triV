@@ -13,7 +13,7 @@
         <!--Create Profile-->
         <scene sceneID="riE-M8-KyM">
             <objects>
-                <viewController id="HOo-gi-chW" customClass="ChooseGameViewController" customModule="GConnect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CreateGame" id="HOo-gi-chW" customClass="ChooseGameViewController" customModule="GConnect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qzp-Tp-uMF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

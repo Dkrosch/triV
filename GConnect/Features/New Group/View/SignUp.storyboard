@@ -121,7 +121,7 @@
                                     <constraint firstAttribute="height" constant="50" id="wXU-Qe-8hr"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                <state key="normal" title="Sign Up">
+                                <state key="normal" title="Next">
                                     <color key="titleColor" red="0.1121604368" green="0.16948282719999999" blue="0.32943078879999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>

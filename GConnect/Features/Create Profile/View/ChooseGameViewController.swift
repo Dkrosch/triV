@@ -12,6 +12,11 @@ class ChooseGameViewController: UIViewController {
    
     @IBOutlet weak var collectionView: UICollectionView!
     
+    var username: String = ""
+    var email: String = ""
+    var dob: String = ""
+    var password: String = ""
+    var gender: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +57,17 @@ extension ChooseGameViewController: UICollectionViewDelegateFlowLayout{
 extension ChooseGameViewController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(games[indexPath.row].title)
-        let vc = storyboard?.instantiateViewController(identifier: "DetailViewController") as? CreateGameDetailViewController
-        self.navigationController?.pushViewController(vc!, animated: true)
+        goToChooseGame(username: username, email: email, dob: dob, password: password, gender: gender)
+    }
+    
+    func goToChooseGame(username: String, email: String, dob: String, password: String, gender: String){
+        let showProfile = UIStoryboard(name: "Choose game detail", bundle: nil)
+        let vc = showProfile.instantiateViewController(identifier: "DetailViewController") as! CreateGameDetailViewController
+        vc.username = username
+        vc.email = email
+        vc.dob = dob
+        vc.password = password
+        vc.gender = gender
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

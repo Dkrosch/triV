@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Firebase
 
 extension SignUpViewController{
     
@@ -19,13 +20,24 @@ extension SignUpViewController{
         }else if txtFieldPassword.text!.count < 6{
             alert(msg: "Password must be 6 characters or more")
         }else{
-            StoreDataAuth.CreateData(username: txtFieldUsername.text!, email: txtFieldEmail.text!, DoB: txtFieldBirthday.text!, password: txtFieldPassword.text!, gender: txtFieldGender.text!) { status in
-                if status {
-                    self.performSegue(withIdentifier: "CreateProfile", sender: self)
-                }else if status == false{
+            Auth.auth().fetchSignInMethods(forEmail: txtFieldEmail.text ?? "") { providers, error in
+                if providers == nil{
+                    self.goToChooseGame(username: self.txtFieldUsername.text!, email: self.txtFieldEmail.text!, dob: self.txtFieldBirthday.text!, password: self.txtFieldPassword.text!, gender: self.txtFieldGender.text!)
+                } else {
                     self.alert(msg: "Email has been registered")
                 }
             }
         }
+    }
+    
+    func goToChooseGame(username: String, email: String, dob: String, password: String, gender: String){
+        let showProfile = UIStoryboard(name: "Choose game detail", bundle: nil)
+        let vc = showProfile.instantiateViewController(identifier: "CreateGame") as! ChooseGameViewController
+        vc.username = username
+        vc.email = email
+        vc.dob = dob
+        vc.password = password
+        vc.gender = gender
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

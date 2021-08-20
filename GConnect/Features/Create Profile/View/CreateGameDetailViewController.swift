@@ -27,8 +27,11 @@ class CreateGameDetailViewController: UIViewController {
     @IBOutlet weak var gameTitleLabel: UILabel!
     @IBOutlet weak var gamerUnameTextField: UITextField!
     
-
-    
+    var username: String = ""
+    var email: String = ""
+    var dob: String = ""
+    var password: String = ""
+    var gender: String = ""
     
     var pickerView1 = UIPickerView()
     var pickerView2 = UIPickerView()
@@ -56,13 +59,10 @@ class CreateGameDetailViewController: UIViewController {
         pickerView2.tag = 2
         
         roleTextField.inputView = pickerView1
-        
-        //rounded button
-        
+
         continueButton.layer.cornerRadius = 10.0
         continueButton.layer.masksToBounds = true
-        
-        //statsview
+
         statsView.layer.borderWidth = 1
         statsView.layer.borderColor = UIColor(named: "Vivid Tangerine")?.cgColor
         statsView.layer.cornerRadius = 10.0
@@ -77,7 +77,7 @@ class CreateGameDetailViewController: UIViewController {
     
     @IBAction func btnContinueTapped(_ sender: Any) {
         uName = gamerUnameTextField.text!
-        storeData(uname: uName)
+        storeData(uname: uName, username: username, email: email, dob: dob, password: password, gender: gender)
         self.defaults.set(true, forKey: "isUserSignedIn")
         self.defaults.synchronize()
     }

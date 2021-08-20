@@ -11,8 +11,7 @@ import FirebaseAuth
 
 extension CreateGameDetailViewController{
     
-    func storeData(uname: String){
-        guard let userID = Auth.auth().currentUser?.uid else { return }
+    func storeData(uname: String, username: String, email: String, dob: String, password: String, gender: String){
         if self.roleTextField.text == "Choose your role" {
             self.alert(msg: "Choose one role")
         }else if self.gamerUnameTextField.text == ""{
@@ -24,7 +23,6 @@ extension CreateGameDetailViewController{
                         if responseFromAPI.global?.name == nil {
                             self.alert(msg: "Username is incorrect")
                         } else {
-                            let db = Firestore.firestore()
                             let role = self.roleTextField.text
                             let rank = responseFromAPI.global!.rank!.rankName!
                             let gamerUname = self.gamerUnameTextField.text
@@ -33,13 +31,7 @@ extension CreateGameDetailViewController{
                             if self.roleTextField.text == "Choose your role"{
                                 print("ga bisa bang")
                             }else{
-                                db.collection("users").document(userID).updateData(["game": game, "role" : role ?? "", "rank" : rank, "gamerUname": gamerUname ?? ""]) {(error) in
-                                    if error != nil{
-                                        print("Gagal")
-                                    } else {
-                                        print("Sukses")
-                                    }
-                                }
+                                StoreDataAuth.CreateData(username: username, email: email, DoB: dob, password: password, gender: gender, game: game, role: role ?? "", rank: rank, gamerUname: gamerUname ?? "")
                             }
                             
                             self.loadingView.isHidden = false

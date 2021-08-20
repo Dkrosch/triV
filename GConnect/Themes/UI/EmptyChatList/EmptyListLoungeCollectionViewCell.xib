@@ -10,18 +10,18 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="EmptyListLoungeCollectionViewCell" customModule="GConnect" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+            <rect key="frame" x="0.0" y="0.0" width="373" height="120"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+                <rect key="frame" x="0.0" y="0.0" width="373" height="120"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8vj-c8-QUN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
+                        <rect key="frame" x="0.0" y="0.0" width="373" height="120"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You haven't joined any lounge yet" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="njB-vJ-kIk">
-                                <rect key="frame" x="55" y="50" width="265" height="21"/>
+                                <rect key="frame" x="54" y="50" width="265" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -41,7 +41,7 @@
             <connections>
                 <outlet property="viewBackground" destination="8vj-c8-QUN" id="mk9-7a-Pwn"/>
             </connections>
-            <point key="canvasLocation" x="34.782608695652179" y="95.758928571428569"/>
+            <point key="canvasLocation" x="34.057971014492757" y="95.758928571428569"/>
         </collectionViewCell>
     </objects>
 </document>

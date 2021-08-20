@@ -19,8 +19,8 @@ class ChatListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        listLoungeCollectionView.delegate = self
-        listLoungeCollectionView.dataSource = self
+        loungeCollection.delegate = self
+        loungeCollection.dataSource = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,21 +35,17 @@ class ChatListViewController: UIViewController {
             }
             
             DispatchQueue.main.async {
-                self.listLoungeCollectionView.reloadData()
+                self.loungeCollection.reloadData()
             }
         }
-        listLoungeCollectionView.reloadData()
+        loungeCollection.reloadData()
     }
 }
 
 extension ChatListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if dataLounge.count != 0{
-            gotoChat(idLounge: dataLounge[indexPath.row].documentId)
-        }else{
-            
-        }
+        gotoChat(idLounge: dataLounge[indexPath.row].documentId)
     }
     
     func gotoChat(idLounge: String){
@@ -67,8 +63,8 @@ extension ChatListViewController: UICollectionViewDelegate, UICollectionViewData
         }
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle{
-        .lightContent
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 374, height: 120)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -106,9 +102,5 @@ extension ChatListViewController: UICollectionViewDelegate, UICollectionViewData
             cell.viewBackground.layer.borderColor = #colorLiteral(red: 0.9866532683, green: 0.5863298774, blue: 0.4647909403, alpha: 1)
             return cell
         }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 375, height: 120)
     }
 }

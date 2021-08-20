@@ -59,6 +59,9 @@ class DetailLoungeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print("status create", statusCreate)
+        print("status info", statusInfo)
+        
         if statusCreate == true{
             self.navigationController?.replaceCurrentViewControllerWith(viewController: self, animated: true)
             JoinLoungeButton.isHidden = false
@@ -258,7 +261,7 @@ class DetailLoungeViewController: UIViewController {
                 self.detailLoungeVM.deleteLounge(idLounge: self.idLounge)
                 
                 if self.statusInfo == true{
-                    self.navigationController?.replaceCurrentViewControllerWith2(viewController: self, animated: true)
+                    self.navigationController?.replaceCurrentViewControllerWith(viewController: self, animated: true)
                 }
                 
                 self.navigationController?.popViewController(animated: true)

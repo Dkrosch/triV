@@ -32,11 +32,8 @@
                                 <color key="selectedSegmentTintColor" name="Vivid Tangerine"/>
                             </segmentedControl>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sKl-HD-Qn9">
-                                <rect key="frame" x="8" y="190" width="374" height="571"/>
+                                <rect key="frame" x="8" y="190" width="375" height="571"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="sKl-HD-Qn9" secondAttribute="height" multiplier="374:571" id="Mf1-AS-kN0"/>
-                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="g6K-tq-hcU">
                                     <size key="itemSize" width="375" height="120"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -45,7 +42,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellLoungeChat" id="xFV-CR-R4k">
-                                        <rect key="frame" x="-0.66666666666666663" y="0.0" width="375" height="120"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="MYr-9f-Lv9">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="120"/>
@@ -76,7 +73,7 @@
                             <constraint firstItem="bHX-F2-4dD" firstAttribute="top" secondItem="Vlc-GF-7nF" secondAttribute="bottom" constant="27" id="CSc-hR-n9q"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="lAA-P8-lKc" secondAttribute="trailing" constant="16" id="JXZ-Nb-Sbz"/>
                             <constraint firstItem="bHX-F2-4dD" firstAttribute="top" secondItem="lAA-P8-lKc" secondAttribute="bottom" constant="15" id="cMK-Ln-2fo"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="sKl-HD-Qn9" secondAttribute="trailing" constant="8" id="dep-D5-4XE"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="sKl-HD-Qn9" secondAttribute="trailing" constant="7" id="dep-D5-4XE"/>
                             <constraint firstItem="lAA-P8-lKc" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="hmg-EL-oD1"/>
                             <constraint firstItem="sKl-HD-Qn9" firstAttribute="top" secondItem="bHX-F2-4dD" secondAttribute="bottom" constant="27" id="kFu-Xd-imM"/>
                             <constraint firstItem="bHX-F2-4dD" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="lhQ-yd-97p"/>

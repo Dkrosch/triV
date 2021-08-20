@@ -77,6 +77,9 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
     @IBOutlet weak var buttonLogoutProfileUser: UIButton!
     @IBOutlet weak var viewContentHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var achievementCollectionViewConstraintHeight: NSLayoutConstraint!
+    @IBOutlet weak var stackViewButtonChatInvite: UIStackView!
+    @IBOutlet weak var stackViewUsernameChangePic: UIStackView!
+    
     
     var collectionRef: CollectionReference!
     var dataUser = [ProfileData]()
@@ -111,6 +114,8 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editTapped))
         
         collectionRef = Firestore.firestore().collection("achievement")
+        
+        stackViewButtonChatInvite.isHidden = true
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle{

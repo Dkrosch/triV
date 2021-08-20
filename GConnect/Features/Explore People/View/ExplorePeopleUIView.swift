@@ -14,7 +14,7 @@ class ExplorePeopleUIView: UIView {
     @IBOutlet weak var searchBar: UITextField!
     @IBOutlet weak var userCollectionView: UICollectionView!
     
-    var userProfile = [ProfileData]()
+    var userProfile = [ExplorePeople]()
     
     func configureView(){
         searchBar.setupLeftImage(imageName: "magnifyingglass")
@@ -34,7 +34,6 @@ extension ExplorePeopleUIView: UICollectionViewDelegate, UICollectionViewDataSou
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ExplorePeopleCollectionViewCell.identifier, for: indexPath) as! ExplorePeopleCollectionViewCell
         
         if userProfile.count != 0 {
-            print(userProfile[1].gamerUname)
             DispatchQueue.main.async {
                 cell.profilePicture.profileimageURL(urlKey: self.userProfile[indexPath.row].imageProfile)
             }
@@ -42,6 +41,8 @@ extension ExplorePeopleUIView: UICollectionViewDelegate, UICollectionViewDataSou
             cell.labelRoleUser.text = userProfile[indexPath.row].role
             cell.labelUsername.text = userProfile[indexPath.row].username
             cell.labelRank.text = userProfile[indexPath.row].rank
+            cell.labelLevel.text = userProfile[indexPath.row].level
+            cell.labelSelectedLegends.text = userProfile[indexPath.row].legend
         }
 
         return cell
@@ -51,7 +52,7 @@ extension ExplorePeopleUIView: UICollectionViewDelegate, UICollectionViewDataSou
         if userProfile.count != 0 {
             return userProfile.count
         }else{
-            return 1
+            return 0
         }
     }
     
@@ -62,5 +63,9 @@ extension ExplorePeopleUIView: UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(userProfile[indexPath.row].idUser)
     }
 }

@@ -25,13 +25,15 @@ extension CreateGameDetailViewController{
                         } else {
                             let role = self.roleTextField.text
                             let rank = responseFromAPI.global!.rank!.rankName!
+                            let level = responseFromAPI.global?.level
+                            let legend = responseFromAPI.legends?.selected?.LegendName!
                             let gamerUname = self.gamerUnameTextField.text
                             let game = "Apex"
 
                             if self.roleTextField.text == "Choose your role"{
                                 print("ga bisa bang")
                             }else{
-                                StoreDataAuth.CreateData(username: username, email: email, DoB: dob, password: password, gender: gender, game: game, role: role ?? "", rank: rank, gamerUname: gamerUname ?? "")
+                                StoreDataAuth.CreateData(username: username, email: email, DoB: dob, password: password, gender: gender, game: game, role: role ?? "", rank: rank, gamerUname: gamerUname ?? "", level: String(level ?? 0), legend: legend ?? "")
                             }
                             
                             self.loadingView.isHidden = false

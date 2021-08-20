@@ -21,6 +21,7 @@ extension ExplorePeopleUIView{
                 for document in (snapshot?.documents)!{
                     DispatchQueue.global().sync {
                         let data = document.data()
+                        let idUser = document.documentID
                         let username = data["username"] as? String ?? ""
                         let role = data["role"] as? String ?? ""
                         let rank = data["rank"] as? String ?? ""
@@ -32,9 +33,10 @@ extension ExplorePeopleUIView{
                         let game = data["game"] as? String ?? ""
                         let gamerUname = data["gamerUname"] as? String ?? ""
                         let gender = data["gender"] as? String ?? ""
+                        let level = data["level"] as? String ?? ""
+                        let legend = data["legend"] as? String ?? ""
                         
-                        let newData = ProfileData(username: username, game: game, gender: gender, rank: rank, role: role, birthday: birthday, imageProfile: imageProfile, desc: about, imageRank: imageRank, gamerUname: gamerUname)
-                        print("ini data image rank: \(imageRank)")
+                        let newData = ExplorePeople(username: username, game: game, gender: gender, rank: rank, role: role, birthday: birthday, imageProfile: imageProfile, desc: about, imageRank: imageRank, gamerUname: gamerUname, level: level, legend: legend, idUser: idUser)
                         self.userProfile.append(newData)
                     }
                 }

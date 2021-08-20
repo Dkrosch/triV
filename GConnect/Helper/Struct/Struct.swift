@@ -63,6 +63,38 @@ class ProfileData{
     }
 }
 
+class ExplorePeople{
+    var username: String
+    var game: String
+    var gender: String
+    var rank: String
+    var role: String
+    var birthday: String
+    var imageProfile: String
+    var desc: String
+    var imageRank: String
+    var gamerUname: String
+    var level: String
+    var legend: String
+    var idUser: String
+    
+    init(username: String, game: String, gender: String, rank: String, role: String, birthday: String, imageProfile: String, desc: String, imageRank: String, gamerUname: String, level: String, legend: String, idUser: String) {
+        self.username = username
+        self.game = game
+        self.gender = gender
+        self.rank = rank
+        self.role = role
+        self.birthday = birthday
+        self.imageProfile = imageProfile
+        self.desc = desc
+        self.imageRank = imageRank
+        self.gamerUname = gamerUname
+        self.level = level
+        self.legend = legend
+        self.idUser = idUser
+    }
+}
+
 class Achivement{
     var title: String
     var image: String

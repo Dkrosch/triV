@@ -208,7 +208,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="tintColor" name="Dark Blue"/>
-                                <state key="normal" title="Continue">
+                                <state key="normal" title="Sign Up">
                                     <color key="titleColor" name="Dark Blue"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>

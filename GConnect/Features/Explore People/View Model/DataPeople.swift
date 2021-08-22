@@ -37,7 +37,10 @@ extension ExplorePeopleUIView{
                         let legend = data["legend"] as? String ?? ""
                         
                         let newData = ExplorePeople(username: username, game: game, gender: gender, rank: rank, role: role, birthday: birthday, imageProfile: imageProfile, desc: about, imageRank: imageRank, gamerUname: gamerUname, level: level, legend: legend, idUser: idUser)
-                        self.userProfile.append(newData)
+                        
+                        if idUser != Auth.auth().currentUser?.uid{
+                            self.userProfile.append(newData)
+                        }
                     }
                 }
                 DispatchQueue.main.async {

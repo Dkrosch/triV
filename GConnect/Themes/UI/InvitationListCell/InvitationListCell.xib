@@ -126,7 +126,7 @@
                 <outlet property="userNameLabel" destination="pPr-I1-bXM" id="to7-J4-qXE"/>
                 <outlet property="userRoleLabel" destination="rxr-KK-JpB" id="aHK-d1-v8l"/>
             </connections>
-            <point key="canvasLocation" x="397.10144927536237" y="130.58035714285714"/>
+            <point key="canvasLocation" x="-14259" y="209"/>
         </collectionViewCell>
     </objects>
     <resources>

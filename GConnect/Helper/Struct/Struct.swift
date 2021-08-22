@@ -32,6 +32,16 @@ class DetailLounge{
     }
 }
 
+class PersonalChatRoom{
+    var idPersonalChat: String
+    var idUser: [String]
+    
+    init(idPersonalChat: String, idUser: [String]) {
+        self.idPersonalChat = idPersonalChat
+        self.idUser = idUser
+    }
+}
+
 struct UserInfo{
     var uidUser: String
     var dataUser: [ProfileData]

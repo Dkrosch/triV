@@ -177,6 +177,9 @@
                                                                         <integer key="value" value="8"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="btnChatTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ttk-oc-ZIi"/>
+                                                                </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Be-Mh-ScM">
                                                                 <rect key="frame" x="202" y="0.0" width="148" height="32"/>

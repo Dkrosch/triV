@@ -93,6 +93,7 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
     var imageProfileSelected: UIImage? = nil
     var statusTapped = false
     var statusDelete = false
+    var roomStatus: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -109,13 +110,9 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         usernameTextField.delegate = self
         aboutMeTextField.delegate = self
         
-        print(statusTapped)
-        
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editTapped))
         
         collectionRef = Firestore.firestore().collection("achievement")
-        
-        stackViewButtonChatInvite.isHidden = true
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle{
@@ -127,17 +124,28 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         guard let userID = Auth.auth().currentUser?.uid else { return }
         idUser = userID
         
+        stackViewButtonChatInvite.isHidden = true
+        
         if statusVisitor == true{
             idUser = idMemberVisitor
             self.navigationItem.rightBarButtonItem = nil
             buttonLogoutProfileUser.isHidden = true
             btnAddAchievement.isHidden = true
+            stackViewButtonChatInvite.isHidden = false
+            if idUser == userID{
+                stackViewButtonChatInvite.isHidden = true
+            }
         }
         
         fetchDataProfile()
         fetchDataAchivement()
     }
     
+    @IBAction func btnChatTapped(_ sender: Any) {
+        getDataRoom { data in
+            self.createChatPersonal(targetedUser: self.idUser, data: data)
+        }
+    }
     
     @IBAction func addAchivementTapped(_ sender: Any) {
         let showAchievement = UIStoryboard(name: "Add Achievement", bundle: nil)
@@ -149,7 +157,6 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
     }
     
     @IBAction func logOutButtonClicked(_ sender: Any) {
-        print("LogOut guyss")
         logoutUserDefault()
     }
     
@@ -164,7 +171,6 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
     
     @objc func editTapped(){
         editOn()
-        print("mau edit bang")
     }
     
     @objc func doneTapped(){

@@ -31,7 +31,6 @@ extension ProfileUserViewController{
                     let newData = Achivement(title: title, image: image, desc: Desc, uid: uid, data: id)
                     
                     self.dataachivement.append(newData)
-                    print(self.dataachivement.count)
                 }
                 
                 DispatchQueue.main.async {
@@ -261,12 +260,81 @@ extension ProfileUserViewController{
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Edit", style: .plain, target: self, action: #selector(editTapped))
         
-        print("selesai edit bang")
-        
         uploadImageToStorage()
         
         Timer.scheduledTimer(withTimeInterval: 2, repeats: false){ (timer) in
             self.viewWillAppear(true)
         }
+    }
+    
+    func createChatPersonal(targetedUser: String, data: [PersonalChatRoom]) {
+        let currentUserID = Auth.auth().currentUser!.uid
+        let users = [currentUserID, targetedUser]
+        var statusID: String? = ""
+        
+        for (index, _) in data.enumerated(){
+            if data[index].idUser.sorted() == users.sorted(){
+                statusID = data[index].idPersonalChat
+                break
+            }else{
+                statusID = "false"
+            }
+        }
+        
+        if statusID == "false"{
+            let db = Firestore.firestore().collection("ChatPersonal").document()
+            let idPersonalChat = db.documentID
+            db.setData(["users": users]) { error in
+                if error != nil{
+                    print(error as Any)
+                }else{
+                    let db2 = Firestore.firestore().collection("ChatPersonal").document(idPersonalChat).collection("chats").document()
+                    db2.setData(["AnyField":""]){(error) in
+                        if error != nil{
+                            print("Gagal")
+                        } else {
+                            print("Sukses create lounge")
+                        }
+                    }
+                    
+                    self.gotoChat(idPersonalChat: idPersonalChat)
+                }
+            }
+        }else{
+            gotoChat(idPersonalChat: statusID ?? "")
+        }
+    }
+    
+    func getDataRoom(data: @escaping ([PersonalChatRoom]) -> Void){
+        let myGroup = DispatchGroup()
+        var dataUser: [PersonalChatRoom] = []
+        
+        Firestore.firestore().collection("ChatPersonal").getDocuments { snapshot, error in
+            if error != nil {
+                print(error as Any)
+            }else{
+                for document in (snapshot?.documents)!{
+                    myGroup.enter()
+                    let datas = document.data()
+                    let idPersonalChat = document.documentID
+                    let users = datas["users"] as? [String] ?? [""]
+                    let newData = PersonalChatRoom(idPersonalChat: idPersonalChat, idUser: users)
+                    dataUser.append(newData)
+                    myGroup.leave()
+                }
+                myGroup.notify(queue: .main){
+                    data(dataUser)
+                }
+            }
+        }
+    }
+    
+    func gotoChat(idPersonalChat: String){
+        let showProfile = UIStoryboard(name: "ChatPersonal", bundle: nil)
+        let vc = showProfile.instantiateViewController(identifier: "ChatPersonal") as! ChatPersonalViewController
+        vc.targetedUser = idUser
+        vc.idPersonalChat = idPersonalChat
+        vc.nameTargetedUser = usernameLabelProfileUser.text ?? "User"
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

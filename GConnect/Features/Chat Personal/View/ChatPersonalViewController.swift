@@ -1,8 +1,8 @@
 //
-//  ChatLoungeViewController.swift
+//  ChatPersonalViewController.swift
 //  GConnect
 //
-//  Created by Michael Tanakoman on 06/08/21.
+//  Created by Michael Tanakoman on 22/08/21.
 //
 
 import UIKit
@@ -12,80 +12,56 @@ import MessageKit
 import FirebaseFirestore
 import SDWebImage
 
-class ChatLoungeViewController: MessagesViewController, InputBarAccessoryViewDelegate, MessagesDataSource, MessagesLayoutDelegate, MessagesDisplayDelegate {
+
+class ChatPersonalViewController: MessagesViewController, InputBarAccessoryViewDelegate, MessagesDataSource, MessagesLayoutDelegate, MessagesDisplayDelegate {
 
     var currentUser: User = Auth.auth().currentUser!
     private var docReference: DocumentReference?
     private var collectionRef: CollectionReference?
     var messages: [Message] = []
+    var targetedUser: String = ""
+    var idPersonalChat: String = ""
+    var nameTargetedUser: String = ""
     
-    var idLounge: String = ""
-    var statusDetail = false
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "Chat"
+        self.title = nameTargetedUser
         
-        collectionRef = Firestore.firestore().collection("users")
-        
-        if statusDetail == true {
-            self.navigationController?.replaceCurrentViewControllerWith(viewController: self, animated: true)
-        }
-        
-        let infoButton = UIButton(type: .infoLight)
-        infoButton.addTarget(self, action: #selector(getInfoAction), for: .touchUpInside)
-        let infoBarButtonItem = UIBarButtonItem(customView: infoButton)
-        self.navigationItem.rightBarButtonItem = infoBarButtonItem
-
         navigationItem.largeTitleDisplayMode = .never
         maintainPositionOnKeyboardFrameChanged = true
         scrollsToLastItemOnKeyboardBeginsEditing = true
-
+        
         messageInputBar.inputTextView.tintColor = .systemBlue
         messageInputBar.sendButton.setTitleColor(.systemTeal, for: .normal)
-                    
+        
         messageInputBar.delegate = self
         messagesCollectionView.messagesDataSource = self
         messagesCollectionView.messagesLayoutDelegate = self
         messagesCollectionView.messagesDisplayDelegate = self
-                
+        
+        print("ini idRoom di dalem chat", idPersonalChat)
+        
         loadChat()
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle{
-        .lightContent
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.isNavigationBarHidden = false
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        self.navigationController?.isNavigationBarHidden = true
-    }
-    
-    @objc func getInfoAction(){
-        let showProfile = UIStoryboard(name: "DetailLounge", bundle: nil)
-        let vc = showProfile.instantiateViewController(identifier: "detailLounge") as! DetailLoungeViewController
-        vc.statusInfo = true
-        vc.idLounge = idLounge
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
     func loadChat() {
-        Firestore.firestore().collection("LoungeDetail").document(idLounge).collection("chats").getDocuments { snapshot, error in
+        let db = Firestore.firestore().collection("ChatPersonal").document(idPersonalChat).collection("chats")
+        
+        db.getDocuments { snapshot, error in
             if error != nil{
-                print("error")
-            } else {
+                print(error as Any)
+            }else{
                 for document in (snapshot?.documents)!{
                     self.docReference = document.reference
-                    document.reference.collection("thread").order(by: "created", descending: false).addSnapshotListener(includeMetadataChanges: true, listener: { (threadQuery, error) in
-                        if let error = error{
-                            print(error)
-                        }else{
+                    document.reference.collection("thread").order(by: "created", descending: false).addSnapshotListener(includeMetadataChanges: true, listener: { threadQuery, error in
+                        
+                        if let error = error {
+                            print("Error: \(error)")
+                            return
+                        } else {
                             self.messages.removeAll()
-                            for message in threadQuery!.documents{
+                            for message in threadQuery!.documents {
                                 let msg = Message(dictionary: message.data())
                                 self.messages.append(msg!)
                             }
@@ -107,7 +83,7 @@ class ChatLoungeViewController: MessagesViewController, InputBarAccessoryViewDel
             self.messagesCollectionView.scrollToLastItem(at: .bottom, animated: true)
         }
     }
-        
+    
     private func save(_ message: Message) {
             
         let data: [String: Any] = [
@@ -118,7 +94,7 @@ class ChatLoungeViewController: MessagesViewController, InputBarAccessoryViewDel
             "senderName": message.senderName,
             "imageProfile": message.imageProfile
         ]
-            
+        
         docReference?.collection("thread").addDocument(data: data, completion: { (error) in
             if let error = error {
                 print("Error Sending message: \(error)")
@@ -202,7 +178,8 @@ class ChatLoungeViewController: MessagesViewController, InputBarAccessoryViewDel
     }
     
     func messageStyle(for message: MessageType, at indexPath: IndexPath, in messagesCollectionView: MessagesCollectionView) -> MessageStyle {
-        let corner: MessageStyle.TailCorner = isFromCurrentSender(message: message) ? .bottomRight: .bottomLeft
+        let corner: MessageStyle.TailCorner =
+            isFromCurrentSender(message: message) ? .bottomRight: .bottomLeft
         return .bubbleTail(corner, .curved)
     }
 }

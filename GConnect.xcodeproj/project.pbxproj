@@ -111,6 +111,8 @@
 		E09D67C826BE8F4400270C19 /* ListChatLoungeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09D67C626BE8F4400270C19 /* ListChatLoungeCollectionViewCell.swift */; };
 		E09D67C926BE8F4400270C19 /* ListChatLoungeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E09D67C726BE8F4400270C19 /* ListChatLoungeCollectionViewCell.xib */; };
 		E09D67CB26BE920A00270C19 /* ChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09D67CA26BE920A00270C19 /* ChatListViewModel.swift */; };
+		E0AF775E26D21CC60095DA01 /* ChatPersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AF775D26D21CC60095DA01 /* ChatPersonalViewController.swift */; };
+		E0AF776026D21CF30095DA01 /* ChatPersonal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0AF775F26D21CF30095DA01 /* ChatPersonal.storyboard */; };
 		E0E51A2826CCE4E30084C22E /* SetRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E51A2726CCE4E30084C22E /* SetRounded.swift */; };
 		E0E51A3326CD83500084C22E /* ExplorePeopleUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E51A3226CD83500084C22E /* ExplorePeopleUIView.swift */; };
 		E0E51A3526CD87940084C22E /* SetImageTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E51A3426CD87940084C22E /* SetImageTextField.swift */; };
@@ -197,7 +199,7 @@
 		BF72D14226B401AC00F8DA6D /* AchievementProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementProfileCollectionViewCell.swift; sourceTree = "<group>"; };
 		BF72D14326B401AC00F8DA6D /* AchievementProfileCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AchievementProfileCollectionViewCell.xib; sourceTree = "<group>"; };
 		BF72D14A26B7DE6300F8DA6D /* ChangeBgStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeBgStackView.swift; sourceTree = "<group>"; };
-		BFCE10CE26B2B4BD00C206B5 /* ProfileUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileUserViewController.swift; path = "GConnect/Features/Profile User/View Model/ProfileUserViewController.swift"; sourceTree = SOURCE_ROOT; };
+		BFCE10CE26B2B4BD00C206B5 /* ProfileUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileUserViewController.swift; path = "GConnect/Features/Profile User/View/ProfileUserViewController.swift"; sourceTree = SOURCE_ROOT; };
 		BFCE10D026B2B4EF00C206B5 /* ProfileUser.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileUser.storyboard; sourceTree = "<group>"; };
 		BFE80C0A26CF906200FFC9DE /* DataPeople.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPeople.swift; sourceTree = "<group>"; };
 		C092DB4CBC1EC1413549CEB6 /* Pods-GConnect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GConnect.release.xcconfig"; path = "Target Support Files/Pods-GConnect/Pods-GConnect.release.xcconfig"; sourceTree = "<group>"; };
@@ -241,6 +243,8 @@
 		E09D67C626BE8F4400270C19 /* ListChatLoungeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListChatLoungeCollectionViewCell.swift; sourceTree = "<group>"; };
 		E09D67C726BE8F4400270C19 /* ListChatLoungeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListChatLoungeCollectionViewCell.xib; sourceTree = "<group>"; };
 		E09D67CA26BE920A00270C19 /* ChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewModel.swift; sourceTree = "<group>"; };
+		E0AF775D26D21CC60095DA01 /* ChatPersonalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPersonalViewController.swift; sourceTree = "<group>"; };
+		E0AF775F26D21CF30095DA01 /* ChatPersonal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChatPersonal.storyboard; sourceTree = "<group>"; };
 		E0E51A2726CCE4E30084C22E /* SetRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetRounded.swift; sourceTree = "<group>"; };
 		E0E51A3226CD83500084C22E /* ExplorePeopleUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorePeopleUIView.swift; sourceTree = "<group>"; };
 		E0E51A3426CD87940084C22E /* SetImageTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetImageTextField.swift; sourceTree = "<group>"; };
@@ -769,6 +773,8 @@
 		BFCE10CC26B2B48B00C206B5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BFCE10CE26B2B4BD00C206B5 /* ProfileUserViewController.swift */,
+				8476093826CCD1FC006B9878 /* ConfigureView.swift */,
 				BFCE10D026B2B4EF00C206B5 /* ProfileUser.storyboard */,
 			);
 			path = View;
@@ -777,9 +783,7 @@
 		BFCE10CD26B2B49000C206B5 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
-				BFCE10CE26B2B4BD00C206B5 /* ProfileUserViewController.swift */,
 				8476093626CCCE60006B9878 /* DataControl.swift */,
-				8476093826CCD1FC006B9878 /* ConfigureView.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -856,6 +860,7 @@
 		E04E0FF426B0059800A81F92 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				E0AF775B26D21BD20095DA01 /* Chat Personal */,
 				846D97A726CE18F300546A27 /* FilterPeople */,
 				E807B2F626CE5F1D00724046 /* Invitation */,
 				846D97A126CD15AD00546A27 /* Explore People */,
@@ -985,6 +990,23 @@
 				E08F235426BCFBFF00D7E0BA /* Message.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		E0AF775B26D21BD20095DA01 /* Chat Personal */ = {
+			isa = PBXGroup;
+			children = (
+				E0AF775C26D21BDA0095DA01 /* View */,
+			);
+			path = "Chat Personal";
+			sourceTree = "<group>";
+		};
+		E0AF775C26D21BDA0095DA01 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E0AF775D26D21CC60095DA01 /* ChatPersonalViewController.swift */,
+				E0AF775F26D21CF30095DA01 /* ChatPersonal.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		E0E51A3626CE10C20084C22E /* ExplorePeopleCell */ = {
@@ -1124,6 +1146,7 @@
 				7C75DFCB26B30727002400CA /* LoungeCollectionViewCell.xib in Resources */,
 				E06AA42B26B7CE4D00357B01 /* FilterLounge.storyboard in Resources */,
 				E09D67C926BE8F4400270C19 /* ListChatLoungeCollectionViewCell.xib in Resources */,
+				E0AF776026D21CF30095DA01 /* ChatPersonal.storyboard in Resources */,
 				7CB18F6426BD93EB0065D1CC /* Test.storyboard in Resources */,
 				E04E0FED26B0058500A81F92 /* LaunchScreen.storyboard in Resources */,
 				E8A196E826CF9D0200F69F22 /* InvitationList.storyboard in Resources */,
@@ -1229,6 +1252,7 @@
 				848FE7DD26CE692B0070AAD1 /* ViewModelExplorePeople.swift in Sources */,
 				8405A5F526B15493009D1375 /* StoreDataAuth.swift in Sources */,
 				E06ED46626B410E600EC18B0 /* CreateLoungeViewModel.swift in Sources */,
+				E0AF775E26D21CC60095DA01 /* ChatPersonalViewController.swift in Sources */,
 				84D9368F26B289F500E29F12 /* ChooseGameViewController.swift in Sources */,
 				E08F235126BCFBE700D7E0BA /* Chat.swift in Sources */,
 				8476093C26CCD42B006B9878 /* GetData.swift in Sources */,

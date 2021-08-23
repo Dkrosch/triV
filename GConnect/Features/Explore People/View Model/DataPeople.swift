@@ -9,10 +9,31 @@ import Foundation
 import Firebase
 
 extension ExplorePeopleUIView{
+    func isKeyPresentInUserDefaults(key: String) -> Bool {
+        return UserDefaults.standard.object(forKey: key) != nil
+    }
     func getData(){
+        
+        if let savedFilter = UserDefaults.standard.object(forKey: "filterPeople") as? Data{
+            let decoder = JSONDecoder()
+            if let loadedFilter = try? decoder.decode(FilterPeople.self, from: savedFilter){
+                filterPeople = loadedFilter
+            }
+        }
+        
+        print("ini filtered people \(filterPeople?.statusFilter)")
         userProfile = []
         
         let reference = Firestore.firestore().collection("users")
+        
+//        var reference: Query?
+        
+//        if filterPeople?.statusFilter == true{
+//            reference = Firestore.firestore().collection("users").whereField("role", isEqualTo: filterPeople?.arrayRole[0] ?? "").whereField("role", isEqualTo: filterPeople?.arrayRole[1] ?? "").whereField("role", isEqualTo: filterPeople?.arrayRole[2] ?? "").whereField("role", isEqualTo: filterPeople?.arrayRole[3] ?? "").whereField("Rank", isEqualTo: filterPeople?.rank ?? "").whereField("Gender", isEqualTo: filterPeople?.gender ?? "")
+//        } else if filterPeople?.statusFilter == false{
+//            reference = Firestore.firestore().collection("users")
+//        }
+
         
         reference.getDocuments { snapshot, error in
             if error != nil{

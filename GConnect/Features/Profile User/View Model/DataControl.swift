@@ -38,10 +38,8 @@ extension ProfileUserViewController{
                 }
                 
                 if self.udahDiFetch == false {
-//                    self.achievementCollectionViewConstraintHeight.constant = self.achievementCollectionView.frame.size.height*CGFloat(self.dataachivement.count)
-                    self.achievementCollectionView.frame.size.height = self.achievementCollectionView.frame.size.height*CGFloat(self.dataachivement.count)
-//                    self.viewContentHeightConstraint.constant = 816 + self.achievementCollectionViewConstraintHeight.constant
-                    self.viewContentHeightConstraint.constant = 816 + self.achievementCollectionView.frame.size.height
+                    self.achievementCollectionViewConstraintHeight.constant = self.achievementCollectionView.frame.size.height*CGFloat(self.dataachivement.count)
+                    self.viewContentHeightConstraint.constant = 816 + self.achievementCollectionViewConstraintHeight.constant
                     self.udahDiFetch = true
                 }
                 self.achievementCollectionView.reloadData()

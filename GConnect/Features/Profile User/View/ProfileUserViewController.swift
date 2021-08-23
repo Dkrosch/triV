@@ -28,7 +28,7 @@ extension ProfileUserViewController: AddAchievementTapped{
     func addAchievement(isTapped: Bool) {
         statusTapped = isTapped
         if statusTapped == true {
-            achievementCollectionView.frame.size.height += 148
+            achievementCollectionViewConstraintHeight.constant += 148
             viewContentHeightConstraint.constant += 148
             achievementCollectionView.reloadData()
         }

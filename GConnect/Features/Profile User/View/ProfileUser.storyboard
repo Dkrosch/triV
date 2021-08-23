@@ -207,7 +207,7 @@
                                                 <rect key="frame" x="20" y="849" width="350" height="148"/>
                                                 <color key="backgroundColor" red="0.10980392160000001" green="0.17254901959999999" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="hcS-gv-wAg" secondAttribute="height" multiplier="175:74" id="SSr-ea-9Dn"/>
+                                                    <constraint firstAttribute="height" constant="148" id="3od-ld-XDp"/>
                                                 </constraints>
                                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="O0o-NP-My5">
                                                     <size key="itemSize" width="350" height="148"/>
@@ -551,6 +551,7 @@
                     <connections>
                         <outlet property="aboutMeTextField" destination="3BA-AN-Ufw" id="rpm-0G-1jK"/>
                         <outlet property="achievementCollectionView" destination="hcS-gv-wAg" id="3qy-eZ-JQS"/>
+                        <outlet property="achievementCollectionViewConstraintHeight" destination="3od-ld-XDp" id="bDY-jz-oVN"/>
                         <outlet property="btnAddAchievement" destination="Qvm-3v-6yd" id="Ybj-4e-f3D"/>
                         <outlet property="buttonLogoutProfileUser" destination="2wA-eI-GPF" id="6T7-mA-eUE"/>
                         <outlet property="changeProfilePicButton" destination="QnW-Xf-LPg" id="h8M-ac-3TN"/>

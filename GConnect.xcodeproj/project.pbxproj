@@ -114,6 +114,10 @@
 		E09D67CB26BE920A00270C19 /* ChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E09D67CA26BE920A00270C19 /* ChatListViewModel.swift */; };
 		E0AF775E26D21CC60095DA01 /* ChatPersonalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AF775D26D21CC60095DA01 /* ChatPersonalViewController.swift */; };
 		E0AF776026D21CF30095DA01 /* ChatPersonal.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E0AF775F26D21CF30095DA01 /* ChatPersonal.storyboard */; };
+		E0AF776326D3BAC40095DA01 /* LoungeChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AF776226D3BAC40095DA01 /* LoungeChatListViewController.swift */; };
+		E0AF776526D3BB030095DA01 /* PersonalChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AF776426D3BB030095DA01 /* PersonalChatListViewController.swift */; };
+		E0AF776A26D3C1C70095DA01 /* PersonalChatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AF776826D3C1C70095DA01 /* PersonalChatCollectionViewCell.swift */; };
+		E0AF776B26D3C1C70095DA01 /* PersonalChatCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0AF776926D3C1C70095DA01 /* PersonalChatCollectionViewCell.xib */; };
 		E0E51A2826CCE4E30084C22E /* SetRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E51A2726CCE4E30084C22E /* SetRounded.swift */; };
 		E0E51A3326CD83500084C22E /* ExplorePeopleUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E51A3226CD83500084C22E /* ExplorePeopleUIView.swift */; };
 		E0E51A3526CD87940084C22E /* SetImageTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E51A3426CD87940084C22E /* SetImageTextField.swift */; };
@@ -247,6 +251,10 @@
 		E09D67CA26BE920A00270C19 /* ChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewModel.swift; sourceTree = "<group>"; };
 		E0AF775D26D21CC60095DA01 /* ChatPersonalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatPersonalViewController.swift; sourceTree = "<group>"; };
 		E0AF775F26D21CF30095DA01 /* ChatPersonal.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChatPersonal.storyboard; sourceTree = "<group>"; };
+		E0AF776226D3BAC40095DA01 /* LoungeChatListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoungeChatListViewController.swift; sourceTree = "<group>"; };
+		E0AF776426D3BB030095DA01 /* PersonalChatListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalChatListViewController.swift; sourceTree = "<group>"; };
+		E0AF776826D3C1C70095DA01 /* PersonalChatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalChatCollectionViewCell.swift; sourceTree = "<group>"; };
+		E0AF776926D3C1C70095DA01 /* PersonalChatCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonalChatCollectionViewCell.xib; sourceTree = "<group>"; };
 		E0E51A2726CCE4E30084C22E /* SetRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetRounded.swift; sourceTree = "<group>"; };
 		E0E51A3226CD83500084C22E /* ExplorePeopleUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorePeopleUIView.swift; sourceTree = "<group>"; };
 		E0E51A3426CD87940084C22E /* SetImageTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetImageTextField.swift; sourceTree = "<group>"; };
@@ -307,6 +315,7 @@
 		7C9ECE3D26BE64E800DBA826 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E0AF776126D3BA890095DA01 /* CollectionView */,
 				7C9ECE4026BE64E800DBA826 /* ChatListViewController.swift */,
 				7C9ECE3E26BE64E800DBA826 /* ChatList.storyboard */,
 			);
@@ -324,8 +333,8 @@
 		7C9ECE4326BE650100DBA826 /* ChatList */ = {
 			isa = PBXGroup;
 			children = (
-				E09D67C626BE8F4400270C19 /* ListChatLoungeCollectionViewCell.swift */,
-				E09D67C726BE8F4400270C19 /* ListChatLoungeCollectionViewCell.xib */,
+				E0AF776726D3C1A20095DA01 /* Personal Chat List */,
+				E0AF776626D3C1870095DA01 /* Lounge Chat List */,
 			);
 			path = ChatList;
 			sourceTree = "<group>";
@@ -1020,6 +1029,33 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		E0AF776126D3BA890095DA01 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				E0AF776226D3BAC40095DA01 /* LoungeChatListViewController.swift */,
+				E0AF776426D3BB030095DA01 /* PersonalChatListViewController.swift */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		E0AF776626D3C1870095DA01 /* Lounge Chat List */ = {
+			isa = PBXGroup;
+			children = (
+				E09D67C626BE8F4400270C19 /* ListChatLoungeCollectionViewCell.swift */,
+				E09D67C726BE8F4400270C19 /* ListChatLoungeCollectionViewCell.xib */,
+			);
+			path = "Lounge Chat List";
+			sourceTree = "<group>";
+		};
+		E0AF776726D3C1A20095DA01 /* Personal Chat List */ = {
+			isa = PBXGroup;
+			children = (
+				E0AF776826D3C1C70095DA01 /* PersonalChatCollectionViewCell.swift */,
+				E0AF776926D3C1C70095DA01 /* PersonalChatCollectionViewCell.xib */,
+			);
+			path = "Personal Chat List";
+			sourceTree = "<group>";
+		};
 		E0E51A3626CE10C20084C22E /* ExplorePeopleCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1154,6 +1190,7 @@
 				84D9367426B2839A00E29F12 /* RequirementExploreLoungeCollectionViewCell.xib in Resources */,
 				E001319726B51EDB00A315EB /* GamesCollectionViewCell.xib in Resources */,
 				E0E51A3A26CE10F40084C22E /* ExplorePeopleCollectionViewCell.xib in Resources */,
+				E0AF776B26D3C1C70095DA01 /* PersonalChatCollectionViewCell.xib in Resources */,
 				7C75DFCB26B30727002400CA /* LoungeCollectionViewCell.xib in Resources */,
 				E06AA42B26B7CE4D00357B01 /* FilterLounge.storyboard in Resources */,
 				E09D67C926BE8F4400270C19 /* ListChatLoungeCollectionViewCell.xib in Resources */,
@@ -1263,6 +1300,7 @@
 				848FE7DD26CE692B0070AAD1 /* ViewModelExplorePeople.swift in Sources */,
 				8405A5F526B15493009D1375 /* StoreDataAuth.swift in Sources */,
 				E06ED46626B410E600EC18B0 /* CreateLoungeViewModel.swift in Sources */,
+				E0AF776A26D3C1C70095DA01 /* PersonalChatCollectionViewCell.swift in Sources */,
 				E0AF775E26D21CC60095DA01 /* ChatPersonalViewController.swift in Sources */,
 				84D9368F26B289F500E29F12 /* ChooseGameViewController.swift in Sources */,
 				E08F235126BCFBE700D7E0BA /* Chat.swift in Sources */,
@@ -1293,12 +1331,14 @@
 				E8A196E526CF9CD300F69F22 /* InvitationListViewController.swift in Sources */,
 				E8A196EE26CF9FBB00F69F22 /* InvitationListCell.swift in Sources */,
 				E8024B0226B91FCC004674F3 /* Method.swift in Sources */,
+				E0AF776326D3BAC40095DA01 /* LoungeChatListViewController.swift in Sources */,
 				84BB975926B12D730024A98B /* AuthLogin.swift in Sources */,
 				E8024AFF26B91F26004674F3 /* Route.swift in Sources */,
 				848FE7DA26CE67600070AAD1 /* FilterExplorePeopleViewController.swift in Sources */,
 				8476093726CCCE60006B9878 /* DataControl.swift in Sources */,
 				E09D67CB26BE920A00270C19 /* ChatListViewModel.swift in Sources */,
 				E04E0FE126B0058200A81F92 /* AppDelegate.swift in Sources */,
+				E0AF776526D3BB030095DA01 /* PersonalChatListViewController.swift in Sources */,
 				E04E0FE326B0058200A81F92 /* SceneDelegate.swift in Sources */,
 				8476093026CA45F7006B9878 /* Datas.swift in Sources */,
 				8405A60226B155FD009D1375 /* PageControl.swift in Sources */,

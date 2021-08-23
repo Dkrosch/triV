@@ -78,8 +78,6 @@ class CreateGameDetailViewController: UIViewController {
     @IBAction func btnContinueTapped(_ sender: Any) {
         uName = gamerUnameTextField.text!
         storeData(uname: uName, username: username, email: email, dob: dob, password: password, gender: gender)
-        self.defaults.set(true, forKey: "isUserSignedIn")
-        self.defaults.synchronize()
     }
     
     func showErrorMessage(message: String){

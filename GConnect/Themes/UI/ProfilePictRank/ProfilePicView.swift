@@ -12,6 +12,7 @@ class ProfilePicView: UIView {
 
     @IBOutlet weak var imageProfile: UIImageView!
     @IBOutlet weak var imageRank: UIImageView!
+    @IBOutlet weak var backgroundView: UIView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,7 +26,8 @@ class ProfilePicView: UIView {
     
     func configureView(){
         guard let view = self.loadViewFromNib(nibName: "ProfilePic") else { return }
-        imageProfile.layer.cornerRadius = imageRank.frame.height/2
+        backgroundView.layer.cornerRadius = 55/2
+        imageProfile.layer.cornerRadius = 55/2
         view.frame = self.bounds
         self.addSubview(view)
     }

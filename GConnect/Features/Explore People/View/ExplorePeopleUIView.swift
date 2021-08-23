@@ -29,7 +29,6 @@ class ExplorePeopleUIView: UIView {
         userCollectionView.dataSource = self
         userCollectionView.register(ExplorePeopleCollectionViewCell.nib(), forCellWithReuseIdentifier: ExplorePeopleCollectionViewCell.identifier)
         getData()
-        isKeyPresentInUserDefaults(key: "filterPeople")
     }
 }
 

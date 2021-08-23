@@ -42,6 +42,20 @@ class PersonalChatRoom{
     }
 }
 
+class TargetedUser {
+    var username: String
+    var role: String
+    var idPersonalChat: String
+    var idUser: String
+    
+    init(username: String, role: String, idPersonalChat: String, idUser: String){
+        self.username = username
+        self.role = role
+        self.idPersonalChat = idPersonalChat
+        self.idUser = idUser
+    }
+}
+
 struct UserInfo{
     var uidUser: String
     var dataUser: [ProfileData]

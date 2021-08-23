@@ -34,6 +34,8 @@ extension CreateGameDetailViewController{
                                 print("ga bisa bang")
                             }else{
                                 StoreDataAuth.CreateData(username: username, email: email, DoB: dob, password: password, gender: gender, game: game, role: role ?? "", rank: rank, gamerUname: gamerUname ?? "", level: String(level ?? 0), legend: legend ?? "")
+                                self.defaults.set(true, forKey: "isUserSignedIn")
+                                self.defaults.synchronize()
                             }
                             
                             self.loadingView.isHidden = false

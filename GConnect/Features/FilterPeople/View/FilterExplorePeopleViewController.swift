@@ -33,8 +33,15 @@ class FilterExplorePeopleViewController: UIViewController {
     var createloungeVC = CreateLoungeVC()
     
     var statusValo = 1
-    var arrFilter: [FilterLounge]?
-    var filter: FilterLounge?
+    var arrFilter: [FilterPeople]?
+    
+    var filter: FilterPeople?
+    var arrPeople: [FilterPeople]?
+    
+    var roleRecon = ""
+    var roleDefensive = ""
+    var roleOffensive = ""
+    var roleSupport = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +59,12 @@ class FilterExplorePeopleViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = false
         self.navigationItem.title = "Set Filter"
         storeFilter()
+        print("INI")
+        print(filter?.recon ?? "")
+        print(filter?.defensive ?? "")
+        print(filter?.offensive ?? "")
+        print(filter?.support ?? "")
+        print(filter?.arrayRole ?? [])
     }
     
     func setButtonRole(sender: UIButton){
@@ -61,24 +74,44 @@ class FilterExplorePeopleViewController: UIViewController {
     
     @IBAction func btnSentinelTapped(_ sender: Any) {
         createloungeVC.changeStatusRole(status: arrayStatusRole[3], sender: sender as! UIButton){ status in
+            if status == true{
+                self.roleOffensive = "Offensive"
+            } else {
+                self.roleOffensive = ""
+            }
             self.arrayStatusRole[3] = status
         }
     }
     
     @IBAction func btnInitiatorTapped(_ sender: Any) {
         createloungeVC.changeStatusRole(status: arrayStatusRole[2], sender: sender as! UIButton){ status in
+            if status == true{
+                self.roleSupport = "Support"
+            } else {
+                self.roleSupport = ""
+            }
             self.arrayStatusRole[2] = status
         }
     }
     
     @IBAction func btnControllerTapped(_ sender: Any) {
         createloungeVC.changeStatusRole(status: arrayStatusRole[0], sender: sender as! UIButton){ status in
+            if status == true{
+                self.roleDefensive = "Defensive"
+            } else {
+                self.roleDefensive = ""
+            }
             self.arrayStatusRole[0] = status
         }
     }
     
     @IBAction func btnDuelistTapped(_ sender: Any) {
         createloungeVC.changeStatusRole(status: arrayStatusRole[1], sender: sender as! UIButton){ status in
+            if status == true{
+                self.roleRecon = "Recon"
+            } else {
+                self.roleRecon = ""
+            }
             self.arrayStatusRole[1] = status
         }
     }

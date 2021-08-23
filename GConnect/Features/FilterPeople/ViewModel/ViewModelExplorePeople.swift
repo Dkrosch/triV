@@ -35,9 +35,9 @@ extension FilterExplorePeopleViewController{
     }
     
     func storeFilter(){
-        if let savedFilter = UserDefaults.standard.object(forKey: "filterLounge") as? Data{
+        if let savedFilter = UserDefaults.standard.object(forKey: "filterPeople") as? Data{
             let decoder = JSONDecoder()
-            if let loadedFilter = try? decoder.decode(FilterLounge.self, from: savedFilter){
+            if let loadedFilter = try? decoder.decode(FilterPeople.self, from: savedFilter){
                 filter = loadedFilter
             }
         }
@@ -49,6 +49,10 @@ extension FilterExplorePeopleViewController{
         }
         
         arrayStatusRole = filter!.arrayRole
+        roleRecon = filter!.recon
+        roleSupport = filter!.support
+        roleDefensive = filter!.defensive
+        roleOffensive = filter!.offensive
         
         let controller = filter!.arrayRole[0]
         let duelist = filter!.arrayRole[1]
@@ -56,16 +60,27 @@ extension FilterExplorePeopleViewController{
         let sentinel = filter!.arrayRole[3]
         
         if controller == true {
+            print("controller")
+            roleDefensive = "Defensive"
             self.setButtonRole(sender: btnController)
         }
         if duelist == true{
+            print("duelist")
+            roleRecon = "Recon"
             self.setButtonRole(sender: btnDuelist)
+            //roles?[1] = "Recon"
         }
         if initiator == true{
+            print("initiator")
+            roleSupport = "Support"
+           // roles?[2] = "Support"
             self.setButtonRole(sender: btnInitiator)
         }
         if sentinel == true{
+            print("sentinel")
+            roleOffensive = "Offensive"
             self.setButtonRole(sender: btnSentinel)
+          //  roles?[3] = "Offensive"
         }
         txtFieldRank.text = filter?.rank
         txtFieldGender.text = filter?.gender
@@ -78,20 +93,20 @@ extension FilterExplorePeopleViewController{
         }else if txtFieldRank.text == "" || txtFieldGender.text == ""{
             showErrorMessage(msg: "Fill all data")
         }else{
-            let dataFilter = FilterLounge(statusFilter: true, game: "Apex Legends", role: arrayStatusRole, rank: txtFieldRank.text!, gender: txtFieldGender.text!)
+            let dataFilter = FilterPeople(statusFilter: true, game: "Apex Legends", role: arrayStatusRole, rank: txtFieldRank.text!, gender: txtFieldGender.text!, recon: roleRecon, support: roleSupport, offensive: roleOffensive, defensive: roleDefensive)
             let encoder = JSONEncoder()
             if let filter = try? encoder.encode(dataFilter){
-                UserDefaults.standard.set(filter, forKey: "filterLounge")
+                UserDefaults.standard.set(filter, forKey: "filterPeople")
             }
             self.navigationController?.popViewController(animated: true)
         }
     }
     
     func removeFilter(){
-        let dataFilter = FilterLounge(statusFilter: false, game: "Apex Legends", role: [true, true, true, true], rank: "Rank", gender: "Gender")
+        let dataFilter = FilterPeople(statusFilter: false, game: "Apex Legends", role: [true, true, true, true], rank: "Rank", gender: "Gender", recon: "Recon", support: "Support", offensive: "Offensive", defensive: "Defensive")
         let encoder = JSONEncoder()
         if let filter = try? encoder.encode(dataFilter){
-            UserDefaults.standard.set(filter, forKey: "filterLounge")
+            UserDefaults.standard.set(filter, forKey: "filterPeople")
         }
         self.navigationController?.popViewController(animated: true)
     }

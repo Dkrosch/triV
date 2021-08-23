@@ -16,6 +16,7 @@ class ExplorePeopleUIView: UIView {
     
     var delegate: ExplorePeopleUIViewDelegate?
     var userProfile = [ExplorePeople]()
+    var filter: FilterPeople?
     
     func configureView(){
         searchBar.setupLeftImage(imageName: "magnifyingglass")

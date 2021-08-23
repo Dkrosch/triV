@@ -40,6 +40,9 @@
                                                 <state key="normal" image="slider.horizontal.3" catalog="system">
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="17"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="filterTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="jwI-7c-YUt"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.99607843139999996" green="0.58823529409999997" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>

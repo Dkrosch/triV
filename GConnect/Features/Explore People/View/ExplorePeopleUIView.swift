@@ -16,6 +16,7 @@ class ExplorePeopleUIView: UIView {
     
     var delegate: ExplorePeopleUIViewDelegate?
     var userProfile = [ExplorePeople]()
+    var filter: FilterPeople?
     
     var filterPeople: FilterPeople?
     

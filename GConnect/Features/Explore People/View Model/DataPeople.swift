@@ -11,11 +11,24 @@ import Firebase
 extension ExplorePeopleUIView{
     func getData(){
         
+        if let savedFilter = UserDefaults.standard.object(forKey: "filterPeople") as? Data{
+            let decoder = JSONDecoder()
+            if let loadedFilter = try? decoder.decode(FilterPeople.self, from: savedFilter){
+                filter = loadedFilter
+            }
+        }
+        
         userProfile = []
         
-        let reference = Firestore.firestore().collection("users")
+        var reference: Query?
         
-        reference.getDocuments { snapshot, error in
+        if filter?.statusFilter == true{
+            reference = Firestore.firestore().collection("users").whereField("role", in: [filter?.recon ?? "", filter?.offensive ?? "", filter?.defensive ?? "", filter?.support ?? ""]).whereField("rank", isEqualTo: filter?.rank ?? "").whereField("gender", isEqualTo: filter?.gender ?? "")
+        } else if filter?.statusFilter == false {
+            reference = Firestore.firestore().collection("users")
+        }
+        
+        reference!.getDocuments { snapshot, error in
             if error != nil{
                 print("error")
             }else{
@@ -47,6 +60,7 @@ extension ExplorePeopleUIView{
                 DispatchQueue.main.async {
                     self.userCollectionView.reloadData()
                 }
+                self.userCollectionView.reloadData()
             }
         }
         userCollectionView.reloadData()

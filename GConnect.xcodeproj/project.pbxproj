@@ -122,6 +122,12 @@
 		E8024B0626B92322004674F3 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8024B0526B92322004674F3 /* String+Extension.swift */; };
 		E8024B1F26B941D5004674F3 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8024B1E26B941D5004674F3 /* AppError.swift */; };
 		E8024B2326B94D83004674F3 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8024B2226B94D83004674F3 /* APIResponse.swift */; };
+		E807B2F826CE5F3000724046 /* InvitationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E807B2F726CE5F3000724046 /* InvitationList.swift */; };
+		E807B2FC26CE6FD800724046 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E807B2FB26CE6FD800724046 /* CollectionViewCell.swift */; };
+		E8A196E526CF9CD300F69F22 /* InvitationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A196E426CF9CD300F69F22 /* InvitationListViewController.swift */; };
+		E8A196E826CF9D0200F69F22 /* InvitationList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8A196E726CF9D0200F69F22 /* InvitationList.storyboard */; };
+		E8A196EE26CF9FBB00F69F22 /* InvitationListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A196EC26CF9FBB00F69F22 /* InvitationListCell.swift */; };
+		E8A196EF26CF9FBB00F69F22 /* InvitationListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8A196ED26CF9FBB00F69F22 /* InvitationListCell.xib */; };
 		FD6F9DDA0EDE242BC7E2DFD3 /* Pods_GConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4852E42181E6C2BB21B7925F /* Pods_GConnect.framework */; };
 /* End PBXBuildFile section */
 
@@ -246,6 +252,12 @@
 		E8024B0526B92322004674F3 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "String+Extension.swift"; path = "GConnect/Helper/Networking/String+Extension.swift"; sourceTree = SOURCE_ROOT; };
 		E8024B1E26B941D5004674F3 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		E8024B2226B94D83004674F3 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
+		E807B2F726CE5F3000724046 /* InvitationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationList.swift; sourceTree = "<group>"; };
+		E807B2FB26CE6FD800724046 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		E8A196E426CF9CD300F69F22 /* InvitationListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationListViewController.swift; sourceTree = "<group>"; };
+		E8A196E726CF9D0200F69F22 /* InvitationList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InvitationList.storyboard; sourceTree = "<group>"; };
+		E8A196EC26CF9FBB00F69F22 /* InvitationListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationListCell.swift; sourceTree = "<group>"; };
+		E8A196ED26CF9FBB00F69F22 /* InvitationListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvitationListCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -527,6 +539,7 @@
 		84D9366E26B2837700E29F12 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				E8A196EA26CF9F1000F69F22 /* InvitationListCell */,
 				E0E51A3626CE10C20084C22E /* ExplorePeopleCell */,
 				E081880F26BFE48800A68633 /* EmptyChatList */,
 				E081880A26BFD8A000A68633 /* EmptyExploreLounge */,
@@ -844,6 +857,7 @@
 			isa = PBXGroup;
 			children = (
 				846D97A726CE18F300546A27 /* FilterPeople */,
+				E807B2F626CE5F1D00724046 /* Invitation */,
 				846D97A126CD15AD00546A27 /* Explore People */,
 				7C9ECE3B26BE64E800DBA826 /* ChatList */,
 				8447AE0926BD519B005AB338 /* LodingPage */,
@@ -1004,6 +1018,42 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		E807B2F626CE5F1D00724046 /* Invitation */ = {
+			isa = PBXGroup;
+			children = (
+				E8A196DE26CF9C4D00F69F22 /* View Model */,
+				E8A196DD26CF9C4500F69F22 /* View */,
+				E807B2F726CE5F3000724046 /* InvitationList.swift */,
+				E807B2FB26CE6FD800724046 /* CollectionViewCell.swift */,
+			);
+			path = Invitation;
+			sourceTree = "<group>";
+		};
+		E8A196DD26CF9C4500F69F22 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E8A196E426CF9CD300F69F22 /* InvitationListViewController.swift */,
+				E8A196E726CF9D0200F69F22 /* InvitationList.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E8A196DE26CF9C4D00F69F22 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		E8A196EA26CF9F1000F69F22 /* InvitationListCell */ = {
+			isa = PBXGroup;
+			children = (
+				E8A196EC26CF9FBB00F69F22 /* InvitationListCell.swift */,
+				E8A196ED26CF9FBB00F69F22 /* InvitationListCell.xib */,
+			);
+			path = InvitationListCell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1076,10 +1126,12 @@
 				E09D67C926BE8F4400270C19 /* ListChatLoungeCollectionViewCell.xib in Resources */,
 				7CB18F6426BD93EB0065D1CC /* Test.storyboard in Resources */,
 				E04E0FED26B0058500A81F92 /* LaunchScreen.storyboard in Resources */,
+				E8A196E826CF9D0200F69F22 /* InvitationList.storyboard in Resources */,
 				E04E101326B01D1200A81F92 /* GoogleService-Info.plist in Resources */,
 				E081880726BFC1E000A68633 /* ProfilePic.xib in Resources */,
 				7C75DFCF26B30BAA002400CA /* RoleCollectionViewCell.xib in Resources */,
 				84D9367726B2839A00E29F12 /* ExploreLoungeCell.xib in Resources */,
+				E8A196EF26CF9FBB00F69F22 /* InvitationListCell.xib in Resources */,
 				A80E61DE26B3DD01005FF4B6 /* ProfileVisitor.storyboard in Resources */,
 				E01EE1E626B818210065F668 /* DetailLoungeCollectionViewCell.xib in Resources */,
 				848FE7D826CE63C30070AAD1 /* FilterPeople.storyboard in Resources */,
@@ -1150,12 +1202,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				8405A5FD26B155D8009D1375 /* HideKeyboard.swift in Sources */,
+				E807B2F826CE5F3000724046 /* InvitationList.swift in Sources */,
 				E011EC8126BC002B005E929B /* AchievementEmptyCollectionViewCell.swift in Sources */,
 				84D9369E26B2B22D00E29F12 /* DataLounge.swift in Sources */,
 				8405A60026B155E4009D1375 /* CheckEmail.swift in Sources */,
 				E06AA42C26B7CE4D00357B01 /* FilterLoungeViewController.swift in Sources */,
 				E04E100C26B00A1D00A81F92 /* LoginViewController.swift in Sources */,
 				846D97A626CD18B000546A27 /* ExplorePeopleViewController.swift in Sources */,
+				E807B2FC26CE6FD800724046 /* CollectionViewCell.swift in Sources */,
 				84D9369826B2908F00E29F12 /* CreateLoungeVC.swift in Sources */,
 				E08F235326BCFBF400D7E0BA /* ChatUser.swift in Sources */,
 				BFE80C0B26CF906200FFC9DE /* DataPeople.swift in Sources */,
@@ -1201,6 +1255,8 @@
 				8434498826B8400F00F66A2B /* DataUser.swift in Sources */,
 				A80E61E026B3ED40005FF4B6 /* ProfileVisitorViewController.swift in Sources */,
 				E09D67C826BE8F4400270C19 /* ListChatLoungeCollectionViewCell.swift in Sources */,
+				E8A196E526CF9CD300F69F22 /* InvitationListViewController.swift in Sources */,
+				E8A196EE26CF9FBB00F69F22 /* InvitationListCell.swift in Sources */,
 				E8024B0226B91FCC004674F3 /* Method.swift in Sources */,
 				84BB975926B12D730024A98B /* AuthLogin.swift in Sources */,
 				E8024AFF26B91F26004674F3 /* Route.swift in Sources */,

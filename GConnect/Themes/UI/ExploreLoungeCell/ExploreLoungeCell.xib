@@ -95,7 +95,7 @@
                 <outlet property="requirementExploreLoungeCollectionVIew" destination="van-MG-Jiz" id="tVj-qd-6Cj"/>
                 <outlet property="totalMemberLabel" destination="sfD-2e-GQj" id="4Fd-hP-A4n"/>
             </connections>
-            <point key="canvasLocation" x="63.768115942028992" y="104.46428571428571"/>
+            <point key="canvasLocation" x="100" y="94"/>
         </collectionViewCell>
     </objects>
     <resources>

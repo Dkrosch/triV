@@ -35,9 +35,9 @@ extension FilterExplorePeopleViewController{
     }
     
     func storeFilter(){
-        if let savedFilter = UserDefaults.standard.object(forKey: "filterLounge") as? Data{
+        if let savedFilter = UserDefaults.standard.object(forKey: "filterPeople") as? Data{
             let decoder = JSONDecoder()
-            if let loadedFilter = try? decoder.decode(FilterLounge.self, from: savedFilter){
+            if let loadedFilter = try? decoder.decode(FilterPeople.self, from: savedFilter){
                 filter = loadedFilter
             }
         }
@@ -78,20 +78,20 @@ extension FilterExplorePeopleViewController{
         }else if txtFieldRank.text == "" || txtFieldGender.text == ""{
             showErrorMessage(msg: "Fill all data")
         }else{
-            let dataFilter = FilterLounge(statusFilter: true, game: "Apex Legends", role: arrayStatusRole, rank: txtFieldRank.text!, gender: txtFieldGender.text!)
+            let dataFilter = FilterPeople(statusFilter: true, game: "Apex Legends", role: arrayStatusRole, rank: txtFieldRank.text!, gender: txtFieldGender.text!)
             let encoder = JSONEncoder()
             if let filter = try? encoder.encode(dataFilter){
-                UserDefaults.standard.set(filter, forKey: "filterLounge")
+                UserDefaults.standard.set(filter, forKey: "filterPeople")
             }
             self.navigationController?.popViewController(animated: true)
         }
     }
     
     func removeFilter(){
-        let dataFilter = FilterLounge(statusFilter: false, game: "Apex Legends", role: [true, true, true, true], rank: "Rank", gender: "Gender")
+        let dataFilter = FilterPeople(statusFilter: false, game: "Apex Legends", role: [true, true, true, true], rank: "Rank", gender: "Gender")
         let encoder = JSONEncoder()
         if let filter = try? encoder.encode(dataFilter){
-            UserDefaults.standard.set(filter, forKey: "filterLounge")
+            UserDefaults.standard.set(filter, forKey: "filterPeople")
         }
         self.navigationController?.popViewController(animated: true)
     }

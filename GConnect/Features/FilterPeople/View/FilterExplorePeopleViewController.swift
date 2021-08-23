@@ -33,8 +33,8 @@ class FilterExplorePeopleViewController: UIViewController {
     var createloungeVC = CreateLoungeVC()
     
     var statusValo = 1
-    var arrFilter: [FilterLounge]?
-    var filter: FilterLounge?
+    var arrFilter: [FilterPeople]?
+    var filter: FilterPeople?
     
     override func viewDidLoad() {
         super.viewDidLoad()

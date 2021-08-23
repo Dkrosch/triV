@@ -31,6 +31,12 @@ class ExplorePeopleViewController: UIViewController {
         explorePeopleUI.delegate = self
     }
     
+    @IBAction func filterTapped(_ sender: Any) {
+        let filterPeople = UIStoryboard(name: "FilterPeople", bundle: nil)
+        let vc = filterPeople.instantiateViewController(identifier: "filterPeople") as! FilterExplorePeopleViewController
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
     }

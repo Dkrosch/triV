@@ -128,6 +128,7 @@
 		E807B2F826CE5F3000724046 /* InvitationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E807B2F726CE5F3000724046 /* InvitationList.swift */; };
 		E807B2FC26CE6FD800724046 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E807B2FB26CE6FD800724046 /* CollectionViewCell.swift */; };
 		E860FB2326D4E74900A63CF7 /* loungeListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E860FB2226D4E74900A63CF7 /* loungeListCollectionViewCell.swift */; };
+		E860FB2626D4FD3D00A63CF7 /* InvitationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E860FB2526D4FD3D00A63CF7 /* InvitationViewModel.swift */; };
 		E8A196E526CF9CD300F69F22 /* InvitationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A196E426CF9CD300F69F22 /* InvitationListViewController.swift */; };
 		E8A196E826CF9D0200F69F22 /* InvitationList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8A196E726CF9D0200F69F22 /* InvitationList.storyboard */; };
 		E8A196EE26CF9FBB00F69F22 /* InvitationListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A196EC26CF9FBB00F69F22 /* InvitationListCell.swift */; };
@@ -264,6 +265,7 @@
 		E807B2F726CE5F3000724046 /* InvitationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationList.swift; sourceTree = "<group>"; };
 		E807B2FB26CE6FD800724046 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		E860FB2226D4E74900A63CF7 /* loungeListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loungeListCollectionViewCell.swift; sourceTree = "<group>"; };
+		E860FB2526D4FD3D00A63CF7 /* InvitationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationViewModel.swift; sourceTree = "<group>"; };
 		E8A196E426CF9CD300F69F22 /* InvitationListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationListViewController.swift; sourceTree = "<group>"; };
 		E8A196E726CF9D0200F69F22 /* InvitationList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InvitationList.storyboard; sourceTree = "<group>"; };
 		E8A196EC26CF9FBB00F69F22 /* InvitationListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationListCell.swift; sourceTree = "<group>"; };
@@ -1083,6 +1085,7 @@
 		E8A196DE26CF9C4D00F69F22 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
+				E860FB2526D4FD3D00A63CF7 /* InvitationViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -1328,6 +1331,7 @@
 				7CB18F6326BD93EB0065D1CC /* ViewController.swift in Sources */,
 				848FE7D426CE573A0070AAD1 /* LogicDB.swift in Sources */,
 				E02FC20926B2B07400963710 /* CreateGameDetailViewController.swift in Sources */,
+				E860FB2626D4FD3D00A63CF7 /* InvitationViewModel.swift in Sources */,
 				8405A5FE26B155D8009D1375 /* BottomLineTextField.swift in Sources */,
 				E02FC20726B174FE00963710 /* DatePicker.swift in Sources */,
 				84D9367F26B283EA00E29F12 /* ExploreLoungeViewController.swift in Sources */,

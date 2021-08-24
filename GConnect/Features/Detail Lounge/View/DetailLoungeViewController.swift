@@ -207,7 +207,6 @@ class DetailLoungeViewController: UIViewController {
                 
                 DispatchQueue.main.async {
                     self.roles.reloadData()
-                    //self.viewWillAppear(true)
                 }
             }
             

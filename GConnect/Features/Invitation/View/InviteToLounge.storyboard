@@ -19,20 +19,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Xct-tz-zDI">
-                                <rect key="frame" x="0.0" y="94" width="414" height="768"/>
+                                <rect key="frame" x="0.0" y="115" width="414" height="747"/>
                                 <color key="backgroundColor" red="0.1221277341" green="0.1700388193" blue="0.31766277549999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="oPO-lf-yKO">
-                                    <size key="itemSize" width="338" height="52"/>
+                                    <size key="itemSize" width="369" height="52"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="loungeListCell" id="CN9-YN-Rgc" customClass="loungeListCollectionViewCell" customModule="GConnect" customModuleProvider="target">
-                                        <rect key="frame" x="38" y="0.0" width="338" height="52"/>
+                                        <rect key="frame" x="22.5" y="0.0" width="369" height="52"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="6dU-y6-7Kp">
-                                            <rect key="frame" x="0.0" y="0.0" width="338" height="52"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="369" height="52"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lounge Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ri-79-FGO">
@@ -43,27 +43,27 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Rank| Role" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FP4-y9-hH4">
-                                                    <rect key="frame" x="8" y="27" width="202" height="17"/>
+                                                    <rect key="frame" x="8" y="27" width="293" height="17"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HNR-4K-0DA">
+                                                    <rect key="frame" x="0.0" y="50" width="387" height="1"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                </view>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uhe-Nf-lAK">
-                                                    <rect key="frame" x="309" y="16" width="21" height="21"/>
+                                                    <rect key="frame" x="340" y="16" width="21" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="tintColor" red="0.81129676100000003" green="0.4602917433" blue="0.3332813382" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <state key="normal" image="circle" catalog="system"/>
                                                     <state key="selected" image="checkmark.circle.fill" catalog="system"/>
                                                 </button>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HNR-4K-0DA">
-                                                    <rect key="frame" x="0.0" y="50" width="338" height="1"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                </view>
                                             </subviews>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="338" height="52"/>
+                                        <size key="customSize" width="369" height="52"/>
                                         <connections>
                                             <outlet property="checkBtn" destination="uhe-Nf-lAK" id="6gO-Qg-fIK"/>
                                             <outlet property="loungeRequirementLabel" destination="FP4-y9-hH4" id="pCv-JP-P38"/>
@@ -76,12 +76,13 @@
                         <viewLayoutGuide key="safeArea" id="lmp-7k-eU2"/>
                         <color key="backgroundColor" name="Dark Blue"/>
                         <constraints>
-                            <constraint firstItem="Xct-tz-zDI" firstAttribute="leading" secondItem="lmp-7k-eU2" secondAttribute="leading" id="BSb-6N-32R"/>
-                            <constraint firstItem="lmp-7k-eU2" firstAttribute="bottom" secondItem="Xct-tz-zDI" secondAttribute="bottom" id="LRf-wZ-ZRn"/>
-                            <constraint firstItem="lmp-7k-eU2" firstAttribute="trailing" secondItem="Xct-tz-zDI" secondAttribute="trailing" id="TuH-Zk-0sW"/>
-                            <constraint firstItem="Xct-tz-zDI" firstAttribute="top" secondItem="VCS-S6-IjN" secondAttribute="top" constant="94" id="tKq-ko-Hbo"/>
+                            <constraint firstItem="Xct-tz-zDI" firstAttribute="bottom" secondItem="lmp-7k-eU2" secondAttribute="bottom" id="cEi-Fg-U8s"/>
+                            <constraint firstItem="Xct-tz-zDI" firstAttribute="leading" secondItem="lmp-7k-eU2" secondAttribute="leading" id="don-ZR-1RK"/>
+                            <constraint firstItem="Xct-tz-zDI" firstAttribute="trailing" secondItem="lmp-7k-eU2" secondAttribute="trailing" id="gMN-C3-qJy"/>
+                            <constraint firstItem="Xct-tz-zDI" firstAttribute="top" secondItem="lmp-7k-eU2" secondAttribute="top" constant="27" id="lvs-mw-RoM"/>
                         </constraints>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="loungeListCollectionView" destination="Xct-tz-zDI" id="siB-Y8-uJY"/>
                     </connections>

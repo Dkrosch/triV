@@ -118,6 +118,8 @@
 		E0AF776526D3BB030095DA01 /* PersonalChatListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AF776426D3BB030095DA01 /* PersonalChatListViewController.swift */; };
 		E0AF776A26D3C1C70095DA01 /* PersonalChatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AF776826D3C1C70095DA01 /* PersonalChatCollectionViewCell.swift */; };
 		E0AF776B26D3C1C70095DA01 /* PersonalChatCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0AF776926D3C1C70095DA01 /* PersonalChatCollectionViewCell.xib */; };
+		E0AF777026D4B52A0095DA01 /* EmptyPersonalChatListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AF776E26D4B52A0095DA01 /* EmptyPersonalChatListCollectionViewCell.swift */; };
+		E0AF777126D4B52A0095DA01 /* EmptyPersonalChatListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0AF776F26D4B52A0095DA01 /* EmptyPersonalChatListCollectionViewCell.xib */; };
 		E0E51A2826CCE4E30084C22E /* SetRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E51A2726CCE4E30084C22E /* SetRounded.swift */; };
 		E0E51A3326CD83500084C22E /* ExplorePeopleUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E51A3226CD83500084C22E /* ExplorePeopleUIView.swift */; };
 		E0E51A3526CD87940084C22E /* SetImageTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E51A3426CD87940084C22E /* SetImageTextField.swift */; };
@@ -255,6 +257,8 @@
 		E0AF776426D3BB030095DA01 /* PersonalChatListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalChatListViewController.swift; sourceTree = "<group>"; };
 		E0AF776826D3C1C70095DA01 /* PersonalChatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalChatCollectionViewCell.swift; sourceTree = "<group>"; };
 		E0AF776926D3C1C70095DA01 /* PersonalChatCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonalChatCollectionViewCell.xib; sourceTree = "<group>"; };
+		E0AF776E26D4B52A0095DA01 /* EmptyPersonalChatListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyPersonalChatListCollectionViewCell.swift; sourceTree = "<group>"; };
+		E0AF776F26D4B52A0095DA01 /* EmptyPersonalChatListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyPersonalChatListCollectionViewCell.xib; sourceTree = "<group>"; };
 		E0E51A2726CCE4E30084C22E /* SetRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetRounded.swift; sourceTree = "<group>"; };
 		E0E51A3226CD83500084C22E /* ExplorePeopleUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorePeopleUIView.swift; sourceTree = "<group>"; };
 		E0E51A3426CD87940084C22E /* SetImageTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetImageTextField.swift; sourceTree = "<group>"; };
@@ -978,8 +982,8 @@
 		E081880F26BFE48800A68633 /* EmptyChatList */ = {
 			isa = PBXGroup;
 			children = (
-				E081881026BFE4A600A68633 /* EmptyListLoungeCollectionViewCell.swift */,
-				E081881126BFE4A600A68633 /* EmptyListLoungeCollectionViewCell.xib */,
+				E0AF776D26D4B5090095DA01 /* Empty Personal Chat List */,
+				E0AF776C26D4B4F00095DA01 /* Empty Lounge Chat List */,
 			);
 			path = EmptyChatList;
 			sourceTree = "<group>";
@@ -1054,6 +1058,24 @@
 				E0AF776926D3C1C70095DA01 /* PersonalChatCollectionViewCell.xib */,
 			);
 			path = "Personal Chat List";
+			sourceTree = "<group>";
+		};
+		E0AF776C26D4B4F00095DA01 /* Empty Lounge Chat List */ = {
+			isa = PBXGroup;
+			children = (
+				E081881026BFE4A600A68633 /* EmptyListLoungeCollectionViewCell.swift */,
+				E081881126BFE4A600A68633 /* EmptyListLoungeCollectionViewCell.xib */,
+			);
+			path = "Empty Lounge Chat List";
+			sourceTree = "<group>";
+		};
+		E0AF776D26D4B5090095DA01 /* Empty Personal Chat List */ = {
+			isa = PBXGroup;
+			children = (
+				E0AF776E26D4B52A0095DA01 /* EmptyPersonalChatListCollectionViewCell.swift */,
+				E0AF776F26D4B52A0095DA01 /* EmptyPersonalChatListCollectionViewCell.xib */,
+			);
+			path = "Empty Personal Chat List";
 			sourceTree = "<group>";
 		};
 		E0E51A3626CE10C20084C22E /* ExplorePeopleCell */ = {
@@ -1220,6 +1242,7 @@
 				E011EC8226BC002B005E929B /* AchievementEmptyCollectionViewCell.xib in Resources */,
 				E081881326BFE4A600A68633 /* EmptyListLoungeCollectionViewCell.xib in Resources */,
 				84D9368A26B289D100E29F12 /* Choose game detail.storyboard in Resources */,
+				E0AF777126D4B52A0095DA01 /* EmptyPersonalChatListCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1361,6 +1384,7 @@
 				84D9367F26B283EA00E29F12 /* ExploreLoungeViewController.swift in Sources */,
 				7CB18F6626BD93EB0065D1CC /* ApiService.swift in Sources */,
 				E081881226BFE4A600A68633 /* EmptyListLoungeCollectionViewCell.swift in Sources */,
+				E0AF777026D4B52A0095DA01 /* EmptyPersonalChatListCollectionViewCell.swift in Sources */,
 				E8024B0626B92322004674F3 /* String+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

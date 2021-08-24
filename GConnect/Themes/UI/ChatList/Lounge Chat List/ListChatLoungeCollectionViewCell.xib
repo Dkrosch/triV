@@ -52,7 +52,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="bsm-4X-RAP">
-                                <rect key="frame" x="11" y="80" width="350" height="32"/>
+                                <rect key="frame" x="11" y="80" width="362" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5h8-GL-mza">
@@ -88,7 +88,7 @@
                 <outlet property="viewBackground" destination="3TO-E4-E37" id="MEB-c9-lfw"/>
                 <outlet property="viewProfilePicture" destination="vnx-uz-KBS" id="as4-E3-mkV"/>
             </connections>
-            <point key="canvasLocation" x="23.076923076923077" y="93.127962085308056"/>
+            <point key="canvasLocation" x="22.307692307692307" y="93.127962085308056"/>
         </collectionViewCell>
     </objects>
     <resources>

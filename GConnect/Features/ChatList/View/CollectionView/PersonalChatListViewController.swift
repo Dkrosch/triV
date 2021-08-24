@@ -23,7 +23,6 @@ class PersonalChatListViewController: UIViewController {
         personalChatCollection.delegate = self
         personalChatCollection.dataSource = self
         
-        personalChatCollection.register(PersonalChatCollectionViewCell.nib(), forCellWithReuseIdentifier: PersonalChatCollectionViewCell.identifier)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,18 +50,34 @@ class PersonalChatListViewController: UIViewController {
 extension PersonalChatListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataUser.count
+        if dataUser.count != 0 {
+            return dataUser.count
+        }else{
+            return 1
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PersonalChatCollectionViewCell.identifier, for: indexPath) as! PersonalChatCollectionViewCell
-        cell.background.layer.cornerRadius = 10
-        cell.background.layer.borderColor = #colorLiteral(red: 0.9866532683, green: 0.5863298774, blue: 0.4647909403, alpha: 1)
-        cell.background.layer.borderWidth = 1
-        cell.labelUsername.text = dataUser[indexPath.row].username
-        cell.labelRole.text = dataUser[indexPath.row].role
-        return cell
+        if dataUser.count != 0{
+            personalChatCollection.register(PersonalChatCollectionViewCell.nib(), forCellWithReuseIdentifier: PersonalChatCollectionViewCell.identifier)
+            
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PersonalChatCollectionViewCell.identifier, for: indexPath) as! PersonalChatCollectionViewCell
+            cell.background.layer.cornerRadius = 10
+            cell.background.layer.borderColor = #colorLiteral(red: 0.9866532683, green: 0.5863298774, blue: 0.4647909403, alpha: 1)
+            cell.background.layer.borderWidth = 1
+            cell.labelUsername.text = dataUser[indexPath.row].username
+            cell.labelRole.text = dataUser[indexPath.row].role
+            return cell
+        }else{
+            personalChatCollection.register(EmptyPersonalChatListCollectionViewCell.nib(), forCellWithReuseIdentifier: EmptyPersonalChatListCollectionViewCell.identifier)
+            
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EmptyPersonalChatListCollectionViewCell.identifier, for: indexPath) as! EmptyPersonalChatListCollectionViewCell
+            
+            cell.viewBackground.layer.borderColor = #colorLiteral(red: 0.9866532683, green: 0.5863298774, blue: 0.4647909403, alpha: 1)
+            cell.viewBackground.layer.borderWidth = 1
+            cell.viewBackground.layer.cornerRadius = 10
+            return cell
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

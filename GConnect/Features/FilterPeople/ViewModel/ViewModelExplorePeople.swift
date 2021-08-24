@@ -84,6 +84,8 @@ extension FilterExplorePeopleViewController{
         }
         txtFieldRank.text = filter?.rank
         txtFieldGender.text = filter?.gender
+        
+        print("Ini Gender:: \(filter?.gender)")
     }
     
     
@@ -93,6 +95,7 @@ extension FilterExplorePeopleViewController{
         }else if txtFieldRank.text == "" || txtFieldGender.text == ""{
             showErrorMessage(msg: "Fill all data")
         }else{
+            print(txtFieldGender.text ?? "")
             let dataFilter = FilterPeople(statusFilter: true, game: "Apex Legends", role: arrayStatusRole, rank: txtFieldRank.text!, gender: txtFieldGender.text!, recon: roleRecon, support: roleSupport, offensive: roleOffensive, defensive: roleDefensive)
             let encoder = JSONEncoder()
             if let filter = try? encoder.encode(dataFilter){
@@ -103,7 +106,7 @@ extension FilterExplorePeopleViewController{
     }
     
     func removeFilter(){
-        let dataFilter = FilterPeople(statusFilter: false, game: "Apex Legends", role: [true, true, true, true], rank: "Rank", gender: "Gender", recon: "Recon", support: "Support", offensive: "Offensive", defensive: "Defensive")
+        let dataFilter = FilterPeople(statusFilter: false, game: "Apex Legends", role: [true, true, true, true], rank: "Rank", gender: "All", recon: "Recon", support: "Support", offensive: "Offensive", defensive: "Defensive")
         let encoder = JSONEncoder()
         if let filter = try? encoder.encode(dataFilter){
             UserDefaults.standard.set(filter, forKey: "filterPeople")

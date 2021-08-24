@@ -80,6 +80,14 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
     @IBOutlet weak var stackViewButtonChatInvite: UIStackView!
     @IBOutlet weak var stackViewUsernameChangePic: UIStackView!
     
+    @IBAction func invitetoLoungeBtn(_ sender: Any) {
+        
+        let inviteLounge = UIStoryboard(name: "InviteToLounge", bundle: nil)
+        
+        let vc = inviteLounge.instantiateViewController(identifier: "InviteToLoungeViewController")as! InviteToLoungeViewController
+        self.navigationController?.modalPresentationStyle = UIModalPresentationStyle.currentContext
+        self.present(vc, animated: true)
+    }
     
     var collectionRef: CollectionReference!
     var dataUser = [ProfileData]()

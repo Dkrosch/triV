@@ -127,10 +127,13 @@
 		E8024B2326B94D83004674F3 /* APIResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8024B2226B94D83004674F3 /* APIResponse.swift */; };
 		E807B2F826CE5F3000724046 /* InvitationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = E807B2F726CE5F3000724046 /* InvitationList.swift */; };
 		E807B2FC26CE6FD800724046 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E807B2FB26CE6FD800724046 /* CollectionViewCell.swift */; };
+		E860FB2326D4E74900A63CF7 /* loungeListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E860FB2226D4E74900A63CF7 /* loungeListCollectionViewCell.swift */; };
 		E8A196E526CF9CD300F69F22 /* InvitationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A196E426CF9CD300F69F22 /* InvitationListViewController.swift */; };
 		E8A196E826CF9D0200F69F22 /* InvitationList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8A196E726CF9D0200F69F22 /* InvitationList.storyboard */; };
 		E8A196EE26CF9FBB00F69F22 /* InvitationListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A196EC26CF9FBB00F69F22 /* InvitationListCell.swift */; };
 		E8A196EF26CF9FBB00F69F22 /* InvitationListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8A196ED26CF9FBB00F69F22 /* InvitationListCell.xib */; };
+		E8E85A3226D3B67F00610DF2 /* InviteToLounge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8E85A3126D3B67F00610DF2 /* InviteToLounge.storyboard */; };
+		E8E85A3526D3BA2100610DF2 /* InviteToLoungeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E85A3426D3BA2100610DF2 /* InviteToLoungeViewController.swift */; };
 		FD6F9DDA0EDE242BC7E2DFD3 /* Pods_GConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4852E42181E6C2BB21B7925F /* Pods_GConnect.framework */; };
 /* End PBXBuildFile section */
 
@@ -260,10 +263,13 @@
 		E8024B2226B94D83004674F3 /* APIResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponse.swift; sourceTree = "<group>"; };
 		E807B2F726CE5F3000724046 /* InvitationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationList.swift; sourceTree = "<group>"; };
 		E807B2FB26CE6FD800724046 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		E860FB2226D4E74900A63CF7 /* loungeListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loungeListCollectionViewCell.swift; sourceTree = "<group>"; };
 		E8A196E426CF9CD300F69F22 /* InvitationListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationListViewController.swift; sourceTree = "<group>"; };
 		E8A196E726CF9D0200F69F22 /* InvitationList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InvitationList.storyboard; sourceTree = "<group>"; };
 		E8A196EC26CF9FBB00F69F22 /* InvitationListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationListCell.swift; sourceTree = "<group>"; };
 		E8A196ED26CF9FBB00F69F22 /* InvitationListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InvitationListCell.xib; sourceTree = "<group>"; };
+		E8E85A3126D3B67F00610DF2 /* InviteToLounge.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = InviteToLounge.storyboard; sourceTree = "<group>"; };
+		E8E85A3426D3BA2100610DF2 /* InviteToLoungeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InviteToLoungeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1067,6 +1073,9 @@
 			children = (
 				E8A196E426CF9CD300F69F22 /* InvitationListViewController.swift */,
 				E8A196E726CF9D0200F69F22 /* InvitationList.storyboard */,
+				E8E85A3126D3B67F00610DF2 /* InviteToLounge.storyboard */,
+				E8E85A3426D3BA2100610DF2 /* InviteToLoungeViewController.swift */,
+				E860FB2226D4E74900A63CF7 /* loungeListCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1160,6 +1169,7 @@
 				E0AF776026D21CF30095DA01 /* ChatPersonal.storyboard in Resources */,
 				7CB18F6426BD93EB0065D1CC /* Test.storyboard in Resources */,
 				E04E0FED26B0058500A81F92 /* LaunchScreen.storyboard in Resources */,
+				E8E85A3226D3B67F00610DF2 /* InviteToLounge.storyboard in Resources */,
 				E8A196E826CF9D0200F69F22 /* InvitationList.storyboard in Resources */,
 				E04E101326B01D1200A81F92 /* GoogleService-Info.plist in Resources */,
 				E081880726BFC1E000A68633 /* ProfilePic.xib in Resources */,
@@ -1267,6 +1277,7 @@
 				84D9368F26B289F500E29F12 /* ChooseGameViewController.swift in Sources */,
 				E08F235126BCFBE700D7E0BA /* Chat.swift in Sources */,
 				8476093C26CCD42B006B9878 /* GetData.swift in Sources */,
+				E8E85A3526D3BA2100610DF2 /* InviteToLoungeViewController.swift in Sources */,
 				E08F235526BCFBFF00D7E0BA /* Message.swift in Sources */,
 				E01EE1EA26B862EC0065F668 /* LoungeMember.swift in Sources */,
 				E0E51A3526CD87940084C22E /* SetImageTextField.swift in Sources */,
@@ -1290,6 +1301,7 @@
 				BF72D14B26B7DE6300F8DA6D /* ChangeBgStackView.swift in Sources */,
 				8434498826B8400F00F66A2B /* DataUser.swift in Sources */,
 				A80E61E026B3ED40005FF4B6 /* ProfileVisitorViewController.swift in Sources */,
+				E860FB2326D4E74900A63CF7 /* loungeListCollectionViewCell.swift in Sources */,
 				E09D67C826BE8F4400270C19 /* ListChatLoungeCollectionViewCell.swift in Sources */,
 				E8A196E526CF9CD300F69F22 /* InvitationListViewController.swift in Sources */,
 				E8A196EE26CF9FBB00F69F22 /* InvitationListCell.swift in Sources */,

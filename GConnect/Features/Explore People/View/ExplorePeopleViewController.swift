@@ -29,6 +29,7 @@ class ExplorePeopleViewController: UIViewController {
         super.viewDidLoad()
         explorePeopleUI.configureView()
         explorePeopleUI.delegate = self
+        self.hideKeyboardWhenTappedAround()
     }
     
     override func viewWillAppear(_ animated: Bool) {

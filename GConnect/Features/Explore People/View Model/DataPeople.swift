@@ -9,7 +9,7 @@ import Foundation
 import Firebase
 
 extension ExplorePeopleUIView{
-    func getData(){
+    func getData(completion: @escaping ([ExplorePeople]) -> Void){
         
         if let savedFilter = UserDefaults.standard.object(forKey: "filterPeople") as? Data{
             let decoder = JSONDecoder()
@@ -70,10 +70,31 @@ extension ExplorePeopleUIView{
                 }
                 DispatchQueue.main.async {
                     self.userCollectionView.reloadData()
+                    completion(self.userProfile)
                 }
                 self.userCollectionView.reloadData()
             }
         }
         userCollectionView.reloadData()
+    }
+    
+    func getDataSearch(dataUser: [ExplorePeople], searchText: String, completion: @escaping ([ExplorePeople]) -> Void){
+        var searchData = [ExplorePeople]()
+        
+        if searchText == "" {
+            return
+        } else {
+            for (index, _) in dataUser.enumerated() {
+                let username = dataUser[index].username
+                if username.localizedCaseInsensitiveContains(searchText){
+                    let newData = ExplorePeople(username: username, game: dataUser[index].game, gender: dataUser[index].gender, rank: dataUser[index].rank, role: dataUser[index].role, birthday: dataUser[index].birthday, imageProfile: dataUser[index].imageProfile, desc: dataUser[index].desc, imageRank: dataUser[index].imageRank, gamerUname: dataUser[index].gamerUname, level: dataUser[index].level, legend: dataUser[index].legend, idUser: dataUser[index].idUser)
+                    searchData.append(newData)
+                }
+            }
+            
+            DispatchQueue.main.async {
+                completion(searchData)
+            }
+        }
     }
 }

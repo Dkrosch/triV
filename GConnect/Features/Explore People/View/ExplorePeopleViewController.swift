@@ -28,6 +28,7 @@ class ExplorePeopleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         explorePeopleUI.delegate = self
+        self.hideKeyboardWhenTappedAround()
     }
     
     @IBAction func filterTapped(_ sender: Any) {

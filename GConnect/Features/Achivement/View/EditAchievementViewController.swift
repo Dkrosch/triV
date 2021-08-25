@@ -17,7 +17,6 @@ class EditAchievementViewController: UIViewController, UITextFieldDelegate, UITe
     @IBOutlet weak var despLabel: UILabel!
     @IBOutlet weak var despTextField: UITextView!
     
-    
     @IBOutlet weak var imageLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var editButton: UIButton!
@@ -28,9 +27,10 @@ class EditAchievementViewController: UIViewController, UITextFieldDelegate, UITe
     var delegate: AddAchievementTapped?
     var status = false
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.hideKeyboardWhenTappedAround()
         
         titleTextField.text = (titleAchievement)
         despTextField.text = (desc)

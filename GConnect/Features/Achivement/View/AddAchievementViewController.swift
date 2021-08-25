@@ -26,6 +26,8 @@ class AddAchievementViewController: UIViewController, UITextViewDelegate, UIText
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.hideKeyboardWhenTappedAround()
+        
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         
         titleTextField.attributedPlaceholder = NSAttributedString(string: "Input the title", attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray])

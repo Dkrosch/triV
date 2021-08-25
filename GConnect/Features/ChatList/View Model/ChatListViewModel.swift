@@ -61,4 +61,66 @@ class ChatListViewModel{
             }
         }
     }
+    
+    func getDataChatRoom(data: @escaping ([PersonalChatRoom]) -> Void) {
+        let myGroup = DispatchGroup()
+        var dataUser: [PersonalChatRoom] = []
+        guard let userID = Auth.auth().currentUser?.uid else { return }
+        
+        
+        Firestore.firestore().collection("ChatPersonal").whereField("users", arrayContains: userID).getDocuments { snapshot, error in
+            if error != nil {
+                print(error as Any)
+            }else{
+                for document in (snapshot?.documents)!{
+                    myGroup.enter()
+                    let data = document.data()
+                    let users = data["users"] as? [String] ?? [""]
+                    let idPersonalChat = document.documentID
+                    let newData = PersonalChatRoom(idPersonalChat: idPersonalChat, idUser: users)
+                    dataUser.append(newData)
+                    myGroup.leave()
+                }
+                myGroup.notify(queue: .main){
+                    data(dataUser)
+                }
+            }
+        }
+    }
+    
+    func getDataUser(data: [PersonalChatRoom], completion: @escaping ([TargetedUser]) -> Void){
+        let currentUserID = Auth.auth().currentUser?.uid ?? ""
+        var arrayUser: [String] = []
+        let myGroup = DispatchGroup()
+        var datasUser = [TargetedUser]()
+        
+        for (index, _) in data.enumerated(){
+            for idUser in data[index].idUser{
+                if idUser != currentUserID{
+                    arrayUser.append(idUser)
+                }
+            }
+        }
+        
+        for (index, _) in arrayUser.enumerated(){
+            myGroup.enter()
+            Firestore.firestore().collection("users").document(arrayUser[index]).getDocument { document, error in
+                if error != nil {
+                    print(error as Any)
+                }else if let document = document, document.exists{
+                    let name = document.get("username") as? String ?? ""
+                    let role = document.get("role") as? String ?? ""
+                    let idPersonalChat = data[index].idPersonalChat
+                    let idTargetedUser = arrayUser[index]
+                    let dataUser = TargetedUser(username: name, role: role, idPersonalChat: idPersonalChat, idUser: idTargetedUser)
+                    datasUser.append(dataUser)
+                    myGroup.leave()
+                }
+            }
+        }
+        
+        myGroup.notify(queue: .main){
+            completion(datasUser)
+        }
+    }
 }

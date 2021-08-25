@@ -26,6 +26,8 @@ class ChatPersonalViewController: MessagesViewController, InputBarAccessoryViewD
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationController?.isNavigationBarHidden = false
+        
         self.title = nameTargetedUser
         
         navigationItem.largeTitleDisplayMode = .never

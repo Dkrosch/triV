@@ -13,6 +13,9 @@ class InviteToLoungeViewController: UIViewController, UICollectionViewDelegate, 
     
     var invitationVM = InvitationViewModel()
     var dataOwnedLounge = [DetailLounge]()
+    var selectedIndex: IndexPath?
+    var idTargetedUser: String?
+    var filteredDataLounge = [DetailLounge]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,39 +23,60 @@ class InviteToLoungeViewController: UIViewController, UICollectionViewDelegate, 
         loungeListCollectionView.delegate = self
         loungeListCollectionView.dataSource = self
         
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Close", style: .plain, target: self, action: nil)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: nil)
+        //self.navigationController?.isNavigationBarHidden = false
+        
         
         invitationVM.getDataOwnLounge { data in
             for (index, _) in data.enumerated(){
                 self.dataOwnedLounge.append(DetailLounge(game: data[index].game, title: data[index].title, desc: data[index].desc, idMemberLounge: data[index].idMemberLounge, idRequirementsLounge: data[index].idRequirementsLounge, documentId: data[index].documentId, creatAt: data[index].creatAt, gender: data[index].gender, rank: data[index].rank))
+                
+                self.filteredDataLounge = self.invitationVM.validateLounge(dataLounge: self.dataOwnedLounge, idTargetedUser: self.idTargetedUser ?? "")
             }
             
             DispatchQueue.main.async {
                 self.loungeListCollectionView.reloadData()
             }
         }
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Close", style: .plain, target: self, action: nil)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: nil)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataOwnedLounge.count
+        return filteredDataLounge.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "loungeListCell", for: indexPath)as! loungeListCollectionViewCell
         
         var req: [String] = []
-        if dataOwnedLounge[indexPath.row].idRequirementsLounge[0] == true { req.append("Defensive") }
-        if dataOwnedLounge[indexPath.row].idRequirementsLounge[1] == true { req.append("Recon") }
-        if dataOwnedLounge[indexPath.row].idRequirementsLounge[2] == true { req.append("Support") }
-        if dataOwnedLounge[indexPath.row].idRequirementsLounge[3] == true { req.append("Offensive") }
-        print(req)
+        if filteredDataLounge[indexPath.row].idRequirementsLounge[0] == true { req.append("Defensive") }
+        if filteredDataLounge[indexPath.row].idRequirementsLounge[1] == true { req.append("Recon") }
+        if filteredDataLounge[indexPath.row].idRequirementsLounge[2] == true { req.append("Support") }
+        if filteredDataLounge[indexPath.row].idRequirementsLounge[3] == true { req.append("Offensive") }
         
-        cell.checkBtn.addTarget(self, action: #selector(checkMarkBtnClicked(sender: )), for: .touchUpInside)
-        cell.loungeTitleLabel.text = dataOwnedLounge[indexPath.row].title
-        cell.loungeRequirementLabel.text = ("\(dataOwnedLounge[indexPath.row].rank) | \(req.joined(separator: " | "))")
+        cell.loungeTitleLabel.text = filteredDataLounge[indexPath.row].title
+        cell.loungeRequirementLabel.text = ("\(filteredDataLounge[indexPath.row].rank) | \(req.joined(separator: " | "))")
+        
+        if indexPath == selectedIndex{
+            cell.checkBtn.isSelected = true
+        }else{
+            cell.checkBtn.isSelected = false
+        }
+        
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedCell(index: indexPath)
+    }
+    
+    func selectedCell (index: IndexPath){
+        selectedIndex = index
+        self.loungeListCollectionView.reloadData()
     }
     
     @objc func checkMarkBtnClicked ( sender: UIButton) {

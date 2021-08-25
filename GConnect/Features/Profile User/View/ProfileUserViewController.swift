@@ -80,15 +80,6 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
     @IBOutlet weak var stackViewButtonChatInvite: UIStackView!
     @IBOutlet weak var stackViewUsernameChangePic: UIStackView!
     
-    @IBAction func invitetoLoungeBtn(_ sender: Any) {
-        
-        let inviteLounge = UIStoryboard(name: "InviteToLounge", bundle: nil)
-        
-        let vc = inviteLounge.instantiateViewController(identifier: "InviteToLoungeViewController")as! InviteToLoungeViewController
-        self.navigationController?.modalPresentationStyle = UIModalPresentationStyle.currentContext
-        self.present(vc, animated: true)
-    }
-    
     var collectionRef: CollectionReference!
     var dataUser = [ProfileData]()
     var defaults = UserDefaults.standard
@@ -153,6 +144,21 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         getDataRoom { data in
             self.createChatPersonal(targetedUser: self.idUser, data: data)
         }
+    }
+    
+    @IBAction func invitetoLoungeBtn(_ sender: Any) {
+        
+        let inviteLounge = UIStoryboard(name: "InviteToLounge", bundle: nil)
+        
+        let vc = inviteLounge.instantiateViewController(identifier: "InviteToLoungeViewController")as! InviteToLoungeViewController
+        vc.idTargetedUser = idUser
+        let vc2 = UINavigationController(rootViewController: vc)
+        self.present(vc2, animated: true)
+//        vc.modalPresentationStyle = .currentContext
+        
+//        self.navigationController?.presentmo(vc, animated: false)
+//        self.navigationController?.modalPresentationStyle = UIModalPresentationStyle.currentContext
+//        self.present(vc, animated: true)
     }
     
     @IBAction func addAchivementTapped(_ sender: Any) {

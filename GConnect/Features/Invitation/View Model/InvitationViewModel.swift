@@ -57,5 +57,19 @@ class InvitationViewModel {
             }
         }
     }
+    
+    func validateLounge(dataLounge: [DetailLounge], idTargetedUser: String) -> ([DetailLounge]){
+        
+        var filteredDataLounge = [DetailLounge]()
+        filteredDataLounge.removeAll()
+        
+        for (index, _) in dataLounge.enumerated(){
+            if !dataLounge[index].idMemberLounge.contains(idTargetedUser){
+                filteredDataLounge.append(dataLounge[index])
+            }
+        }
+        
+        return filteredDataLounge
+    }
 }
 

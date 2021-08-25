@@ -23,7 +23,18 @@ extension ExplorePeopleUIView{
         var reference: Query?
         
         if filter?.statusFilter == true{
-            reference = Firestore.firestore().collection("users").whereField("role", in: [filter?.recon ?? "", filter?.offensive ?? "", filter?.defensive ?? "", filter?.support ?? ""]).whereField("rank", isEqualTo: filter?.rank ?? "") 
+            if filter?.gender == "♂️Male"{
+                reference = Firestore.firestore().collection("users").whereField("role", in: [filter?.recon ?? "", filter?.offensive ?? "", filter?.defensive ?? "", filter?.support ?? ""]).whereField("rank", isEqualTo: filter?.rank ?? "").whereField("gender", isEqualTo: "♂️Male")
+            }
+            
+            if filter?.gender == "♀ Female"{
+                reference = Firestore.firestore().collection("users").whereField("role", in: [filter?.recon ?? "", filter?.offensive ?? "", filter?.defensive ?? "", filter?.support ?? ""]).whereField("rank", isEqualTo: filter?.rank ?? "").whereField("gender", isEqualTo: "♀ Female")
+            }
+            
+            if filter?.gender == "All"{
+                reference = Firestore.firestore().collection("users").whereField("role", in: [filter?.recon ?? "", filter?.offensive ?? "", filter?.defensive ?? "", filter?.support ?? ""]).whereField("rank", isEqualTo: filter?.rank ?? "")
+            }
+            
         } else if filter?.statusFilter == false {
             reference = Firestore.firestore().collection("users")
         }

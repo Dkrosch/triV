@@ -24,9 +24,9 @@ class StoreDataAuth {
             }else{
                 var convertGender = ""
                 if gender == "♂️Male"{
-                    convertGender = "Male"
+                    convertGender = "♂️Male"
                 }else{
-                    convertGender = "Female"
+                    convertGender = "♀ Female"
                 }
                 
                 let gender = convertGender

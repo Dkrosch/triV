@@ -43,6 +43,8 @@ class FilterExplorePeopleViewController: UIViewController {
     var roleOffensive = ""
     var roleSupport = ""
     
+    var storeGender: [String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewConfigure()
@@ -118,6 +120,7 @@ class FilterExplorePeopleViewController: UIViewController {
     
     @IBAction func btnSetFilterTapped(_ sender: Any) {
         setFilter()
+        print(filter?.gender ?? "")
     }
     
     @IBAction func btnRemoveFilterTapped(_ sender: Any) {

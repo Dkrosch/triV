@@ -42,6 +42,32 @@ class PersonalChatRoom{
     }
 }
 
+class InvitePeople{
+    var idLounge: String
+    var idInvitedUser: String
+    var idMaster: String
+    
+    init(idLounge: String, idInvitedUser: String, idMaster: String){
+        self.idLounge = idLounge
+        self.idInvitedUser = idInvitedUser
+        self.idMaster = idMaster
+    }
+}
+
+class GetDataInvitePeople{
+    var idLounge: String
+    var idInvitedUser: String
+    var idMaster: String
+    var idInvite: String
+    
+    init(idLounge: String, idInvitedUser: String, idMaster: String, idInvite: String){
+        self.idLounge = idLounge
+        self.idInvitedUser = idInvitedUser
+        self.idMaster = idMaster
+        self.idInvite = idInvite
+    }
+}
+
 class TargetedUser {
     var username: String
     var role: String

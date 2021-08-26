@@ -23,6 +23,7 @@ class ExplorePeopleUIView: UIView {
         searchBar.attributedPlaceholder = NSAttributedString(string: "Search People", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         searchBar.layer.cornerRadius = 8
         searchBar.clipsToBounds = true
+        searchBar.text = ""
         
         userCollectionView.delegate = self
         userCollectionView.dataSource = self

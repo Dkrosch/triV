@@ -45,6 +45,16 @@ class ExploreLoungeViewController: UIViewController {
     @IBAction func setFilterTapped(_ sender: Any) {
         performSegue(withIdentifier: "SetFilter", sender: self)
     }
+    
+    @IBAction func invitationTapped(_ sender: Any) {
+        goToInvitation()
+    }
+    
+    func goToInvitation(){
+        let showInvitation = UIStoryboard(name: "InvitationList", bundle: nil)
+        let vc = showInvitation.instantiateViewController(identifier: "InvitationList") as! InvitationListViewController
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension ExploreLoungeViewController: UICollectionViewDataSource, UICollectionViewDelegate{

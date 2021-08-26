@@ -12,6 +12,4 @@ class loungeListCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var loungeTitleLabel: UILabel!
     @IBOutlet weak var loungeRequirementLabel: UILabel!
     @IBOutlet weak var checkBtn: UIButton!
-    
-    
 }

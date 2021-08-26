@@ -7,6 +7,16 @@
 
 import UIKit
 
+protocol InviteToLoungeDelegate {
+    func showAlert(msg: String)
+}
+
+extension InviteToLoungeViewController: InviteToLoungeDelegate{
+    func showAlert(msg: String) {
+        alertInvited(msg: msg)
+    }
+}
+
 class InviteToLoungeViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UINavigationControllerDelegate, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var loungeListCollectionView: UICollectionView!
@@ -14,35 +24,62 @@ class InviteToLoungeViewController: UIViewController, UICollectionViewDelegate, 
     var invitationVM = InvitationViewModel()
     var dataOwnedLounge = [DetailLounge]()
     var selectedIndex: IndexPath?
+    var selectedIdLounge: String?
     var idTargetedUser: String?
+    var nameTargetedUser: String?
     var filteredDataLounge = [DetailLounge]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        invitationVM.delegate = self
+        
         loungeListCollectionView.delegate = self
         loungeListCollectionView.dataSource = self
-        
-        //self.navigationController?.isNavigationBarHidden = false
-        
         
         invitationVM.getDataOwnLounge { data in
             for (index, _) in data.enumerated(){
                 self.dataOwnedLounge.append(DetailLounge(game: data[index].game, title: data[index].title, desc: data[index].desc, idMemberLounge: data[index].idMemberLounge, idRequirementsLounge: data[index].idRequirementsLounge, documentId: data[index].documentId, creatAt: data[index].creatAt, gender: data[index].gender, rank: data[index].rank))
+
                 
-                self.filteredDataLounge = self.invitationVM.validateLounge(dataLounge: self.dataOwnedLounge, idTargetedUser: self.idTargetedUser ?? "")
-            }
-            
-            DispatchQueue.main.async {
-                self.loungeListCollectionView.reloadData()
+                self.invitationVM.validateInvitedLounge(dataLounge: self.dataOwnedLounge, idTargetedUser: self.idTargetedUser ?? ""){ dataLoungeValidateInvited in
+                    
+                    self.filteredDataLounge = self.invitationVM.validateJoinedLounge(dataLounge: dataLoungeValidateInvited, idTargetedUser: self.idTargetedUser ?? "")
+                    
+                    DispatchQueue.main.async {
+                        self.loungeListCollectionView.reloadData()
+                    }
+                }
             }
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Close", style: .plain, target: self, action: nil)
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: nil)
+
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(donePressed))
+    }
+    
+    @objc func donePressed(){
+        if selectedIdLounge == nil{
+            alert(msg: "Please select a lounge")
+        }else{
+            invitationVM.insertInvite(idLounge: selectedIdLounge ?? "", idUser: idTargetedUser ?? "", nameUser: nameTargetedUser ?? "")
+        }
+    }
+    
+    func alert(msg: String){
+        let alert = UIAlertController(title: "Warning", message: msg, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Try Again!", style: .default, handler: nil))
+        self.present(alert, animated: true)
+    }
+    
+    func alertInvited(msg: String){
+        let alert = UIAlertController(title: "Success", message: msg, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            self.dismiss(animated: true, completion: nil)
+        }))
+        self.present(alert, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -71,11 +108,12 @@ class InviteToLoungeViewController: UIViewController, UICollectionViewDelegate, 
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedCell(index: indexPath)
+        selectedCell(index: indexPath, idLounge: filteredDataLounge[indexPath.row].documentId)
     }
     
-    func selectedCell (index: IndexPath){
+    func selectedCell (index: IndexPath, idLounge: String){
         selectedIndex = index
+        selectedIdLounge = idLounge
         self.loungeListCollectionView.reloadData()
     }
     

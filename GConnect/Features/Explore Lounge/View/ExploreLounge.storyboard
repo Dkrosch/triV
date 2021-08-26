@@ -109,6 +109,9 @@
                                         <state key="normal" image="bell.circle.fill" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="44"/>
                                         </state>
+                                        <connections>
+                                            <action selector="invitationTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="vU9-fa-fPK"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>

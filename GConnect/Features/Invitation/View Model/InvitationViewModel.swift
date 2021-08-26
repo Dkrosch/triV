@@ -12,13 +12,17 @@ class InvitationViewModel {
     
     var dataOwnLounge = [DetailLounge]()
     var currentUser = Auth.auth().currentUser?.uid
+    var delegate: InviteToLoungeDelegate?
     
     func getDataOwnLounge(completion: @escaping ([DetailLounge]) -> Void){
+        let myGroup = DispatchGroup()
+        
         Firestore.firestore().collection("LoungeDetail").whereField("idMemberLounge.Member1", isEqualTo: currentUser as Any).getDocuments { (snapshots, error) in
             if error != nil {
                 print(error as Any)
             }else {
                 for documents in (snapshots?.documents)!{
+                    myGroup.enter()
                     let data = documents.data()
                     let creatAt = data["CreatAt"] as? String ?? ""
                     let desc = data["Desc"] as? String ?? ""
@@ -50,16 +54,35 @@ class InvitationViewModel {
                     let newData = DetailLounge(game: game,title: judul, desc: desc, idMemberLounge: [member1!, member2!, member3!, member4!, member5!, member6!, member7!, member8!, member9!, member10!], idRequirementsLounge: [role1!, role2!, role3!, role4!], documentId: documentId, creatAt: creatAt, gender: gender, rank: rank)
                     
                     self.dataOwnLounge.append(newData)
+                    myGroup.leave()
                 }
-            }
-            DispatchQueue.main.async {
-                completion(self.dataOwnLounge)
+                myGroup.notify(queue: .main){
+                    completion(self.dataOwnLounge)
+                }
             }
         }
     }
     
-    func validateLounge(dataLounge: [DetailLounge], idTargetedUser: String) -> ([DetailLounge]){
+    func validateInvitedLounge(dataLounge: [DetailLounge], idTargetedUser: String, completion: @escaping ([DetailLounge])-> Void){
+        var dataLoungeValidateInvited = [DetailLounge]()
         
+        for (index, _) in dataLounge.enumerated(){
+            Firestore.firestore().collection("InvitationList").whereField("idInvitedUser", isEqualTo: idTargetedUser).whereField("idLounge", isEqualTo: dataLounge[index].documentId).getDocuments { snapshot, error in
+                if error != nil{
+                    print(error as Any)
+                }else{
+                    if snapshot?.isEmpty == true {
+                        dataLoungeValidateInvited.append(dataLounge[index])
+                    }
+                }
+                DispatchQueue.main.async {
+                    completion(dataLoungeValidateInvited)
+                }
+            }
+        }
+    }
+    
+    func validateJoinedLounge(dataLounge: [DetailLounge], idTargetedUser: String) -> ([DetailLounge]){
         var filteredDataLounge = [DetailLounge]()
         filteredDataLounge.removeAll()
         
@@ -68,8 +91,17 @@ class InvitationViewModel {
                 filteredDataLounge.append(dataLounge[index])
             }
         }
-        
         return filteredDataLounge
+    }
+    
+    func insertInvite(idLounge: String, idUser: String, nameUser: String){
+        Firestore.firestore().collection("InvitationList").addDocument(data: ["idLounge": idLounge, "idInvitedUser": idUser, "idMaster": Auth.auth().currentUser?.uid as Any]) { error in
+            if error != nil{
+                print(error as Any)
+            }else{
+                self.delegate?.showAlert(msg: "\(nameUser) has been invited to your lounge")
+            }
+        }
     }
 }
 

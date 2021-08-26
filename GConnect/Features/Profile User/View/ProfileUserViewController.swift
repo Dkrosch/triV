@@ -152,13 +152,9 @@ class ProfileUserViewController: UIViewController, UINavigationControllerDelegat
         
         let vc = inviteLounge.instantiateViewController(identifier: "InviteToLoungeViewController")as! InviteToLoungeViewController
         vc.idTargetedUser = idUser
+        vc.nameTargetedUser = usernameLabelProfileUser.text
         let vc2 = UINavigationController(rootViewController: vc)
         self.present(vc2, animated: true)
-//        vc.modalPresentationStyle = .currentContext
-        
-//        self.navigationController?.presentmo(vc, animated: false)
-//        self.navigationController?.modalPresentationStyle = UIModalPresentationStyle.currentContext
-//        self.present(vc, animated: true)
     }
     
     @IBAction func addAchivementTapped(_ sender: Any) {

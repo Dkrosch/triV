@@ -123,6 +123,8 @@
 		E0AF777526D683E00095DA01 /* InvitationListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AF777426D683E00095DA01 /* InvitationListViewModel.swift */; };
 		E0AF777F26D79E030095DA01 /* EmptyInvitationListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AF777D26D79E030095DA01 /* EmptyInvitationListCollectionViewCell.swift */; };
 		E0AF778026D79E030095DA01 /* EmptyInvitationListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0AF777E26D79E030095DA01 /* EmptyInvitationListCollectionViewCell.xib */; };
+		E0AF778426D7A7770095DA01 /* EmptyLoungeInviteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0AF778226D7A7770095DA01 /* EmptyLoungeInviteCollectionViewCell.swift */; };
+		E0AF778526D7A7770095DA01 /* EmptyLoungeInviteCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E0AF778326D7A7770095DA01 /* EmptyLoungeInviteCollectionViewCell.xib */; };
 		E0E51A2826CCE4E30084C22E /* SetRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E51A2726CCE4E30084C22E /* SetRounded.swift */; };
 		E0E51A3326CD83500084C22E /* ExplorePeopleUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E51A3226CD83500084C22E /* ExplorePeopleUIView.swift */; };
 		E0E51A3526CD87940084C22E /* SetImageTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E51A3426CD87940084C22E /* SetImageTextField.swift */; };
@@ -267,6 +269,8 @@
 		E0AF777426D683E00095DA01 /* InvitationListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationListViewModel.swift; sourceTree = "<group>"; };
 		E0AF777D26D79E030095DA01 /* EmptyInvitationListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyInvitationListCollectionViewCell.swift; sourceTree = "<group>"; };
 		E0AF777E26D79E030095DA01 /* EmptyInvitationListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyInvitationListCollectionViewCell.xib; sourceTree = "<group>"; };
+		E0AF778226D7A7770095DA01 /* EmptyLoungeInviteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyLoungeInviteCollectionViewCell.swift; sourceTree = "<group>"; };
+		E0AF778326D7A7770095DA01 /* EmptyLoungeInviteCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyLoungeInviteCollectionViewCell.xib; sourceTree = "<group>"; };
 		E0E51A2726CCE4E30084C22E /* SetRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetRounded.swift; sourceTree = "<group>"; };
 		E0E51A3226CD83500084C22E /* ExplorePeopleUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorePeopleUIView.swift; sourceTree = "<group>"; };
 		E0E51A3426CD87940084C22E /* SetImageTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetImageTextField.swift; sourceTree = "<group>"; };
@@ -569,6 +573,7 @@
 		84D9366E26B2837700E29F12 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				E0AF778126D7A73C0095DA01 /* EmptyLoungeInviteCell */,
 				E0AF777C26D79DC90095DA01 /* EmptyInviteCell */,
 				E8A196EA26CF9F1000F69F22 /* InvitationListCell */,
 				E0E51A3626CE10C20084C22E /* ExplorePeopleCell */,
@@ -1151,6 +1156,15 @@
 			path = EmptyInviteCell;
 			sourceTree = "<group>";
 		};
+		E0AF778126D7A73C0095DA01 /* EmptyLoungeInviteCell */ = {
+			isa = PBXGroup;
+			children = (
+				E0AF778226D7A7770095DA01 /* EmptyLoungeInviteCollectionViewCell.swift */,
+				E0AF778326D7A7770095DA01 /* EmptyLoungeInviteCollectionViewCell.xib */,
+			);
+			path = EmptyLoungeInviteCell;
+			sourceTree = "<group>";
+		};
 		E0E51A3626CE10C20084C22E /* ExplorePeopleCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1290,6 +1304,7 @@
 				E04E101126B019D900A81F92 /* Login.storyboard in Resources */,
 				E081880E26BFD8CA00A68633 /* EmptyExploreLoungeCollectionViewCell.xib in Resources */,
 				BFCE10D126B2B4EF00C206B5 /* ProfileUser.storyboard in Resources */,
+				E0AF778526D7A7770095DA01 /* EmptyLoungeInviteCollectionViewCell.xib in Resources */,
 				8405A5F326B1546A009D1375 /* SignUp.storyboard in Resources */,
 				E08F234D26BCF74A00D7E0BA /* ChatLounge.storyboard in Resources */,
 				7CB3A24C26B29EDD00259119 /* DetailLounge.storyboard in Resources */,
@@ -1426,6 +1441,7 @@
 				8476093026CA45F7006B9878 /* Datas.swift in Sources */,
 				8405A60226B155FD009D1375 /* PageControl.swift in Sources */,
 				E01EE1E826B81D3B0065F668 /* DetailLoungeViewModel.swift in Sources */,
+				E0AF778426D7A7770095DA01 /* EmptyLoungeInviteCollectionViewCell.swift in Sources */,
 				E0E51A3926CE10F40084C22E /* ExplorePeopleCollectionViewCell.swift in Sources */,
 				8405A5F226B1546A009D1375 /* SignUpViewController.swift in Sources */,
 				8476093526CCCD9B006B9878 /* CreateGameDetail.swift in Sources */,

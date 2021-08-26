@@ -57,7 +57,9 @@ class InviteToLoungeViewController: UIViewController, UICollectionViewDelegate, 
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
 
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(donePressed))
+        self.navigationItem.hidesBackButton = true
+        let newButton = UIBarButtonItem(title: "Cancel", style: .done, target: self, action: #selector(closeModal))
+        self.navigationItem.leftBarButtonItem = newButton
     }
     
     @objc func donePressed(){
@@ -66,6 +68,10 @@ class InviteToLoungeViewController: UIViewController, UICollectionViewDelegate, 
         }else{
             invitationVM.insertInvite(idLounge: selectedIdLounge ?? "", idUser: idTargetedUser ?? "", nameUser: nameTargetedUser ?? "")
         }
+    }
+    
+    @objc func closeModal(){
+        self.dismiss(animated: true, completion: nil)
     }
     
     func alert(msg: String){
@@ -83,28 +89,39 @@ class InviteToLoungeViewController: UIViewController, UICollectionViewDelegate, 
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return filteredDataLounge.count
+        if filteredDataLounge.count != 0{
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(donePressed))
+            return filteredDataLounge.count
+        }else{
+            self.navigationItem.rightBarButtonItem = nil
+            return 1
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "loungeListCell", for: indexPath)as! loungeListCollectionViewCell
-        
-        var req: [String] = []
-        if filteredDataLounge[indexPath.row].idRequirementsLounge[0] == true { req.append("Defensive") }
-        if filteredDataLounge[indexPath.row].idRequirementsLounge[1] == true { req.append("Recon") }
-        if filteredDataLounge[indexPath.row].idRequirementsLounge[2] == true { req.append("Support") }
-        if filteredDataLounge[indexPath.row].idRequirementsLounge[3] == true { req.append("Offensive") }
-        
-        cell.loungeTitleLabel.text = filteredDataLounge[indexPath.row].title
-        cell.loungeRequirementLabel.text = ("\(filteredDataLounge[indexPath.row].rank) | \(req.joined(separator: " | "))")
-        
-        if indexPath == selectedIndex{
-            cell.checkBtn.isSelected = true
+        if filteredDataLounge.count != 0{
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "loungeListCell", for: indexPath)as! loungeListCollectionViewCell
+            
+            var req: [String] = []
+            if filteredDataLounge[indexPath.row].idRequirementsLounge[0] == true { req.append("Defensive") }
+            if filteredDataLounge[indexPath.row].idRequirementsLounge[1] == true { req.append("Recon") }
+            if filteredDataLounge[indexPath.row].idRequirementsLounge[2] == true { req.append("Support") }
+            if filteredDataLounge[indexPath.row].idRequirementsLounge[3] == true { req.append("Offensive") }
+            
+            cell.loungeTitleLabel.text = filteredDataLounge[indexPath.row].title
+            cell.loungeRequirementLabel.text = ("\(filteredDataLounge[indexPath.row].rank) | \(req.joined(separator: " | "))")
+            
+            if indexPath == selectedIndex{
+                cell.checkBtn.isSelected = true
+            }else{
+                cell.checkBtn.isSelected = false
+            }
+            return cell
         }else{
-            cell.checkBtn.isSelected = false
+            loungeListCollectionView.register(EmptyLoungeInviteCollectionViewCell.nib(), forCellWithReuseIdentifier: EmptyLoungeInviteCollectionViewCell.identifier)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EmptyLoungeInviteCollectionViewCell.identifier, for: indexPath)as! EmptyLoungeInviteCollectionViewCell
+            return cell
         }
-        
-        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

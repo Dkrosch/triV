@@ -86,7 +86,18 @@ class InvitationViewModel {
         filteredDataLounge.removeAll()
         
         for (index, _) in dataLounge.enumerated(){
-            if !dataLounge[index].idMemberLounge.contains(idTargetedUser){
+            var unfillMember = ""
+            if dataLounge[index].idMemberLounge[1] == "" {unfillMember = "available"}
+            if dataLounge[index].idMemberLounge[2] == "" {unfillMember = "available"}
+            if dataLounge[index].idMemberLounge[3] == "" {unfillMember = "available"}
+            if dataLounge[index].idMemberLounge[4] == "" {unfillMember = "available"}
+            if dataLounge[index].idMemberLounge[5] == "" {unfillMember = "available"}
+            if dataLounge[index].idMemberLounge[6] == "" {unfillMember = "available"}
+            if dataLounge[index].idMemberLounge[7] == "" {unfillMember = "available"}
+            if dataLounge[index].idMemberLounge[8] == "" {unfillMember = "available"}
+            if dataLounge[index].idMemberLounge[9] == "" {unfillMember = "available"}
+            
+            if !dataLounge[index].idMemberLounge.contains(idTargetedUser) && unfillMember != ""{
                 filteredDataLounge.append(dataLounge[index])
             }
         }

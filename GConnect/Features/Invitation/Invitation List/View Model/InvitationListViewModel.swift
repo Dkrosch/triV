@@ -150,8 +150,7 @@ class InvitationListViewModel{
                     self.insertMember(idMember: Auth.auth().currentUser?.uid ?? "", idLounge: idLounge, unfillMember: unfillMember)
                     
                     let msg = MessageInvite(title: "Success", msg: "You joined this lounge", txtButton: "OK")
-                    NotificationCenter.default.post(name: Notification.Name(rawValue: "showAlert"), object: msg)
-                    NotificationCenter.default.post(name: Notification.Name(rawValue: "refreshCollectionView"), object: nil)
+                    NotificationCenter.default.post(name: Notification.Name(rawValue: "goToDetailLounge"), object: idLounge)
                 }
             }
         }

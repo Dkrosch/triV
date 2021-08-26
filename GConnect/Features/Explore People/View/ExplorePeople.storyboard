@@ -67,6 +67,9 @@
                                         <state key="normal" image="bell.circle.fill" catalog="system">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="44"/>
                                         </state>
+                                        <connections>
+                                            <action selector="notificationButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="hYr-SC-d2S"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>

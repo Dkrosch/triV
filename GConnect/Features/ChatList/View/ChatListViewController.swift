@@ -19,7 +19,6 @@ class ChatListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(statusView)
         if statusView == nil{
             statusView = 0
         }
@@ -49,5 +48,15 @@ class ChatListViewController: UIViewController {
             personalChatView.alpha = 1
             statusView = 1
         }
+    }
+    
+    @IBAction func buttonInvitationTapped(_ sender: Any) {
+        goToInvitation()
+    }
+    
+    func goToInvitation(){
+        let showInvitation = UIStoryboard(name: "InvitationList", bundle: nil)
+        let vc = showInvitation.instantiateViewController(identifier: "InvitationList") as! InvitationListViewController
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

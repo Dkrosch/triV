@@ -41,6 +41,9 @@
                                 <state key="normal" image="bell.circle.fill" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="44"/>
                                 </state>
+                                <connections>
+                                    <action selector="buttonInvitationTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="TJJ-ZZ-Uh5"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chats" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vlc-GF-7nF">
                                 <rect key="frame" x="23" y="75" width="70" height="30"/>
@@ -123,6 +126,7 @@
                                 </cells>
                             </collectionView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="VKv-LH-76c"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="sKl-HD-Qn9" secondAttribute="trailing" constant="8" id="7jw-CH-o5s"/>
@@ -168,6 +172,7 @@
                                 </cells>
                             </collectionView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="CRC-lQ-oaa"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="mzw-g2-jZB" secondAttribute="trailing" constant="7" id="TQ6-ug-F4v"/>

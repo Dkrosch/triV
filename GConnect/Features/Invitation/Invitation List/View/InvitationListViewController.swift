@@ -22,14 +22,14 @@ class InvitationListViewController: UIViewController{
         invitationListCollectionView.delegate = self
         invitationListCollectionView.dataSource = self
         
-        invitationListCollectionView.register(InvitationListCell.nib(), forCellWithReuseIdentifier: InvitationListCell.identifier)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(alertInvited), name: Notification.Name(rawValue: "showAlert"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(refreshCV), name: Notification.Name(rawValue: "refreshCollectionView"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(gotoChat), name: Notification.Name(rawValue: "goToDetailLounge"), object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
+        self.title = "Invitation List"
         
         dataInvite.removeAll()
         dataLoungeUser.removeAll()
@@ -66,21 +66,42 @@ class InvitationListViewController: UIViewController{
     @objc func refreshCV(){
         viewWillAppear(true)
     }
+    
+    @objc func gotoChat(notification: NSNotification){
+        let idLounge = notification.object as? String
+        let showProfile = UIStoryboard(name: "DetailLounge", bundle: nil)
+        let vc = showProfile.instantiateViewController(identifier: "detailLounge") as! DetailLoungeViewController
+        vc.idLounge = idLounge ?? ""
+        vc.statusCreate = true
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 extension InvitationListViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataLoungeUser.count
+        if dataLoungeUser.count != 0 {
+            return dataLoungeUser.count
+        }else{
+            return 1
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InvitationListCell.identifier, for: indexPath) as! InvitationListCell
-        cell.labelLoungeTitle.text = dataLoungeUser[indexPath.row].titleLounge
-        cell.loungeDescLabel.text = dataLoungeUser[indexPath.row].descLounge
-        cell.userNameLabel.text = dataLoungeUser[indexPath.row].username
-        cell.userRoleLabel.text = dataLoungeUser[indexPath.row].role
-        cell.configureCell(dataLoungeUser: dataLoungeUser[indexPath.row])
-        return cell
+        
+        if dataLoungeUser.count != 0 {
+            invitationListCollectionView.register(InvitationListCell.nib(), forCellWithReuseIdentifier: InvitationListCell.identifier)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InvitationListCell.identifier, for: indexPath) as! InvitationListCell
+            cell.labelLoungeTitle.text = dataLoungeUser[indexPath.row].titleLounge
+            cell.loungeDescLabel.text = dataLoungeUser[indexPath.row].descLounge
+            cell.userNameLabel.text = dataLoungeUser[indexPath.row].username
+            cell.userRoleLabel.text = dataLoungeUser[indexPath.row].role
+            cell.configureCell(dataLoungeUser: dataLoungeUser[indexPath.row])
+            return cell
+        }else{
+            invitationListCollectionView.register(EmptyInvitationListCollectionViewCell.nib(), forCellWithReuseIdentifier: EmptyInvitationListCollectionViewCell.identifier)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EmptyInvitationListCollectionViewCell.identifier, for: indexPath)
+            return cell
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

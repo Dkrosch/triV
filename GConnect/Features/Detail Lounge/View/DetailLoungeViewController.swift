@@ -59,9 +59,6 @@ class DetailLoungeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("status create", statusCreate)
-        print("status info", statusInfo)
-        
         if statusCreate == true{
             self.navigationController?.replaceCurrentViewControllerWith(viewController: self, animated: true)
             JoinLoungeButton.isHidden = false

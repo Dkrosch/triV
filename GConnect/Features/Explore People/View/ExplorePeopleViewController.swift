@@ -31,6 +31,10 @@ class ExplorePeopleViewController: UIViewController {
         self.hideKeyboardWhenTappedAround()
     }
     
+    @IBAction func notificationButtonTapped(_ sender: Any) {
+        goToInvitation()
+    }
+    
     @IBAction func filterTapped(_ sender: Any) {
         let filterPeople = UIStoryboard(name: "FilterPeople", bundle: nil)
         let vc = filterPeople.instantiateViewController(identifier: "filterPeople") as! FilterExplorePeopleViewController
@@ -40,5 +44,11 @@ class ExplorePeopleViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
         explorePeopleUI.configureView()
+    }
+    
+    func goToInvitation(){
+        let showInvitation = UIStoryboard(name: "InvitationList", bundle: nil)
+        let vc = showInvitation.instantiateViewController(identifier: "InvitationList") as! InvitationListViewController
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -12,6 +12,7 @@ class InvitationListViewModel{
     let myGroup = DispatchGroup()
     
     func getDataInvite(completion: @escaping ([GetDataInvitePeople]) -> Void){
+        
         let currentUser = Auth.auth().currentUser?.uid
         var dataInvite = [GetDataInvitePeople]()
         
@@ -30,32 +31,32 @@ class InvitationListViewModel{
                 }
             }
             DispatchQueue.main.async {
-                for (index, _) in dataInvite.enumerated(){
-                    print(dataInvite[index].idInvitedUser, dataInvite[index].idLounge, dataInvite[index].idMaster)
-                }
                 completion(dataInvite)
             }
         }
     }
     
-    func getDataLounge(dataInvite: [GetDataInvitePeople], completion: @escaping ([DetailLounge]) -> Void){
+    func getDataLoungeUser (dataInvite: [GetDataInvitePeople], completion: @escaping ([GetDataLoungeUser]) -> Void){
         
-        var dataLounge = [DetailLounge]()
+        var dataLoungeUser = [GetDataLoungeUser]()
+        
         for (index, _) in dataInvite.enumerated(){
             myGroup.enter()
+            var username: String?
+            var role: String?
+            var fixIdMemberLounge: [String]?
+            var fixRequirements: [Bool]?
+            var descLounge: String?
+            var idLounge: String?
+            var idInvite: String?
+            var titleLounge: String?
+            var rank: String?
+            
             Firestore.firestore().collection("LoungeDetail").document(dataInvite[index].idLounge).getDocument { snapshot, error in
                 if error != nil{
                     print(error as Any)
                 }else if let snapshot = snapshot, snapshot.exists{
-                    let game = snapshot.get("Game") as? String
-                    let judul = snapshot.get("Title")as? String
-                    let desc = snapshot.get("Desc") as? String
-                    let gender = snapshot.get("Gender") as? String
-                    let rank = snapshot.get("Rank") as? String
-                    let creatAt = snapshot.get("CreateAt") as? String
                     let idMemberLounge = snapshot.get("idMemberLounge") as! [String:Any]
-                    let idRequirementsLounge = snapshot.get("idRequirementsLounge") as! [String:Any]
-                    
                     guard let member1 = idMemberLounge["Member1"] as? String else { return }
                     guard let member2 = idMemberLounge["Member2"] as? String else { return }
                     guard let member3 = idMemberLounge["Member3"] as? String else { return }
@@ -66,60 +67,44 @@ class InvitationListViewModel{
                     guard let member8 = idMemberLounge["Member8"] as? String else { return }
                     guard let member9 = idMemberLounge["Member9"] as? String else { return }
                     guard let member10 = idMemberLounge["Member10"] as? String else { return }
-
+                    fixIdMemberLounge = [member1, member2, member3, member4, member5, member6, member7, member8, member9, member10]
+                    
+                    let idRequirementsLounge = snapshot.get("idRequirementsLounge") as! [String:Any]
                     guard let role1 = idRequirementsLounge["Controller"] as? Bool else { return }
                     guard let role2 = idRequirementsLounge["Duelist"] as? Bool else { return }
                     guard let role3 = idRequirementsLounge["Initiator"] as? Bool else { return }
                     guard let role4 = idRequirementsLounge["Sentinel"] as? Bool else { return }
-
-                    let newData = DetailLounge(game: game!,title: judul!, desc: desc!, idMemberLounge: [member1, member2, member3, member4, member5, member6, member7, member8, member9, member10], idRequirementsLounge: [role1, role2, role3, role4], documentId: dataInvite[index].idLounge, creatAt: creatAt!, gender: gender!, rank: rank!)
-                    dataLounge.append(newData)
-                    self.myGroup.leave()
+                    fixRequirements = [role1, role2, role3, role4]
+                    descLounge = snapshot.get("Desc") as? String ?? ""
+                    titleLounge = snapshot.get("Title") as? String ?? ""
+                    rank = snapshot.get("Rank") as? String ?? ""
+                    idLounge = dataInvite[index].idLounge
+                    idInvite = dataInvite[index].idInvite
+                    
+                    Firestore.firestore().collection("users").document(dataInvite[index].idMaster).getDocument { snapshot, error in
+                        if error != nil{
+                            print(error as Any)
+                        }else if let document = snapshot, document.exists{
+                            username = document.get("username") as? String ?? ""
+                            role = document.get("role") as? String ?? ""
+                            self.myGroup.leave()
+                        }
+                    }
                 }
             }
-        }
-        myGroup.notify(queue: .main){
-            for (index, _) in dataLounge.enumerated(){
-                print(dataLounge[index].documentId, dataLounge[index].title)
+            myGroup.notify(queue: .main){
+                self.myGroup.enter()
+                dataLoungeUser.append(GetDataLoungeUser(username: username ?? "", role: role ?? "", idMemberLounge: fixIdMemberLounge ?? [""], idRequirementsLounge: fixRequirements ?? [false], descLounge: descLounge ?? "", idLounge: idLounge ?? "", idInvite: idInvite ?? "", titleLounge: titleLounge ?? "", rank: rank ?? ""))
+                self.myGroup.leave()
             }
-            completion(dataLounge)
         }
-    }
-    
-    func getDataUser(dataInvite: [GetDataInvitePeople], completion: @escaping ([ProfileData]) -> Void){
-        var dataUser = [ProfileData]()
         
-        for (index, _) in dataInvite.enumerated(){
-            myGroup.enter()
-            Firestore.firestore().collection("users").document(dataInvite[index].idMaster).getDocument { snapshot, error in
-                if error != nil{
-                    print(error as Any)
-                }else if let document = snapshot, document.exists{
-                    let username = document.get("username") as! String
-                    let gender = document.get("gender") as! String
-                    let about = document.get("About") as! String
-                    let imageProfile = document.get("imageProfile") as! String
-                    let role = document.get("role") as! String
-                    let rank = document.get("rank") as! String
-                    let game = document.get("game") as! String
-                    let birthday = document.get("birthday") as! String
-                    let gamerUname = document.get("gamerUname") as! String
-
-                    let newData = ProfileData(username: username, game: game, gender: gender, rank: rank, role: role, birthday: birthday, imageProfile: imageProfile, desc: about, gamerUname: gamerUname)
-                    dataUser.append(newData)
-                    self.myGroup.leave()
-                }
-            }
-        }
         myGroup.notify(queue: .main){
-            for (index, _) in dataUser.enumerated(){
-                print(dataUser[index].username)
-            }
-            completion(dataUser)
+            completion(dataLoungeUser)
         }
     }
     
-    func acceptInvitation(idLounge: String){
+    func acceptInvitation(idLounge: String, idInvitation: String){
         var arrayMember: [String]?
         var unfillMember = ""
         
@@ -151,16 +136,35 @@ class InvitationListViewModel{
                 else if arrayMember?[9] == "" {unfillMember = "Member10"}
                 
                 if unfillMember == ""{
-                    print("lounge full")
+                    self.deleteInvitation(idInvitation: idInvitation)
+                    
+                    let msg = MessageInvite(title: "Error", msg: "Lounge already full", txtButton: "OK")
+                    NotificationCenter.default.post(name: Notification.Name(rawValue: "showAlert"), object: msg)
+                }else if (arrayMember?.contains(Auth.auth().currentUser?.uid ?? "") == true){
+                    self.deleteInvitation(idInvitation: idInvitation)
+                    
+                    let msg = MessageInvite(title: "Error", msg: "You already joined this lounge before", txtButton: "OK")
+                    NotificationCenter.default.post(name: Notification.Name(rawValue: "showAlert"), object: msg)
                 }else{
+                    self.deleteInvitation(idInvitation: idInvitation)
                     self.insertMember(idMember: Auth.auth().currentUser?.uid ?? "", idLounge: idLounge, unfillMember: unfillMember)
+                    
+                    let msg = MessageInvite(title: "Success", msg: "You joined this lounge", txtButton: "OK")
+                    NotificationCenter.default.post(name: Notification.Name(rawValue: "showAlert"), object: msg)
+                    NotificationCenter.default.post(name: Notification.Name(rawValue: "refreshCollectionView"), object: nil)
                 }
             }
         }
     }
     
     func deleteInvitation(idInvitation: String){
-        print(idInvitation)
+        Firestore.firestore().collection("InvitationList").document(idInvitation).delete(){ error in
+            if error != nil{
+                print(error as Any)
+            }else{
+                NotificationCenter.default.post(name: Notification.Name(rawValue: "refreshCollectionView"), object: nil)
+            }
+        }
     }
     
     func insertMember(idMember: String, idLounge: String, unfillMember: String){

@@ -54,6 +54,18 @@ class InvitePeople{
     }
 }
 
+class MessageInvite{
+    var title: String
+    var msg: String
+    var txtButton: String
+    
+    init(title: String, msg: String, txtButton: String){
+        self.title = title
+        self.msg = msg
+        self.txtButton = txtButton
+    }
+}
+
 class GetDataInvitePeople{
     var idLounge: String
     var idInvitedUser: String
@@ -65,6 +77,30 @@ class GetDataInvitePeople{
         self.idInvitedUser = idInvitedUser
         self.idMaster = idMaster
         self.idInvite = idInvite
+    }
+}
+
+class GetDataLoungeUser{
+    var username: String
+    var role: String
+    var idMemberLounge: [String]
+    var idRequirementsLounge: [Bool]
+    var descLounge: String
+    var idLounge: String
+    var idInvite: String
+    var titleLounge: String
+    var rank: String
+    
+    init(username: String, role: String, idMemberLounge: [String], idRequirementsLounge: [Bool], descLounge: String, idLounge: String, idInvite: String, titleLounge: String, rank: String){
+        self.username = username
+        self.role = role
+        self.idMemberLounge = idMemberLounge
+        self.idRequirementsLounge = idRequirementsLounge
+        self.descLounge = descLounge
+        self.idLounge = idLounge
+        self.idInvite = idInvite
+        self.titleLounge = titleLounge
+        self.rank = rank
     }
 }
 

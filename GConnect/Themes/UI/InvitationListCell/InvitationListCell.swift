@@ -25,9 +25,8 @@ class InvitationListCell: UICollectionViewCell {
     }
     
     static let identifier = "cellInvitationList"
-    var dataLounge: DetailLounge?
+    var dataLoungeUser: GetDataLoungeUser?
     var invitationListVM = InvitationListViewModel()
-    var idInvite: String?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -40,13 +39,12 @@ class InvitationListCell: UICollectionViewCell {
         acceptBtn.layer.cornerRadius = 10
     }
     
-    func configureCell(detailLounge: DetailLounge, idInvite: String){
-        dataLounge = detailLounge
-        self.idInvite = idInvite
+    func configureCell(dataLoungeUser: GetDataLoungeUser){
+        self.dataLoungeUser = dataLoungeUser
         
         var num = 10
 
-        for member in detailLounge.idMemberLounge{
+        for member in dataLoungeUser.idMemberLounge{
             if member == ""{
                 num -= 1
             }
@@ -54,19 +52,19 @@ class InvitationListCell: UICollectionViewCell {
         loungeMemberqtyLbl.text = "\(num)/10"
         
         var req: [String] = []
-        if detailLounge.idRequirementsLounge[0] == true { req.append("Defensive") }
-        if detailLounge.idRequirementsLounge[1] == true { req.append("Recon") }
-        if detailLounge.idRequirementsLounge[2] == true { req.append("Support") }
-        if detailLounge.idRequirementsLounge[3] == true { req.append("Offensive") }
+        if dataLoungeUser.idRequirementsLounge[0] == true { req.append("Defensive") }
+        if dataLoungeUser.idRequirementsLounge[1] == true { req.append("Recon") }
+        if dataLoungeUser.idRequirementsLounge[2] == true { req.append("Support") }
+        if dataLoungeUser.idRequirementsLounge[3] == true { req.append("Offensive") }
         
-        labelListRequirements.text = "\(detailLounge.rank) | \(req.joined(separator: " | "))"
+        labelListRequirements.text = "\(dataLoungeUser.rank) | \(req.joined(separator: " | "))"
     }
     
     @IBAction func btnAcceptTapped(_ sender: Any) {
-        invitationListVM.acceptInvitation(idLounge: dataLounge?.documentId ?? "")
+        invitationListVM.acceptInvitation(idLounge: dataLoungeUser?.idLounge ?? "", idInvitation: dataLoungeUser?.idInvite ?? "")
     }
     
     @IBAction func btnRejectTapped(_ sender: Any) {
-        invitationListVM.deleteInvitation(idInvitation: idInvite ?? "")
+        invitationListVM.deleteInvitation(idInvitation: dataLoungeUser?.idInvite ?? "")
     }
 }

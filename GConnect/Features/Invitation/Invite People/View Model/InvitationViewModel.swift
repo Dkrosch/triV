@@ -16,7 +16,6 @@ class InvitationViewModel {
     
     func getDataOwnLounge(completion: @escaping ([DetailLounge]) -> Void){
         let myGroup = DispatchGroup()
-        
         Firestore.firestore().collection("LoungeDetail").whereField("idMemberLounge.Member1", isEqualTo: currentUser as Any).getDocuments { (snapshots, error) in
             if error != nil {
                 print(error as Any)

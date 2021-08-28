@@ -29,7 +29,7 @@ extension ExploreLoungeViewController{
             reference = Firestore.firestore().collection("LoungeDetail")
         }
         
-        reference!.getDocuments { snapshot, error in
+        reference?.getDocuments { snapshot, error in
             if error != nil{
                 print("error")
             } else {

@@ -20,12 +20,18 @@ class ExploreLoungeViewController: UIViewController {
     var filter: FilterLounge?
     
     var datas = [DetailLounge]()
+    let defaults = UserDefaults.standard
+    
+    var isiUD: Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         loungeCollectionView.delegate = self
         loungeCollectionView.dataSource = self
+        
+        isiUD = defaults.bool(forKey: "isUserSignedIn")
+        print("Ini UD \(isiUD)")
         
     }
     
@@ -35,6 +41,19 @@ class ExploreLoungeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
+        
+        let dataFilter = FilterLounge(statusFilter: false,game: "Apex Legends", role: [true, true, true, true], rank: "Bronze", gender: "All")
+        let encoder = JSONEncoder()
+        if let filter = try? encoder.encode(dataFilter){
+            UserDefaults.standard.set(filter, forKey: "filterLounge")
+        }
+        
+        let dataPeople = FilterPeople(statusFilter: false, game: "Apex Legends", role: [true, true, true, true], rank: "Bronze", gender: "All", recon: "Recon", support: "Support", offensive: "Offensive", defensive: "Defensive")
+        let encoder2 = JSONEncoder()
+        if let filter = try? encoder2.encode(dataPeople){
+            UserDefaults.standard.set(filter, forKey: "filterPeople")
+        }
+        
         getDatas()
     }
     
@@ -72,11 +91,21 @@ extension ExploreLoungeViewController: UICollectionViewDataSource, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if datas.count != 0{
-            let idLounge = datas[indexPath.row].documentId
-            performSegue(withIdentifier: "DetailLounge", sender: idLounge)
-        }else{
-            
+        
+        if (defaults.object(forKey: "isUserSignedIn") != nil) == false{
+            print("Ini False")
+            let alert = UIAlertController(title: "Warning", message: "U must Login First", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "Cancle", style: .destructive, handler: nil))
+            alert.addAction(UIAlertAction(title: "Login", style: .default, handler: nil))
+            self.present(alert, animated: true)
+        }else if (defaults.object(forKey: "isUserSignedIn") != nil) == true {
+            if datas.count != 0{
+                print("Ini true")
+                let idLounge = datas[indexPath.row].documentId
+                performSegue(withIdentifier: "DetailLounge", sender: idLounge)
+            }else{
+                
+            }
         }
     }
     

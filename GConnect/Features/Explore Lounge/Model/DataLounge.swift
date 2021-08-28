@@ -21,7 +21,6 @@ class DataLounge: UIViewController{
             } else {
                 for document in querySnapshot!.documents{
                     count += 1
-                    print("\(document.documentID) => \(document.data())")
                 }
                 print(count)
             }

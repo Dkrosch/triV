@@ -40,7 +40,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.hideKeyboardWhenTappedAround()
         self.navigationController?.isNavigationBarHidden = true
         
-        if defaults.bool(forKey: "isUserSignedIn"){
+        if (defaults.object(forKey: "isUserSignedIn") != nil) == true{
             self.performSegue(withIdentifier: "LoginToExploreLounge", sender: self)
         }
     }
@@ -93,11 +93,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     if let filter = try? encoder2.encode(dataPeople){
                         UserDefaults.standard.set(filter, forKey: "filterPeople")
                     }
-                    
-                    self.defaults.set(true, forKey: "isUserSignedIn")
-                    self.defaults.synchronize()
                     self.performSegue(withIdentifier: "LoginToExploreLounge", sender: self)
                     self.wrongLabel.isHidden = true
+                    self.defaults.set(true, forKey: "isUserSignedIn")
+                    //self.defaults.set(true, forKey: "first")
+                    self.defaults.synchronize()
                 }else{
                     let alert = UIAlertController(title: "Warning", message: "Incorrect email or password", preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Try Again!", style: .default, handler: nil))

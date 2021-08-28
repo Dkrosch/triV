@@ -189,9 +189,15 @@ extension ProfileUserViewController{
                 if let filter = try? encoder.encode(dataFilter){
                     UserDefaults.standard.set(filter, forKey: "filterLounge")
                 }
-                
-                self.defaults.set(false, forKey: "isUserSignedIn")
-                self.defaults.synchronize()
+                do {
+                    try Auth.auth().signOut()
+                    self.defaults.set(false, forKey: "isUserSignedIn")
+                    self.defaults.synchronize()
+                }
+                catch {
+                    print("already logged out")
+                    
+                }
                 let backLogin = UIStoryboard(name: "Login", bundle: nil)
                 let vc = backLogin.instantiateViewController(identifier: "loginView") as! UINavigationController
                 vc.modalPresentationStyle = .overFullScreen

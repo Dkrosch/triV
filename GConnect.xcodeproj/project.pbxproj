@@ -30,6 +30,9 @@
 		8405A60026B155E4009D1375 /* CheckEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8405A5FF26B155E4009D1375 /* CheckEmail.swift */; };
 		8405A60226B155FD009D1375 /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8405A60126B155FD009D1375 /* PageControl.swift */; };
 		8434498826B8400F00F66A2B /* DataUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8434498726B8400F00F66A2B /* DataUser.swift */; };
+		8445D0AB26D8D19600C56ABE /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8445D0AA26D8D19600C56ABE /* TabBarViewController.swift */; };
+		8445D0AF26D8D50A00C56ABE /* TestingSB.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8445D0AE26D8D50A00C56ABE /* TestingSB.storyboard */; };
+		8445D0B126D8E3C900C56ABE /* TestingSBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8445D0B026D8E3C900C56ABE /* TestingSBViewController.swift */; };
 		846D97A426CD15E500546A27 /* ExplorePeople.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846D97A326CD15E500546A27 /* ExplorePeople.storyboard */; };
 		846D97A626CD18B000546A27 /* ExplorePeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846D97A526CD18B000546A27 /* ExplorePeopleViewController.swift */; };
 		846D97A926CE190D00546A27 /* FilterPeopleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846D97A826CE190D00546A27 /* FilterPeopleViewController.swift */; };
@@ -170,6 +173,10 @@
 		8405A5FF26B155E4009D1375 /* CheckEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckEmail.swift; sourceTree = "<group>"; };
 		8405A60126B155FD009D1375 /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
 		8434498726B8400F00F66A2B /* DataUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUser.swift; sourceTree = "<group>"; };
+		8445D0AA26D8D19600C56ABE /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		8445D0AE26D8D50A00C56ABE /* TestingSB.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestingSB.storyboard; sourceTree = "<group>"; };
+		8445D0B026D8E3C900C56ABE /* TestingSBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingSBViewController.swift; sourceTree = "<group>"; };
+		8445D0B226DA7A1D00C56ABE /* GConnect.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GConnect.entitlements; sourceTree = "<group>"; };
 		846D97A326CD15E500546A27 /* ExplorePeople.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ExplorePeople.storyboard; sourceTree = "<group>"; };
 		846D97A526CD18B000546A27 /* ExplorePeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorePeopleViewController.swift; sourceTree = "<group>"; };
 		846D97A826CE190D00546A27 /* FilterPeopleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPeopleViewController.swift; sourceTree = "<group>"; };
@@ -443,6 +450,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		8445D0AD26D8D4E300C56ABE /* ViewTest */ = {
+			isa = PBXGroup;
+			children = (
+				8445D0AE26D8D50A00C56ABE /* TestingSB.storyboard */,
+				8445D0B026D8E3C900C56ABE /* TestingSBViewController.swift */,
+			);
+			path = ViewTest;
+			sourceTree = "<group>";
+		};
 		8447AE0926BD519B005AB338 /* LodingPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -611,6 +627,7 @@
 			children = (
 				84D9367C26B283E300E29F12 /* ExploreLounge.storyboard */,
 				84D9367E26B283EA00E29F12 /* ExploreLoungeViewController.swift */,
+				8445D0AA26D8D19600C56ABE /* TabBarViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -876,6 +893,7 @@
 		E04E0FDF26B0058200A81F92 /* GConnect */ = {
 			isa = PBXGroup;
 			children = (
+				8445D0B226DA7A1D00C56ABE /* GConnect.entitlements */,
 				84D9366D26B2836A00E29F12 /* Themes */,
 				E04E100526B0085400A81F92 /* Helper */,
 				E04E0FF426B0059800A81F92 /* Features */,
@@ -892,6 +910,7 @@
 		E04E0FF426B0059800A81F92 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				8445D0AD26D8D4E300C56ABE /* ViewTest */,
 				E0AF775B26D21BD20095DA01 /* Chat Personal */,
 				846D97A726CE18F300546A27 /* FilterPeople */,
 				E807B2F626CE5F1D00724046 /* Invitation */,
@@ -1222,6 +1241,7 @@
 				A80E61E826B421DF005FF4B6 /* Add Achievement.storyboard in Resources */,
 				84D9367D26B283E300E29F12 /* ExploreLounge.storyboard in Resources */,
 				84D9367426B2839A00E29F12 /* RequirementExploreLoungeCollectionViewCell.xib in Resources */,
+				8445D0AF26D8D50A00C56ABE /* TestingSB.storyboard in Resources */,
 				E001319726B51EDB00A315EB /* GamesCollectionViewCell.xib in Resources */,
 				E0E51A3A26CE10F40084C22E /* ExplorePeopleCollectionViewCell.xib in Resources */,
 				E0AF776B26D3C1C70095DA01 /* PersonalChatCollectionViewCell.xib in Resources */,
@@ -1318,9 +1338,11 @@
 				846D97A626CD18B000546A27 /* ExplorePeopleViewController.swift in Sources */,
 				E807B2FC26CE6FD800724046 /* CollectionViewCell.swift in Sources */,
 				84D9369826B2908F00E29F12 /* CreateLoungeVC.swift in Sources */,
+				8445D0B126D8E3C900C56ABE /* TestingSBViewController.swift in Sources */,
 				E08F235326BCFBF400D7E0BA /* ChatUser.swift in Sources */,
 				BFE80C0B26CF906200FFC9DE /* DataPeople.swift in Sources */,
 				E081880926BFC2A700A68633 /* LoadViewFromNib.swift in Sources */,
+				8445D0AB26D8D19600C56ABE /* TabBarViewController.swift in Sources */,
 				E081880526BFC1C900A68633 /* ProfilePicView.swift in Sources */,
 				E8024B2326B94D83004674F3 /* APIResponse.swift in Sources */,
 				7C9ECE4226BE64E800DBA826 /* ChatListViewController.swift in Sources */,
@@ -1541,9 +1563,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = GConnect/GConnect.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 7;
-				DEVELOPMENT_TEAM = XWQ8XX5C45;
+				DEVELOPMENT_TEAM = 99GMPVPXYW;
 				INFOPLIST_FILE = GConnect/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1563,9 +1586,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = GConnect/GConnect.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 7;
-				DEVELOPMENT_TEAM = XWQ8XX5C45;
+				DEVELOPMENT_TEAM = 99GMPVPXYW;
 				INFOPLIST_FILE = GConnect/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (

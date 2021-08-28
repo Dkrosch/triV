@@ -153,6 +153,16 @@
             </objects>
             <point key="canvasLocation" x="-1345" y="573"/>
         </scene>
+        <!--TestingSB-->
+        <scene sceneID="TGf-gf-sTd">
+            <objects>
+                <viewControllerPlaceholder storyboardName="TestingSB" id="p0l-EO-vJ4" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="vpG-bV-9dI"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="idl-5J-sCb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-556" y="573"/>
+        </scene>
         <!--ChatList-->
         <scene sceneID="aq9-bX-Vmw">
             <objects>
@@ -161,7 +171,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="seN-p4-abZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-467" y="587"/>
+            <point key="canvasLocation" x="-912" y="573"/>
         </scene>
         <!--CreateLounge-->
         <scene sceneID="AHg-8K-kA2">
@@ -193,10 +203,10 @@
             </objects>
             <point key="canvasLocation" x="872" y="259"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="p58-Z1-YoA">
             <objects>
-                <tabBarController storyboardIdentifier="exploreLounge" id="DIY-gD-SFn" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="exploreLounge" id="DIY-gD-SFn" customClass="TabBarViewController" customModule="GConnect" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kam-bP-jnl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -210,6 +220,7 @@
                         <segue destination="wvu-Qv-PZI" kind="relationship" relationship="viewControllers" id="Czw-do-lGY"/>
                         <segue destination="rMj-Q7-98t" kind="relationship" relationship="viewControllers" id="WGW-jy-VKp"/>
                         <segue destination="hoq-es-tS3" kind="relationship" relationship="viewControllers" id="nlw-FZ-syd"/>
+                        <segue destination="p0l-EO-vJ4" kind="relationship" relationship="viewControllers" id="FEj-0P-b9r"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5i5-8q-ash" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

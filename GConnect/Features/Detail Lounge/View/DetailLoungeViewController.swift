@@ -248,6 +248,7 @@ class DetailLoungeViewController: UIViewController {
             else if arrDataLoungeMemberUnfilter[9] == "" {unfillMember = "Member10"}
             detailLoungeVM.insertMember(idMember: userID, idLounge: idLounge, unfillMember: unfillMember)
             viewWillAppear(true)
+            let sender = PushNotificationSender()
             gotoChat()
         }else if sender.titleLabel?.text == "Chat"{
             gotoChat()

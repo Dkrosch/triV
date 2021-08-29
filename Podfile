@@ -13,6 +13,7 @@ pod 'MessageKit'
 pod 'GoogleSignIn'
 pod 'SDWebImage'
 pod 'Firebase/Storage'
+pod 'Firebase/Messaging'
 
   # Pods for GConnect
 end

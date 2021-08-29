@@ -68,6 +68,8 @@
 		A80E61E626B421DF005FF4B6 /* AddAchievementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80E61E226B421DF005FF4B6 /* AddAchievementViewController.swift */; };
 		A80E61E726B421DF005FF4B6 /* EditAchievementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A80E61E326B421DF005FF4B6 /* EditAchievementViewController.swift */; };
 		A80E61E826B421DF005FF4B6 /* Add Achievement.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A80E61E426B421DF005FF4B6 /* Add Achievement.storyboard */; };
+		BF50678026DA4A4600236462 /* PushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF50677F26DA4A4600236462 /* PushNotificationManager.swift */; };
+		BF50678226DA4AAF00236462 /* PushNotificationSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF50678126DA4AAF00236462 /* PushNotificationSender.swift */; };
 		BF72D14426B401AC00F8DA6D /* AchievementProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF72D14226B401AC00F8DA6D /* AchievementProfileCollectionViewCell.swift */; };
 		BF72D14526B401AC00F8DA6D /* AchievementProfileCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF72D14326B401AC00F8DA6D /* AchievementProfileCollectionViewCell.xib */; };
 		BF72D14B26B7DE6300F8DA6D /* ChangeBgStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF72D14A26B7DE6300F8DA6D /* ChangeBgStackView.swift */; };
@@ -211,6 +213,9 @@
 		A80E61E226B421DF005FF4B6 /* AddAchievementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAchievementViewController.swift; sourceTree = "<group>"; };
 		A80E61E326B421DF005FF4B6 /* EditAchievementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditAchievementViewController.swift; sourceTree = "<group>"; };
 		A80E61E426B421DF005FF4B6 /* Add Achievement.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Add Achievement.storyboard"; sourceTree = "<group>"; };
+		BF50677E26DA338800236462 /* GConnect.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GConnect.entitlements; sourceTree = "<group>"; };
+		BF50677F26DA4A4600236462 /* PushNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationManager.swift; sourceTree = "<group>"; };
+		BF50678126DA4AAF00236462 /* PushNotificationSender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationSender.swift; sourceTree = "<group>"; };
 		BF72D14226B401AC00F8DA6D /* AchievementProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementProfileCollectionViewCell.swift; sourceTree = "<group>"; };
 		BF72D14326B401AC00F8DA6D /* AchievementProfileCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AchievementProfileCollectionViewCell.xib; sourceTree = "<group>"; };
 		BF72D14A26B7DE6300F8DA6D /* ChangeBgStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeBgStackView.swift; sourceTree = "<group>"; };
@@ -437,6 +442,8 @@
 				E081880826BFC2A700A68633 /* LoadViewFromNib.swift */,
 				E0E51A2726CCE4E30084C22E /* SetRounded.swift */,
 				E0E51A3426CD87940084C22E /* SetImageTextField.swift */,
+				BF50677F26DA4A4600236462 /* PushNotificationManager.swift */,
+				BF50678126DA4AAF00236462 /* PushNotificationSender.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -884,6 +891,7 @@
 		E04E0FDF26B0058200A81F92 /* GConnect */ = {
 			isa = PBXGroup;
 			children = (
+				BF50677E26DA338800236462 /* GConnect.entitlements */,
 				84D9366D26B2836A00E29F12 /* Themes */,
 				E04E100526B0085400A81F92 /* Helper */,
 				E04E0FF426B0059800A81F92 /* Features */,
@@ -1457,6 +1465,8 @@
 				E860FB2626D4FD3D00A63CF7 /* InvitationViewModel.swift in Sources */,
 				8405A5FE26B155D8009D1375 /* BottomLineTextField.swift in Sources */,
 				E02FC20726B174FE00963710 /* DatePicker.swift in Sources */,
+				BF50678026DA4A4600236462 /* PushNotificationManager.swift in Sources */,
+				BF50678226DA4AAF00236462 /* PushNotificationSender.swift in Sources */,
 				84D9367F26B283EA00E29F12 /* ExploreLoungeViewController.swift in Sources */,
 				7CB18F6626BD93EB0065D1CC /* ApiService.swift in Sources */,
 				E081881226BFE4A600A68633 /* EmptyListLoungeCollectionViewCell.swift in Sources */,
@@ -1601,9 +1611,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = GConnect/GConnect.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 8;
-				DEVELOPMENT_TEAM = XWQ8XX5C45;
+				DEVELOPMENT_TEAM = FYAQ2W36J9;
 				INFOPLIST_FILE = GConnect/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1623,9 +1634,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = GConnect/GConnect.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 8;
-				DEVELOPMENT_TEAM = XWQ8XX5C45;
+				DEVELOPMENT_TEAM = FYAQ2W36J9;
 				INFOPLIST_FILE = GConnect/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
 				LD_RUNPATH_SEARCH_PATHS = (

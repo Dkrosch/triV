@@ -134,6 +134,66 @@ class CreateLoungeVC: UIViewController {
                 self.showErrorMessage(message: "Select min 1 role")
             }else{
                 let idLounge = valid
+                let myGroup = DispatchGroup()
+                var tokenUser: String?
+                
+                myGroup.enter()
+                Firestore.firestore().collection("users").document(Auth.auth().currentUser?.uid ?? "").getDocument { document, error in
+                    if error != nil{
+                        print("error")
+                    }else if let document = document, document.exists{
+                        tokenUser = document.get("fcmToken") as? String ?? ""
+                        //print("ini token \(tokenUser)")
+                        myGroup.leave()
+                    }
+                }
+                
+                myGroup.notify(queue: .main) {
+                    let urlString =  "https://iid.googleapis.com/iid/v1/\(tokenUser ?? "")/rel/topics/\(idLounge)"
+                    let url = NSURL(string: urlString)!
+                    let request = NSMutableURLRequest(url: url as URL)
+                    request.httpMethod = "POST"
+                    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                    request.setValue("key=AAAAq2N3lx0:APA91bHx2aF5NuZzWCQDQRLBig-p9ayg1v-WzFFfhoWqglfchIW2B04esd4cXrfCGHGvowpUOjQyLDSL4goYKkVTC5QLveFTcaP-ogLdNtrJp5pZHymg-5HyHoZAE6b10sT62yVwutLl", forHTTPHeaderField: "Authorization")
+                    
+                    let task =  URLSession.shared.dataTask(with: request as URLRequest)  { (data, response, error) in
+                        do {
+                            if let jsonData = data {
+                                if let jsonDataDict  = try JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.allowFragments) as? [String: AnyObject] {
+                                    NSLog("Received data:\n\(jsonDataDict))")
+                                }
+                            }
+                        } catch let err as NSError {
+                            print(err.debugDescription)
+                        }
+                    }
+                    task.resume()
+                }
+                
+//                DispatchQueue.main.async {
+//                    print("ini token \(tokenUser)")
+//                }
+                
+                
+                
+//                let urlString2 = "https://iid.googleapis.com/iid/info/nKctODamlM4:CKrh_PC8kIb7O...clJONHoA?details=true"
+//                let url2 = NSURL(string: urlString2)!
+//                let request2 = NSMutableURLRequest(url: url2 as URL)
+//                request2.httpMethod = "GET"
+//                request2.setValue("key=ewBBLOV68k4xtl8SisDIcv:APA91bGjgHo5L3cJ9LXsjs_PVb4y6Slml2ZNGIgPzW0Xc-QKJozyKyAtY_3zzfhhVsXbM_aaMfw9xKLpv9GebVHnPAogErCz4to-erBTuXI5YknyQFkEgUxv-FmuvrwkGspwXURttAXS", forHTTPHeaderField: "Authorization")
+//                let task2 =  URLSession.shared.dataTask(with: request2 as URLRequest)  { (data, response, error) in
+//                    do {
+//                        if let jsonData = data {
+//                            if let jsonDataDict  = try JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.allowFragments) as? [String: AnyObject] {
+//                                NSLog("Received data:\n\(jsonDataDict))")
+//                            }
+//                        }
+//                    } catch let err as NSError {
+//                        print(err.debugDescription)
+//                    }
+//                }
+                //                task2.resume()
+                
                 self.goToDetail(idLounge: idLounge)
             }
         }

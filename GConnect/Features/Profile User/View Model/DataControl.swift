@@ -192,6 +192,7 @@ extension ProfileUserViewController{
                 
                 self.defaults.set(false, forKey: "isUserSignedIn")
                 self.defaults.synchronize()
+                Firestore.firestore().collection("users").document(Auth.auth().currentUser?.uid ?? "").updateData(["fcmToken" : ""])
                 let backLogin = UIStoryboard(name: "Login", bundle: nil)
                 let vc = backLogin.instantiateViewController(identifier: "loginView") as! UINavigationController
                 vc.modalPresentationStyle = .overFullScreen

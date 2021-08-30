@@ -27,6 +27,9 @@ class ExploreLoungeViewController: UIViewController {
         loungeCollectionView.delegate = self
         loungeCollectionView.dataSource = self
         
+        let pushManager = PushNotificationManager(userID: Auth.auth().currentUser?.uid ?? "")
+        pushManager.registerForPushNotifications()
+        
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle{

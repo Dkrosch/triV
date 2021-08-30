@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import FirebaseMessaging
 
 class DetailLoungeViewController: UIViewController {
     
@@ -248,7 +249,15 @@ class DetailLoungeViewController: UIViewController {
             else if arrDataLoungeMemberUnfilter[9] == "" {unfillMember = "Member10"}
             detailLoungeVM.insertMember(idMember: userID, idLounge: idLounge, unfillMember: unfillMember)
             viewWillAppear(true)
+            Messaging.messaging().subscribe(toTopic: idLounge){ error in
+                if error == nil{ print("Subscribed to topic")
+                }else{
+                    print("Not Subscribed to topic")
+                }
+            }
+            
             let sender = PushNotificationSender()
+            sender.sendPushNotification(to: "LoungeVincent", title: "test123", body: "testest")
             gotoChat()
         }else if sender.titleLabel?.text == "Chat"{
             gotoChat()

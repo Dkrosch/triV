@@ -66,6 +66,7 @@ class ChatListViewModel{
         let myGroup = DispatchGroup()
         var dataUser: [PersonalChatRoom] = []
         guard let userID = Auth.auth().currentUser?.uid else { return }
+        var messages: [Message] = []
         
         
         Firestore.firestore().collection("ChatPersonal").whereField("users", arrayContains: userID).getDocuments { snapshot, error in
@@ -80,8 +81,33 @@ class ChatListViewModel{
                     let newData = PersonalChatRoom(idPersonalChat: idPersonalChat, idUser: users)
                     dataUser.append(newData)
                     myGroup.leave()
+                    
+//                    Firestore.firestore().collection("ChatPersonal").document(idPersonalChat).collection("chats").getDocuments { snapshot, error in
+//                        if error != nil{
+//                            print(error as Any)
+//                        }else{
+//                            for document in (snapshot?.documents)!{
+//                                myGroup.enter()
+//                                document.reference.collection("thread").order(by: "created", descending: false).addSnapshotListener(includeMetadataChanges: true, listener: { threadQuery, error in
+//
+//                                    if let error = error {
+//                                        print(error)
+//                                    }else{
+//                                        messages.removeAll()
+//                                        for message in threadQuery!.documents{
+//                                            let msg = Message(dictionary: message.data())
+//                                            messages.append(msg!)
+//                                            print(msg?.content)
+//                                        }
+//                                    }
+//                                })
+//                                myGroup.leave()
+//                            }
+//                        }
+//                    }
                 }
                 myGroup.notify(queue: .main){
+                    print(messages)
                     data(dataUser)
                 }
             }

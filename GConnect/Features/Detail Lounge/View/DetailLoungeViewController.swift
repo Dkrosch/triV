@@ -476,7 +476,9 @@ extension DetailLoungeViewController: UICollectionViewDataSource, UICollectionVi
                     cellA.layer.cornerRadius = 10
                     cellA.background.layer.backgroundColor = #colorLiteral(red: 0.1662740707, green: 0.2231230438, blue: 0.3549886644, alpha: 1)
                     cellA.role.text = arrDataLoungeMember[indexPath.row].role
-                    cellA.profilePic.profileimageURL(urlKey: arrDataLoungeMember[indexPath.row].imageProfile)
+                    DispatchQueue.main.async {
+//                        cellA.profilePic.profileimageURL(urlKey: self.arrDataLoungeMember[indexPath.row].imageProfile)
+                    }
                     cellA.profilePic.imageRank.image = UIImage(named: arrDataLoungeMember[indexPath.row].rank)
                     
                     for _ in 0..<dataMember1.count{

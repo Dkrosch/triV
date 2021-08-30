@@ -84,17 +84,17 @@ extension ProfileUserViewController{
                 self.dataUser.append(newData)
 
                 self.usernameLabelProfileUser.text = username
-                self.aboutMeTextField.text = about
+                
+                if about == ""{
+                    self.aboutMeTextField.text = "-"
+                }else{
+                    self.aboutMeTextField.text = about
+                }
                 self.roleUserLabel.text = role
                 DispatchQueue.main.async {
-                    self.profileimageURL(urlKey: imageProfile)
+                    //self.profileimageURL(urlKey: imageProfile)
                 }
-
-                if gender == "Male" {
-                    self.genderLabel.text = ("♂️\(gender)")
-                }else{
-                    self.genderLabel.text = ("♀ \(gender)")
-                }
+                self.genderLabel.text = ("  \(gender)")
                 
                 ApiService.getDatas(url: "https://api.mozambiquehe.re/bridge?version=5&platform=PC&player=\(gamerUname)&auth=i6Xau6J5JvKzMy9J3LXI") { (response, error) in
                     if response != nil {

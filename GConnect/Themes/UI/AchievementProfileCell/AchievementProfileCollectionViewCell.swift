@@ -26,7 +26,7 @@ class AchievementProfileCollectionViewCell: UICollectionViewCell {
         if let url = URL(string: achivement.image){
             do{
                 let data = try Data(contentsOf: url)
-                imageViewAchievement.image = UIImage(data: data)
+                //imageViewAchievement.image = UIImage(data: data)
             } catch{
                 print("error")
             }
